@@ -1,0 +1,203 @@
+import fs from 'fs/promises'; 
+import { expect } from '@playwright/test';
+const data = await fs.readFile('./data.json', 'utf8');
+import { updateOpJson } from '../updateOp';
+import { test } from '@playwright/test';
+
+
+
+const rawData = await fs.readFile('./data.json', 'utf8');
+const testData = JSON.parse(rawData);
+const screenshotPath=`screenshot/${testData.companyType}/priority`
+const pathName=`outputData/priority/${testData.companyType}`
+
+
+export async function priority(page){
+await deletePreviuosPriority(page);
+ await page.waitForTimeout(3000);
+await addPriorit(page);
+ await page.waitForTimeout(3000);
+ await editPriority(page);
+  await page.waitForTimeout(3000);
+  await deletePriority(page);
+}
+async function deletePreviuosPriority(page){
+
+  await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Priority' }).click();
+   await page.waitForTimeout(3000);
+
+    while( true){
+     const text = await page.textContent('text=Showing');
+  const match = text.match(/of\s+(\d+)\s+entries/);
+  const total = match ? parseInt(match[1]) : 0;
+
+  // Stop loop if total <= 0
+  if (total <= 0) {
+    break;
+  }
+ await page.locator('table tbody tr').first().getByLabel('Delete').click();
+await page.getByRole('button', { name: 'Proceed' }).click();
+    await expect(page.getByText('Priority deleted successfully').first()).toBeVisible();
+    }
+   
+await page.reload();
+  //  await page.waitForTimeout(3000);
+//  await expect(page.getByText('Showing 1 to 10 of 13 entries')).toBeVisible();
+
+ 
+
+}
+async function addPriorit(page) {
+     await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Priority' }).click();
+  await page.getByRole('button', { name: 'Add New Priority' }).click();
+  await page.getByRole('textbox', { name: 'Enter Priority Type' }).click();
+  await page.getByRole('textbox', { name: 'Enter Priority Type' }).fill('InstallationPriorityJob');
+  await page.getByLabel('', { exact: true }).click();
+  await page.getByRole('option', { name: 'Job' }).click();
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).fill('High');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).fill('High installation');
+  await page.getByRole('textbox', { name: 'Position' }).click();
+  await page.getByRole('textbox', { name: 'Position' }).fill('1');
+  await page.getByRole('checkbox', { name: 'Default' }).check();
+  await page.getByRole('button', { name: 'Create' }).click();
+  await page.waitForTimeout(3000);
+
+
+
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().fill('Low');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('Low installation');
+  await page.getByRole('textbox', { name: 'Position' }).first().click();
+  await page.getByRole('textbox', { name: 'Position' }).first().fill('2');
+  await page.getByRole('button', { name: 'Create' }).click();
+  await page.waitForTimeout(3000);
+
+
+
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('Medium');
+  await page.getByRole('textbox', { name: 'Priority *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().fill('Medium');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('Medium installation');
+  await page.getByRole('button', { name: 'Create' }).click();
+  await page.waitForTimeout(1000);
+
+   if (await page.getByText('position must be a number').isVisible())  {
+        await page.screenshot({ path: `./${screenshotPath}/priorityWitoutPosition.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"priorityWitoutPosition","true",`./${screenshotPath}/priorityWitoutPosition.png`)
+        
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/priorityWitoutPosition.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"priorityWitoutPosition","false",`./${screenshotPath}/priorityWitoutPosition.png`)
+      }
+ 
+  await page.getByRole('textbox', { name: 'Position' }).first().click();
+  await page.getByRole('textbox', { name: 'Position' }).first().fill('3');
+  await page.getByRole('button', { name: 'Create' }).click();
+      await page.waitForTimeout(3000);
+
+
+
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().fill('deleteInternalInstallation');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('DeleteInternalInstallation');
+  await page.getByRole('textbox', { name: 'Position' }).first().click();
+  await page.getByRole('textbox', { name: 'Position' }).first().fill('4');
+  await page.getByRole('button', { name: 'Create' }).click();
+  await page.waitForTimeout(3000);
+
+
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().fill('DeleteExternalPriority');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('DeleteEExternalPriority');
+  await page.getByRole('textbox', { name: 'Position' }).first().click();
+  await page.getByRole('textbox', { name: 'Position' }).first().fill('5');
+  await page.getByRole('button', { name: 'Create' }).click();
+  await page.waitForTimeout(3000);
+
+
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByText('Update PriorityPriority').click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().fill('EditDelete');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('Delete During Edit');
+  await page.getByRole('textbox', { name: 'Position' }).first().click();
+  await page.getByRole('textbox', { name: 'Position' }).first().fill('6');
+  await page.getByRole('button', { name: 'Create' }).click();
+  await page.waitForTimeout(3000);
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(3).click();
+    await page.getByRole('button', { name: 'Back to List' }).click();
+await page.waitForTimeout(3000);
+
+ if (!await page.getByText('DeleteInternalInstallation').first().isVisible() &&
+await page.getByText('InstallationPriorityJob').nth(4).isVisible()
+&&await page.getByText('EditDelete').isVisible())  {
+        await page.screenshot({ path: `./${screenshotPath}/PriorityDeleteDuringCreation.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"PriorityDeleteDuringCreation","true",`./${screenshotPath}/PriorityDeleteDuringCreation.png`)
+        
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/PriorityDeleteDuringCreation.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"PriorityDeleteDuringCreation","false",`./${screenshotPath}/PriorityDeleteDuringCreation.png`)
+      }
+}
+async function editPriority(page){
+    await page.getByText('InstallationPriorityJob').first().click();
+  await expect(page.getByRole('heading', { name: 'Edit Priority Configuration' })).toBeVisible();
+  await page.locator('button').nth(4).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).nth(2).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).nth(2).fill('LowX');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).nth(2).click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).nth(2).fill('Low installationX');
+  await page.getByRole('textbox', { name: 'Position' }).nth(2).click();
+  await page.getByRole('textbox', { name: 'Position' }).nth(2).fill('21');
+  await page.getByRole('button', { name: 'Update' }).nth(2).click();
+  await page.getByRole('button', { name: 'Back to List' }).click();
+  await page.waitForTimeout(3000);
+
+
+ if (await page.getByText('LowX').isVisible()&&
+await page.getByText('Low installationX').isVisible()&&
+await page.getByText('21').isVisible())  {
+        await page.screenshot({ path: `./${screenshotPath}/editPriority.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"editPriority","true",`./${screenshotPath}/editPriority.png`)
+        
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/editPriority.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"editPriority","false",`./${screenshotPath}/editPriority.png`)
+      }
+
+}
+
+async function deletePriority(page){
+    await page.getByRole('row', { name: 'InstallationPriorityJob DeleteExternalPriority DeleteEExternalPriority 5 Hour' }).getByLabel('Delete').click();
+  await page.getByRole('button', { name: 'Proceed' }).click();
+  await page.waitForTimeout(3000);
+
+ if (!await page.getByText('DeleteExternalPriority').isVisible()&&
+await page.getByText('Medium installation').isVisible())  {
+        await page.screenshot({ path: `./${screenshotPath}/deletePriority.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"deletePriority","true",`./${screenshotPath}/deletePriority.png`)
+        
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/deletePriority.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"deletePriority","false",`./${screenshotPath}/deletePriority.png`)
+      }
+}
