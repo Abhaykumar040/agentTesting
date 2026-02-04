@@ -28,9 +28,9 @@ async function deletePreviuosPriority(page){
    await page.waitForTimeout(3000);
 
     while( true){
-     const text = await page.textContent('text=Showing');
-  const match = text.match(/of\s+(\d+)\s+entries/);
-  const total = match ? parseInt(match[1]) : 0;
+    const text = await page.textContent('text=Showing');
+    const match = text.match(/of\s+(\d+)\s+entries/);
+    const total = match ? parseInt(match[1]) : 0;
 
   // Stop loop if total <= 0
   if (total <= 0) {
