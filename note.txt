@@ -20,3 +20,35 @@ try {
   // "companyType":"child",
     // "companyType":"agent",
     // "companyType":"uk"
+
+
+
+ await page.waitForTimeout(3000);
+await page.getByRole('button', { name: 'Sales' }).click();
+await page.getByRole('link', { name: 'Lead Management' }).click();
+
+// Excel
+const [excelDownload] = await Promise.all([
+  page.waitForEvent('download'),
+  page.getByRole('button', { name: 'Export To Excel' }).click()
+]);
+await excelDownload.saveAs('downloads/leads.xlsx');
+
+// PDF
+const [pdfDownload] = await Promise.all([
+  page.waitForEvent('download'),
+  page.getByRole('button', { name: 'Export To PDF' }).click()
+]);
+await pdfDownload.saveAs('downloads/leads.pdf');
+ await page.waitForTimeout(5000);
+const [chooser] = await Promise.all([
+  page.waitForEvent('filechooser'),
+  page.getByRole('button', { name: 'Import Lead' }).click()
+]);
+
+await chooser.setFiles('downloads/leads.xlsx');
+
+ await page.waitForTimeout(10000);
+
+
+  await globalExportDocument(page, page.getByRole('button', { name: 'Export To Excel' }),'lead2.xlsx');

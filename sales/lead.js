@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
+import { globalExportDocument } from '../globalExportDocument';
 
 
 
@@ -13,8 +14,15 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function lead(page){
-await deletePreviousLead(page);
+// await deletePreviousLead(page);
  await page.waitForTimeout(3000);
+await page.getByRole('button', { name: 'Sales' }).click();
+await page.getByRole('link', { name: 'Lead Management' }).click();
+
+// Excel
+
+
+
 // await addLead(page);
 //  await page.waitForTimeout(3000);
 //  await editForm(page);

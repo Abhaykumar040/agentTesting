@@ -143,6 +143,75 @@ async function addPriorit(page) {
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(3).click();
     await page.getByRole('button', { name: 'Back to List' }).click();
 await page.waitForTimeout(3000);
+  await page.getByRole('button', { name: 'Add New Priority' }).click();
+  await page.getByRole('textbox', { name: 'Enter Priority Type' }).click();
+  await page.getByRole('textbox', { name: 'Enter Priority Type' }).fill('PrioritySupport1');
+  await page.getByLabel('', { exact: true }).click();
+  await page.getByRole('option', { name: 'Support Case' }).click();
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).fill('createSupport1');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).fill('createSupport1d');
+  await page.getByRole('textbox', { name: 'Position' }).click();
+  await page.getByRole('textbox', { name: 'Position' }).fill('1');
+  await page.getByRole('button', { name: 'Create' }).click();
+    await page.waitForTimeout(3000);
+
+
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().fill('progressSupport1');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('progressSupport1d');
+  await page.getByRole('textbox', { name: 'Position' }).first().click();
+  await page.getByRole('textbox', { name: 'Position' }).first().fill('2');
+  await page.getByRole('button', { name: 'Create' }).click();
+    await page.waitForTimeout(3000);
+
+
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().fill('doneSupport1');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('doneSupport1d');
+  await page.getByRole('textbox', { name: 'Position' }).first().click();
+  await page.getByRole('textbox', { name: 'Position' }).first().fill('3');
+  await page.getByRole('button', { name: 'Create' }).first().click();
+    await page.waitForTimeout(3000);
+
+
+  await page.getByRole('button', { name: 'Back to List' }).click();
+  await page.getByRole('button', { name: 'Add New Priority' }).click();
+  await page.getByRole('textbox', { name: 'Enter Priority Type' }).click();
+  await page.getByRole('textbox', { name: 'Enter Priority Type' }).fill('PrioritySupport2');
+  await page.getByLabel('', { exact: true }).click();
+  await page.getByRole('option', { name: 'Support Case' }).click();
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).fill('createdSupport2');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).fill('createdSupport2d');
+  await page.getByRole('textbox', { name: 'Position' }).click();
+  await page.getByRole('textbox', { name: 'Position' }).fill('1');
+  await page.getByRole('button', { name: 'Create' }).click();
+    await page.waitForTimeout(3000);
+
+
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().fill('doneSupport2');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('DoneSupport2');
+  await page.getByRole('textbox', { name: 'Position' }).first().click();
+  await page.getByRole('textbox', { name: 'Position' }).first().fill('2');
+  await page.getByRole('button', { name: 'Create' }).click();
+    await page.waitForTimeout(3000);
+
+
+  await page.getByRole('button', { name: 'Back to List' }).click();
+    await page.waitForTimeout(3000);
 
  if (!await page.getByText('DeleteInternalInstallation').first().isVisible() &&
 await page.getByText('InstallationPriorityJob').nth(4).isVisible()
@@ -187,6 +256,8 @@ await page.getByText('21').isVisible())  {
 
 async function deletePriority(page){
     await page.getByRole('row', { name: 'InstallationPriorityJob DeleteExternalPriority DeleteEExternalPriority 5 Hour' }).getByLabel('Delete').click();
+      await page.waitForTimeout(1000);
+
   await page.getByRole('button', { name: 'Proceed' }).click();
   await page.waitForTimeout(3000);
 
