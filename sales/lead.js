@@ -14,44 +14,54 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function lead(page){
-// await deletePreviousLead(page);
+await deletePreviousLead(page);
  await page.waitForTimeout(3000);
-await page.getByRole('button', { name: 'Sales' }).click();
-await page.getByRole('link', { name: 'Lead Management' }).click();
-
-// Excel
-
-
-
 // await addLead(page);
 //  await page.waitForTimeout(3000);
+await addLead(page);
+ await page.waitForTimeout(3000);
 //  await editForm(page);
 //   await page.waitForTimeout(3000);
 //   await deleteForm(page);
 }
-async function deletePreviousLead(page){
 
+
+async function addLead(page){
   await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Lead Management' }).click();
-
-
-     await page.waitForTimeout(3000);
-
-
-    while( true){
-     const text = await page.textContent('text=Showing');
-  const match = text.match(/of\s+(\d+)\s+entries/);
-  const total = match ? parseInt(match[1]) : 0;
-
-  // Stop loop if total <= 0
-  if (total <= 0) {
-    break;
-  }
-  await page.getByRole('button').filter({ hasText: /^$/ }).nth(4).click();
+  await page.getByRole('button', { name: 'Quick Create' }).click();
+  await page.getByRole('textbox', { name: 'First Name *' }).click();
+  await page.getByRole('textbox', { name: 'First Name *' }).fill('Anjali');
+  await page.getByRole('textbox', { name: 'Last Name' }).click();
+  await page.getByRole('textbox', { name: 'Last Name' }).fill('Rathor');
+  await page.getByRole('combobox', { name: 'Search or add title' }).click();
+  await page.getByRole('textbox', { name: 'Email *' }).click();
+  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1226@gmail.com');
+  await page.getByRole('textbox', { name: 'Phone *' }).click();
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8978346542');
+  await page.getByRole('combobox', { name: 'Search or add industry' }).click();
+  await page.getByRole('textbox', { name: 'Topic' }).click();
+  await page.getByRole('textbox', { name: 'Topic' }).fill('sells');
+  await page.getByRole('button', { name: 'Lead Source' }).click();
+  await page.getByRole('option', { name: 'Email Campaign' }).click();
+  await page.getByRole('button', { name: 'Lead Rating' }).click();
+  await page.getByRole('option', { name: 'Warm' }).click();
+  await page.getByRole('button', { name: 'Sales Agent' }).click();
+  await page.getByRole('option', { name: 'Mahesh Kumar' }).click();
+  await page.getByRole('textbox', { name: 'Referral' }).click();
+  await page.getByRole('textbox', { name: 'Referral' }).fill('Mahesh');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('this is very help full');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('khamaria');
+  await page.getByText('Khamaria, Madhya Pradesh,').click();
+  await page.locator('.gm-style > div > div:nth-child(2)').first().click();
+  await page.getByRole('textbox', { name: 'Address Line 1' }).click();
+  await page.getByRole('textbox', { name: 'Address Line 1' }).fill('khamaria');
+  await page.getByRole('textbox', { name: 'Post Code' }).click();
+  await page.getByRole('textbox', { name: 'Post Code' }).fill('221307');
+  await page.getByRole('button', { name: 'Create Lead' }).click();
+  await expect(page.getByText('Lead created successfully')).toBeVisible()
   
-    await expect(page.getByText('Lead deleted successfully').first()).toBeVisible();
-    await page.waitForTimeout(1000);
-    }
-   
-await page.reload();
 }
