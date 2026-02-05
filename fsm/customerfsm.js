@@ -163,3 +163,116 @@ async function editFsmCustomer(page){
   await page.getByRole('button', { name: 'Save' }).click();
   await page.getByRole('button', { name: 'Cancel' }).click();
 }
+
+async function deleteFsmCustomer(page){
+   await page.getByRole('row', { name: 'AnjaliX abhay+4322@zynka.ai' }).getByLabel('Email not verified').click();
+  await expect(page.getByText('Onboarding email resent')).toBeVisible();
+  await page.getByRole('row', { name: 'Abhay k abhay+423@zynka.ai' }).getByLabel('Delete').click();
+  await expect(page.getByText('Customer deleted successfully')).toBeVisible();
+}
+
+async function addressCreateFsmCustomer(page){
+ await page.locator('div').filter({ hasText: /^AnjaliX$/ }).click();
+  await page.getByRole('tab', { name: 'Address' }).click();
+  await expect(page.getByText('No site addresses found')).toBeVisible();
+  await expect(page.getByText('near chauraha, near shopunder')).toBeVisible();
+  await page.getByRole('button', { name: 'Add new address' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('jaunpura');
+  await page.getByText('Jaunpur Bus Stand, Husainabad').click();
+  await page.getByRole('textbox', { name: 'Address Line 3' }).click();
+  await page.getByRole('textbox', { name: 'Address Line 3' }).fill('nearJaunpurBusStand');
+  await page.getByRole('checkbox', { name: 'Use as a billing address?' }).check();
+  await page.getByRole('checkbox', { name: 'Make this default shipping' }).check();
+  await page.getByRole('button', { name: 'Save' }).click();
+  await expect(page.getByText('Address Added successfully').first()).toBeVisible();
+  await expect(page.getByText('Site AddressDefault AddressRoadways, Husainabad,')).toBeVisible();
+  await expect(page.getByText('Billing AddressDefault AddressRoadways, Husainabad,')).toBeVisible();
+}
+async function jobCreateFsmCustomer(page){
+    await page.getByRole('tab', { name: 'Job Details' }).click();
+  await page.getByRole('link', { name: 'Add New Job' }).click();
+  await page.getByRole('button', { name: 'Address' }).click();
+  await page.getByRole('option', { name: 'Roadways Husainabad,' }).click();
+  await page.getByRole('combobox', { name: 'Asset' }).click();
+  await page.getByRole('button', { name: 'Job Type' }).click();
+  await page.getByRole('option', { name: 'Charger Maintenance' }).click();
+  await page.getByRole('textbox', { name: 'Job Description' }).click();
+  await page.getByRole('textbox', { name: 'Job Description' }).fill('jobDes1');
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('option', { name: 'P3 - Low' }).click();
+  await page.getByRole('textbox', { name: 'Comments' }).click();
+  await page.getByRole('textbox', { name: 'Comments' }).fill('JobComment1');
+  await page.getByRole('button', { name: 'Status Profile' }).click();
+  await page.getByRole('option', { name: 'Created - Created' }).click();
+  await page.getByRole('textbox', { name: 'Required Start Date & Time *' }).click();
+  await page.getByRole('option', { name: 'Choose Thursday, February 5th,' }).click();
+  await page.getByText('14:30').click();
+  await page.getByRole('textbox', { name: 'Required End Date & Time *' }).click();
+  await page.getByRole('option', { name: 'Choose Thursday, February 5th,' }).click();
+  await page.getByText('00:0000:1500:3000:4501:0001:').click();
+  await page.getByRole('radio', { name: 'Engineer' }).check();
+  await page.getByRole('button', { name: 'Engineer' }).click();
+  await page.getByRole('option', { name: 'David' }).click();
+  await page.getByRole('button', { name: 'Save', exact: true }).click();
+  await expect(page.getByText('Job created successfully')).toBeVisible();
+  await page.getByRole('tab', { name: 'Job Details' }).click();
+  await expect(page.getByText('Charger Maintenance')).toBeVisible();
+  await expect(page.getByText('AnjaliX')).toBeVisible();
+  await expect(page.getByText('21221')).toBeVisible();
+}
+
+async function cyclicJobCreateFsmCustomer(page){
+  await page.getByRole('tab', { name: 'Cyclic Jobs' }).click();
+  await page.getByRole('button', { name: 'Create Cyclic Job' }).click();
+  await page.getByRole('textbox', { name: 'Job Title' }).click();
+  await page.getByRole('textbox', { name: 'Job Title' }).fill('hardware issue');
+  await page.getByRole('button', { name: 'Select Address' }).click();
+  await page.getByRole('option', { name: 'Roadways Husainabad,' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('cyclicJobDes1');
+  await page.getByRole('button', { name: 'Job Type' }).click();
+  await page.getByRole('option', { name: 'Charger Maintenance' }).click();
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('option', { name: 'P1' }).click();
+  await page.getByRole('combobox', { name: 'Asset' }).click();
+  await page.getByRole('button', { name: 'Frequency Type Daily' }).click();
+  await page.getByRole('option', { name: 'Weekly' }).click();
+  await page.getByRole('button', { name: 'Mon' }).click();
+  await page.getByRole('button', { name: 'Create Job' }).click();
+  await expect(page.getByText('Cyclic job created')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Weekly Jobs 1 Jobs' })).toBeVisible();
+  await page.getByRole('button', { name: 'Weekly Jobs 1 Jobs' }).click();
+  await expect(page.getByText('Due')).toBeVisible();
+}
+
+async function contactDetailsFsmCustomer(page){
+   await page.getByRole('tab', { name: 'Additional Info' }).click();
+  await page.getByRole('tab', { name: 'Contact Details' }).click();
+  await expect(page.getByRole('button', { name: 'abhay Primary Contact Delete' })).toBeVisible();
+  await page.getByRole('button', { name: 'Add Contact' }).click();
+  await page.getByRole('textbox', { name: 'Full Name' }).click();
+  await page.getByRole('textbox', { name: 'Full Name' }).fill('Prabhakar');
+  await page.getByRole('textbox', { name: 'email@example.com' }).click();
+  await page.getByRole('textbox', { name: 'email@example.com' }).fill('abhay+1@zynka.ai');
+  await page.getByRole('textbox', { name: 'Phone number' }).click();
+  await page.getByRole('textbox', { name: 'Phone number' }).fill('9876543212');
+  await page.getByRole('textbox', { name: 'Additional notes about this' }).click();
+  await page.getByRole('textbox', { name: 'Additional notes about this' }).fill('notesDuringCustomerDetailsindisideTheCustomer');
+  await page.getByRole('button', { name: 'Add Contact' }).click();
+  await expect(page.getByRole('button', { name: 'Prabhakar Primary Contact New' })).toBeVisible();
+  await page.getByRole('button', { name: 'Save' }).click();
+  await expect(page.getByText('Customer updated successfully')).toBeVisible();
+  await page.getByRole('link', { name: 'Customers' }).click();
+  await page.locator('div').filter({ hasText: /^AnjaliX$/ }).click();
+  await page.getByRole('tab', { name: 'Contact Details' }).click();
+  await expect(page.getByRole('button', { name: 'Prabhakar Primary Contact' })).toBeVisible();
+}
+
+async function documentsUploadFsmCustomer(page){
+    await page.getByRole('tab', { name: 'Documents' }).click();
+  await page.getByRole('button', { name: 'Browse Files' }).click();
+  await page.getByRole('button', { name: 'Save' }).click();
+  await expect(page.getByText('Customer updated successfully')).toBeVisible();
+  await page.getByRole('button', { name: 'Cancel' }).click();
+}
