@@ -2,6 +2,7 @@ npx playwright test --ui
 npx playwright test --headed
 npx playwright test
 npx playwright codegen https://erp-company-web-uat-bpdthsanc7azabhv.z01.azurefd.net/
+npx playwright codegen https://erp-company.zynkatech.com/settings/company-setup/
 npx playwright codegen https://cms.zynkatech.com/charger
 await page.screenshot({ path: 'screenshots/page.png' });
 

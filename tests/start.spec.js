@@ -31,7 +31,9 @@ test.beforeAll(async () => {
 });
 test('basic test', async ({ page }) => {
 await loginRight(page);
-await customerInC_service(page);
+await page.waitForTimeout(30000);
+// await customerInC_service(page);
+await customerfsm(page);
 // await Tickets(page);
 // await FAQs(page);
 // await team(page);

@@ -12,16 +12,22 @@ const screenshotPath=`screenshot/${testData.companyType}/status`
 const pathName=`outputData/status/${testData.companyType}`
 
 
-export async function skill(page){
-   await deletePreviousProficiency(page);
-     await page.waitForTimeout(3000);
-await deletePreviousSkill(page);
- await page.waitForTimeout(3000);
-await addProficiency(page);
- await page.waitForTimeout(3000);
+export async function internalJob(page){
+
 
 }
-async function deletePreviousSkill(page){
+
+
+async function createInternalJob(page){
+
+}
+async function EditInternalJob(page){
+
+}
+async function deleteInternalJob(page){
+
+}
+async function exportInternalJOb(page){
 
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Skill' }).click();
@@ -47,6 +53,3 @@ async function deletePreviousSkill(page){
 await page.reload();
 }
 
-async function createCustomerFsm(page){
-
-}

@@ -12,22 +12,22 @@ const screenshotPath=`screenshot/${testData.companyType}/status`
 const pathName=`outputData/status/${testData.companyType}`
 
 
-export async function jobType(page){
+export async function cyclicJob(page){
 
 
 }
-async function createJobType(page){
-
-}
-async function editJobType(page){
-  
-}
-async function deleteJobType(page){
-  
-}
 
 
-async function deletePreviousJobType(page){
+async function createCyclicJob(page){
+
+}
+async function editCyclicJob(page){
+
+}
+async function deleteCyclicJob(page){
+
+}
+async function deleteAllCyclicJob(page){
 
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Skill' }).click();
@@ -52,3 +52,14 @@ async function deletePreviousJobType(page){
    
 await page.reload();
 }
+async function exportCyclicJob(page){
+
+}
+async function cancleWholeSessionCyclicJob(page){
+
+}
+async function cancleCurrentSessionCyclicJob(page){
+
+}
+
+
