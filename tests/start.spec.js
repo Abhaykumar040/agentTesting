@@ -2,7 +2,7 @@ import { test, expect }  from '@playwright/test';
 import fs from 'fs/promises';
 import { Tickets } from '../customerService/ticket';
 import { setting } from '../customerService/setting';
-import { FAQs } from '../customerService/fqa';
+import { FAQs } from '../customerService/faq';
 import { customerInC_service } from '../customerService/customerInC_Service';
 import { loginRight } from './login';
 import { team } from '../customerService/team';
