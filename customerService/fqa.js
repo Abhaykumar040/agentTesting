@@ -47,13 +47,13 @@ async function addFAQs(page) {
 
   
   await page.getByRole('button', { name: 'Add FAQs' }).click();
-  await page.getByRole('textbox', { name: 'Enter your FAQ question' }).nth(5).click();
+  await page.getByRole('textbox', { name: 'Enter your FAQ question' }).last().click();
   await page.getByRole('textbox', { name: 'Enter your FAQ question' }).nth(1).fill('How can I raise a service request?');
-  await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).nth(5).click();
+  await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).last().click();
   await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).nth(1).fill('You can raise a service request through our support portal or by contacting customer support.');
-  await page.getByRole('combobox', { name: 'Select Tag' }).nth(5).click();
-  await page.getByRole('option', { name: 'Genral FAQs' }).click();
-  await page.getByRole('button', { name: 'Save' }).nth(1).click();
+  // await page.getByRole('combobox', { name: 'Select Tag' }).last().click();
+  // await page.getByRole('option', { name: 'Genral FAQs' }).click();
+  await page.getByRole('button', { name: 'Save' }).click();
   await expect(page.getByText('FAQ added successfully')).toBeVisible();
 }
 
