@@ -4,6 +4,13 @@ const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
 
+
+
+const rawData = await fs.readFile('./data.json', 'utf8');
+const testData = JSON.parse(rawData);
+const screenshotPath=`screenshot/${testData.companyType}/ticket`;
+const pathName=`outputData/priority/${testData.companyType}`
+
 export async function Tickets(page){
   await addNewTickets(page);
 
