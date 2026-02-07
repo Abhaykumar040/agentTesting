@@ -13,47 +13,53 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function form(page){
-await deletePreviuosForm(page);
- await page.waitForTimeout(3000);
-await addForm(page);
- await page.waitForTimeout(3000);
-//  await editForm(page);
-//   await page.waitForTimeout(3000);
-//   await deleteForm(page);
+  await deletePreviuosForm(page);
+  await page.waitForTimeout(3000);
+  await addForm(page);
+  await page.waitForTimeout(3000);
+  await editForm(page);
+  await page.waitForTimeout(3000);
+  await deleteForm(page);
 }
 async function deletePreviuosForm(page){
 
-  await page.getByRole('button', { name: 'Settings' }).click();
+    await page.getByRole('button', { name: 'Settings' }).click();
     await page.getByRole('link', { name: 'Form', exact: true }).click();
-     await page.waitForTimeout(3000);
+    await page.waitForTimeout(3000);
 
 
     while( true){
-     const text = await page.textContent('text=Showing');
-  const match = text.match(/of\s+(\d+)\s+entries/);
-  const total = match ? parseInt(match[1]) : 0;
+      const text = await page.textContent('text=Showing');
+      const match = text.match(/of\s+(\d+)\s+entries/);
+      const total = match ? parseInt(match[1]) : 0;
 
-  // Stop loop if total <= 0
-  if (total <= 0) {
-    break;
-  }
-  await page.locator('button').nth(4).click();
-  await page.getByRole('menuitem', { name: 'Delete' }).click();
-  await page.getByRole('button', { name: 'Proceed' }).click();
-    await expect(page.getByText('Form deleted successfully').first()).toBeVisible();
-    await page.waitForTimeout(1000);
+      // Stop loop if total <= 0
+      if (total <= 0) {
+       break;
+      }
+      await page.locator('button').nth(3).click();
+      await page.getByRole('menuitem', { name: 'Delete' }).click();
+      await page.getByRole('button', { name: 'Proceed' }).click();
+      await expect(page.getByText('Form deleted successfully')).toBeVisible();
+      await page.waitForTimeout(1000);
     }
    
 await page.reload();
   //  await page.waitForTimeout(3000);
 //  await expect(page.getByText('Showing 1 to 10 of 13 entries')).toBeVisible();
 
- 
-
+}
+async function deleteForm(page) {
+  await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Form', exact: true }).click();
+  await page.locator('button').nth(3).click();
+  await page.getByRole('menuitem', { name: 'Delete' }).click();
+  await page.getByRole('button', { name: 'Proceed' }).click();
+  await expect(page.getByText('Form deleted successfully')).toBeVisible();
 }
 
 async function addForm(page){
-    await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
 
 
@@ -481,10 +487,27 @@ await page.getByRole('checkbox', { name: 'Job' }).uncheck();
   await page.locator('div').filter({ hasText: /^Text Area$/ }).click();
   await formNameChange(page,'Placeholder Label','AddressS',true);
    await page.getByRole('button', { name: 'Save' }).click();
-
+  await page.reload();
 
 
 }
+
+async function editForm(page) {
+  await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Form', exact: true }).click();
+  await page.locator('button').nth(2).click();
+  await page.getByRole('textbox', { name: 'Name *' }).click();
+  await page.getByRole('textbox', { name: 'Name *' }).fill('Delete Form');
+  await page.getByRole('textbox', { name: 'Description *' }).click();
+  await page.getByRole('textbox', { name: 'Description *' }).fill('FormDelete  create  for update');
+  await page.locator('div').filter({ hasText: /^Text Input$/ }).click();
+  await page.getByRole('button', { name: 'TEXTINPUT Placeholder Label' }).click();
+  await page.getByRole('button', { name: 'Update' }).click();
+  await page.getByRole('button', { name: 'Proceed' }).click();
+  await expect(page.getByText('Form updated successfully')).toBeVisible();
+  await page.reload();
+}
+
 async function formNameChange(page, headerLabel, newFieldLabel,updateorNot) {
   const headerCard = page.getByRole('button', {
     name: new RegExp(headerLabel)

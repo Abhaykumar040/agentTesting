@@ -16,7 +16,7 @@ export async function product(page){
 await deletePreviousProduct(page);
  await page.waitForTimeout(3000);
 await addProduct(page);
- await page.waitForTimeout(3000);
+//  await page.waitForTimeout(3000);
 //  await editForm(page);
 //   await page.waitForTimeout(3000);
 //   await deleteForm(page);

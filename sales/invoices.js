@@ -6,10 +6,10 @@ import { test } from '@playwright/test';
 
 
 export async function Invoices(page){
-  // await addInvoices(page);
-  // await page.waitForTimeout(3000);
-  // await editInvoices(page);
-  // await page.waitForTimeout(3000);
+  await addInvoices(page);
+  await page.waitForTimeout(3000);
+  await editInvoices(page);
+  await page.waitForTimeout(3000);
   await sendInvoices(page);
   await page.waitForTimeout(3000);
   await cancelInvoice(page);

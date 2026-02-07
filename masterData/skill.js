@@ -18,7 +18,7 @@ export async function skill(page){
 await deletePreviousSkill(page);
  await page.waitForTimeout(3000);
 await addProficiency(page);
- await page.waitForTimeout(3000);
+//  await page.waitForTimeout(3000);
 //  await addSkill(page);
 //  await page.waitForTimeout(3000);
 //  await editForm(page);
