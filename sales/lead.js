@@ -9,7 +9,7 @@ import { globalExportDocument } from '../globalExportDocument';
 
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
-const screenshotPath=`screenshot/${testData.companyType}/status`
+const screenshotPath=`screenshot/${testData.companyType}/lead`;
 const pathName=`outputData/status/${testData.companyType}`
 
 
