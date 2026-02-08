@@ -1,0 +1,120 @@
+{
+    "invoiceEmailSubject": "",
+    "invoiceEmailMessage": "",
+    "invoiceTaxLevel": 2,
+    "invoiceNote": "Invoice Notes ,a",
+    "invoiceTNC": "Invoice TOC and",
+    "quotationEmailSubject": "",
+    "quotationEmailMessage": "",
+    "quotationTaxLevel": 1,
+    "quotationNote": "Quotation notes",
+    "quotationTNC": "1- if remove page then we did not accept return",
+    "agentEmail": true,
+    "customerEmail": true,
+    "quotationEmail": true,
+    "engineerEmail": true,
+    "jobEmail": true,
+    "allowOwnSMTP": true,
+    "bankDetails": [
+        {
+            "countryCode": "IN",
+            "country": "India",
+            "fields": [
+                {
+                    "key": "bankName",
+                    "value": "Vi Bank",
+                    "label": "Bank Name"
+                },
+                {
+                    "key": "beneficiaryName",
+                    "value": "Manager vi",
+                    "label": "Account Holder Name"
+                },
+                {
+                    "key": "bankAccount",
+                    "value": "8989126677",
+                    "label": "Bank Account Number"
+                },
+                {
+                    "key": "ifsc",
+                    "value": "BARB0KHAMBS",
+                    "label": "IFSC Code"
+                },
+                {
+                    "key": "branchName",
+                    "value": "Mumbai",
+                    "label": "Branch Name"
+                },
+                {
+                    "key": "upiId",
+                    "value": "vi^@upi",
+                    "label": "UPI ID"
+                }
+            ],
+            "default": true,
+            "_id": "6930352e313f3f052541776a"
+        }
+    ],
+    "companyBillingAddress": {
+        "company": {},
+        "addressLine1": "Bombay House 24X",
+        "addressLine2": " Homi Mody Street, IndiaX",
+        "addressLine3": "AuraiX",
+        "city": "MumbaiX",
+        "state": "Andaman and Nicobar Islands",
+        "country": "India",
+        "pinCode": "221306",
+        "zoneId": {},
+        "default": true,
+        "busObj": "68dcfc116e4e85ccbf65b2f1",
+        "busObjId": "68dcfc116e4e85ccbf65b2f1",
+        "addressType": 2,
+        "stateCode": "31"
+    },
+    "upiId": "vi^@upi",
+    "paymentType": "razorpay",
+    "invoicePaymentLink": false,
+    "quotationPaymentLink": false,
+    "taxTypeNo": "VI",
+    "taxType": "GST",
+    "tax": 18,
+    "cin": "VI^@cin",
+    "pan": "UIIOP1234W",
+    "alternateCompanyEmails": "b^@VI.com,c^@VI.com",
+    "companyEmail": "a^@vi.com",
+    "alternateCompanyPhones": "08855221144",
+    "companyPhone": 9080908090,
+    "zone": "GMT (Greenwich Mean Time) UTC +00:00",
+    "currency": "British Pound Sterling (GBP)",
+    "city": "Lucknow",
+    "state": "England",
+    "country": "GB",
+    "regNo": "Registration",
+    "name": "VI2",
+    "id": "68dcfc116e4e85ccbf65b2f1",
+    "bannerImage": "",
+    "logo": "https://strgerpassetdev.blob.core.windows.net/zynka-erp-asset-dev/images/wfqligc6.png",
+    "tradeName": "",
+    "dealerName": "",
+    "alternatePhone": "+1234567890",
+    "timezone": "GMT (Greenwich Mean Time) UTC +00:00",
+    "pin": 10,
+    "areaManager": "",
+    "regionalManager": "",
+    "phone": "",
+    "personInCharge": "",
+    "installationProcedure": "",
+    "firstName": "",
+    "lastName": "",
+    "status": 1,
+    "contactPerson": "Abhay",
+    "primaryContactPerson": "8090809080",
+    "companyType": "Parent",
+    "designation": "Manager",
+    "subscription": [
+        "Field Service",
+        "Customer Service",
+        "Sales"
+    ],
+    "isJobAutomated": false
+}
