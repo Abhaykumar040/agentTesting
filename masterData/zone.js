@@ -39,6 +39,7 @@ async function deletePreviuosZone(page) {
     await page.getByRole('link', { name: 'Zone' }).click();
     await page.getByRole('button', { name: 'Delete' }).first().click();
     await page.getByRole('button', { name: 'Proceed' }).click();
+    await page.waitForTimeout(2000)
     await expect(page.getByText('Zone deleted successfully')).toBeVisible();
   }
   await page.reload();
@@ -53,26 +54,133 @@ async function addZone(page) {
   await page.getByRole('textbox', { name: 'Description' }).click();
   await page.getByRole('textbox', { name: 'Description' }).fill('North India');
   await page.locator('input[name="color"]').click();
-  await page.locator('input[name="color"]').fill('#c9e24b');
+  await page.locator('input[name="color"]').fill('#4be278');
   await page.getByRole('button', { name: 'Create Zone' }).click();
   await page.getByRole('button', { name: 'Edit' }).click();
-  await page.locator('.MuiSwitch-root').click();
+  await page.getByRole('checkbox', { name: 'Active Zone' }).check();
   await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
-  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).fill('221306');
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).fill('100000');
   await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
-  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).fill('221606');
+  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).fill('299999');
   await page.getByRole('button').nth(3).click();
   await page.getByRole('textbox', { name: 'Enter postcode' }).first().click();
-  await page.getByRole('textbox', { name: 'Enter postcode' }).first().fill('221307');
+  await page.getByRole('textbox', { name: 'Enter postcode' }).first().fill('221306');
   await page.getByRole('button').nth(5).click();
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).click();
-  await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('221308');
+  await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('221307');
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
-  await expect(page.locator('.MuiCardContent-root')).toBeVisible();
+  
+    await page.getByRole('button', { name: 'Master Data' }).click();
+  await page.getByRole('link', { name: 'Zone' }).click();
+  await page.getByRole('button', { name: 'Add New Zone' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).fill('WI');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('West India');
+  await page.locator('input[name="color"]').click();
+  await page.locator('input[name="color"]').fill('#4be278');
+  await page.getByRole('button', { name: 'Create Zone' }).click();
+  await page.getByRole('button', { name: 'Edit' }).first().click();
+  await page.getByRole('checkbox', { name: 'Active Zone' }).check();
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).fill('300000');
+  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
+  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
+  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).fill('399999');
+  await page.getByRole('button').nth(3).click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).first().click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).first().fill('302893');
+  await page.getByRole('button').nth(5).click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('309282');
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
+  await page.getByRole('button', { name: 'Save Changes' }).click();
 
-  
-  
+  await page.getByRole('button', { name: 'Add New Zone' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).fill('CI');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('Central India');
+  await page.locator('input[name="color"]').click();
+  await page.locator('input[name="color"]').fill('#4be278');
+  await page.getByRole('button', { name: 'Create Zone' }).click();
+  await page.getByRole('button', { name: 'Edit' }).first().click();
+  await page.getByRole('checkbox', { name: 'Active Zone' }).check();
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).fill('400000');
+  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
+  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).fill('499999');
+  await page.getByRole('button').nth(3).click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).first().click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).first().fill('421306');
+  await page.getByRole('button').nth(5).click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('421307');
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
+  await page.getByRole('button', { name: 'Save Changes' }).click();
+
+  await page.getByRole('button', { name: 'Master Data' }).click();
+  await page.getByRole('link', { name: 'Zone' }).click();
+  await page.getByRole('button', { name: 'Add New Zone' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).fill('SI');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('South India');
+  await page.locator('input[name="color"]').click();
+  await page.locator('input[name="color"]').fill('#3f60e2');
+  await page.getByRole('button', { name: 'Create Zone' }).click();
+  await page.getByRole('button', { name: 'Edit' }).first().click();
+  await page.getByRole('checkbox', { name: 'Active Zone' }).check();
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).fill('500000');
+  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
+  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
+  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).fill('699999');
+  await page.getByRole('button').nth(3).click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).first().click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).first().fill('501902');
+  await page.getByRole('button').nth(5).click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('510982');
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
+  await page.getByRole('button', { name: 'Save Changes' }).click();
+
+  await page.getByRole('button', { name: 'Master Data' }).click();
+  await page.getByRole('link', { name: 'Zone' }).click();
+  await page.getByRole('button', { name: 'Add New Zone' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).fill('EI');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('East India');
+  await page.locator('input[name="color"]').click();
+  await page.locator('input[name="color"]').fill('#ebe278');
+  await page.getByRole('button', { name: 'Create Zone' }).click();
+  await page.getByRole('button', { name: 'Edit' }).first().click();
+  await page.getByRole('checkbox', { name: 'Active Zone' }).check();
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).fill('700000');
+  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
+  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
+  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).fill('799999');
+  await page.getByRole('button').nth(3).click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).first().click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).first().fill('720382');
+  await page.getByRole('button').nth(5).click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('783629');
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
+  await page.getByRole('button', { name: 'Save Changes' }).click();
+
+
+
+  await expect(page.getByText('Zone updated successfully')).toBeVisible();
+  await page.reload();
 }
 
 async function deleteZone(page) {

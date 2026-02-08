@@ -12,7 +12,7 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 export async function setting(page) {
   await slaSetting(page);
-  await page.waitTimeout(3000);
+  // await page.waitTimeout(3000);
   await caseCategoriesSetting(page);
   await page.waitTimeout(3000);
   await editcaseCategoriesSetting(page);

@@ -54,9 +54,9 @@ async function addFAQs(page) {
   
   await page.getByRole('button', { name: 'Add FAQs' }).click();
   await page.getByRole('textbox', { name: 'Enter your FAQ question' }).last().click();
-  await page.getByRole('textbox', { name: 'Enter your FAQ question' }).nth(1).fill('How can I raise a service request?');
+  await page.getByRole('textbox', { name: 'Enter your FAQ question' }).last().fill('How can I raise a service request?');
   await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).last().click();
-  await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).nth(1).fill('You can raise a service request through our support portal or by contacting customer support.');
+  await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).last().fill('You can raise a service request through our support portal or by contacting customer support.');
   // await page.getByRole('combobox', { name: 'Select Tag' }).last().click();
   // await page.getByRole('option', { name: 'Genral FAQs' }).click();
   await page.getByRole('button', { name: 'Save' }).click();

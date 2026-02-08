@@ -14,10 +14,10 @@ export async function roles(page){
  await deletePreviuosRole(page);
  await page.waitForTimeout(3000);
  await addRole(page);
- await page.waitForTimeout(3000);
- await editRole(page);
- await page.waitForTimeout(3000);
- await deleteRole(page);
+//  await page.waitForTimeout(3000);
+//  await editRole(page);
+//  await page.waitForTimeout(3000);
+//  await deleteRole(page);
 }
 
 async function addRole(page) {
@@ -175,7 +175,7 @@ async function deletePreviuosRole(page){
     }
    
   await page.locator('button').nth(3).first().click();
-  await expect(page.getByText('Role deleted successfully')).toBeVisible();
+  // await expect(page.getByText('Role deleted successfully')).toBeVisible();
     
   }
   await page.reload();

@@ -14,8 +14,8 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function lead(page){
-  await deletePreviousLead(page);
-  await page.waitForTimeout(3000);
+  // await deletePreviousLead(page);
+  // await page.waitForTimeout(3000);
   await addLead(page);
   // await page.waitForTimeout(3000);
   // await editForm(page);

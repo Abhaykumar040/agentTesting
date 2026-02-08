@@ -10,7 +10,7 @@
     },
     "editPriority": {
       "path": "./screenshot/parent/priority/editPriority.png",
-      "note": "false"
+      "note": "true"
     },
     "deletePriority": {
       "path": "./screenshot/parent/priority/deletePriority.png",
