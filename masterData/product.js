@@ -8,7 +8,7 @@ import { test } from '@playwright/test';
 
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
-const screenshotPath=`screenshot/${testData.companyType}/status`
+const screenshotPath=`screenshot/${testData.companyType}/product`;
 const pathName=`outputData/status/${testData.companyType}`
 
 
@@ -16,7 +16,7 @@ export async function product(page){
 await deletePreviousProduct(page);
  await page.waitForTimeout(3000);
 await addProduct(page);
- await page.waitForTimeout(3000);
+//  await page.waitForTimeout(3000);
 //  await editForm(page);
 //   await page.waitForTimeout(3000);
 //   await deleteForm(page);

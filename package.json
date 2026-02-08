@@ -12,11 +12,5 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.56.1"
-  },
-  "dependencies": {
-    "dotenv": "^17.2.4",
-    "express": "^5.2.1",
-    "mongodb": "^7.1.0",
-    "node-cron": "^4.2.1"
   }
 }

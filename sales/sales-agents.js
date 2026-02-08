@@ -2,13 +2,10 @@ import fs from 'fs/promises';
 import { test, expect } from '@playwright/test';
 import { updateOpJson } from '../updateOp';
 
-// Read test data
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
-
-// Paths
-const screenshotPath = `screenshot/${testData.companyType}/sales-agents`;
-const pathName = `outputData/sales-agents/${testData.companyType}`;
+const screenshotPath=`screenshot/${testData.companyType}/sales-agents`;
+const pathName=`outputData/priority/${testData.companyType}`
 
 export async function salesAgents(page) {
   // await deletePreviousSalesAgents(page);

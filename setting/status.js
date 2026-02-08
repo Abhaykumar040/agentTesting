@@ -19,7 +19,7 @@ await addStatus(page);
  await page.waitForTimeout(3000);
  await editStatus(page);
   await page.waitForTimeout(3000);
-//   await deletePriority(page);
+  // await deletePriority(page);
 }
 async function deletePreviuosStatus(page){
 

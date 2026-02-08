@@ -1,5 +1,8 @@
 import { test, expect }  from '@playwright/test';
 import fs from 'fs/promises';
+import { internalJob } from '../fsm/internalJob';
+import { cyclicJob } from '../fsm/cyclicJob';
+import { jobType } from '../fsm/jobType';
 import { Tickets } from '../customerService/ticket';
 import { setting } from '../customerService/setting';
 import { FAQs } from '../customerService/faq';
@@ -31,29 +34,55 @@ test.beforeAll(async () => {
 });
 test('basic test', async ({ page }) => {
 await loginRight(page);
-// await page.waitForTimeout(30000);
-// await customerInC_service(page);
-// await customerfsm(page);
-// await Tickets(page);
-await FAQs(page);
-// await team(page);
-// await cs_agent(page);
-// await setting(page);
-// await Invoices(page);
-// await Quotation(page);
-// await customer(page);
-// await assetsCategory(page);
-// await zone(page);
-// await roles(page);
-// await salesAgents(page);
 // await priority(page);
+// await roles(page);
 // await status(page);
+// await productCategory(page);
+await form(page);
+// await skill(page);
+// await zone(page);
+// await assetsCategory(page);
+// await product(page);
+// await salesAgents(page);
+// await lead(page);
+// await customer(page);
+// await Quotation(page);
+// await Invoices(page);
+// await team(page);
+// await setting(page);
+// await cs_agent(page);
+// await customerInC_service(page);
+// await Tickets(page);
+// await FAQs(page);
+// await customerfsm(page);
+// await jobType(page);
+// await internalJob(page);
+// await cyclicJob(page);
+
+
+// await page.waitForTimeout(30000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //form creation is done ,other are pending
-// await form(page);
-// await productCategory(page);
-// await product(page);
-// await skill(page);
+
+
+
+
 // await customerfsm(page);
-// await lead(page);
+
 });
