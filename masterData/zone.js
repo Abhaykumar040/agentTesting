@@ -19,6 +19,7 @@ export async function zone(page){
 }
 
 async function deletePreviuosZone(page) {
+  console.log("Enter in delete previous zone");
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Zone' }).click();
   await page.waitForTimeout(3000);
@@ -43,9 +44,10 @@ async function deletePreviuosZone(page) {
     await expect(page.getByText('Zone deleted successfully')).toBeVisible();
   }
   await page.reload();
-  
+  console.log("delete previous zone completed");
 }
 async function addZone(page) {
+  console.log("Enter in add zone");
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Zone' }).click();
   await page.getByRole('button', { name: 'Add New Zone' }).click();
@@ -181,12 +183,42 @@ async function addZone(page) {
 
   await expect(page.getByText('Zone updated successfully')).toBeVisible();
   await page.reload();
+  await page.waitForTimeout(3000);
+  
+   if (!await page.getByText('DeleteExternalPriority').isVisible()) 
+     {
+          await page.screenshot({ path: `./${screenshotPath}/addZone.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"addZone","true",`./${screenshotPath}/addZone.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/addZone.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"addZone","false",`./${screenshotPath}/addZone.png`)
+        }
+  await page.reload();
+  console.log("Add zone completed");
 }
 
 async function deleteZone(page) {
+  console.log("Enter in delete zone");
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Zone' }).click();
   await page.getByRole('button', { name: 'Delete' }).first().click();
   await page.getByRole('button', { name: 'Proceed' }).click();
   await expect(page.getByText('Zone deleted successfully')).toBeVisible();
+   await page.reload();
+  await page.waitForTimeout(3000);
+  
+   if (!await page.getByText('DeleteExternalPriority').isVisible()) 
+     {
+          await page.screenshot({ path: `./${screenshotPath}/deleteZone.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"deleteZone","true",`./${screenshotPath}/deleteZone.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/deleteZone.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"deleteZone","false",`./${screenshotPath}/deleteZone.png`)
+        }
+  await page.reload();
+  console.log("delete zone completed");
 }

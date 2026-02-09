@@ -10,12 +10,12 @@ const screenshotPath=`screenshot/${testData.companyType}/customerinC_Service`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function customerInC_service(page) {
-  await addCustomerInC_Service(page);
+  // await addCustomerInC_Service(page);
+  // // await page.waitTimeout(3000);
+  // await emailCustomerInC_Service(page)
   // await page.waitTimeout(3000);
-  await emailCustomerInC_Service(page)
-  await page.waitTimeout(3000);
-  await editCustomerInC_Service(page);
-  await page.waitTimeout(2000);
+  // await editCustomerInC_Service(page);
+  // await page.waitTimeout(2000);
   await deleteCustomerInC_Service(page);
 
 }
@@ -110,6 +110,33 @@ async function editCustomerInC_Service(page){
 async function deleteCustomerInC_Service(page) {
   await page.getByRole('button', { name: 'Customer Service' }).click();
   await page.getByRole('link', { name: 'Customers' }).click()
-  await page.getByRole('row', { name: 'Anil Dubey akbk6551+1167@' }).getByLabel('Delete').click();
+  await page
+  .locator('tbody tr')
+  .first()
+  .getByRole('button', { name: 'Delete' })
+  .click();
   await page.getByText('Customer deleted successfully').click();
+}
+
+async function deletePreviousCustomerC_Service(page){
+    console.log("Enter In delete Previous proficiency ")
+      await page.getByRole('button', { name: 'Master Data' }).click();
+  await page.getByRole('link', { name: 'Skill' }).click();
+      await page.getByRole('tab', { name: 'Proficiency Level' }).click();
+  
+     await page.waitForTimeout(3000);
+
+
+    while( true){
+    await page.waitForTimeout(1000);
+  if ( await page
+  .getByRole('heading', { name: 'No Proficiency Levels' })
+  .isVisible()) {
+    break;
+  }
+await page.getByRole('button').filter({ hasText: /^$/ }).nth(2).click();
+    
+    }
+   
+await page.reload();
 }

@@ -21,6 +21,82 @@
     "createStatus": {
       "path": "./screenshot/parent/status/createStatus.png",
       "note": "true"
+    },
+    "addStatus": {
+      "path": "./screenshot/parent/status/addStatus.png",
+      "note": "true"
+    },
+    "editStatus": {
+      "path": "./screenshot/parent/status/editStatus.png",
+      "note": "true"
+    },
+    "deleteStatus": {
+      "path": "./screenshot/parent/status/deleteStatus.png",
+      "note": "false"
+    }
+  },
+  "./screenshot/parent/skill/": {
+    "addskill": {
+      "path": "./screenshot/parent/skill/addskill.png",
+      "note": "true"
+    },
+    "editSkill": {
+      "path": "./screenshot/parent/skill/editSkill.png",
+      "note": "true"
+    },
+    "addProficiency": {
+      "path": "./screenshot/parent/skill/addProficiency.png",
+      "note": "true"
+    },
+    "deleteSkill": {
+      "path": "./screenshot/parent/skill/deleteSkill.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/roles/": {
+    "addRole": {
+      "path": "./screenshot/parent/roles/addRole.png",
+      "note": "true"
+    },
+    "editRole": {
+      "path": "./screenshot/parent/roles/editRole.png",
+      "note": "false"
+    },
+    "deleteRole": {
+      "path": "./screenshot/parent/roles/deleteRole.png",
+      "note": "true"
+    },
+    "deletePreviuosRole": {
+      "path": "./screenshot/parent/roles/deletePreviuosRole.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/productCategory/": {
+    "addProductCategory": {
+      "path": "./screenshot/parent/productCategory/addProductCategory.png",
+      "note": "true"
+    },
+    "editProductCategry": {
+      "path": "./screenshot/parent/productCategory/editProductCategry.png",
+      "note": "true"
+    },
+    "deleteProductCategory": {
+      "path": "./screenshot/parent/productCategory/deleteProductCategory.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/form/": {
+    "addForm": {
+      "path": "./screenshot/parent/form/addForm.png",
+      "note": "true"
+    },
+    "editForm": {
+      "path": "./screenshot/parent/form/editForm.png",
+      "note": "false"
+    },
+    "deleteForm": {
+      "path": "./screenshot/parent/form/deleteForm.png",
+      "note": "false"
     }
   }
 }

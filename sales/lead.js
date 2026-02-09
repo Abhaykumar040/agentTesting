@@ -21,6 +21,7 @@ export async function lead(page){
   // await editForm(page);
   // await page.waitForTimeout(3000);
   // await deleteForm(page);
+  await exportLeadFileNormal(page);
 }
 
 
@@ -62,4 +63,26 @@ async function addLead(page){
   await page.getByRole('button', { name: 'Create Lead' }).click();
   await expect(page.getByText('Lead created successfully')).toBeVisible()
   
+}
+
+async function exportLeadFileNormal(page) {
+
+
+  const [excelDownload] = await Promise.all([
+
+  page.waitForEvent('download'),
+
+ page.getByRole('button', { name: 'Export To Excel' }).click()
+
+]);
+
+await excelDownload.saveAs('downloads/leadNormal.xlsx');
+const [pdfDownload] = await Promise.all([
+
+  page.waitForEvent('download'),
+
+  page.getByRole('button', { name: 'Export To PDF' }).click()
+
+]);
+await pdfDownload.saveAs('downloads/leadPdfNormal.pdf');
 }

@@ -22,7 +22,7 @@ export async function form(page){
   await deleteForm(page);
 }
 async function deletePreviuosForm(page){
-
+    console.log("Enter in delete previous form ");
     await page.getByRole('button', { name: 'Settings' }).click();
     await page.getByRole('link', { name: 'Form', exact: true }).click();
     await page.waitForTimeout(3000);
@@ -40,6 +40,7 @@ async function deletePreviuosForm(page){
       await page.locator('button').nth(3).click();
       await page.getByRole('menuitem', { name: 'Delete' }).click();
       await page.getByRole('button', { name: 'Proceed' }).click();
+      await page.waitForTimeout(3000);
       await expect(page.getByText('Form deleted successfully')).toBeVisible();
       await page.waitForTimeout(1000);
     }
@@ -47,19 +48,37 @@ async function deletePreviuosForm(page){
 await page.reload();
   //  await page.waitForTimeout(3000);
 //  await expect(page.getByText('Showing 1 to 10 of 13 entries')).toBeVisible();
+console.log("Delete previous form completed");
 
 }
 async function deleteForm(page) {
+  console.log("Enter in delete form");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
-  await page.locator('button').nth(3).click();
+  await page.locator('button').nth(5).click();
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.getByRole('button', { name: 'Proceed' }).click();
-  // await expect(page.getByText('Form deleted successfully')).toBeVisible();
+  await expect(page.getByText('Form deleted successfully')).toBeVisible();
   await page.reload();
+  await page.waitForTimeout(3000);
+  
+  if (!await page.getByText('FormS1InstallationD', {exact:true}).isVisible())  
+  {
+    await page.screenshot({ path: `./${screenshotPath}/deleteForm.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"deleteForm","true",`./${screenshotPath}/deleteForm.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/deleteForm.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"deleteForm","false",`./${screenshotPath}/deleteForm.png`)
+  } 
+  await page.reload();
+  
+  console.log("Delete form completed");
 }
 
 async function addForm(page){
+  console.log("Enter in add form ");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
 
@@ -489,27 +508,59 @@ await page.getByRole('checkbox', { name: 'Job' }).uncheck();
   await formNameChange(page,'Placeholder Label','AddressS',true);
    await page.getByRole('button', { name: 'Save' }).click();
   await page.reload();
+   await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Form', exact: true }).click();
 
+  await page.waitForTimeout(3000);
+  
+  if (await page.getByText('FormDeleteD').isVisible())  
+  {
+    await page.screenshot({ path: `./${screenshotPath}/addForm.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"addForm","true",`./${screenshotPath}/addForm.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/addForm.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"addForm","false",`./${screenshotPath}/addForm.png`)
+  } 
+  await page.reload();
+  console.log("Add form completed");
 
 }
 
 async function editForm(page) {
+  console.log("Enter in edit form");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
   await page.locator('button').nth(2).click();
   await page.getByRole('textbox', { name: 'Name *' }).click();
-  await page.getByRole('textbox', { name: 'Name *' }).fill('Delete Form');
+  await page.getByRole('textbox', { name: 'Name *' }).fill('FormDelete Edited Form');
   await page.getByRole('textbox', { name: 'Description *' }).click();
-  await page.getByRole('textbox', { name: 'Description *' }).fill('FormDelete  create  for update');
-  await page.locator('div').filter({ hasText: /^Text Input$/ }).click();
-  await page.getByRole('button', { name: 'TEXTINPUT Placeholder Label' }).click();
+  await page.getByRole('textbox', { name: 'Description *' }).fill('FormDeleteD Edited');
   await page.getByRole('button', { name: 'Update' }).click();
   await page.getByRole('button', { name: 'Proceed' }).click();
-  await expect(page.getByText('Form updated successfully')).toBeVisible();
+   await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Form', exact: true }).click();
   await page.reload();
+   await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Form', exact: true }).click();
+  await page.waitForTimeout(3000);
+  if (await page.getByText('FormDeleteD Edited', {exact:true}).isVisible())  
+  {
+    await page.screenshot({ path: `./${screenshotPath}/editForm.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"editForm","true",`./${screenshotPath}/editForm.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/editForm.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"editForm","false",`./${screenshotPath}/editForm.png`)
+  } 
+  await page.reload();
+  console.log("Edit form completed");
 }
 
 async function formNameChange(page, headerLabel, newFieldLabel,updateorNot) {
+  console.log("Enter in form Name change.");
   const headerCard = page.getByRole('button', {
     name: new RegExp(headerLabel)
   });
@@ -522,4 +573,5 @@ async function formNameChange(page, headerLabel, newFieldLabel,updateorNot) {
     .fill(newFieldLabel);
   if(updateorNot)
   await page.getByRole('button', { name: 'Update' }).click();
+ console.log("form name change completed");
 }

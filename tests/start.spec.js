@@ -40,7 +40,7 @@ await loginRight(page);
 // await productCategory(page);
 // await form(page);
 // await skill(page);
-//  await zone(page);
+ await zone(page);
 // await assetsCategory(page);
 // await product(page);
 // await salesAgents(page);
