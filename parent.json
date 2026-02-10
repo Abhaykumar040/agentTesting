@@ -98,5 +98,25 @@
       "path": "./screenshot/parent/form/deleteForm.png",
       "note": "false"
     }
+  },
+  "./screenshot/parent/zone/": {
+    "addZone": {
+      "path": "./screenshot/parent/zone/addZone.png",
+      "note": "true"
+    },
+    "deleteZone": {
+      "path": "./screenshot/parent/zone/deleteZone.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/assets-category/": {
+    "addAssets": {
+      "path": "./screenshot/parent/assets-category/addAssets.png",
+      "note": "true"
+    },
+    "editAssets": {
+      "path": "./screenshot/parent/assets-category/editAssets.png",
+      "note": "true"
+    }
   }
 }

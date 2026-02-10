@@ -59,17 +59,21 @@ async function addZone(page) {
   await page.locator('input[name="color"]').fill('#4be278');
   await page.getByRole('button', { name: 'Create Zone' }).click();
   await page.getByRole('button', { name: 'Edit' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('checkbox', { name: 'Active Zone' }).check();
   await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
-  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).fill('100000');
   await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).fill('299999');
   await page.getByRole('button').nth(3).click();
   await page.getByRole('textbox', { name: 'Enter postcode' }).first().click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Enter postcode' }).first().fill('221306');
   await page.getByRole('button').nth(5).click();
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('221307');
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
@@ -86,17 +90,20 @@ async function addZone(page) {
   await page.getByRole('button', { name: 'Create Zone' }).click();
   await page.getByRole('button', { name: 'Edit' }).first().click();
   await page.getByRole('checkbox', { name: 'Active Zone' }).check();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
-  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).fill('300000');
   await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
-  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).fill('399999');
   await page.getByRole('button').nth(3).click();
   await page.getByRole('textbox', { name: 'Enter postcode' }).first().click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Enter postcode' }).first().fill('302893');
   await page.getByRole('button').nth(5).click();
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('309282');
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
@@ -105,6 +112,7 @@ async function addZone(page) {
   await page.getByRole('textbox', { name: 'Zone Name' }).click();
   await page.getByRole('textbox', { name: 'Zone Name' }).fill('CI');
   await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Description' }).fill('Central India');
   await page.locator('input[name="color"]').click();
   await page.locator('input[name="color"]').fill('#4be278');
@@ -112,15 +120,18 @@ async function addZone(page) {
   await page.getByRole('button', { name: 'Edit' }).first().click();
   await page.getByRole('checkbox', { name: 'Active Zone' }).check();
   await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
-  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).fill('400000');
   await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).fill('499999');
   await page.getByRole('button').nth(3).click();
   await page.getByRole('textbox', { name: 'Enter postcode' }).first().click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Enter postcode' }).first().fill('421306');
   await page.getByRole('button').nth(5).click();
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('421307');
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
@@ -136,18 +147,20 @@ async function addZone(page) {
   await page.locator('input[name="color"]').fill('#3f60e2');
   await page.getByRole('button', { name: 'Create Zone' }).click();
   await page.getByRole('button', { name: 'Edit' }).first().click();
-  await page.getByRole('checkbox', { name: 'Active Zone' }).check();
+  // await page.getByRole('checkbox', { name: 'Active Zone' }).check();
   await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
-  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).fill('500000');
   await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
-  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).fill('699999');
   await page.getByRole('button').nth(3).click();
   await page.getByRole('textbox', { name: 'Enter postcode' }).first().click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Enter postcode' }).first().fill('501902');
   await page.getByRole('button').nth(5).click();
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('510982');
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
@@ -164,17 +177,20 @@ async function addZone(page) {
   await page.getByRole('button', { name: 'Create Zone' }).click();
   await page.getByRole('button', { name: 'Edit' }).first().click();
   await page.getByRole('checkbox', { name: 'Active Zone' }).check();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
-  await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).fill('700000');
   await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
-  await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'To (e.g. N22 9ZZ)' }).fill('799999');
   await page.getByRole('button').nth(3).click();
   await page.getByRole('textbox', { name: 'Enter postcode' }).first().click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Enter postcode' }).first().fill('720382');
   await page.getByRole('button').nth(5).click();
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('783629');
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
@@ -185,7 +201,7 @@ async function addZone(page) {
   await page.reload();
   await page.waitForTimeout(3000);
   
-   if (!await page.getByText('DeleteExternalPriority').isVisible()) 
+   if (await page.getByText('East India').isVisible()) 
      {
           await page.screenshot({ path: `./${screenshotPath}/addZone.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"addZone","true",`./${screenshotPath}/addZone.png`)
@@ -203,13 +219,13 @@ async function deleteZone(page) {
   console.log("Enter in delete zone");
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Zone' }).click();
-  await page.getByRole('button', { name: 'Delete' }).first().click();
+  await page.getByRole('button', { name: 'Delete' }).nth(2).click();
   await page.getByRole('button', { name: 'Proceed' }).click();
   await expect(page.getByText('Zone deleted successfully')).toBeVisible();
    await page.reload();
   await page.waitForTimeout(3000);
   
-   if (!await page.getByText('DeleteExternalPriority').isVisible()) 
+   if (!await page.getByText('Central India').isVisible()) 
      {
           await page.screenshot({ path: `./${screenshotPath}/deleteZone.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"deleteZone","true",`./${screenshotPath}/deleteZone.png`)
