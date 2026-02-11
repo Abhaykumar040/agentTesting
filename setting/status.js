@@ -172,7 +172,7 @@ async function editStatus(page){
 
 async function deleteStatus(page) {
   console.log("Enter in delete status");
-  await page.getByRole('row', { name: 'InstallationStatusJob DoneJob' }).getByLabel('Delete').click();
+  await page.getByRole('row', { name: 'InstallationStatusJob DoneJob' }).getByLabel('Delete').first().click();
   await page.getByRole('button', { name: 'Proceed' }).click();
   await page.reload();
    await page.waitForTimeout(3000);

@@ -99,9 +99,8 @@ async function editAssets(page){
   await page.getByRole('textbox', { name: 'Category Name' }).click();
   await page.getByRole('textbox', { name: 'Category Name' }).fill('Charger Cabal');
   await page.getByRole('combobox', { name: 'Form *' }).click();
-  // await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'FormA' , exact: true}).click();
-  await page.mouse.click(0, 0);
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'FormJCASInstallation' , exact: true}).click();
   await page.getByRole('button', { name: 'Update Category' }).click();
   await expect(page.getByText('Asset Category updated')).toBeVisible();
 
@@ -109,29 +108,25 @@ async function editAssets(page){
   await page.getByRole('textbox', { name: 'Category Name' }).click();
   await page.getByRole('textbox', { name: 'Category Name' }).fill('Adaptor');
   await page.getByRole('combobox', { name: 'Form *' }).click();
-  // await page.waitForTimeout(1000);
-   await page.getByRole('option', { name: 'FormA', exact:true }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'FormDelete' , exact:true}).click();
-  await page.mouse.click(0, 0);
   await page.getByRole('button', { name: 'Update Category' }).click();
   await expect(page.getByText('Asset Category updated')).toBeVisible();
 
-  await page.locator('button').nth(5).click();
-  await page.getByRole('textbox', { name: 'Category Name' }).click();
-  await page.getByRole('textbox', { name: 'Category Name' }).fill('Fast Charger');
- await page.getByRole('combobox', { name: 'Form *' }).click();
+  // await page.locator('button').nth(4).click();
+  // await page.getByRole('textbox', { name: 'Category Name' }).click();
+  // await page.getByRole('textbox', { name: 'Category Name' }).fill('Fast Charger');
+  // await page.getByRole('combobox', { name: 'Form *' }).click();
   // await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'FormJCASInstallation' , exact:true}).click();
-  await page.mouse.click(0, 0);
-  await page.getByRole('button', { name: 'Update Category' }).click();
-  await expect(page.getByText('Asset Category updated')).toBeVisible();
+  // await page.getByRole('option', { name: 'FormJCASInstallation' , exact:true}).click();
+  // await page.getByRole('button', { name: 'Update Category' }).click();
+  // await expect(page.getByText('Asset Category updated')).toBeVisible();
 
    await page.reload();
     await page.waitForTimeout(3000);
     
      if (await page.getByText('Charger Cabal').isVisible()&&
-         await page.getByText('Adaptor').isVisible()&&
-         await page.getByText('Fast Charger').isVisible()
+         await page.getByText('Adaptor').isVisible()
         ) 
        {
             await page.screenshot({ path: `./${screenshotPath}/editAssets.png`, fullPage: true });

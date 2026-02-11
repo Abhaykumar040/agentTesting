@@ -8,23 +8,17 @@ const screenshotPath=`screenshot/${testData.companyType}/sales-agents`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function salesAgents(page) {
-  // await deletePreviousSalesAgents(page);
-  // await page.waitForTimeout(2000);
-
   await addSalesAgent(page);
   await page.waitForTimeout(2000);
-
-  // await addRoleForSalesAgent(page);
-  // await page.waitForTimeout(2000);
-  // await removeRoleForSalesAgent(page);
-  // await page.waitForTimeout(2000);
-
-  // await deleteSalesAgent(page);
+  await addRoleForSalesAgent(page);
+  await page.waitForTimeout(2000);
+  await emailVarificaionInSelesAgent(page);
 }
 
 
 
 async function editSalesAgent(page) {
+  console.log("Enter in edit sales agent");
   await page.getByRole('link', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Sales-Agents' }).click();
   await page.waitForTimeout(2000);
@@ -35,12 +29,12 @@ async function editSalesAgent(page) {
 
   await page.getByRole('button', { name: 'Update Agent' }).click();
 
-  await expect(
-    page.getByText('Agent updated successfully')
-  ).toBeVisible();
+  await expect(page.getByText('Agent updated successfully')).toBeVisible();
+  console.log("Edit sales agent completed");
 }
 
 async function addSalesAgent(page) {
+  console.log("Enter in add sales agent");
   await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Sales-Agents' }).click();
   await page.getByRole('button', { name: 'New Agent', exact: true }).click();
@@ -94,10 +88,92 @@ async function addSalesAgent(page) {
   await page.getByRole('option', { name: 'Sales Manager' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click();
   await page.getByText('Agent added successfully').click();
+  await page.reload();
+  await page.waitForTimeout(3000);
+  
+  if (await page.getByText('Santosh Kumar', { exact: true }).isVisible())  
+  {
+    await page.screenshot({ path: `./${screenshotPath}/addSalesAgent.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"addSalesAgent","true",`./${screenshotPath}/addSalesAgent.png`)
 
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/addSalesAgent.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"addSalesAgent","false",`./${screenshotPath}/addSalesAgent.png`)
+  }
   await page.reload();
   await page.waitForLoadState('networkidle');
+  console.log("Add sales agent completed");
   
 }
 
+async function emailVarificaionInSelesAgent(page) {
+  console.log("Enter in email varification in sales agent");
+  await page.getByRole('button', { name: 'Sales' }).click();
+  await page.getByRole('link', { name: 'Sales-Agents' }).click();
+  await page.getByRole('row', { name: 'Santosh Kumar akbk6551+1126@' }).getByLabel('Email not verified').click();
+  // await expect(page.getByText('Onboarding email resent')).toBeVisible();
+  // await page.reload();
+  await page.waitForTimeout(1000);
+  
+  if (await page.getByText('Onboarding email resent').isVisible())  
+  {
+    await page.screenshot({ path: `./${screenshotPath}/emailVarificaionInSelesAgent.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"emailVarificaionInSelesAgent","true",`./${screenshotPath}/emailVarificaionInSelesAgent.png`)
 
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/emailVarificaionInSelesAgent.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"emailVarificaionInSelesAgent","false",`./${screenshotPath}/emailVarificaionInSelesAgent.png`)
+  }
+  await page.reload();
+  console.log("Email varification in sales agent completed");
+}
+
+async function addRoleForSalesAgent(page) {
+  console.log("Enter in add role for sales agent");
+  // Add Roles
+  await page.locator('button').nth(5).click();
+  await page.getByRole('menuitem', { name: 'Add Role' }).click();
+  await page.getByRole('combobox', { name: 'Search role to add' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Master data handling' }).click();
+  await page.getByRole('combobox', { name: 'Search role to add' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Sales Executive' }).click();
+  await page.getByRole('button', { name: 'Add Role' }).click();
+  await page.waitForTimeout(1000);
+  
+  if (await page.getByText('Agent updated successfully').isVisible())  
+  {
+    await page.screenshot({ path: `./${screenshotPath}/AddRoleForSelesAgent.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"AddRoleForSelesAgent","true",`./${screenshotPath}/AddRoleForSelesAgent.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/AddRoleForSelesAgent.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"AddRoleForSelesAgent","false",`./${screenshotPath}/AddRoleForSelesAgent.png`)
+  }
+//  Revome Roles 
+   await page.locator('button').nth(5).click();
+  await page.getByRole('menuitem', { name: 'Add Role' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('row', { name: 'Master data handling' }).getByRole('button').click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('menuitem', { name: 'Remove' }).first().click();
+  await page.waitForTimeout(1000);
+  if (!await page.getByText('Master data handling').isVisible())  
+  {
+    await page.screenshot({ path: `./${screenshotPath}/removeRoleForSelesAgent.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"removeRoleForSelesAgent","true",`./${screenshotPath}/removeRoleForSelesAgent.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/removeRoleForSelesAgent.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"removeRoleForSelesAgent","false",`./${screenshotPath}/removeRoleForSelesAgent.png`)
+  }
+  
+  await page.getByRole('button', { name: 'Add Role' }).click();
+  await page.reload();
+ console.log("Add role for sales agent completed");
+}

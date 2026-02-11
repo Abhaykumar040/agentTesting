@@ -55,7 +55,8 @@ async function addRole(page) {
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Sales Executive');
   await page.getByRole('main').getByRole('button', { name: 'Sales' }).click();
-  await page.locator('input[name="access.12.create"]').first().check();
+  await page.waitForTimeout(1000);
+  await page.locator('input[name="access.12.create"]').check();
   await page.locator('input[name="access.12.update"]').check();
   await page.locator('input[name="access.12.delete"]').check();
   await page.locator('input[name="access.13.create"]').check();
@@ -82,6 +83,10 @@ async function addRole(page) {
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Field Service Engineer');
   await page.getByRole('main').getByRole('button', { name: 'Sales' }).click();
+  await page.waitForTimeout(1000);
+  await page.locator('input[name="access.12.create"]').check({ force: true });
+// await page.locator('input[name="access.12.create"]').check({ force: true });
+  
   await page.locator('input[name="access.12.create"]').check();
   await page.locator('input[name="access.12.update"]').check();
   await page.locator('input[name="access.12.delete"]').check();
@@ -109,6 +114,7 @@ async function addRole(page) {
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Master data handling');
   await page.getByRole('main').getByRole('button', { name: 'Customer Service' }).click();
+    await page.waitForTimeout(1000);
   await page.locator('input[name="access.11.create"]').check();
   await page.locator('input[name="access.11.delete"]').check();
   await page.locator('input[name="access.20.create"]').check();
@@ -135,6 +141,7 @@ async function addRole(page) {
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Customer Service');
   await page.getByRole('main').getByRole('button', { name: 'Customer Service' }).click();
+    await page.waitForTimeout(1000);
   await page.locator('input[name="access.11.create"]').first().check();
   await page.locator('input[name="access.11.delete"]').check();
   await page.locator('input[name="access.20.create"]').check();
@@ -160,6 +167,7 @@ async function addRole(page) {
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Field Service Manager');
   await page.getByRole('main').getByRole('button', { name: 'Sales' }).click();
+    await page.waitForTimeout(1000);
   await page.locator('input[name="access.12.create"]').first().check();
   await page.locator('input[name="access.12.update"]').check();
   await page.locator('input[name="access.12.delete"]').check();

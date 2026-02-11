@@ -23,7 +23,9 @@ export async function form(page){
 }
 async function deletePreviuosForm(page){
     console.log("Enter in delete previous form ");
+    
     await page.getByRole('button', { name: 'Settings' }).click();
+    await page.waitForTimeout(1000);
     await page.getByRole('link', { name: 'Form', exact: true }).click();
     await page.waitForTimeout(3000);
 

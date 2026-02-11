@@ -1,3 +1,5 @@
+node check.js
+
 npx playwright test --ui
 npx playwright test --headed
 npx playwright test

@@ -45,12 +45,12 @@ const u11 = await db.collection("userdetails").updateMany(
 );
 console.log("userDetails",u11.matchedCount, u11.modifiedCount);
 
-const leads = await db.collection("leads").updateMany(
-  {  company,
-  status:1 },
-  { $set: { status: 3 } }
-);
-console.log("leads",leads.matchedCount, leads.modifiedCount);
+// const leads = await db.collection("leads").updateMany(
+//   {  company,
+//   status:1 },
+//   { $set: { status: 3 } }
+// );
+// console.log("leads",leads.matchedCount, leads.modifiedCount);
 
 const tickets = await db.collection("supportcases").updateMany(
   {  company:companyId,
@@ -97,12 +97,12 @@ const invoice = await db.collection("invoices").updateMany(
 console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
 
 
-const zone = await db.collection("zones").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set:{ status: 3 } }
-);
-console.log("invoice",zone.matchedCount, zone.modifiedCount);
+// const zone = await db.collection("zones").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set:{ status: 3 } }
+// );
+// console.log("invoice",zone.matchedCount, zone.modifiedCount);
 
 
 
@@ -120,9 +120,9 @@ const u3 = await db.collection("tenantusers").updateMany(
   { $set: { status: 3 } }
 );
 
-const u4 = await db.collection("agents").updateMany(
-  {  company: company,status:1 },
-  { $set: { status: 3 } }
-);
+// const u4 = await db.collection("agents").updateMany(
+//   {  company: company,status:1 },
+//   { $set: { status: 3 } }
+// );
 
-console.log("agent updated:", u4.matchedCount);
+// console.log("agent updated:", u4.matchedCount);

@@ -32,7 +32,7 @@
     },
     "deleteStatus": {
       "path": "./screenshot/parent/status/deleteStatus.png",
-      "note": "false"
+      "note": "true"
     }
   },
   "./screenshot/parent/skill/": {
@@ -50,7 +50,7 @@
     },
     "deleteSkill": {
       "path": "./screenshot/parent/skill/deleteSkill.png",
-      "note": "true"
+      "note": "false"
     }
   },
   "./screenshot/parent/roles/": {
@@ -92,11 +92,11 @@
     },
     "editForm": {
       "path": "./screenshot/parent/form/editForm.png",
-      "note": "false"
+      "note": "true"
     },
     "deleteForm": {
       "path": "./screenshot/parent/form/deleteForm.png",
-      "note": "false"
+      "note": "true"
     }
   },
   "./screenshot/parent/zone/": {
@@ -116,6 +116,98 @@
     },
     "editAssets": {
       "path": "./screenshot/parent/assets-category/editAssets.png",
+      "note": "true"
+    },
+    "deleteAssets": {
+      "path": "./screenshot/parent/assets-category/deleteAssets.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/sales-agents/": {
+    "addSalesAgent": {
+      "path": "./screenshot/parent/sales-agents/addSalesAgent.png",
+      "note": "true"
+    },
+    "emailVarificaionInSelesAgent": {
+      "path": "./screenshot/parent/sales-agents/emailVarificaionInSelesAgent.png",
+      "note": "true"
+    },
+    "AddRoleForSelesAgent": {
+      "path": "./screenshot/parent/sales-agents/AddRoleForSelesAgent.png",
+      "note": "true"
+    },
+    "removeRoleForSelesAgent": {
+      "path": "./screenshot/parent/sales-agents/removeRoleForSelesAgent.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/product/": {
+    "addProduct": {
+      "path": "./screenshot/parent/product/addProduct.png",
+      "note": "true"
+    },
+    "editProduct": {
+      "path": "./screenshot/parent/product/editProduct.png",
+      "note": "false"
+    },
+    "referencedProduct": {
+      "path": "./screenshot/parent/product/referencedProduct.png",
+      "note": "true"
+    },
+    "deleteProduct": {
+      "path": "./screenshot/parent/product/deleteProduct.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/lead/": {
+    "addLead": {
+      "path": "./screenshot/parent/lead/addLead.png",
+      "note": "true"
+    },
+    "editLeadFirst": {
+      "path": "./screenshot/parent/lead/editLeadFirst.png",
+      "note": "true"
+    },
+    "editLeadSecound": {
+      "path": "./screenshot/parent/lead/editLeadSecound.png",
+      "note": "true"
+    },
+    "activityInLead": {
+      "path": "./screenshot/parent/lead/activityInLead.png",
+      "note": "true"
+    },
+    "exportLeadFileFilter": {
+      "path": "./screenshot/parent/lead/exportLeadFileFilter.png",
+      "note": "false"
+    }
+  },
+  "./screenshot/parent/customer/": {
+    "addCustomer": {
+      "path": "./screenshot/parent/customer/addCustomer.png",
+      "note": "true"
+    },
+    "editCustomer": {
+      "path": "./screenshot/parent/customer/editCustomer.png",
+      "note": "false"
+    },
+    "deleteCustomer": {
+      "path": "./screenshot/parent/customer/deleteCustomer.png",
+      "note": "true"
+    },
+    "exportCustomerFilter1": {
+      "path": "./screenshot/parent/customer/exportCustomerFilter1.png",
+      "note": "true"
+    },
+    "exportCustomerFilter2": {
+      "path": "./screenshot/parent/customer/exportCustomerFilter2.png",
+      "note": "true"
+    },
+    "exportCustomerFilter3": {
+      "path": "./screenshot/parent/customer/exportCustomerFilter3.png",
+      "note": "true"
+    },
+    "exportCustomerFilter4": {
+      "path": "./screenshot/parent/customer/exportCustomerFilter4.png",
       "note": "true"
     }
   }
