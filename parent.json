@@ -210,5 +210,69 @@
       "path": "./screenshot/parent/customer/exportCustomerFilter4.png",
       "note": "true"
     }
+  },
+  "./screenshot/parent/quotation/": {
+    "createQuotation": {
+      "path": "./screenshot/parent/quotation/createQuotation.png",
+      "note": "false"
+    },
+    "approveQuotation": {
+      "path": "./screenshot/parent/quotation/approveQuotation.png",
+      "note": "false"
+    },
+    "rejectQuotation": {
+      "path": "./screenshot/parent/quotation/rejectQuotation.png",
+      "note": "false"
+    },
+    "rejectedByCustomerQuotation": {
+      "path": "./screenshot/parent/quotation/rejectedByCustomerQuotation.png",
+      "note": "false"
+    },
+    "copyQuotation": {
+      "path": "./screenshot/parent/quotation/copyQuotation.png",
+      "note": "false"
+    },
+    "acceptQuotation": {
+      "path": "./screenshot/parent/quotation/acceptQuotation.png",
+      "note": "false"
+    },
+    "sendQuotation": {
+      "path": "./screenshot/parent/quotation/sendQuotation.png",
+      "note": "false"
+    },
+    "editQuotation": {
+      "path": "./screenshot/parent/quotation/editQuotation.png",
+      "note": "true"
+    },
+    "deleteQuotation": {
+      "path": "./screenshot/parent/quotation/deleteQuotation.png",
+      "note": "false"
+    }
+  },
+  "./screenshot/parent/invoices/": {
+    "addInvoices": {
+      "path": "./screenshot/parent/invoices/addInvoices.png",
+      "note": "true"
+    },
+    "editInvoices": {
+      "path": "./screenshot/parent/invoices/editInvoices.png",
+      "note": "true"
+    },
+    "sendInvoices": {
+      "path": "./screenshot/parent/invoices/sendInvoices.png",
+      "note": "false"
+    },
+    "cancelInvoice": {
+      "path": "./screenshot/parent/invoices/cancelInvoice.png",
+      "note": "true"
+    },
+    "createInvoiceByQuotation": {
+      "path": "./screenshot/parent/invoices/createInvoiceByQuotation.png",
+      "note": "true"
+    },
+    "exportInvoiceFilter1": {
+      "path": "./screenshot/parent/invoices/exportInvoiceFilter1.png",
+      "note": "true"
+    }
   }
 }

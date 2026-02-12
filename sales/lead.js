@@ -421,12 +421,10 @@ async function documentInLead(page) {
   
   await page.getByRole('tab', { name: 'Documents' }).click();
 
-  const [chooser] = await Promise.all([
-    page.waitForEvent('filechooser'),
-    page.getByRole('button', { name: 'Browse Files' }).click()
-  ]);
-
-  await chooser.setFiles('downloads/leads.xlsx');
+  await page.getByRole('button', { name: 'Browse Files' }).click();
+  await page.locator('input[type="file"]').setInputFiles('./download1/leads.xlsx')
+  
+  // await chooser.setFiles('downloads/leads.xlsx');
   await page.getByRole('button', { name: 'Upload Files' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
   await page.reload();

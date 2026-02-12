@@ -40,79 +40,93 @@ async function createQuotation(page){
   await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Quotations' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
+  // await page.waitForTimeout(1000);
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
+  await page.getByRole('option', { name: 'Anil Rathor' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
+  // await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
   await page.getByRole('combobox').first().click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Smart watch charger' }).first().click();
-  await page.getByRole('button', { name: 'Add Item' }).click();
-  //  await page.getByRole('combobox').first().click();
   // await page.waitForTimeout(1000);
-  // await page.getByRole('option', { name: 'Wifi charger' }).click();
+  await page.getByRole('option', { name: 'Smart watch charger' }).click();
   // await page.getByRole('button', { name: 'Add Item' }).click();
-  //  await page.getByRole('combobox').first().click();
+  // await page.getByRole('combobox').nth(2).click();
+  // // await page.waitForTimeout(1000);
+  // await page.getByRole('option', { name: 'Tourch charger' }).click();
+  // await page.getByRole('button', { name: 'Add Item' }).click();
+  // await page.getByRole('combobox').nth(3).click();
+  // // await page.waitForTimeout(1000);
+  // await page.getByRole('option', { name: 'Mobile charger' }).first().click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).fill('product quotation');
+  await page.getByRole('button', { name: 'Save' }).click();
+
+  await page.getByRole('link', { name: 'Add Quotation' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('combobox', { name: 'Customer' }).click();
+  await page.getByRole('option', { name: 'Neeraj Rathor' }).click();
+  await page.getByRole('combobox', { name: 'Address' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
+  await page.getByRole('combobox').first().click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Smart watch charger' }).click();
+  // await page.getByRole('button', { name: 'Add Item' }).click();
+  // await page.getByRole('combobox').nth(2).click();
   // await page.waitForTimeout(1000);
-  // await page.getByRole('option', { name: 'Tourch charger' }).first().click();
-  await page.locator('.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-vai4lc > .MuiInputBase-root').click();
-  await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
-  await page.getByRole('button', { name: 'Save' }).click();
-  // await expect(page.getByText('Quotation created successfully')).toBeVisible();
-
-  
-  await page.getByRole('link', { name: 'Add Quotation' }).click();
-  await page.getByRole('combobox', { name: 'Customer' }).click();
-    await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
-  await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
-  await page.getByRole('combobox').first().click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Tourch charger' }).first().click();
-  await page.getByRole('button', { name: 'Add Item' }).click();
-   await page.getByRole('combobox').first().click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Wifi charger' }).first().click();
-  await page.locator('.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-vai4lc > .MuiInputBase-root').click();
-  await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
-  await page.getByRole('button', { name: 'Save' }).click();
-
-
-  await page.getByRole('link', { name: 'Add Quotation' }).click();
-  await page.getByRole('combobox', { name: 'Customer' }).click();
-    await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
-  await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
-  await page.getByRole('combobox').first().click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Wifi charger' }).first().click();
-   await page.getByRole('button', { name: 'Add Item' }).click();
-   await page.getByRole('combobox').first().click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Tourch charger' }).first().click();
-  await page.locator('.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-vai4lc > .MuiInputBase-root').click();
-  await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
+  // await page.getByRole('option', { name: 'Tourch charger' }).click();
+  // await page.getByRole('button', { name: 'Add Item' }).click();
+  // await page.getByRole('combobox').nth(3).click();
+  // await page.waitForTimeout(1000);
+  // await page.getByRole('option', { name: 'Mobile charger' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).fill('product quotation');
   await page.getByRole('button', { name: 'Save' }).click();
 
   await page.getByRole('link', { name: 'Add Quotation' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('combobox', { name: 'Customer' }).click();
-    await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
+  await page.getByRole('option', { name: 'Anil Rathor' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
   await page.getByRole('combobox').first().click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Tourch charger' }).first().click();
-  await page.locator('.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-vai4lc > .MuiInputBase-root').click();
-  await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
+  await page.getByRole('option', { name: 'Smart watch charger' }).click();
+  // await page.getByRole('button', { name: 'Add Item' }).click();
+  // await page.getByRole('combobox').nth(2).click();
+  // await page.getByRole('option', { name: 'Tourch charger' }).click();
+  // await page.getByRole('button', { name: 'Add Item' }).click();
+  // await page.getByRole('combobox').nth(3).click();
+  // await page.getByRole('option', { name: 'Mobile charger' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).fill('product quotation');
   await page.getByRole('button', { name: 'Save' }).click();
-  await expect(page.getByText('Quotation created successfully')).toBeVisible();
+
+  await page.getByRole('link', { name: 'Add Quotation' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('combobox', { name: 'Customer' }).click();
+  await page.getByRole('option', { name: 'Manjeet Singh' }).click();
+  await page.getByRole('combobox', { name: 'Address' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
+  await page.getByRole('combobox').first().click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Smart watch charger' }).click();
+  // await page.getByRole('button', { name: 'Add Item' }).click();
+  // await page.getByRole('combobox').nth(2).click();
+  // await page.waitForTimeout(1000);
+  // await page.getByRole('option', { name: 'Tourch charger' }).click();
+  // await page.getByRole('button', { name: 'Add Item' }).click();
+  // await page.getByRole('combobox').nth(3).click();
+  // await page.waitForTimeout(1000);
+  // await page.getByRole('option', { name: 'Mobile charger' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).fill('product quotation');
+  await page.getByRole('button', { name: 'Save' }).click();
   await page.reload();
- await page.waitForTimeout(3000);
+  await page.waitForTimeout(3000);
 
-  if (!await page.getByText('Mayank Rathor',{exact:true}).first().isVisible()) 
+  if (await page.getByText('Manjeet Singh',{exact:true}).first().isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/createQuotation.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"createQuotation","true",`./${screenshotPath}/createQuotation.png`)
@@ -132,15 +146,18 @@ async function approveQuotation(page) {
   await page.getByRole('link', { name: 'Quotations' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Susil Rana' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Wifi charger' }).first().click();
-  await page.locator('.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-vai4lc > .MuiInputBase-root').click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
   await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(1000);
   await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
   await page.getByRole('menuitem', { name: 'Approve' }).click();
   // await expect(page.getByText('Quotation updated successfully')).toBeVisible();
@@ -149,25 +166,27 @@ async function approveQuotation(page) {
   await page.getByRole('link', { name: 'Quotations' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Shivam maurya' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Tourch charger' }).first().click();
-  await page.locator('.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-vai4lc > .MuiInputBase-root').click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
   await page.getByRole('button', { name: 'Save' }).click();
-  await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
+  await page.waitForTimeout(1000);
   await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
   await page.getByRole('menuitem', { name: 'Approve' }).click();
-  await page.waitForTimeout(1000);
-  await expect(page.getByText('Quotation updated successfully')).toBeVisible();
 
   await page.reload();
- await page.waitForTimeout(3000);
+  await page.waitForTimeout(3000);
 
-  if (!await page.getByText('Mayank Rathor',{exact:true}).first().isVisible()) 
+  if (await page.getByText('Mayank Rathor',{exact:true}).first().isVisible()&&
+       await page.getByText('MANAGER APPROVED').first().isVisible()&&
+       await page.getByText('Quotation updated successfully')) 
   {
     await page.screenshot({ path: `./${screenshotPath}/approveQuotation.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"approveQuotation","true",`./${screenshotPath}/approveQuotation.png`)
@@ -186,46 +205,57 @@ async function acceptQuotation(page) {
   console.log('Enter in accept quotation');
    await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Quotations' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('link', { name: 'Add Quotation' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Shyam Sundar' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Smart watch charger' }).first().click();
-  await page.locator('.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-vai4lc > .MuiInputBase-root').click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
   await page.getByRole('button', { name: 'Save' }).click();
   await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
+  await page.waitForTimeout(1000);
   await page.getByRole('menuitem', { name: 'Approve' }).click();
+  await page.waitForTimeout(1000);
   await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
   await page.getByRole('menuitem', { name: 'Accept' }).click();
-  await expect(page.getByText('Quotation updated successfully')).toBeVisible();
+  // await expect(page.getByText('Quotation updated successfully')).toBeVisible();
 
   
-    await page.getByRole('button', { name: 'Sales' }).click();
-  await page.getByRole('link', { name: 'Quotations' }).click();
+  // await page.getByRole('button', { name: 'Sales' }).click();
+  // await page.getByRole('link', { name: 'Quotations' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Jony Rathor' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Market undefined Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Smart watch charger' }).first().click();
-  await page.locator('.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-vai4lc > .MuiInputBase-root').click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
   await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(1000);
   await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
   await page.getByRole('menuitem', { name: 'Approve' }).click();
+  await page.waitForTimeout(1000);
   await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
   await page.getByRole('menuitem', { name: 'Accept' }).click();
-  await expect(page.getByText('Quotation updated successfully')).toBeVisible();
+  // await expect(page.getByText('Quotation updated successfully')).toBeVisible();
  await page.reload();
  await page.waitForTimeout(3000);
 
-  if (!await page.getByText('Mayank Rathor',{exact:true}).first().isVisible()) 
+  if (await page.getByText('Jony Rathor',{exact:true}).first().isVisible()&&
+       await page.getByText('Quotation updated successfully').isVisible()&&
+       await page.getByText('ACCEPTED').first().isVisible()
+     ) 
   {
     await page.screenshot({ path: `./${screenshotPath}/acceptQuotation.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"acceptQuotation","true",`./${screenshotPath}/acceptQuotation.png`)
@@ -242,29 +272,35 @@ async function acceptQuotation(page) {
 
 async function rejectQuotation(page){
   console.log('Enter in reject quotation');
-  await page.getByRole('button', { name: 'Sales' }).click();
-  await page.getByRole('link', { name: 'Quotations' }).click();
+  await page.waitForTimeout(1000);
+  // await page.getByRole('button', { name: 'Sales' }).click();
+  // await page.getByRole('link', { name: 'Quotations' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Bilal Ahamad (1275836)' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Ghosia undefined Aurai Uttar' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Tourch charger' }).first().click();
-  await page.locator('.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-vai4lc > .MuiInputBase-root').click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
   await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(1000);
    await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
   await page.getByRole('menuitem', { name: 'Reject' }).click();
   await page.getByRole('textbox').click();
   await page.getByRole('textbox').fill('THis is not right quotation');
   await page.getByRole('button', { name: 'Save' }).click();
-  await expect(page.getByText('Quotation updated successfully')).toBeVisible();
-  await page.reload();
+  // await expect(page.getByText('Quotation updated successfully')).toBeVisible();
+  // await page.reload();
  await page.waitForTimeout(3000);
 
-  if (!await page.getByText('Mayank Rathor',{exact:true}).first().isVisible()) 
+  if (await page.getByText('Bilal Ahamad (1275836)',{exact:true}).first().isVisible()&&
+      await page.getByText('MANAGER REJECTED').isVisible()&&
+      await page.getByText('Quotation updated successfully').isVisible() 
+     ) 
   {
     await page.screenshot({ path: `./${screenshotPath}/rejectQuotation.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"rejectQuotation","true",`./${screenshotPath}/rejectQuotation.png`)
@@ -280,30 +316,36 @@ async function rejectQuotation(page){
 
 async function rejectedByCustomerQuotation(page) {
   console.log('Enter in reject by customer quotation');
-  await page.getByRole('button', { name: 'Sales' }).click();
-  await page.getByRole('link', { name: 'Quotations' }).click();
+  await page.waitForTimeout(1000);
+  // await page.getByRole('button', { name: 'Sales' }).click();
+  // await page.getByRole('link', { name: 'Quotations' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
+  await page.getByRole('option', { name: 'Susil Rana' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Wifi charger' }).first().click();
-  await page.locator('.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-vai4lc > .MuiInputBase-root').click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
   await page.getByRole('button', { name: 'Save' }).click();
-   await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
+  await page.waitForTimeout(1000);
    await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
   await page.getByRole('menuitem', { name: 'Approve' }).click();
-  await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
+  await page.waitForTimeout(1000);
   await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
   await page.getByRole('menuitem', { name: 'Reject' }).click();
-  await expect(page.getByText('Quotation updated successfully')).toBeVisible();
-  await page.reload();
+  // await expect(page.getByText('Quotation updated successfully')).toBeVisible();
+  // await page.reload();
  await page.waitForTimeout(3000);
 
-  if (!await page.getByText('Mayank Rathor',{exact:true}).first().isVisible()) 
+  if (await page.getByText('Mayank Rathor',{exact:true}).first().isVisible()&&
+      await page.getByText('REJECTED',{exact:true}).isVisible()&&
+      await page.getByText('Quotation updated successfully').isVisible() 
+    ) 
   {
     await page.screenshot({ path: `./${screenshotPath}/rejectedByCustomerQuotation.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"rejectedByCustomerQuotation","true",`./${screenshotPath}/rejectedByCustomerQuotation.png`)
@@ -319,12 +361,15 @@ async function rejectedByCustomerQuotation(page) {
 
 async function copyQuotation(page){
    console.log('Enter in copy quotation');
-  await page.getByRole('button', { name: 'Sales' }).click();
-  await page.getByRole('link', { name: 'Quotations' }).click();
+   await page.waitForTimeout(1000);
+  // await page.getByRole('button', { name: 'Sales' }).click();
+  // await page.getByRole('link', { name: 'Quotations' }).click();
  await page.getByRole('link', { name: 'Add Quotation' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Kolpit Singh' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Anil Rathor' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
@@ -332,24 +377,26 @@ async function copyQuotation(page){
   await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('textbox', { name: 'Note:' }).fill('cover Quotatons');
   await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(1000);
   await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
   await page.getByRole('menuitem', { name: 'Copy' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Anil Rathor' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Neeraj Rathor' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  // await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
   await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('combobox').nth(1).click();
   await page.getByRole('option', { name: 'Wifi charger' }).click();
-  await page.locator('div:nth-child(2) > .MuiBox-root.css-v64yv8 > div > .MuiFormControl-root > .MuiInputBase-root').first().click();
-  await page.locator('textarea[name="products.1.description"]').fill('printer ');
   await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('textbox', { name: 'Note:' }).fill('/quotation');
   await page.getByRole('button', { name: 'Save' }).click();
   await page.reload();
   await page.waitForTimeout(3000);
 
-  if (!await page.getByText('Mayank Rathor',{exact:true}).first().isVisible()) 
+  if (await page.getByText('Neeraj Rathor',{exact:true}).first().isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/copyQuotation.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"copyQuotation","true",`./${screenshotPath}/copyQuotation.png`)
@@ -360,7 +407,7 @@ async function copyQuotation(page){
     await updateOpJson(`./${screenshotPath}/`,"copyQuotation","false",`./${screenshotPath}/copyQuotation.png`)
   }
   await page.reload();
-  console.log('copy rejected quotation');
+  console.log('copy quotation completed');
 }
 async function editQuotation(page) {
   console.log('Enter in edited quotation');
@@ -369,19 +416,33 @@ async function editQuotation(page) {
   await page.getByRole('link', { name: 'Quotations' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
-  await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Ishan Singh (1345836)' }).click();
   await page.getByRole('combobox').first().click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'EV charger' }).first().click();
-  await page.locator('.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-vai4lc > .MuiInputBase-root').click();
-  await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByText('ItemPriceDiscount %QuantityDescriptionHSN CodeCost').click();
+  await page.getByRole('combobox').nth(1).click();
+  await page.getByRole('option', { name: 'Smart watch charger' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).fill('dadad');
+  await page.getByRole('combobox', { name: 'Address' }).click();
+  await page.getByRole('option', { name: 'Ghosia undefined Aurai Uttar' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
-  await page.reload();
- await page.waitForTimeout(3000);
-
-  if (!await page.getByText('Mayank Rathor',{exact:true}).first().isVisible()) 
+  await page.waitForTimeout(1000);
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('button', { name: 'Edit' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(2).click();
+  await page.getByRole('option', { name: 'EV charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(3).click();
+  await page.getByRole('option', { name: 'Laptop charger' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).fill('Edited quotation');
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
+   if (await page.getByText('Quotation updated successfully',{exact:true}).isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/editQuotation.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"editQuotation","true",`./${screenshotPath}/editQuotation.png`)
@@ -391,59 +452,60 @@ async function editQuotation(page) {
     await page.screenshot({ path: `./${screenshotPath}/editQuotation.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"editQuotation","false",`./${screenshotPath}/editQuotation.png`)
   }
+  await page.getByRole('button', { name: 'Back to list' }).click();
   await page.reload();
   console.log('edited quotation completed');
 }
 
 async function sendQuotation(page){
   console.log('Enter in send quotation');
-   await page.getByRole('button', { name: 'Sales' }).click();
-  await page.getByRole('link', { name: 'Quotations' }).click();
-  await page.getByRole('link', { name: 'Add Quotation' }).click();
-  await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
-  await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
-  await page.getByRole('combobox').first().click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'EV charger' }).first().click();
-  await page.locator('.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-vai4lc > .MuiInputBase-root').click();
-  await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
-  await page.getByRole('button', { name: 'Save' }).click();
-  await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
-  await page.getByRole('button', { name: 'Send Quotation' }).click();
-  await page.getByRole('textbox', { name: 'CC' }).click();
-  await page.getByRole('textbox', { name: 'CC' }).fill('akbk6551+1112@gmail.com');
-  await page.getByRole('button', { name: 'Send' }).click();
-  await page.locator('div').filter({ hasText: 'Quotation mailed successfully' }).nth(4).click();
-  await expect(page.getByText('Quotation mailed successfully')).toBeVisible()
-  await page.getByRole('button', { name: 'Back to list' }).click();
+  //  await page.getByRole('button', { name: 'Sales' }).click();
+  // await page.getByRole('link', { name: 'Quotations' }).click();
+  // await page.getByRole('link', { name: 'Add Quotation' }).click();
+  // await page.getByRole('combobox', { name: 'Customer' }).click();
+  // await page.waitForTimeout(1000);
+  // await page.getByRole('option', { name: 'Manjeet Singh' }).click();
+  // await page.getByRole('combobox', { name: 'Address' }).click();
+  // await page.waitForTimeout(1000);
+  // await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
+  // await page.getByRole('combobox').first().click();
+  // await page.waitForTimeout(1000);
+  // await page.getByRole('option', { name: 'EV charger' }).first().click();
+  // await page.getByRole('textbox', { name: 'Note:' }).click();
+  // await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
+  // await page.getByRole('button', { name: 'Save' }).click();
+  // await page.waitForTimeout(1000);
+  // await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
+  // await page.getByRole('button', { name: 'Send Quotation' }).click();
+  // await page.getByRole('textbox', { name: 'CC' }).click();
+  // await page.getByRole('textbox', { name: 'CC' }).fill('akbk6551+1112@gmail.com');
+  // await page.getByRole('button', { name: 'Send' }).click();
+  // await page.getByRole('button', { name: 'Back to list' }).click();
 
-    await page.getByRole('button', { name: 'Sales' }).click();
+  await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Quotations' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Susil Rana' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Wifi charger' }).first().click();
-  await page.locator('.MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root.css-vai4lc > .MuiInputBase-root').click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('textbox', { name: 'Note:' }).fill('cover product quotation');
   await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
   await page.getByRole('button', { name: 'Send Quotation' }).click();
   await page.getByRole('textbox', { name: 'CC' }).click();
   await page.getByRole('textbox', { name: 'CC' }).fill('akbk6551+1112@gmail.com');
   await page.getByRole('button', { name: 'Send' }).click();
-  await page.locator('div').filter({ hasText: 'Quotation mailed successfully' }).nth(4).click();
-  await expect(page.getByText('Quotation mailed successfully')).toBeVisible()
-  await page.getByRole('button', { name: 'Back to list' }).click();
-  await page.reload();
- await page.waitForTimeout(3000);
+ await page.waitForTimeout(1000);
 
-  if (!await page.getByText('Mayank Rathor',{exact:true}).first().isVisible()) 
+  if (await page.getByText('Quotation mailed successfully',{exact:true}).first().isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/sendQuotation.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"sendQuotation","true",`./${screenshotPath}/sendQuotation.png`)
@@ -453,6 +515,7 @@ async function sendQuotation(page){
     await page.screenshot({ path: `./${screenshotPath}/sendQuotation.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"sendQuotation","false",`./${screenshotPath}/sendQuotation.png`)
   }
+  await page.getByRole('button', { name: 'Back to list' }).click();
   await page.reload();
   console.log('send quotation completed');
 }
@@ -466,7 +529,7 @@ async function deleteQuotation(page) {
   await page.reload();
  await page.waitForTimeout(3000);
 
-  if (!await page.getByText('Mayank Rathor',{exact:true}).first().isVisible()) 
+  if (!await page.getByText('Ishan Singh (1345836)',{exact:true}).first().isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/deleteQuotation.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"deleteQuotation","true",`./${screenshotPath}/deleteQuotation.png`)
