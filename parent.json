@@ -32,6 +32,14 @@
     },
     "deleteStatus": {
       "path": "./screenshot/parent/status/deleteStatus.png",
+      "note": "false"
+    },
+    "createJobType": {
+      "path": "./screenshot/parent/status/createJobType.png",
+      "note": "false"
+    },
+    "deleteJobType": {
+      "path": "./screenshot/parent/status/deleteJobType.png",
       "note": "true"
     }
   },
@@ -68,6 +76,14 @@
     },
     "deletePreviuosRole": {
       "path": "./screenshot/parent/roles/deletePreviuosRole.png",
+      "note": "true"
+    },
+    "addTeam": {
+      "path": "./screenshot/parent/roles/addTeam.png",
+      "note": "true"
+    },
+    "editTeam": {
+      "path": "./screenshot/parent/roles/editTeam.png",
       "note": "true"
     }
   },
@@ -188,7 +204,7 @@
     },
     "editCustomer": {
       "path": "./screenshot/parent/customer/editCustomer.png",
-      "note": "false"
+      "note": "true"
     },
     "deleteCustomer": {
       "path": "./screenshot/parent/customer/deleteCustomer.png",
@@ -272,6 +288,182 @@
     },
     "exportInvoiceFilter1": {
       "path": "./screenshot/parent/invoices/exportInvoiceFilter1.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/cs-agent/": {
+    "addCSAgent": {
+      "path": "./screenshot/parent/cs-agent/addCSAgent.png",
+      "note": "true"
+    },
+    "emailVarifiedInCSAgent": {
+      "path": "./screenshot/parent/cs-agent/emailVarifiedInCSAgent.png",
+      "note": "true"
+    },
+    "addRoleInCSAgent": {
+      "path": "./screenshot/parent/cs-agent/addRoleInCSAgent.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/team/": {
+    "addTeam": {
+      "path": "./screenshot/parent/team/addTeam.png",
+      "note": "false"
+    },
+    "editTeam": {
+      "path": "./screenshot/parent/team/editTeam.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/setting/": {
+    "slaSetting": {
+      "path": "./screenshot/parent/setting/slaSetting.png",
+      "note": "true"
+    },
+    "caseCategoriesSetting": {
+      "path": "./screenshot/parent/setting/caseCategoriesSetting.png",
+      "note": "true"
+    },
+    "editcaseCategoriesSetting": {
+      "path": "./screenshot/parent/setting/editcaseCategoriesSetting.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/customerinC_Service/": {
+    "addCustomerInC_Service": {
+      "path": "./screenshot/parent/customerinC_Service/addCustomerInC_Service.png",
+      "note": "true"
+    },
+    "emailCustomerInC_Service": {
+      "path": "./screenshot/parent/customerinC_Service/emailCustomerInC_Service.png",
+      "note": "true"
+    },
+    "editCustomerInC_Service(Address)": {
+      "path": "./screenshot/parent/customerinC_Service/editCustomerInC_Service(Address).png",
+      "note": "true"
+    },
+    "editCustomerInC_Service(Ticket)": {
+      "path": "./screenshot/parent/customerinC_Service/editCustomerInC_Service(Ticket).png",
+      "note": "true"
+    },
+    "deleteCustomerInC_Service": {
+      "path": "./screenshot/parent/customerinC_Service/deleteCustomerInC_Service.png",
+      "note": "true"
+    },
+    "exportCustomerInC_ServiceNormal": {
+      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceNormal.png",
+      "note": "true"
+    },
+    "exportCustomerInC_ServiceFilter": {
+      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter.png",
+      "note": "true"
+    },
+    "exportCustomerInC_ServiceFilter2": {
+      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter2.png",
+      "note": "true"
+    },
+    "exportCustomerInC_ServiceFilter3": {
+      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter3.png",
+      "note": "true"
+    },
+    "exportCustomerInC_ServiceFilter4": {
+      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter4.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/Queues/": {
+    "addQueues": {
+      "path": "./screenshot/parent/Queues/addQueues.png",
+      "note": "true"
+    },
+    "editQueue": {
+      "path": "./screenshot/parent/Queues/editQueue.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/ticket/": {
+    "addNewTickets": {
+      "path": "./screenshot/parent/ticket/addNewTickets.png",
+      "note": "true"
+    },
+    "exportExcelInTicketsNormal": {
+      "path": "./screenshot/parent/ticket/exportExcelInTicketsNormal.png",
+      "note": "true"
+    },
+    "exportExcelInTicketFilter": {
+      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/fqa/": {
+    "addFAQs": {
+      "path": "./screenshot/parent/fqa/addFAQs.png",
+      "note": "true"
+    },
+    "editFAQs": {
+      "path": "./screenshot/parent/fqa/editFAQs.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/customerfsm/": {
+    "createFsmCustomer": {
+      "path": "./screenshot/parent/customerfsm/createFsmCustomer.png",
+      "note": "true"
+    },
+    "editFsmCustomer": {
+      "path": "./screenshot/parent/customerfsm/editFsmCustomer.png",
+      "note": "true"
+    },
+    "deleteFsmCustomer": {
+      "path": "./screenshot/parent/customerfsm/deleteFsmCustomer.png",
+      "note": "true"
+    },
+    "addressCreateFsmCustomer": {
+      "path": "./screenshot/parent/customerfsm/addressCreateFsmCustomer.png",
+      "note": "true"
+    },
+    "jobCreateFsmCustomer": {
+      "path": "./screenshot/parent/customerfsm/jobCreateFsmCustomer.png",
+      "note": "true"
+    },
+    "cyclicJobCreateFsmCustomer": {
+      "path": "./screenshot/parent/customerfsm/cyclicJobCreateFsmCustomer.png",
+      "note": "true"
+    },
+    "contactDetailsFsmCustomer": {
+      "path": "./screenshot/parent/customerfsm/contactDetailsFsmCustomer.png",
+      "note": "false"
+    },
+    "documentsUploadFsmCustomer": {
+      "path": "./screenshot/parent/customerfsm/documentsUploadFsmCustomer.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/engineer/": {
+    "createEngineer": {
+      "path": "./screenshot/parent/engineer/createEngineer.png",
+      "note": "true"
+    },
+    "emailVarificationEngineer": {
+      "path": "./screenshot/parent/engineer/emailVarificationEngineer.png",
+      "note": "true"
+    },
+    "deleteEngineer": {
+      "path": "./screenshot/parent/engineer/deleteEngineer.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/jobType/": {
+    "createJobType": {
+      "path": "./screenshot/parent/jobType/createJobType.png",
+      "note": "true"
+    },
+    "deleteJobType": {
+      "path": "./screenshot/parent/jobType/deleteJobType.png",
+      "note": "true"
+    },
+    "editJobType": {
+      "path": "./screenshot/parent/jobType/editJobType.png",
       "note": "true"
     }
   }

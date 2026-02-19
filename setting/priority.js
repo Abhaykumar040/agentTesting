@@ -50,7 +50,7 @@ console.log("previous priority delete completed");
 }
 async function addPriorit(page) {
   console.log("Enter in Add priority");
-     await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Priority' }).click();
   await page.getByRole('button', { name: 'Add New Priority' }).click();
   await page.getByRole('textbox', { name: 'Enter Priority Type' }).click();

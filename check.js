@@ -19,11 +19,11 @@ const userDetails = await db.collection("userdetails").findOne({
   company,
   type,status:1
 });
-// const invoicesss = await db.collection("invoices").findOne({
+const invoicesss = await db.collection("invoices").findOne({
 
-//   company,
-//  status:1
-// });
+  company,
+ status:1
+});
 
 if (!user) {
   console.log("User not found with given conditions");
@@ -38,12 +38,12 @@ if (!user) {
 //   { _id: userId },
 //   { $set: { status: 3 } }
 // );
-const u11 = await db.collection("userdetails").updateMany(
-  {  company,
-  type,status:1 },
-  { $set: { status: 3 } }
-);
-console.log("userDetails",u11.matchedCount, u11.modifiedCount);
+// const u11 = await db.collection("userdetails").updateMany(
+//   {  company,
+//   type,status:1 },
+//   { $set: { status: 3 } }
+// );
+// console.log("userDetails",u11.matchedCount, u11.modifiedCount);
 
 // const leads = await db.collection("leads").updateMany(
 //   {  company,
@@ -52,26 +52,26 @@ console.log("userDetails",u11.matchedCount, u11.modifiedCount);
 // );
 // console.log("leads",leads.matchedCount, leads.modifiedCount);
 
-const tickets = await db.collection("supportcases").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set: { status: 3 } }
-);
-console.log("ticekts",tickets.matchedCount, tickets.modifiedCount);
+// const tickets = await db.collection("supportcases").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set: { status: 3 } }
+// );
+// console.log("ticekts",tickets.matchedCount, tickets.modifiedCount);
 
-const queue = await db.collection("queues").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set: { status: 3 } }
-);
-console.log("queue",queue.matchedCount, queue.modifiedCount);
+// const queue = await db.collection("queues").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set: { status: 3 } }
+// );
+// console.log("queue",queue.matchedCount, queue.modifiedCount);
 
-const teams = await db.collection("teams").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set: { status: 3 } }
-);
-console.log("teams",teams.matchedCount, teams.modifiedCount);
+// const teams = await db.collection("teams").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set: { status: 3 } }
+// );
+// console.log("teams",teams.matchedCount, teams.modifiedCount);
 
 const faq = await db.collection("faqs").updateMany(
   {  company:companyId,
@@ -89,12 +89,12 @@ const crmSetting = await db.collection("crmsettings").updateOne(
 );
 console.log("crmSettings",crmSetting.matchedCount, crmSetting.modifiedCount);
 
-const invoice = await db.collection("invoices").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set:{ status: 3 } }
-);
-console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
+// const invoice = await db.collection("invoices").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set:{ status: 3 } }
+// );
+// console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
 
 
 // const zone = await db.collection("zones").updateMany(
@@ -114,11 +114,11 @@ console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
 
 // console.log("userdetails updated:", u2.modifiedCount);
 
-// -------- STEP 4 — update agent --------
-const u3 = await db.collection("tenantusers").updateMany(
-  {  company: company ,type,status:1},
-  { $set: { status: 3 } }
-);
+// // -------- STEP 4 — update agent --------
+// const u3 = await db.collection("tenantusers").updateMany(
+//   {  company: company ,type,status:1},
+//   { $set: { status: 3 } }
+// );
 
 // const u4 = await db.collection("agents").updateMany(
 //   {  company: company,status:1 },

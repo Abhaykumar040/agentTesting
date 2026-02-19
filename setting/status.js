@@ -52,6 +52,106 @@ async function addStatus(page){
   console.log("Enter in add status");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Status Profile' }).click();
+  
+   await page.getByRole('button', { name: 'Add New Status' }).click();
+  await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).click();
+  await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).fill('Assets ');
+  await page.getByRole('button', { name: 'Select Business Object' }).click();
+  await page.getByRole('option', { name: 'Asset' }).click();
+  
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('Assigned');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('User ko asset officially assign ho chuka hai.');
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('1');
+  await page.getByRole('button', { name: 'Create' }).click();
+   await page.waitForTimeout(3000);
+
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').fill('In Use');
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').fill('User actively asset use kar raha hai.');
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').fill('2');
+  await page.getByRole('button', { name: 'Create' }).click();
+   await page.waitForTimeout(3000);
+
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').fill('Available');
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').fill('Asset free hai, kisi ko assign nahi hua.');
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').fill('3');
+  await page.getByRole('button', { name: 'Create' }).click();
+   await page.waitForTimeout(3000);
+
+
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).first().click();
+  await page.getByRole('textbox', { name: 'Status *' }).first().fill('Under Repair');
+  await page.getByText('Status *Status Description *').first().click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).first().fill('Asset repair ke liye bheja gaya hai.');
+  await page.getByRole('spinbutton', { name: 'Position *' }).first().click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).first().fill('4');
+  await page.getByRole('button', { name: 'Create' }).first().click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(3).click();
+  await page.getByRole('button', { name: 'Back to List' }).click();
+
+
+  await page.getByRole('button', { name: 'Add New Status' }).click();
+  await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).click();
+  await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).fill('Support Case Fields');
+  await page.getByRole('button', { name: 'Select Business Object' }).click();
+  await page.getByRole('option', { name: 'Support Case' }).click();
+  
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('Open');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('Case successfully create ho gaya hai aur support team ko assign hone ke liye ready hai.');
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('1');
+  await page.getByRole('button', { name: 'Create' }).click();
+   await page.waitForTimeout(3000);
+
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').fill('In progress');
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').fill('Support team aapke issue par kaam kar rahi hai aur solution nikalne ki process me hai.');
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').fill('2');
+  await page.getByRole('button', { name: 'Create' }).click();
+   await page.waitForTimeout(3000);
+
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').fill('Resolved');
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').fill('Aapka issue successfully solve kar diya gaya hai, ab confirmation ka wait hai.');
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').click();
+  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').fill('3');
+  await page.getByRole('button', { name: 'Create' }).click();
+   await page.waitForTimeout(3000);
+
+
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).first().click();
+  await page.getByRole('textbox', { name: 'Status *' }).first().fill('Close');
+  await page.getByText('Status *Status Description *').first().click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).first().fill('Support case close');
+  await page.getByRole('spinbutton', { name: 'Position *' }).first().click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).first().fill('4');
+  await page.getByRole('button', { name: 'Create' }).first().click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(3).click();
+  await page.getByRole('button', { name: 'Back to List' }).click();
+
+
+
   await page.getByRole('button', { name: 'Add New Status' }).click();
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).click();
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).fill('installationStatusJob');
