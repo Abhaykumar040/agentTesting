@@ -41,7 +41,7 @@ async function createJobType(page){
   await page.getByRole('button', { name: 'Status Profile *' }).click();
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
-  await page.getByRole('option', { name: 'Embedded Systems edited' }).click();
+  await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
   await page.getByRole('button', { name: 'Add New Job Type' }).click();
@@ -77,7 +77,7 @@ async function createJobType(page){
   await page.getByRole('button', { name: 'Status Profile *' }).click();
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
-  await page.getByRole('option', { name: 'Embedded Systems edited' }).click();
+  await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
 
@@ -97,7 +97,7 @@ async function createJobType(page){
   await page.getByRole('button', { name: 'Status Profile *' }).click();
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
-  await page.getByRole('option', { name: 'Embedded Systems edited' }).click();
+  await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
   await page.getByRole('button', { name: 'Add New Job Type' }).click();
@@ -133,7 +133,7 @@ async function createJobType(page){
   await page.getByRole('button', { name: 'Status Profile *' }).click();
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
-  await page.getByRole('option', { name: 'Embedded Systems edited' }).click();
+  await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
 // support case
@@ -153,7 +153,7 @@ async function createJobType(page){
   await page.getByRole('button', { name: 'Status Profile *' }).click();
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
-  await page.getByRole('option', { name: 'Embedded Systems edited' }).click();
+  await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
   await page.getByRole('button', { name: 'Add New Job Type' }).click();
@@ -171,7 +171,7 @@ async function createJobType(page){
   await page.getByRole('button', { name: 'Status Profile *' }).click();
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
-  await page.getByRole('option', { name: 'Embedded Systems edited' }).click();
+  await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
   await page.getByRole('button', { name: 'Add New Job Type' }).click();
@@ -189,7 +189,7 @@ async function createJobType(page){
   await page.getByRole('button', { name: 'Status Profile *' }).click();
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
-  await page.getByRole('option', { name: 'Embedded Systems edited' }).click();
+  await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
   await page.getByRole('button', { name: 'Add New Job Type' }).click();
@@ -207,7 +207,7 @@ async function createJobType(page){
   await page.getByRole('button', { name: 'Status Profile *' }).click();
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
-  await page.getByRole('option', { name: 'Embedded Systems edited' }).click();
+  await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
   await page.getByRole('button', { name: 'Add New Job Type' }).click();
@@ -225,7 +225,7 @@ async function createJobType(page){
   await page.getByRole('button', { name: 'Status Profile *' }).click();
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
-  await page.getByRole('option', { name: 'Embedded Systems edited' }).click();
+  await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
   await page.getByRole('button', { name: 'Add New Job Type' }).click();

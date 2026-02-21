@@ -46,7 +46,7 @@
   "./screenshot/parent/skill/": {
     "addskill": {
       "path": "./screenshot/parent/skill/addskill.png",
-      "note": "true"
+      "note": "false"
     },
     "editSkill": {
       "path": "./screenshot/parent/skill/editSkill.png",
@@ -58,7 +58,7 @@
     },
     "deleteSkill": {
       "path": "./screenshot/parent/skill/deleteSkill.png",
-      "note": "false"
+      "note": "true"
     }
   },
   "./screenshot/parent/roles/": {
@@ -464,6 +464,42 @@
     },
     "editJobType": {
       "path": "./screenshot/parent/jobType/editJobType.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/AssetManagement/": {
+    "createAssetManagement": {
+      "path": "./screenshot/parent/AssetManagement/createAssetManagement.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/internlJob/": {
+    "createInternalJob": {
+      "path": "./screenshot/parent/internlJob/createInternalJob.png",
+      "note": "true"
+    },
+    "editInternalJob": {
+      "path": "./screenshot/parent/internlJob/editInternalJob.png",
+      "note": "true"
+    },
+    "deleteInternalJob": {
+      "path": "./screenshot/parent/internlJob/deleteInternalJob.png",
+      "note": "true"
+    },
+    "exportInternalJObNormal": {
+      "path": "./screenshot/parent/internlJob/exportInternalJObNormal.png",
+      "note": "true"
+    },
+    "exportInternalJObFilter1": {
+      "path": "./screenshot/parent/internlJob/exportInternalJObFilter1.png",
+      "note": "true"
+    },
+    "exportInternalJObFilter2": {
+      "path": "./screenshot/parent/internlJob/exportInternalJObFilter2.png",
+      "note": "true"
+    },
+    "exportInternalJObFilter3": {
+      "path": "./screenshot/parent/internlJob/exportInternalJObFilter3.png",
       "note": "true"
     }
   }

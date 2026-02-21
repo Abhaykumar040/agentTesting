@@ -2,6 +2,7 @@ import { test, expect }  from '@playwright/test';
 import fs from 'fs/promises';
 import { internalJob } from '../fsm/internalJob';
 import { cyclicJob } from '../fsm/cyclicJob';
+import { AssetManagement } from '../fsm/assetmanagement';
 import { jobType } from '../fsm/jobType';
 import { Engineer } from '../fsm/engineer';
 import { Tickets } from '../customerService/ticket';
@@ -58,8 +59,9 @@ await loginRight(page);
 // await Tickets(page);
 // await FAQs(page);
 // await Engineer(page);
+// await jobType(page);
 // await customerfsm(page);
-await jobType(page);
+await AssetManagement(page);
 // await internalJob(page);
 // await cyclicJob(page);
 

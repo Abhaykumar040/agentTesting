@@ -8,7 +8,7 @@ import { test } from '@playwright/test';
 
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
-const screenshotPath=`screenshot/${testData.companyType}/status`
+const screenshotPath=`screenshot/${testData.companyType}/cyclicJob`
 const pathName=`outputData/status/${testData.companyType}`
 
 
@@ -27,6 +27,7 @@ export async function cyclicJob(page){
 
 
 async function createCyclicJob(page){
+  console.log('Enter in create cyclic job');
    await page.getByRole('button', { name: 'Field Service' }).click();
   await page.getByRole('link', { name: 'Asset Management' }).click();
   await page.getByText('Charger', { exact: true }).click();
@@ -151,12 +152,12 @@ async function createCyclicJob(page){
 
   //  await expect(page.getByText('Cyclic job created')).toBeVisible()
      await page.reload();
-  await page.waitForLoadState('networkidle');
-
+ console.log('Create cyclic job completed');
 
 }
 
 async function startCyclicJob(page){
+  console.log('Enter in start cyclic job');
     await page.getByRole('button', { name: 'Field Service' }).click();
   await page.getByRole('link', { name: 'Asset Management' }).click();
   await page.locator('div').filter({ hasText: /^🏢Charger5465456$/ }).nth(1).click();
@@ -167,10 +168,9 @@ async function startCyclicJob(page){
   await page.getByRole('button', { name: 'Start Now' }).click();
 
   await page.reload();
-  await page.waitForLoadState('networkidle');
 
 
-
+ console.log('Start cyclic job completed');
 }
 // async function deleteCyclicJob(page){
 
@@ -204,6 +204,7 @@ async function startCyclicJob(page){
 
 // }
 async function cancleWholeSessionCyclicJob(page){
+  console.log('Enter in cancel whole session cyclic job');
   await page.getByRole('button', { name: 'Field Service' }).click();
   await page.getByRole('link', { name: 'Asset Management' }).click();
   await page.locator('div').filter({ hasText: /^🏢Charger5465456$/ }).nth(1).click();
@@ -214,9 +215,10 @@ async function cancleWholeSessionCyclicJob(page){
   await page.getByRole('button', { name: 'Cancel Whole Session' }).click();
 
   await page.reload();
-  await page.waitForLoadState('networkidle');
+   console.log('Cancel whole session cyclic job completed');
 }
 async function cancleCurrentSessionCyclicJob(page){
+  console.log('Enter in cancle current session cyclic job');
   await page.getByRole('button', { name: 'Field Service' }).click();
   await page.getByRole('link', { name: 'Asset Management' }).click();
   await page.locator('div').filter({ hasText: /^🏢Charger5465456$/ }).nth(1).click();
@@ -227,7 +229,7 @@ async function cancleCurrentSessionCyclicJob(page){
   await page.getByRole('button', { name: 'Cancel Current Session' }).click();
 
   await page.reload();
-  await page.waitForLoadState('networkidle');
+  console.log('cancel current session cyclic job completed');
 
 }
 

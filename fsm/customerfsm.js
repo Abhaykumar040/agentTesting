@@ -617,7 +617,7 @@ async function jobCreateFsmCustomer(page){
   await page.locator('.MuiBackdrop-root').click();
   await page.getByRole('button', { name: '+ Add Skill' }).click();
   await page.getByRole('button', { name: 'Skill', exact: true }).click();
-  await page.getByRole('option', { name: 'Embedded Systems edited' }).click();
+  await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Person Responsible' }).click();
   await page.getByRole('option', { name: 'suhani singh' }).first().click();
   await page.getByRole('button', { name: 'Save', exact: true }).click();
@@ -659,7 +659,7 @@ async function cyclicJobCreateFsmCustomer(page){
   await page.getByRole('combobox', { name: 'Asset' }).click();
   await page.getByRole('combobox', { name: 'Asset' }).click();
   await page.getByRole('button', { name: 'Soldering & Rework' }).click();
-  await page.getByRole('button', { name: 'Embedded Systems edited' }).click();
+  await page.getByRole('button', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Frequency Type Daily' }).click();
   await page.getByRole('option', { name: 'Weekly' }).click();
   await page.getByRole('button', { name: 'Sun' }).click();
