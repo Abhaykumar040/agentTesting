@@ -61,9 +61,9 @@ await loginRight(page);
 // await Engineer(page);
 // await jobType(page);
 // await customerfsm(page);
-await AssetManagement(page);
+// await AssetManagement(page);
 // await internalJob(page);
-// await cyclicJob(page);
+await cyclicJob(page);
 
 
 // await page.waitForTimeout(30000);
