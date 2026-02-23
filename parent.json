@@ -1,46 +1,4 @@
 {
-  "./screenshot/parent/priority/": {
-    "priorityWitoutPosition": {
-      "path": "./screenshot/parent/priority/priorityWitoutPosition.png",
-      "note": "true"
-    },
-    "PriorityDeleteDuringCreation": {
-      "path": "./screenshot/parent/priority/PriorityDeleteDuringCreation.png",
-      "note": "true"
-    },
-    "editPriority": {
-      "path": "./screenshot/parent/priority/editPriority.png",
-      "note": "false"
-    },
-    "deletePriority": {
-      "path": "./screenshot/parent/priority/deletePriority.png",
-      "note": "true"
-    }
-  },
-  "./screenshot/parent/roles/": {
-    "deletePreviuosRole": {
-      "path": "./screenshot/parent/roles/deletePreviuosRole.png",
-      "note": "true"
-    },
-    "addRole": {
-      "path": "./screenshot/parent/roles/addRole.png",
-      "note": "true"
-    }
-  },
-  "./screenshot/parent/status/": {
-    "addStatus": {
-      "path": "./screenshot/parent/status/addStatus.png",
-      "note": "true"
-    },
-    "editStatus": {
-      "path": "./screenshot/parent/status/editStatus.png",
-      "note": "false"
-    },
-    "deleteStatus": {
-      "path": "./screenshot/parent/status/deleteStatus.png",
-      "note": "true"
-    }
-  },
   "./screenshot/parent/productCategory/": {
     "addProductCategory": {
       "path": "./screenshot/parent/productCategory/addProductCategory.png",
@@ -48,25 +6,11 @@
     },
     "editProductCategry": {
       "path": "./screenshot/parent/productCategory/editProductCategry.png",
-      "note": "true"
+      "note": "false"
     },
     "deleteProductCategory": {
       "path": "./screenshot/parent/productCategory/deleteProductCategory.png",
       "note": "true"
-    }
-  },
-  "./screenshot/parent/form/": {
-    "addForm": {
-      "path": "./screenshot/parent/form/addForm.png",
-      "note": "true"
-    },
-    "editForm": {
-      "path": "./screenshot/parent/form/editForm.png",
-      "note": "false"
-    },
-    "deleteForm": {
-      "path": "./screenshot/parent/form/deleteForm.png",
-      "note": "false"
     }
   },
   "./screenshot/parent/skill/": {
@@ -80,144 +24,6 @@
     },
     "editSkill": {
       "path": "./screenshot/parent/skill/editSkill.png",
-      "note": "false"
-    }
-  },
-  "./screenshot/parent/zone/": {
-    "addZone": {
-      "path": "./screenshot/parent/zone/addZone.png",
-      "note": "true"
-    },
-    "deleteZone": {
-      "path": "./screenshot/parent/zone/deleteZone.png",
-      "note": "true"
-    }
-  },
-  "./screenshot/parent/assets-category/": {
-    "addAssets": {
-      "path": "./screenshot/parent/assets-category/addAssets.png",
-      "note": "true"
-    },
-    "editAssets": {
-      "path": "./screenshot/parent/assets-category/editAssets.png",
-      "note": "false"
-    },
-    "deleteAssets": {
-      "path": "./screenshot/parent/assets-category/deleteAssets.png",
-      "note": "true"
-    }
-  },
-  "./screenshot/parent/product/": {
-    "deleteProduct": {
-      "path": "./screenshot/parent/product/deleteProduct.png",
-      "note": "true"
-    },
-    "addProduct": {
-      "path": "./screenshot/parent/product/addProduct.png",
-      "note": "true"
-    },
-    "editProduct": {
-      "path": "./screenshot/parent/product/editProduct.png",
-      "note": "true"
-    },
-    "referencedProduct": {
-      "path": "./screenshot/parent/product/referencedProduct.png",
-      "note": "true"
-    }
-  },
-  "./screenshot/parent/sales-agents/": {
-    "addSalesAgent": {
-      "path": "./screenshot/parent/sales-agents/addSalesAgent.png",
-      "note": "true"
-    },
-    "AddRoleForSelesAgent": {
-      "path": "./screenshot/parent/sales-agents/AddRoleForSelesAgent.png",
-      "note": "true"
-    },
-    "removeRoleForSelesAgent": {
-      "path": "./screenshot/parent/sales-agents/removeRoleForSelesAgent.png",
-      "note": "true"
-    },
-    "emailVarificaionInSelesAgent": {
-      "path": "./screenshot/parent/sales-agents/emailVarificaionInSelesAgent.png",
-      "note": "false"
-    }
-  },
-  "./screenshot/parent/lead/": {
-    "addLead": {
-      "path": "./screenshot/parent/lead/addLead.png",
-      "note": "true"
-    },
-    "editLeadFirst": {
-      "path": "./screenshot/parent/lead/editLeadFirst.png",
-      "note": "true"
-    },
-    "editLeadSecound": {
-      "path": "./screenshot/parent/lead/editLeadSecound.png",
-      "note": "true"
-    },
-    "activityInLead": {
-      "path": "./screenshot/parent/lead/activityInLead.png",
-      "note": "true"
-    },
-    "documentInLead": {
-      "path": "./screenshot/parent/lead/documentInLead.png",
-      "note": "false"
-    },
-    "exportLeadFileFilter": {
-      "path": "./screenshot/parent/lead/exportLeadFileFilter.png",
-      "note": "false"
-    }
-  },
-  "./screenshot/parent/customer/": {
-    "addCustomer": {
-      "path": "./screenshot/parent/customer/addCustomer.png",
-      "note": "true"
-    },
-    "editCustomer": {
-      "path": "./screenshot/parent/customer/editCustomer.png",
-      "note": "false"
-    },
-    "exportCustomerFilter1": {
-      "path": "./screenshot/parent/customer/exportCustomerFilter1.png",
-      "note": "true"
-    },
-    "exportCustomerFilter2": {
-      "path": "./screenshot/parent/customer/exportCustomerFilter2.png",
-      "note": "true"
-    },
-    "exportCustomerFilter3": {
-      "path": "./screenshot/parent/customer/exportCustomerFilter3.png",
-      "note": "true"
-    },
-    "exportCustomerFilter4": {
-      "path": "./screenshot/parent/customer/exportCustomerFilter4.png",
-      "note": "true"
-    },
-    "deleteCustomer": {
-      "path": "./screenshot/parent/customer/deleteCustomer.png",
-      "note": "true"
-    }
-  },
-  "./screenshot/parent/quotation/": {
-    "approveQuotation": {
-      "path": "./screenshot/parent/quotation/approveQuotation.png",
-      "note": "false"
-    },
-    "rejectQuotation": {
-      "path": "./screenshot/parent/quotation/rejectQuotation.png",
-      "note": "false"
-    },
-    "rejectedByCustomerQuotation": {
-      "path": "./screenshot/parent/quotation/rejectedByCustomerQuotation.png",
-      "note": "false"
-    },
-    "createQuotation": {
-      "path": "./screenshot/parent/quotation/createQuotation.png",
-      "note": "false"
-    },
-    "copyQuotation": {
-      "path": "./screenshot/parent/quotation/copyQuotation.png",
       "note": "false"
     }
   }

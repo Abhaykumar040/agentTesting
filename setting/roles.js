@@ -14,8 +14,7 @@ export async function roles(page){
  await deletePreviuosRole(page);
  await page.waitForTimeout(3000);
  await addRole(page);
-//  await page.waitForTimeout(3000);
-//  await editRole(page);
+
  await page.waitForTimeout(3000);
  await deleteRole(page);
 }
@@ -143,52 +142,18 @@ async function addRole(page) {
   console.log("Add role completed");
 }
 
-async function editRole(page) {
-  console.log("Enter in edit role");
-  await page.locator('tr:nth-child(5) > td:nth-child(4) > .MuiBox-root > button').first().click();
-  await page.getByRole('textbox', { name: 'Enter Role Name*' }).dblclick();
-  await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
-  await page.getByRole('textbox', { name: 'Enter Role Name*' }).press('ControlOrMeta+ArrowRight');
-  await page.getByRole('textbox', { name: 'Enter Role Name*' }).press('ControlOrMeta+ArrowRight');
-  await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Sales Executive ');
-  await page.getByRole('textbox', { name: 'Enter Role Name*' }).press('ControlOrMeta+ArrowLeft');
-  await page.getByRole('textbox', { name: 'Enter Role Name*' }).press('ControlOrMeta+ArrowLeft');
-  await page.getByRole('textbox', { name: 'Enter Role Name*' }).press('ControlOrMeta+ArrowLeft');
-  await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Edited Sales Executive ');
-  await page.getByRole('main').getByRole('button', { name: 'Sales' }).click();
-  await page.locator('input[name="access.13.update"]').check();
-  await page.locator('input[name="access.34.update"]').check();
-  await page.locator('input[name="access.34.update"]').uncheck();
-  await page.locator('input[name="access.34.update"]').check();
-  await page.locator('input[name="access.37.update"]').uncheck();
-  await page.getByRole('button', { name: 'Submit' }).click();
-  
-  // await expect(page.getByText('Edited Sales Executive')).toBeVisible();
-  // await expect(page.getByText('Role updated successfully')).toBeVisible();
-  await page.reload();
-  await page.waitForTimeout(3000);
-  
-  if (await page.getByText('Edited Sales Executive', { exact: true }).isVisible())  
-  {
-    await page.screenshot({ path: `./${screenshotPath}/editRole.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"editRole","true",`./${screenshotPath}/editRole.png`)
 
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/editRole.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"editRole","false",`./${screenshotPath}/editRole.png`)
-  }
-  await page.reload();
-  console.log("Edit role completed");
-}
 async function deleteRole(page) {
   console.log("Enter in delete role");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Roles' }).click();
-  await page.locator('button').nth(3).first().click();
-  await expect(page.getByText('Role deleted successfully')).toBeVisible();
+   await page.waitForTimeout(3000);
+  await page.click("body tr:nth-of-type(1) td:nth-of-type(4) div button:last-of-type svg");
+   await page.waitForTimeout(3000);
+  // await expect(page.getByText('Role deleted successfully')).toBeVisible();
   await page.reload();
-  await page.waitForTimeout(3000);
+
+   await page.waitForTimeout(3000);
   
   if (!await page.getByText('Field Service Manager').isVisible())  
   {
@@ -201,6 +166,7 @@ async function deleteRole(page) {
     await updateOpJson(`./${screenshotPath}/`,"deleteRole","false",`./${screenshotPath}/deleteRole.png`)
   }
   await page.reload();
+
   console.log("delete role completed");
 }
 

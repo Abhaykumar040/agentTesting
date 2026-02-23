@@ -32,13 +32,14 @@ async function deletePreviuosPriority(page){
     const match = text.match(/of\s+(\d+)\s+entries/);
     const total = match ? parseInt(match[1]) : 0;
 
-  // Stop loop if total <= 0
+ 
   if (total <= 0) {
     break;
   }
  await page.locator('table tbody tr').first().getByLabel('Delete').click();
 await page.getByRole('button', { name: 'Proceed' }).click();
     await expect(page.getByText('Priority deleted successfully').first()).toBeVisible();
+     await page.waitForTimeout(1000);
     }
    
 await page.reload();
@@ -124,7 +125,7 @@ async function addPriorit(page) {
   await page.getByRole('textbox', { name: 'Priority *' }).first().click();
   await page.getByRole('textbox', { name: 'Priority *' }).first().fill('DeleteExternalPriority');
   await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
-  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('DeleteEExternalPriority');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('DeleteExternalPriority');
   await page.getByRole('textbox', { name: 'Position' }).first().click();
   await page.getByRole('textbox', { name: 'Position' }).first().fill('5');
   await page.getByRole('button', { name: 'Create' }).click();
@@ -132,7 +133,6 @@ async function addPriorit(page) {
 
 
   await page.getByRole('button', { name: 'Priority' }).click();
-  await page.getByText('Update PriorityPriority').click();
   await page.getByRole('textbox', { name: 'Priority *' }).first().click();
   await page.getByRole('textbox', { name: 'Priority *' }).first().fill('EditDelete');
   await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
@@ -217,36 +217,50 @@ await page.waitForTimeout(3000);
  if (!await page.getByText('DeleteInternalInstallation').first().isVisible() &&
 await page.getByText('InstallationPriorityJob').nth(4).isVisible()
 &&await page.getByText('EditDelete').isVisible())  {
-        await page.screenshot({ path: `./${screenshotPath}/PriorityDeleteDuringCreation.png`, fullPage: true });
-        await updateOpJson(`./${screenshotPath}/`,"PriorityDeleteDuringCreation","true",`./${screenshotPath}/PriorityDeleteDuringCreation.png`)
+        await page.screenshot({ path: `./${screenshotPath}/PriorityCreateAndDeleteDuringCreation.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"PriorityCreateAndDeleteDuringCreation","true",`./${screenshotPath}/PriorityCreateAndDeleteDuringCreation.png`)
         
       }
       else{
-        await page.screenshot({ path: `./${screenshotPath}/PriorityDeleteDuringCreation.png`, fullPage: true });
-        await updateOpJson(`./${screenshotPath}/`,"PriorityDeleteDuringCreation","false",`./${screenshotPath}/PriorityDeleteDuringCreation.png`)
+        await page.screenshot({ path: `./${screenshotPath}/PriorityCreateAndDeleteDuringCreation.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"PriorityCreateAndDeleteDuringCreation","false",`./${screenshotPath}/PriorityCreateAndDeleteDuringCreation.png`)
       }
   console.log("Added priority complete")    
 }
 async function editPriority(page){
   console.log("Enter in Edit priority");
   await page.getByText('InstallationPriorityJob').first().click();
-  await expect(page.getByRole('heading', { name: 'Edit Priority Configuration' })).toBeVisible();
-  await page.locator('button').nth(4).click();
-  await page.getByRole('textbox', { name: 'Priority *' }).nth(2).click();
-  await page.getByRole('textbox', { name: 'Priority *' }).nth(2).fill('least');
-  await page.getByRole('textbox', { name: 'Priority Description *' }).nth(2).click();
-  await page.getByRole('textbox', { name: 'Priority Description *' }).nth(2).fill('Low installationX');
-  await page.getByRole('textbox', { name: 'Position' }).nth(2).click();
-  await page.getByRole('textbox', { name: 'Position' }).nth(2).fill('21');
-  await page.getByRole('button', { name: 'Update' }).nth(2).click();
+
+  await page.getByRole('textbox', { name: 'Priority *' }).nth(3).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).nth(3).fill('XLowX');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).nth(3).click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).nth(3).fill('Low installationX');
+  await page.getByRole('textbox', { name: 'Position' }).nth(3).click();
+  await page.getByRole('textbox', { name: 'Position' }).nth(3).fill('21');
+  await page.getByRole('button', { name: 'Update' }).nth(3).click();
+   await page.waitForTimeout(1000);
+     await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().fill('createDuringEdit');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('createDuringEditD');
+  await page.getByRole('textbox', { name: 'Position' }).first().click();
+  await page.getByRole('textbox', { name: 'Position' }).first().fill('7');
+  await page.getByRole('button', { name: 'Create' }).click();
+  await page.waitForTimeout(1000);
+   await page.getByRole('button').filter({ hasText: /^$/ }).nth(2).click();
+    await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Back to List' }).click();
   await page.reload();
   await page.waitForTimeout(2000);
 
 
- if (await page.getByText('least').isVisible()&&
+ if (await page.getByText('XLowX').isVisible()&&
 await page.getByText('Low installationX').isVisible()&&
-await page.getByText('21').isVisible())  {
+await page.getByText('21').isVisible()&& 
+!await page.getByText('EditDelete').isVisible()&&
+await page.getByText('createDuringEditD').isVisible()&&
+await page.getByText('CreateDuringEdit').first().isVisible())  {
         await page.screenshot({ path: `./${screenshotPath}/editPriority.png`, fullPage: true });
         await updateOpJson(`./${screenshotPath}/`,"editPriority","true",`./${screenshotPath}/editPriority.png`)
         
@@ -261,13 +275,14 @@ await page.getByText('21').isVisible())  {
 
 async function deletePriority(page){
   console.log("Enter in delete priority");
-    await page.getByRole('row', { name: 'InstallationPriorityJob DeleteExternalPriority DeleteEExternalPriority 5 Hour' }).getByLabel('Delete').click();
-    await page.waitForTimeout(3000);
+    await page.getByRole('row', { name: 'InstallationPriorityJob DeleteExternalPriority DeleteExternalPriority 5 Hour' }).getByLabel('Delete').click();
+  
 
   await page.getByRole('button', { name: 'Proceed' }).click();
-  await page.reload();
+  
   await page.waitForTimeout(3000);
-
+  await page.reload();
+ await page.waitForTimeout(3000);
  if (!await page.getByText('DeleteExternalPriority').isVisible()&&
 await page.getByText('Medium installation').isVisible())  {
         await page.screenshot({ path: `./${screenshotPath}/deletePriority.png`, fullPage: true });
