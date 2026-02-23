@@ -14,11 +14,11 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function lead(page){
-  // await addLead(page);
-  // await page.waitForTimeout(3000);
-  // await editLead(page);
+  await addLead(page);
   await page.waitForTimeout(3000);
-  // await emailThreadInLead(page);
+  await editLead(page);
+  await page.waitForTimeout(3000);
+  await emailThreadInLead(page);
   await page.waitForTimeout(3000);
   await activityInLead(page);
   await page.waitForTimeout(3000);

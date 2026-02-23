@@ -12,11 +12,11 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 
 export async function assetsCategory(page){
-//  await deletePreviuosAssets(page);
-//  await page.waitForTimeout(2000);
-//  await addAssets(page);
-//  await page.waitForTimeout(2000);
-//  await editAssets(page);
+ await deletePreviuosAssets(page);
+ await page.waitForTimeout(2000);
+ await addAssets(page);
+ await page.waitForTimeout(2000);
+ await editAssets(page);
  await page.waitForTimeout(2000);
  await deleteAssets(page);
 }

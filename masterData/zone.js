@@ -47,6 +47,7 @@ async function deletePreviuosZone(page) {
 }
 async function addZone(page) {
   console.log("Enter in add zone");
+  //1st zone
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Zone' }).click();
   await page.getByRole('button', { name: 'Add New Zone' }).click();

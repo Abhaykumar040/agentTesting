@@ -70,7 +70,7 @@ async function addProduct(page){
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('123');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('6532');
   await page.getByRole('button', { name: 'Add' }).click();
@@ -91,7 +91,7 @@ async function addProduct(page){
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('123');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('6532');
   await page.getByRole('button', { name: 'Add' }).click();
@@ -112,7 +112,7 @@ async function addProduct(page){
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('123');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('6532');
   await page.getByRole('button', { name: 'Add' }).click();
@@ -133,7 +133,7 @@ async function addProduct(page){
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('123');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('6532');
   await page.getByRole('button', { name: 'Add' }).click();
@@ -154,7 +154,7 @@ async function addProduct(page){
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('123');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('6532');
   await page.getByRole('button', { name: 'Add' }).click();
@@ -175,7 +175,7 @@ async function addProduct(page){
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('123');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('6532');
   await page.getByRole('button', { name: 'Add' }).click();
@@ -214,7 +214,7 @@ async function editProduct(page) {
   await page.getByRole('textbox', { name: 'Price *' }).click();
   await page.getByRole('textbox', { name: 'Price *' }).fill('4789');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('7896');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('2');
   await page.getByRole('textbox', { name: 'HSN Code' }).dblclick();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('54852');
   await page.getByRole('button', { name: 'Status Active' }).click();
@@ -283,7 +283,7 @@ async function referencedProduct(page) {
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('450');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('5205');
   await page.getByRole('tab', { name: 'Referenced Products' }).click();

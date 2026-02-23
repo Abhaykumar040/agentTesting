@@ -47,12 +47,12 @@ if (!user) {
 // );
 // console.log("userDetails",u11.matchedCount, u11.modifiedCount);
 
-// const leads = await db.collection("leads").updateMany(
-//   {  company,
-//   status:1 },
-//   { $set: { status: 3 } }
-// );
-// console.log("leads",leads.matchedCount, leads.modifiedCount);
+const leads = await db.collection("leads").updateMany(
+  {  company,
+  status:1 },
+  { $set: { status: 3 } }
+);
+console.log("leads",leads.matchedCount, leads.modifiedCount);
 
 // const tickets = await db.collection("supportcases").updateMany(
 //   {  company:companyId,
@@ -91,15 +91,7 @@ const crmSetting = await db.collection("crmsettings").updateOne(
 );
 console.log("crmSettings",crmSetting.matchedCount, crmSetting.modifiedCount);
 
-// const invoice = await db.collection("invoices").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set:{ status: 3 } }
-// );
-// console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
-
-
-const invoice = await db.collection("quotations").updateMany(
+const invoice = await db.collection("invoices").updateMany(
   {  company:companyId,
   status:1 },
   { $set:{ status: 3 } }
@@ -107,13 +99,21 @@ const invoice = await db.collection("quotations").updateMany(
 console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
 
 
+const quotation = await db.collection("quotations").updateMany(
+  {  company:companyId,
+  status:1 },
+  { $set:{ status: 3 } }
+);
+console.log("quotation",quotation.matchedCount, quotation.modifiedCount);
 
-// const zone = await db.collection("zones").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set:{ status: 3 } }
-// );
-// console.log("invoice",zone.matchedCount, zone.modifiedCount);
+
+
+const zone = await db.collection("zones").updateMany(
+  {  company:companyId,
+  status:1 },
+  { $set:{ status: 3 } }
+);
+console.log("invoice",zone.matchedCount, zone.modifiedCount);
 
 
 
@@ -130,7 +130,10 @@ console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
 //   {  company: company ,type,status:1},
 //   { $set: { status: 3 } }
 // );
+//
 
+
+//don't use this
 // const u4 = await db.collection("agents").updateMany(
 //   {  company: company,status:1 },
 //   { $set: { status: 3 } }
