@@ -66,13 +66,13 @@ async function caseCategoriesSetting(page){
   await page.getByRole('button', { name: 'Add Category' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Category Name' }).click();
-  await page.getByRole('textbox', { name: 'Category Name' }).fill('Product Not Working8');
+  await page.getByRole('textbox', { name: 'Category Name' }).fill('Product Not Working');
   await page.getByRole('button').nth(1).click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'PrioritySupport2' }).click();
   await page.getByRole('button').nth(2).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Support Case Fields' }).click();
+  await page.getByRole('option', { name: 'Status Support Case' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Add subcategory' }).click();
   await page.getByRole('textbox', { name: 'Add subcategory' }).fill('NO Power');
@@ -91,7 +91,7 @@ async function caseCategoriesSetting(page){
   await page.getByRole('option', { name: 'PrioritySupport1' }).click();
   await page.getByRole('button').nth(2).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Support Case Fields' }).click();
+  await page.getByRole('option', { name: 'Status Support Case' }).click();
   await page.getByRole('textbox', { name: 'Add subcategory' }).click();
   await page.getByRole('textbox', { name: 'Add subcategory' }).fill('Installation');
   await page.getByRole('button', { name: 'Add' }).click();
@@ -127,7 +127,7 @@ async function editcaseCategoriesSetting(page){
   await page.getByRole('button').nth(1).click();
   await page.getByRole('option', { name: 'PrioritySupport2' }).click();
   await page.getByRole('button').nth(2).click();
-  await page.getByRole('option', { name: 'Support Case Fields' }).click();
+  await page.getByRole('option', { name: 'Status Support Case' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Add subcategory' }).click();
   await page.getByRole('textbox', { name: 'Add subcategory' }).fill('NO Power');

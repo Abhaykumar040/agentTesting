@@ -32,7 +32,7 @@ async function addNewTickets(page) {
    await page.getByRole('option', { name: 'Anil Rathor (akbk6551+1136@' }).click();
   // await page.getByRole('button', { name: 'Select Case Issue' }).click();
   await page.getByRole('button', { name: 'Select Case Issue' }).click();
-  await page.getByRole('option', { name: 'Product Not Working8' }).click();
+  await page.getByRole('option', { name: 'Product Not Working' }).first().click();
   await page.getByRole('button', { name: 'Select Priority' }).click();
   await page.getByRole('option', { name: 'createdSupport2' }).click();
   await page.getByRole('button', { name: 'Select Status Profile' }).click();

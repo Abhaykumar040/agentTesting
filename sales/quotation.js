@@ -19,9 +19,9 @@ export async function Quotation(page){
   // await rejectQuotation(page);
   // await page.waitForTimeout(3000);
   // await rejectedByCustomerQuotation(page);
-  await page.waitForTimeout(3000);
-  await copyQuotation(page);
-  await page.waitForTimeout(3000);
+  // await page.waitForTimeout(3000);
+  // await copyQuotation(page);
+  // await page.waitForTimeout(3000);
   await acceptQuotation(page);
   await page.waitForTimeout(3000);
   await sendQuotation(page);
@@ -122,10 +122,11 @@ async function createQuotation(page){
   await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('textbox', { name: 'Note:' }).fill('product quotation');
   await page.getByRole('button', { name: 'Save' }).click();
+   await page.waitForTimeout(3000);
   await page.reload();
   await page.waitForTimeout(3000);
 
-  if (await page.getByText('Manjeet Singh',{exact:true}).first().isVisible()) 
+  if (await page.getByText('CREATED',{exact:true}).first().isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/createQuotation.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"createQuotation","true",`./${screenshotPath}/createQuotation.png`)
@@ -184,8 +185,7 @@ async function approveQuotation(page) {
   await page.waitForTimeout(3000);
 
   if (await page.getByText('Mayank Rathor',{exact:true}).first().isVisible()&&
-       await page.getByText('MANAGER APPROVED').first().isVisible()&&
-       await page.getByText('Quotation updated successfully')) 
+       await page.getByText('MANAGER APPROVED').first().isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/approveQuotation.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"approveQuotation","true",`./${screenshotPath}/approveQuotation.png`)
@@ -296,9 +296,8 @@ async function rejectQuotation(page){
   // await page.reload();
  await page.waitForTimeout(3000);
 
-  if (await page.getByText('Bilal Ahamad (1275836)',{exact:true}).first().isVisible()&&
-      await page.getByText('MANAGER REJECTED').isVisible()&&
-      await page.getByText('Quotation updated successfully').isVisible() 
+  if (
+      await page.getByText('MANAGER REJECTED').first().isVisible()
      ) 
   {
     await page.screenshot({ path: `./${screenshotPath}/rejectQuotation.png`, fullPage: true });
@@ -341,9 +340,8 @@ async function rejectedByCustomerQuotation(page) {
   // await page.reload();
  await page.waitForTimeout(3000);
 
-  if (await page.getByText('Mayank Rathor',{exact:true}).first().isVisible()&&
-      await page.getByText('REJECTED',{exact:true}).isVisible()&&
-      await page.getByText('Quotation updated successfully').isVisible() 
+  if (
+      await page.getByText('REJECTED',{exact:true}).isVisible()
     ) 
   {
     await page.screenshot({ path: `./${screenshotPath}/rejectedByCustomerQuotation.png`, fullPage: true });

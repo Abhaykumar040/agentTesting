@@ -54,19 +54,19 @@ const leads = await db.collection("leads").updateMany(
 );
 console.log("leads",leads.matchedCount, leads.modifiedCount);
 
-// const tickets = await db.collection("supportcases").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set: { status: 3 } }
-// );
-// console.log("ticekts",tickets.matchedCount, tickets.modifiedCount);
+const tickets = await db.collection("supportcases").updateMany(
+  {  company:companyId,
+  status:1 },
+  { $set: { status: 3 } }
+);
+console.log("ticekts",tickets.matchedCount, tickets.modifiedCount);
 
-// const queue = await db.collection("queues").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set: { status: 3 } }
-// );
-// console.log("queue",queue.matchedCount, queue.modifiedCount);
+const queue = await db.collection("queues").updateMany(
+  {  company:companyId,
+  status:1 },
+  { $set: { status: 3 } }
+);
+console.log("queue",queue.matchedCount, queue.modifiedCount);
 
 const teams = await db.collection("teams").updateMany(
   {  company:companyId,
@@ -133,10 +133,5 @@ console.log("invoice",zone.matchedCount, zone.modifiedCount);
 //
 
 
-//don't use this
-// const u4 = await db.collection("agents").updateMany(
-//   {  company: company,status:1 },
-//   { $set: { status: 3 } }
-// );
 
 console.log("agent updated:", u4.matchedCount);
