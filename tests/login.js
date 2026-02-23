@@ -12,10 +12,10 @@ export async function loginRight(page){
   await page.goto(data.url);
 
   await page.getByRole('textbox', { name: 'Email' }).click();
-  await page.getByRole('textbox', { name: 'Email' }).fill('akbk6551+1111@gmail.com');
+  await page.getByRole('textbox', { name: 'Email' }).fill('abhay+40@zynka.ai');
 
   await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill('Anshil@123');
+  await page.getByRole('textbox', { name: 'Password' }).fill('Zynka@123');
   await page.getByRole('button', { name: 'Login' }).click();
   await page.waitForURL('**/dashboard/');
 

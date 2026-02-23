@@ -1,0 +1,473 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - link "Zynka" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - img "Zynka" [ref=e8]
+        - button [ref=e9] [cursor=pointer]:
+          - img [ref=e10]
+      - button "VI2 change" [ref=e14] [cursor=pointer]:
+        - paragraph [ref=e15]: VI2
+        - heading "change" [level=6] [ref=e16]
+      - list [ref=e19]:
+        - listitem [ref=e20]:
+          - link "Dashboard" [ref=e21] [cursor=pointer]:
+            - /url: /dashboard/
+            - img [ref=e23]
+            - paragraph [ref=e28]: Dashboard
+        - listitem [ref=e29]:
+          - generic [ref=e30]: Applications
+        - listitem [ref=e31]:
+          - button "Field Service" [ref=e32] [cursor=pointer]:
+            - img [ref=e34]
+            - generic [ref=e36]:
+              - paragraph [ref=e37]: Field Service
+              - img [ref=e39]
+        - listitem [ref=e41]:
+          - button "Customer Service" [ref=e42] [cursor=pointer]:
+            - img [ref=e44]
+            - generic [ref=e46]:
+              - paragraph [ref=e47]: Customer Service
+              - img [ref=e49]
+          - list [ref=e51]:
+            - generic [ref=e53]:
+              - listitem [ref=e54]:
+                - link "Customers" [ref=e55] [cursor=pointer]:
+                  - /url: /crm/customers/
+                  - img [ref=e57]
+                  - paragraph [ref=e60]: Customers
+              - listitem [ref=e61]:
+                - link "Tickets" [ref=e62] [cursor=pointer]:
+                  - /url: /crm/ticket/
+                  - img [ref=e64]
+                  - paragraph [ref=e67]: Tickets
+              - listitem [ref=e68]:
+                - link "CS-Agents" [ref=e69] [cursor=pointer]:
+                  - /url: /crm/agent/
+                  - img [ref=e71]
+                  - paragraph [ref=e74]: CS-Agents
+              - listitem [ref=e75]:
+                - link "Queues" [ref=e76] [cursor=pointer]:
+                  - /url: /crm/queue/
+                  - img [ref=e78]
+                  - paragraph [ref=e81]: Queues
+              - listitem [ref=e82]:
+                - link "Teams" [ref=e83] [cursor=pointer]:
+                  - /url: /crm/teams/
+                  - img [ref=e85]
+                  - paragraph [ref=e88]: Teams
+              - listitem [ref=e89]:
+                - link "FAQs" [ref=e90] [cursor=pointer]:
+                  - /url: /faqs/
+                  - img [ref=e92]
+                  - paragraph [ref=e95]: FAQs
+              - listitem [ref=e96]:
+                - link "Settings" [ref=e97] [cursor=pointer]:
+                  - /url: /crm/settings/
+                  - img [ref=e99]
+                  - paragraph [ref=e102]: Settings
+        - listitem [ref=e103]:
+          - button "Sales" [ref=e104] [cursor=pointer]:
+            - img [ref=e106]
+            - generic [ref=e114]:
+              - paragraph [ref=e115]: Sales
+              - img [ref=e117]
+        - listitem [ref=e119]:
+          - button "Master Data" [ref=e120] [cursor=pointer]:
+            - img [ref=e122]
+            - generic [ref=e125]:
+              - paragraph [ref=e126]: Master Data
+              - img [ref=e128]
+        - listitem [ref=e130]:
+          - button "Settings" [ref=e131] [cursor=pointer]:
+            - img [ref=e133]
+            - generic [ref=e135]:
+              - paragraph [ref=e136]: Settings
+              - img [ref=e138]
+    - generic [ref=e140]:
+      - banner [ref=e141]:
+        - img [ref=e147] [cursor=pointer]
+      - main [ref=e151]:
+        - generic [ref=e154]:
+          - generic [ref=e156]:
+            - generic [ref=e160]:
+              - combobox "Select State" [ref=e161]
+              - button "Open" [ref=e163] [cursor=pointer]:
+                - img [ref=e164]
+            - generic [ref=e169]:
+              - combobox "Select City" [ref=e170]
+              - button "Open" [ref=e172] [cursor=pointer]:
+                - img [ref=e173]
+            - generic [ref=e178]:
+              - combobox "Select Customer Type" [ref=e179]
+              - button "Open" [ref=e181] [cursor=pointer]:
+                - img [ref=e182]
+            - generic [ref=e187]:
+              - combobox "Select Customer" [ref=e188]
+              - button "Open" [ref=e190] [cursor=pointer]:
+                - img [ref=e191]
+            - generic [ref=e196]:
+              - combobox "Select Dealer Code" [ref=e197]
+              - button "Open" [ref=e199] [cursor=pointer]:
+                - img [ref=e200]
+          - separator [ref=e202]
+          - generic [ref=e203]:
+            - textbox "Search Customer" [ref=e206]
+            - generic [ref=e207]:
+              - button "Reload" [ref=e208] [cursor=pointer]:
+                - img [ref=e209]
+              - generic [ref=e214]:
+                - button "25" [ref=e215] [cursor=pointer]
+                - textbox: "25"
+                - img
+              - button "Add New Customer" [ref=e216] [cursor=pointer]:
+                - img [ref=e218]
+                - text: Add New Customer
+              - button "Export To Excel" [ref=e220] [cursor=pointer]: Export To Excel
+              - button "Export To PDF" [ref=e221] [cursor=pointer]: Export To PDF
+          - table [ref=e223]:
+            - rowgroup [ref=e224]:
+              - row "Customer Email Dealer/Company Name Dealer/Company Code City State Customer Type Phone Actions" [ref=e225]:
+                - columnheader "Customer" [ref=e226]:
+                  - paragraph [ref=e228] [cursor=pointer]: Customer
+                - columnheader "Email" [ref=e229]:
+                  - paragraph [ref=e231] [cursor=pointer]: Email
+                - columnheader "Dealer/Company Name" [ref=e232]:
+                  - paragraph [ref=e234] [cursor=pointer]: Dealer/Company Name
+                - columnheader "Dealer/Company Code" [ref=e235]:
+                  - paragraph [ref=e237] [cursor=pointer]: Dealer/Company Code
+                - columnheader "City" [ref=e238]:
+                  - paragraph [ref=e240] [cursor=pointer]: City
+                - columnheader "State" [ref=e241]:
+                  - paragraph [ref=e243] [cursor=pointer]: State
+                - columnheader "Customer Type" [ref=e244]:
+                  - paragraph [ref=e246] [cursor=pointer]: Customer Type
+                - columnheader "Phone" [ref=e247]:
+                  - paragraph [ref=e249] [cursor=pointer]: Phone
+                - columnheader "Actions" [ref=e250]:
+                  - paragraph [ref=e252]: Actions
+            - rowgroup [ref=e253]:
+              - row "Mayank Rathor akbk6551+1139@gmail.com - - Khamaria Uttar Pradesh individual 9123456790 Edit Delete Email not verified" [ref=e254]:
+                - cell "Mayank Rathor" [ref=e255]:
+                  - paragraph [ref=e257] [cursor=pointer]: Mayank Rathor
+                - cell "akbk6551+1139@gmail.com" [ref=e258]:
+                  - paragraph [ref=e259]: akbk6551+1139@gmail.com
+                - cell "-" [ref=e260]:
+                  - paragraph [ref=e261]: "-"
+                - cell "-" [ref=e262]:
+                  - paragraph [ref=e263]: "-"
+                - cell "Khamaria" [ref=e264]:
+                  - paragraph [ref=e265]: Khamaria
+                - cell "Uttar Pradesh" [ref=e266]:
+                  - paragraph [ref=e267]: Uttar Pradesh
+                - cell "individual" [ref=e268]:
+                  - paragraph [ref=e269]: individual
+                - cell "9123456790" [ref=e270]:
+                  - paragraph [ref=e271]: "9123456790"
+                - cell "Edit Delete Email not verified" [ref=e272]:
+                  - generic [ref=e273]:
+                    - button "Edit" [ref=e274] [cursor=pointer]:
+                      - img [ref=e275]
+                    - button "Delete" [ref=e279] [cursor=pointer]:
+                      - img [ref=e280]
+                    - button "Email not verified" [ref=e282] [cursor=pointer]:
+                      - img [ref=e283]
+              - row "Anil Rathor akbk6551+1136@gmail.com - - Khamaria Uttar Pradesh individual 9103456789 Edit Delete Email not verified" [ref=e287]:
+                - cell "Anil Rathor" [ref=e288]:
+                  - paragraph [ref=e290] [cursor=pointer]: Anil Rathor
+                - cell "akbk6551+1136@gmail.com" [ref=e291]:
+                  - paragraph [ref=e292]: akbk6551+1136@gmail.com
+                - cell "-" [ref=e293]:
+                  - paragraph [ref=e294]: "-"
+                - cell "-" [ref=e295]:
+                  - paragraph [ref=e296]: "-"
+                - cell "Khamaria" [ref=e297]:
+                  - paragraph [ref=e298]: Khamaria
+                - cell "Uttar Pradesh" [ref=e299]:
+                  - paragraph [ref=e300]: Uttar Pradesh
+                - cell "individual" [ref=e301]:
+                  - paragraph [ref=e302]: individual
+                - cell "9103456789" [ref=e303]:
+                  - paragraph [ref=e304]: "9103456789"
+                - cell "Edit Delete Email not verified" [ref=e305]:
+                  - generic [ref=e306]:
+                    - button "Edit" [ref=e307] [cursor=pointer]:
+                      - img [ref=e308]
+                    - button "Delete" [ref=e312] [cursor=pointer]:
+                      - img [ref=e313]
+                    - button "Email not verified" [ref=e315] [cursor=pointer]:
+                      - img [ref=e316]
+              - row "Jony Rathor akbk6551+1109@gmail.com - - Khamaria Uttar Pradesh individual 9834724767 Edit Delete Email not verified" [ref=e320]:
+                - cell "Jony Rathor" [ref=e321]:
+                  - paragraph [ref=e323] [cursor=pointer]: Jony Rathor
+                - cell "akbk6551+1109@gmail.com" [ref=e324]:
+                  - paragraph [ref=e325]: akbk6551+1109@gmail.com
+                - cell "-" [ref=e326]:
+                  - paragraph [ref=e327]: "-"
+                - cell "-" [ref=e328]:
+                  - paragraph [ref=e329]: "-"
+                - cell "Khamaria" [ref=e330]:
+                  - paragraph [ref=e331]: Khamaria
+                - cell "Uttar Pradesh" [ref=e332]:
+                  - paragraph [ref=e333]: Uttar Pradesh
+                - cell "individual" [ref=e334]:
+                  - paragraph [ref=e335]: individual
+                - cell "9834724767" [ref=e336]:
+                  - paragraph [ref=e337]: "9834724767"
+                - cell "Edit Delete Email not verified" [ref=e338]:
+                  - generic [ref=e339]:
+                    - button "Edit" [ref=e340] [cursor=pointer]:
+                      - img [ref=e341]
+                    - button "Delete" [ref=e345] [cursor=pointer]:
+                      - img [ref=e346]
+                    - button "Email not verified" [ref=e348] [cursor=pointer]:
+                      - img [ref=e349]
+              - row "Neeraj Rathor akbk6551+1217@gmail.com - - Khamaria Uttar Pradesh individual 9834724790 Edit Delete Email not verified" [ref=e353]:
+                - cell "Neeraj Rathor" [ref=e354]:
+                  - paragraph [ref=e356] [cursor=pointer]: Neeraj Rathor
+                - cell "akbk6551+1217@gmail.com" [ref=e357]:
+                  - paragraph [ref=e358]: akbk6551+1217@gmail.com
+                - cell "-" [ref=e359]:
+                  - paragraph [ref=e360]: "-"
+                - cell "-" [ref=e361]:
+                  - paragraph [ref=e362]: "-"
+                - cell "Khamaria" [ref=e363]:
+                  - paragraph [ref=e364]: Khamaria
+                - cell "Uttar Pradesh" [ref=e365]:
+                  - paragraph [ref=e366]: Uttar Pradesh
+                - cell "individual" [ref=e367]:
+                  - paragraph [ref=e368]: individual
+                - cell "9834724790" [ref=e369]:
+                  - paragraph [ref=e370]: "9834724790"
+                - cell "Edit Delete Email not verified" [ref=e371]:
+                  - generic [ref=e372]:
+                    - button "Edit" [ref=e373] [cursor=pointer]:
+                      - img [ref=e374]
+                    - button "Delete" [ref=e378] [cursor=pointer]:
+                      - img [ref=e379]
+                    - button "Email not verified" [ref=e381] [cursor=pointer]:
+                      - img [ref=e382]
+              - row "Manjeet Singh akbk6551+1215@gmail.com - - Khamaria Uttar Pradesh individual 9834794787 Edit Delete Email not verified" [ref=e386]:
+                - cell "Manjeet Singh" [ref=e387]:
+                  - paragraph [ref=e389] [cursor=pointer]: Manjeet Singh
+                - cell "akbk6551+1215@gmail.com" [ref=e390]:
+                  - paragraph [ref=e391]: akbk6551+1215@gmail.com
+                - cell "-" [ref=e392]:
+                  - paragraph [ref=e393]: "-"
+                - cell "-" [ref=e394]:
+                  - paragraph [ref=e395]: "-"
+                - cell "Khamaria" [ref=e396]:
+                  - paragraph [ref=e397]: Khamaria
+                - cell "Uttar Pradesh" [ref=e398]:
+                  - paragraph [ref=e399]: Uttar Pradesh
+                - cell "individual" [ref=e400]:
+                  - paragraph [ref=e401]: individual
+                - cell "9834794787" [ref=e402]:
+                  - paragraph [ref=e403]: "9834794787"
+                - cell "Edit Delete Email not verified" [ref=e404]:
+                  - generic [ref=e405]:
+                    - button "Edit" [ref=e406] [cursor=pointer]:
+                      - img [ref=e407]
+                    - button "Delete" [ref=e411] [cursor=pointer]:
+                      - img [ref=e412]
+                    - button "Email not verified" [ref=e414] [cursor=pointer]:
+                      - img [ref=e415]
+              - row "Susil Rana akbk6551+1214@gmail.com - - Khamaria Uttar Pradesh individual 9834724784 Edit Delete Email not verified" [ref=e419]:
+                - cell "Susil Rana" [ref=e420]:
+                  - paragraph [ref=e422] [cursor=pointer]: Susil Rana
+                - cell "akbk6551+1214@gmail.com" [ref=e423]:
+                  - paragraph [ref=e424]: akbk6551+1214@gmail.com
+                - cell "-" [ref=e425]:
+                  - paragraph [ref=e426]: "-"
+                - cell "-" [ref=e427]:
+                  - paragraph [ref=e428]: "-"
+                - cell "Khamaria" [ref=e429]:
+                  - paragraph [ref=e430]: Khamaria
+                - cell "Uttar Pradesh" [ref=e431]:
+                  - paragraph [ref=e432]: Uttar Pradesh
+                - cell "individual" [ref=e433]:
+                  - paragraph [ref=e434]: individual
+                - cell "9834724784" [ref=e435]:
+                  - paragraph [ref=e436]: "9834724784"
+                - cell "Edit Delete Email not verified" [ref=e437]:
+                  - generic [ref=e438]:
+                    - button "Edit" [ref=e439] [cursor=pointer]:
+                      - img [ref=e440]
+                    - button "Delete" [ref=e444] [cursor=pointer]:
+                      - img [ref=e445]
+                    - button "Email not verified" [ref=e447] [cursor=pointer]:
+                      - img [ref=e448]
+              - row "Shivam maurya akbk6551+1213@gmail.com - - Khamaria Uttar Pradesh individual 9834724797 Edit Delete Email not verified" [ref=e452]:
+                - cell "Shivam maurya" [ref=e453]:
+                  - paragraph [ref=e455] [cursor=pointer]: Shivam maurya
+                - cell "akbk6551+1213@gmail.com" [ref=e456]:
+                  - paragraph [ref=e457]: akbk6551+1213@gmail.com
+                - cell "-" [ref=e458]:
+                  - paragraph [ref=e459]: "-"
+                - cell "-" [ref=e460]:
+                  - paragraph [ref=e461]: "-"
+                - cell "Khamaria" [ref=e462]:
+                  - paragraph [ref=e463]: Khamaria
+                - cell "Uttar Pradesh" [ref=e464]:
+                  - paragraph [ref=e465]: Uttar Pradesh
+                - cell "individual" [ref=e466]:
+                  - paragraph [ref=e467]: individual
+                - cell "9834724797" [ref=e468]:
+                  - paragraph [ref=e469]: "9834724797"
+                - cell "Edit Delete Email not verified" [ref=e470]:
+                  - generic [ref=e471]:
+                    - button "Edit" [ref=e472] [cursor=pointer]:
+                      - img [ref=e473]
+                    - button "Delete" [ref=e477] [cursor=pointer]:
+                      - img [ref=e478]
+                    - button "Email not verified" [ref=e480] [cursor=pointer]:
+                      - img [ref=e481]
+              - row "Shyam Sundar akbk6551+1212@gmail.com - - Khamaria Uttar Pradesh individual 9834724747 Edit Delete Email not verified" [ref=e485]:
+                - cell "Shyam Sundar" [ref=e486]:
+                  - paragraph [ref=e488] [cursor=pointer]: Shyam Sundar
+                - cell "akbk6551+1212@gmail.com" [ref=e489]:
+                  - paragraph [ref=e490]: akbk6551+1212@gmail.com
+                - cell "-" [ref=e491]:
+                  - paragraph [ref=e492]: "-"
+                - cell "-" [ref=e493]:
+                  - paragraph [ref=e494]: "-"
+                - cell "Khamaria" [ref=e495]:
+                  - paragraph [ref=e496]: Khamaria
+                - cell "Uttar Pradesh" [ref=e497]:
+                  - paragraph [ref=e498]: Uttar Pradesh
+                - cell "individual" [ref=e499]:
+                  - paragraph [ref=e500]: individual
+                - cell "9834724747" [ref=e501]:
+                  - paragraph [ref=e502]: "9834724747"
+                - cell "Edit Delete Email not verified" [ref=e503]:
+                  - generic [ref=e504]:
+                    - button "Edit" [ref=e505] [cursor=pointer]:
+                      - img [ref=e506]
+                    - button "Delete" [ref=e510] [cursor=pointer]:
+                      - img [ref=e511]
+                    - button "Email not verified" [ref=e513] [cursor=pointer]:
+                      - img [ref=e514]
+              - row "Jony Rathor akbk6551+1119@gmail.com - - Khamaria Uttar Pradesh individual 9834724787 Edit Delete Email not verified" [ref=e518]:
+                - cell "Jony Rathor" [ref=e519]:
+                  - paragraph [ref=e521] [cursor=pointer]: Jony Rathor
+                - cell "akbk6551+1119@gmail.com" [ref=e522]:
+                  - paragraph [ref=e523]: akbk6551+1119@gmail.com
+                - cell "-" [ref=e524]:
+                  - paragraph [ref=e525]: "-"
+                - cell "-" [ref=e526]:
+                  - paragraph [ref=e527]: "-"
+                - cell "Khamaria" [ref=e528]:
+                  - paragraph [ref=e529]: Khamaria
+                - cell "Uttar Pradesh" [ref=e530]:
+                  - paragraph [ref=e531]: Uttar Pradesh
+                - cell "individual" [ref=e532]:
+                  - paragraph [ref=e533]: individual
+                - cell "9834724787" [ref=e534]:
+                  - paragraph [ref=e535]: "9834724787"
+                - cell "Edit Delete Email not verified" [ref=e536]:
+                  - generic [ref=e537]:
+                    - button "Edit" [ref=e538] [cursor=pointer]:
+                      - img [ref=e539]
+                    - button "Delete" [ref=e543] [cursor=pointer]:
+                      - img [ref=e544]
+                    - button "Email not verified" [ref=e546] [cursor=pointer]:
+                      - img [ref=e547]
+              - row "Imran Khan akbk6551+1222@gmail.com Bilal Ahamad 1275836 Aurai Uttar Pradesh commercial 9863576112 Edit Delete Email not verified" [ref=e551]:
+                - cell "Imran Khan" [ref=e552]:
+                  - paragraph [ref=e554] [cursor=pointer]: Imran Khan
+                - cell "akbk6551+1222@gmail.com" [ref=e555]:
+                  - paragraph [ref=e556]: akbk6551+1222@gmail.com
+                - cell "Bilal Ahamad" [ref=e557]:
+                  - paragraph [ref=e558]: Bilal Ahamad
+                - cell "1275836" [ref=e559]:
+                  - paragraph [ref=e560]: "1275836"
+                - cell "Aurai" [ref=e561]:
+                  - paragraph [ref=e562]: Aurai
+                - cell "Uttar Pradesh" [ref=e563]:
+                  - paragraph [ref=e564]: Uttar Pradesh
+                - cell "commercial" [ref=e565]:
+                  - paragraph [ref=e566]: commercial
+                - cell "9863576112" [ref=e567]:
+                  - paragraph [ref=e568]: "9863576112"
+                - cell "Edit Delete Email not verified" [ref=e569]:
+                  - generic [ref=e570]:
+                    - button "Edit" [ref=e571] [cursor=pointer]:
+                      - img [ref=e572]
+                    - button "Delete" [ref=e576] [cursor=pointer]:
+                      - img [ref=e577]
+                    - button "Email not verified" [ref=e579] [cursor=pointer]:
+                      - img [ref=e580]
+              - row "Sushil Kumar akbk6551+1220@gmail.com Ishan Singh 1345836 Aurai Uttar Pradesh commercial 9863574192 Edit Delete Email not verified" [ref=e584]:
+                - cell "Sushil Kumar" [ref=e585]:
+                  - paragraph [ref=e587] [cursor=pointer]: Sushil Kumar
+                - cell "akbk6551+1220@gmail.com" [ref=e588]:
+                  - paragraph [ref=e589]: akbk6551+1220@gmail.com
+                - cell "Ishan Singh" [ref=e590]:
+                  - paragraph [ref=e591]: Ishan Singh
+                - cell "1345836" [ref=e592]:
+                  - paragraph [ref=e593]: "1345836"
+                - cell "Aurai" [ref=e594]:
+                  - paragraph [ref=e595]: Aurai
+                - cell "Uttar Pradesh" [ref=e596]:
+                  - paragraph [ref=e597]: Uttar Pradesh
+                - cell "commercial" [ref=e598]:
+                  - paragraph [ref=e599]: commercial
+                - cell "9863574192" [ref=e600]:
+                  - paragraph [ref=e601]: "9863574192"
+                - cell "Edit Delete Email not verified" [ref=e602]:
+                  - generic [ref=e603]:
+                    - button "Edit" [ref=e604] [cursor=pointer]:
+                      - img [ref=e605]
+                    - button "Delete" [ref=e609] [cursor=pointer]:
+                      - img [ref=e610]
+                    - button "Email not verified" [ref=e612] [cursor=pointer]:
+                      - img [ref=e613]
+              - row "Sushil Singh akbk6551+1218@gmail.com Mayank Singh 1245836 Aurai Uttar Pradesh commercial 9863574112 Edit Delete Email not verified" [ref=e617]:
+                - cell "Sushil Singh" [ref=e618]:
+                  - paragraph [ref=e620] [cursor=pointer]: Sushil Singh
+                - cell "akbk6551+1218@gmail.com" [ref=e621]:
+                  - paragraph [ref=e622]: akbk6551+1218@gmail.com
+                - cell "Mayank Singh" [ref=e623]:
+                  - paragraph [ref=e624]: Mayank Singh
+                - cell "1245836" [ref=e625]:
+                  - paragraph [ref=e626]: "1245836"
+                - cell "Aurai" [ref=e627]:
+                  - paragraph [ref=e628]: Aurai
+                - cell "Uttar Pradesh" [ref=e629]:
+                  - paragraph [ref=e630]: Uttar Pradesh
+                - cell "commercial" [ref=e631]:
+                  - paragraph [ref=e632]: commercial
+                - cell "9863574112" [ref=e633]:
+                  - paragraph [ref=e634]: "9863574112"
+                - cell "Edit Delete Email not verified" [ref=e635]:
+                  - generic [ref=e636]:
+                    - button "Edit" [ref=e637] [cursor=pointer]:
+                      - img [ref=e638]
+                    - button "Delete" [ref=e642] [cursor=pointer]:
+                      - img [ref=e643]
+                    - button "Email not verified" [ref=e645] [cursor=pointer]:
+                      - img [ref=e646]
+          - generic [ref=e650]:
+            - paragraph [ref=e651]: Showing 1 to 12 of 12 entries
+            - navigation "pagination navigation" [ref=e652]:
+              - list [ref=e653]:
+                - listitem [ref=e654]:
+                  - button "Go to first page" [disabled]:
+                    - img
+                - listitem [ref=e655]:
+                  - button "Go to previous page" [disabled]:
+                    - img
+                - listitem [ref=e656]:
+                  - button "page 1" [ref=e657] [cursor=pointer]: "1"
+                - listitem [ref=e658]:
+                  - button "Go to next page" [disabled]:
+                    - img
+                - listitem [ref=e659]:
+                  - button "Go to last page" [disabled]:
+                    - img
+  - alert [ref=e660]
+```

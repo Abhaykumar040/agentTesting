@@ -35,7 +35,7 @@ async function deletePreviousProductCategory(page){
       if (total <= 0) {
       break;
       }
-      await page.locator('button').nth(3).click();
+       await page.locator('button').nth(4).click();
       await page.getByRole('menuitem', { name: 'Delete' }).click();
       await page.getByRole('button', { name: 'Proceed' }).click();
       await page.waitForTimeout(2000);
@@ -151,7 +151,7 @@ async function  editProductCategry(page) {
   console.log("Enter in edit product category")
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Product Category' }).click();
-  await page.locator('button').nth(2).click();
+    await page.getByText('Laptop charger cable').click();
   await page.getByRole('textbox', { name: 'Title *' }).click();
   await page.getByRole('textbox', { name: 'Title *' }).fill('laptop charger cable Edited');
   await page.getByRole('textbox', { name: 'Description *' }).click();
@@ -179,7 +179,7 @@ async function deleteProductCategory(page) {
  console.log("Enter in delete product category");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Product Category' }).click();
-  await page.locator('button').nth(5).click();
+    await page.locator('tbody > tr:nth-child(2) > td:nth-child(4) button:last-child').click();
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.getByRole('button', { name: 'Proceed' }).click();
   await expect(page.getByText('Product category deleted')).toBeVisible();

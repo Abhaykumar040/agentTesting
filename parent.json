@@ -10,11 +10,11 @@
     },
     "editPriority": {
       "path": "./screenshot/parent/priority/editPriority.png",
-      "note": "true"
+      "note": "false"
     },
     "deletePriority": {
       "path": "./screenshot/parent/priority/deletePriority.png",
-      "note": "false"
+      "note": "true"
     }
   },
   "./screenshot/parent/status/": {
@@ -28,7 +28,7 @@
     },
     "editStatus": {
       "path": "./screenshot/parent/status/editStatus.png",
-      "note": "true"
+      "note": "false"
     },
     "deleteStatus": {
       "path": "./screenshot/parent/status/deleteStatus.png",
@@ -108,7 +108,7 @@
     },
     "editForm": {
       "path": "./screenshot/parent/form/editForm.png",
-      "note": "true"
+      "note": "false"
     },
     "deleteForm": {
       "path": "./screenshot/parent/form/deleteForm.png",
@@ -132,7 +132,7 @@
     },
     "editAssets": {
       "path": "./screenshot/parent/assets-category/editAssets.png",
-      "note": "true"
+      "note": "false"
     },
     "deleteAssets": {
       "path": "./screenshot/parent/assets-category/deleteAssets.png",
@@ -164,7 +164,7 @@
     },
     "editProduct": {
       "path": "./screenshot/parent/product/editProduct.png",
-      "note": "false"
+      "note": "true"
     },
     "referencedProduct": {
       "path": "./screenshot/parent/product/referencedProduct.png",
@@ -298,7 +298,7 @@
     },
     "emailVarifiedInCSAgent": {
       "path": "./screenshot/parent/cs-agent/emailVarifiedInCSAgent.png",
-      "note": "true"
+      "note": "false"
     },
     "addRoleInCSAgent": {
       "path": "./screenshot/parent/cs-agent/addRoleInCSAgent.png",
@@ -308,7 +308,7 @@
   "./screenshot/parent/team/": {
     "addTeam": {
       "path": "./screenshot/parent/team/addTeam.png",
-      "note": "false"
+      "note": "true"
     },
     "editTeam": {
       "path": "./screenshot/parent/team/editTeam.png",
@@ -336,7 +336,7 @@
     },
     "emailCustomerInC_Service": {
       "path": "./screenshot/parent/customerinC_Service/emailCustomerInC_Service.png",
-      "note": "true"
+      "note": "false"
     },
     "editCustomerInC_Service(Address)": {
       "path": "./screenshot/parent/customerinC_Service/editCustomerInC_Service(Address).png",

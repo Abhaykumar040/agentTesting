@@ -12,12 +12,12 @@ const pathName=`outputData/priority/${testData.companyType}`
 export async function Invoices(page){
   // await addInvoices(page);
   // await page.waitForTimeout(3000);
-  // await editInvoices(page);
-  // await page.waitForTimeout(3000);
-  // await sendInvoices(page);
-  // await page.waitForTimeout(3000);
-  // await cancelInvoice(page);
-  // await page.waitForTimeout(3000);
+  await editInvoices(page);
+  await page.waitForTimeout(3000);
+  await sendInvoices(page);
+  await page.waitForTimeout(3000);
+  await cancelInvoice(page);
+  await page.waitForTimeout(3000);
   await createInvoiceByQuotation(page);
   await page.waitForTimeout(3000);
   await exportInvoiceNormal(page);
@@ -37,7 +37,7 @@ async function addInvoices(page){
   await page.getByRole('option', { name: 'Jony Rathor' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Khamaria Market undefined' }).click();
+  await page.getByRole('option', { name: 'Khamaria Market' }).click();
   await page.getByRole('checkbox', { name: 'UPI Transfer' }).check();
   await page.getByRole('checkbox', { name: 'Notes' }).uncheck();
   await page.getByRole('combobox').first().click();
@@ -77,7 +77,7 @@ async function editInvoices(page) {
   await page.getByRole('option', { name: 'Anil Rathor' }).click();
 
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria' }).click();
 
   await page.getByRole('checkbox', { name: 'UPI Transfer' }).check();
   await page.getByRole('checkbox', { name: 'Notes' }).uncheck();
@@ -85,13 +85,14 @@ async function editInvoices(page) {
   // First Item
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'EV charger' }).click();
-
+ await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Add Item' }).click();
 
   // Second Item
   await page.getByRole('combobox').nth(1).click();
-  await page.getByRole('option', { name: 'Wifi charger' }).click();
 
+  await page.getByRole('option', { name: 'Wifi charger' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Save' }).click();
 
   // ✅ Wait properly instead of timeout
@@ -150,7 +151,7 @@ async function sendInvoices(page){
   await page.getByRole('combobox', { name: 'Customer' }).click();
   await page.getByRole('option', { name: 'Neeraj Rathor' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Mukundpatti undefined' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti' }).click();
   await page.getByRole('checkbox', { name: 'UPI Transfer' }).check();
   await page.getByRole('checkbox', { name: 'Notes' }).uncheck();
   await page.getByRole('combobox').first().click();
@@ -195,7 +196,7 @@ async function cancelInvoice(page){
   await page.getByRole('combobox', { name: 'Customer' }).click();
   await page.getByRole('option', { name: 'Shivam maurya' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Mukundpatti undefined' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti' }).click();
   await page.getByText('UPI Transfer').click();
   await page.getByRole('checkbox', { name: 'Terms and Conditions' }).uncheck();
   await page.getByRole('combobox').first().click();
@@ -229,7 +230,7 @@ async function createInvoiceByQuotation(page) {
   await page.getByRole('combobox', { name: 'Customer' }).click();
   await page.getByRole('option', { name: 'Shyam Sundar' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Mukundpatti undefined' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti' }).click();
   await page.getByRole('checkbox', { name: 'Notes' }).uncheck();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'Wifi charger' }).click();

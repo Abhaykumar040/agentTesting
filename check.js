@@ -5,8 +5,10 @@ const db = await getDB();
 
 // -------- STEP 1 — find exact user --------
 
-const companyId="697e06823ff7f87c11b04575";
-const company = new ObjectId("697e06823ff7f87c11b04575");
+// const companyId="697e06823ff7f87c11b04575";
+// const company = new ObjectId("697e06823ff7f87c11b04575");
+const companyId="68dcfc116e4e85ccbf65b2f1";
+const company = new ObjectId("68dcfc116e4e85ccbf65b2f1");
 const type = "agent";
 
 const user = await db.collection("users").findOne({
@@ -66,12 +68,12 @@ if (!user) {
 // );
 // console.log("queue",queue.matchedCount, queue.modifiedCount);
 
-// const teams = await db.collection("teams").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set: { status: 3 } }
-// );
-// console.log("teams",teams.matchedCount, teams.modifiedCount);
+const teams = await db.collection("teams").updateMany(
+  {  company:companyId,
+  status:1 },
+  { $set: { status: 3 } }
+);
+console.log("teams",teams.matchedCount, teams.modifiedCount);
 
 const faq = await db.collection("faqs").updateMany(
   {  company:companyId,
@@ -97,12 +99,12 @@ console.log("crmSettings",crmSetting.matchedCount, crmSetting.modifiedCount);
 // console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
 
 
-// const zone = await db.collection("zones").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set:{ status: 3 } }
-// );
-// console.log("invoice",zone.matchedCount, zone.modifiedCount);
+const zone = await db.collection("zones").updateMany(
+  {  company:companyId,
+  status:1 },
+  { $set:{ status: 3 } }
+);
+console.log("invoice",zone.matchedCount, zone.modifiedCount);
 
 
 
@@ -120,9 +122,9 @@ console.log("crmSettings",crmSetting.matchedCount, crmSetting.modifiedCount);
 //   { $set: { status: 3 } }
 // );
 
-// const u4 = await db.collection("agents").updateMany(
-//   {  company: company,status:1 },
-//   { $set: { status: 3 } }
-// );
+const u4 = await db.collection("agents").updateMany(
+  {  company: company,status:1 },
+  { $set: { status: 3 } }
+);
 
-// console.log("agent updated:", u4.matchedCount);
+console.log("agent updated:", u4.matchedCount);

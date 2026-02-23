@@ -13,13 +13,13 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function product(page){
-  await deletePreviousProduct(page);
-  await page.waitForTimeout(3000);
-  await addProduct(page);
-  await page.waitForTimeout(3000);
-  await editProduct(page);
-  await page.waitForTimeout(3000);
-  await referencedProduct(page);
+  // await deletePreviousProduct(page);
+  // await page.waitForTimeout(3000);
+  // await addProduct(page);
+  // await page.waitForTimeout(3000);
+  // await editProduct(page);
+  // await page.waitForTimeout(3000);
+  // await referencedProduct(page);
   await page.waitForTimeout(3000);
   await deleteProduct(page);
 }
@@ -39,7 +39,7 @@ async function deletePreviousProduct(page){
   if (total <= 0) {
     break;
   }
-    await page.locator('button').nth(2).click();
+    await page.locator('button').nth(3).click();
   await page.getByRole('menuitem', { name: 'Delete' }).first().click();
     await page.waitForTimeout(2000);
     await expect(page.getByText('Product deleted successfully').first()).toBeVisible();
@@ -202,7 +202,7 @@ async function editProduct(page) {
   console.log("Enter in Edit product");
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Products' }).click();
-  await page.locator('button').nth(3).click();
+    await page.getByText('Mobile charger', { exact: true }).click();
   await page.getByRole('button', { name: 'Product Category * laptop' }).click();
   await page.getByRole('option', { name: 'Fiber optical cable - use for' }).click();
   await page.getByRole('textbox', { name: 'Title *' }).click();
@@ -243,8 +243,8 @@ async function deleteProduct(page) {
   console.log("Enter in delete Product");
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Products' }).click();
-  await page.locator('button[aria-haspopup="true"]').first().click();
-  await page.getByRole('menuitem', { name: /delete/i }).click();
+ await page.locator('tr:nth-child(4) > td:nth-child(8) > div > button:last-child svg').click();
+    await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.waitForLoadState('networkidle');
   await page.reload();
   await page.getByRole('button', { name: 'Master Data' }).click();

@@ -11,10 +11,9 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 
 export async function Quotation(page){
-  // await deletePreviuosQuotation(page);
+// delete previuos Quotation by check.js
+  // await createQuotation(page);
   // await page.waitForTimeout(3000);
-  await createQuotation(page);
-  await page.waitForTimeout(3000);
   await approveQuotation(page);
   await page.waitForTimeout(3000);
   await rejectQuotation(page);
@@ -40,12 +39,12 @@ async function createQuotation(page){
   await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Quotations' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
-  // await page.waitForTimeout(1000);
-  await page.getByRole('combobox', { name: 'Customer' }).click();
+  await page.waitForTimeout(1000);
+   await page.getByRole('combobox', { name: 'Customer' }).click();
   await page.getByRole('option', { name: 'Anil Rathor' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
   // await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   // await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
@@ -67,7 +66,7 @@ async function createQuotation(page){
   await page.getByRole('option', { name: 'Neeraj Rathor' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
@@ -89,7 +88,7 @@ async function createQuotation(page){
   await page.getByRole('option', { name: 'Anil Rathor' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
   // await page.getByRole('button', { name: 'Add Item' }).click();
@@ -108,7 +107,7 @@ async function createQuotation(page){
   await page.getByRole('option', { name: 'Manjeet Singh' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
@@ -150,7 +149,7 @@ async function approveQuotation(page) {
   await page.getByRole('option', { name: 'Susil Rana' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Wifi charger' }).first().click();
@@ -170,7 +169,7 @@ async function approveQuotation(page) {
   await page.getByRole('option', { name: 'Shivam maurya' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Tourch charger' }).first().click();
@@ -212,7 +211,7 @@ async function acceptQuotation(page) {
   await page.getByRole('option', { name: 'Shyam Sundar' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Smart watch charger' }).first().click();
@@ -235,7 +234,7 @@ async function acceptQuotation(page) {
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Jony Rathor' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria Market undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Smart watch charger' }).first().click();
@@ -280,7 +279,7 @@ async function rejectQuotation(page){
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Bilal Ahamad (1275836)' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Ghosia undefined Aurai Uttar' }).click();
+  await page.getByRole('option', { name: 'Ghosia Aurai Uttar' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Tourch charger' }).first().click();
@@ -325,7 +324,7 @@ async function rejectedByCustomerQuotation(page) {
   await page.getByRole('option', { name: 'Susil Rana' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Wifi charger' }).first().click();
@@ -370,7 +369,7 @@ async function copyQuotation(page){
   await page.getByRole('option', { name: 'Anil Rathor' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Mobile charger' }).first().click();
@@ -385,7 +384,7 @@ async function copyQuotation(page){
   await page.getByRole('option', { name: 'Neeraj Rathor' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
   // await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti Khamaria' }).click();
   await page.getByRole('button', { name: 'Add Item' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('combobox').nth(1).click();
@@ -426,7 +425,7 @@ async function editQuotation(page) {
   await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('textbox', { name: 'Note:' }).fill('dadad');
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Ghosia undefined Aurai Uttar' }).click();
+  await page.getByRole('option', { name: 'Ghosia Aurai Uttar' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
@@ -467,7 +466,7 @@ async function sendQuotation(page){
   // await page.getByRole('option', { name: 'Manjeet Singh' }).click();
   // await page.getByRole('combobox', { name: 'Address' }).click();
   // await page.waitForTimeout(1000);
-  // await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
+  // await page.getByRole('option', { name: 'Mukundpatti Khamaria' }).click();
   // await page.getByRole('combobox').first().click();
   // await page.waitForTimeout(1000);
   // await page.getByRole('option', { name: 'EV charger' }).first().click();
@@ -490,7 +489,7 @@ async function sendQuotation(page){
   await page.getByRole('option', { name: 'Susil Rana' }).click();
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Mukundpatti undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Wifi charger' }).first().click();

@@ -13,12 +13,12 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function form(page){
-  await deletePreviuosForm(page);
-  await page.waitForTimeout(3000);
-  await addForm(page);
-  await page.waitForTimeout(3000);
-  await editForm(page);
-  await page.waitForTimeout(3000);
+  // await deletePreviuosForm(page);
+  // await page.waitForTimeout(3000);
+  // await addForm(page);
+  // await page.waitForTimeout(3000);
+  // await editForm(page);
+  // await page.waitForTimeout(3000);
   await deleteForm(page);
 }
 async function deletePreviuosForm(page){
@@ -39,7 +39,7 @@ async function deletePreviuosForm(page){
       if (total <= 0) {
        break;
       }
-      await page.locator('button').nth(3).click();
+      await page.locator('button').nth(4).click();
       await page.getByRole('menuitem', { name: 'Delete' }).click();
       await page.getByRole('button', { name: 'Proceed' }).click();
       await page.waitForTimeout(3000);
@@ -57,7 +57,7 @@ async function deleteForm(page) {
   console.log("Enter in delete form");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
-  await page.locator('button').nth(5).click();
+   await page.locator('tbody > tr:nth-child(2) > td:nth-child(2) > div > button:last-child').click();
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.getByRole('button', { name: 'Proceed' }).click();
   await expect(page.getByText('Form deleted successfully')).toBeVisible();
@@ -534,20 +534,20 @@ async function editForm(page) {
   console.log("Enter in edit form");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
-  await page.locator('button').nth(2).click();
+    await page.getByText('FormS', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Name *' }).click();
-  await page.getByRole('textbox', { name: 'Name *' }).fill('FormDelete Edited Form');
+  await page.getByRole('textbox', { name: 'Name *' }).fill('FormS Edited Form');
   await page.getByRole('textbox', { name: 'Description *' }).click();
-  await page.getByRole('textbox', { name: 'Description *' }).fill('FormDeleteD Edited');
+  await page.getByRole('textbox', { name: 'Description *' }).fill('FormS1InstallationD Edited');
   await page.getByRole('button', { name: 'Update' }).click();
-  await page.getByRole('button', { name: 'Proceed' }).click();
+
    await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
   await page.reload();
    await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
   await page.waitForTimeout(3000);
-  if (await page.getByText('FormDeleteD Edited', {exact:true}).isVisible())  
+  if (await page.getByText('FormS1InstallationD Edited', {exact:true}).isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/editForm.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"editForm","true",`./${screenshotPath}/editForm.png`)

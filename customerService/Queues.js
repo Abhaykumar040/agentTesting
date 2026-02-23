@@ -10,11 +10,11 @@ const screenshotPath=`screenshot/${testData.companyType}/Queues`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Queue(page) {
-  // await addQueues(page);
-  // await page.waitForTimeout(3000);
-  // await editQueues(page);
-  // await page.waitForTimeout(3000);
-  await exportQueues(page);
+  await addQueues(page);
+  await page.waitForTimeout(3000);
+  await editQueues(page);
+  await page.waitForTimeout(3000);
+
 }
 
 async function addQueues(page){

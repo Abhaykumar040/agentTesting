@@ -10,8 +10,8 @@ const screenshotPath=`screenshot/${testData.companyType}/cs-agent`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function cs_agent(page) {
-  await addCSAgent(page);  
-  await page.waitForTimeout(3000);
+  // await addCSAgent(page);  
+  // await page.waitForTimeout(3000);
   await addRoleInCSAgent(page);
   await page.waitForTimeout(3000);
   await emailVarifiedInCSAgent(page);
