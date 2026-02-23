@@ -25,6 +25,7 @@ export async function internalJob(page){
  await page.waitForTimeout(3000);
  await exportInternalJObFilter(page);
  await page.waitForTimeout(3000);
+ await createJobByAssetManagements(page);
  
 }
 async function deletePreviousinternalJob(page){
@@ -100,10 +101,9 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Individual' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
-  await page.getByRole('button', { name: 'Address' }).click();
-  await page.getByRole('listbox', { name: 'Address *' }).click();
-  await page.getByRole('checkbox').check();
+   await page.getByRole('button', { name: 'Address' }).click();
+  await page.getByRole('option', { name: 'Ghosia Ghosia' }).first().click();
+  await page.getByRole('checkbox').first().check();
   await page.getByRole('button', { name: 'Job Type' }).click();
   await page.getByRole('option', { name: 'Installation5' }).click();
   await page.getByRole('textbox', { name: 'Job Description' }).click();
@@ -520,3 +520,54 @@ async function exportInternalJObFilter(page){
   console.log('export internal job completed');
 }
 
+async function createJobByAssetManagements(page){
+   await page.getByRole('button', { name: 'Field Service' }).click();
+  await page.getByRole('link', { name: 'Asset Management' }).click();
+  await page.getByText('Charger', { exact: true }).click();
+  await page.getByRole('tab', { name: 'Jobs', exact: true }).click();
+  await page.getByRole('button', { name: 'Add Job' }).click();
+  await page.getByRole('button', { name: 'Address' }).click();
+  await page.getByRole('option', { name: 'Ghosia Ghosia' }).nth(2).click();
+  await page.getByRole('button', { name: 'Job Type' }).click();
+  await page.getByRole('option', { name: 'Installation5' }).click();
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await page.getByRole('textbox', { name: 'Job Description' }).click();
+  await page.getByRole('textbox', { name: 'Job Description' }).fill('installation');
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('option', { name: 'least - Low installationX' }).click();
+  await page.locator('div:nth-child(7) > .MuiFormControl-root > .MuiInputBase-root').click();
+  await page.getByRole('textbox', { name: 'Comments' }).fill('least priority');
+  await page.getByRole('button', { name: 'Status Profile' }).click();
+  await page.getByRole('option', { name: 'deleteExternalStatusJob -' }).click();
+  await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
+  await page.getByRole('option', { name: 'Choose Saturday, February 21st,' }).click();
+  await page.getByText('21:30').click();
+  await page.getByRole('textbox', { name: 'End Date Time *' }).click();
+  await page.getByRole('option', { name: 'Choose Monday, February 23rd,' }).click();
+  await page.getByText('22:00').click();
+  await page.getByRole('radio', { name: 'Engineer' }).check(); 
+  await page.getByRole('button', { name: '+ Add Skill' }).click();
+  await page.getByRole('button', { name: 'Skill', exact: true }).click();
+  await page.getByRole('option', { name: 'Testing & Troubleshooting' }).click();
+  await page.getByRole('button', { name: 'Person Responsible' }).click();
+  await page.getByRole('option', { name: 'Ravi Tiwari' }).click();
+  await page.getByRole('button', { name: 'Save', exact: true }).click();
+  // await page.getByText('Job created successfully').click();
+  // await page.getByRole('button', { name: 'Save' }).click();
+  await page.getByRole('tab', { name: 'Job Details' }).click();
+   await page.waitForTimeout(2000);
+  
+    if (await page.getByRole('cell', { name: 'deleteExternalStatusJob' }).first().isVisible()) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/createJobByAssetManagements.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"createJobByAssetManagements","true",`./${screenshotPath}/createJobByAssetManagements.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/createJobByAssetManagements.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"createJobByAssetManagements","false",`./${screenshotPath}/createJobByAssetManagements.png`)
+    }
+    await page.reload();
+  // await expect(page.getByRole('cell', { name: 'deleteExternalStatusJob' })).toBeVisible();
+  console.log('Create job bt asset management completed');
+}

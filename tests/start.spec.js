@@ -55,15 +55,15 @@ await loginRight(page);
 // await team(page);
 // await setting(page);
 // await customerInC_service(page); 
-await Queue(page);
-await Tickets(page);
-await FAQs(page);
-await Engineer(page);
-await jobType(page);
-await customerfsm(page);
+// await Queue(page);
+// await Tickets(page);
+// await FAQs(page);
+// await Engineer(page);
+// await jobType(page);
+// await customerfsm(page);
 await AssetManagement(page);
 // await internalJob(page);
-// await cyclicJob(page);
+await cyclicJob(page);
 
 
 // await page.waitForTimeout(30000);

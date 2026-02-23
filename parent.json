@@ -471,6 +471,18 @@
     "createAssetManagement": {
       "path": "./screenshot/parent/AssetManagement/createAssetManagement.png",
       "note": "true"
+    },
+    "createChildAssetManagement": {
+      "path": "./screenshot/parent/AssetManagement/createChildAssetManagement.png",
+      "note": "true"
+    },
+    "editAssetManagement": {
+      "path": "./screenshot/parent/AssetManagement/editAssetManagement.png",
+      "note": "true"
+    },
+    "deleteAssetManagement": {
+      "path": "./screenshot/parent/AssetManagement/deleteAssetManagement.png",
+      "note": "true"
     }
   },
   "./screenshot/parent/internlJob/": {
@@ -500,6 +512,60 @@
     },
     "exportInternalJObFilter3": {
       "path": "./screenshot/parent/internlJob/exportInternalJObFilter3.png",
+      "note": "true"
+    },
+    "createJobByAssetManagements": {
+      "path": "./screenshot/parent/internlJob/createJobByAssetManagements.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/cyclicJob/": {
+    "createAssetManagement": {
+      "path": "./screenshot/parent/cyclicJob/createAssetManagement.png",
+      "note": "true"
+    },
+    "createCyclicJob": {
+      "path": "./screenshot/parent/cyclicJob/createCyclicJob.png",
+      "note": "true"
+    },
+    "exportCyclicJobNormal": {
+      "path": "./screenshot/parent/cyclicJob/exportCyclicJobNormal.png",
+      "note": "false"
+    },
+    "exportCyclicJobFilter1": {
+      "path": "./screenshot/parent/cyclicJob/exportCyclicJobFilter1.png",
+      "note": "true"
+    },
+    "exportCyclicJobFilter2": {
+      "path": "./screenshot/parent/cyclicJob/exportCyclicJobFilter2.png",
+      "note": "true"
+    },
+    "exportCyclicJobFilter3": {
+      "path": "./screenshot/parent/cyclicJob/exportCyclicJobFilter3.png",
+      "note": "true"
+    },
+    "exportCyclicJobFilter4": {
+      "path": "./screenshot/parent/cyclicJob/exportCyclicJobFilter4.png",
+      "note": "true"
+    },
+    "cyclicJobByInternalJob": {
+      "path": "./screenshot/parent/cyclicJob/cyclicJobByInternalJob.png",
+      "note": "true"
+    },
+    "createCyclicJobByCustomercyclicJobByInternalJob": {
+      "path": "./screenshot/parent/cyclicJob/createCyclicJobByCustomer.png",
+      "note": "false"
+    },
+    "createCyclicJobByCustomer": {
+      "path": "./screenshot/parent/cyclicJob/createCyclicJobByCustomer.png",
+      "note": "true"
+    },
+    "jobScheduleInInternalJobDelete": {
+      "path": "./screenshot/parent/cyclicJob/jobScheduleInInternalJobDelete.png",
+      "note": "true"
+    },
+    "jobScheduleInInternalJobEdit": {
+      "path": "./screenshot/parent/cyclicJob/jobScheduleInInternalJobEdit.png",
       "note": "true"
     }
   }
