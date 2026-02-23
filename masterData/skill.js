@@ -42,15 +42,15 @@ async function addSkill(page) {
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Expert' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'Intermediate' }).click();
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'beginner' }).click();
   await page.locator('div').filter({ hasText: 'Create New SkillSkill Name *' }).nth(1).click();
   await page.getByRole('button', { name: 'Save' }).click();
-
+await page.waitForTimeout(500);
     await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Skill' }).click();
   await page.getByRole('button', { name: 'Add Skill' }).click();
@@ -60,14 +60,14 @@ async function addSkill(page) {
   await page.getByRole('textbox', { name: 'Description *' }).fill('Soldering & Rework');
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.locator('[id="mui-component-select-proficiencyLevels.0.value"]').click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'Expert' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'Intermediate' }).click();
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'beginner' }).click();
   await page.locator('div').filter({ hasText: 'Create New SkillSkill Name *' }).nth(1).click();
   await page.getByRole('button', { name: 'Save' }).click();
@@ -81,14 +81,14 @@ async function addSkill(page) {
   await page.getByRole('textbox', { name: 'Description *' }).fill('Testing & Troubleshooting');
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.locator('[id="mui-component-select-proficiencyLevels.0.value"]').click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Expert' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'Intermediate' }).click();
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'beginner' }).click();
   await page.locator('div').filter({ hasText: 'Create New SkillSkill Name *' }).nth(1).click();
   await page.getByRole('button', { name: 'Save' }).click();
@@ -102,14 +102,14 @@ async function addSkill(page) {
   await page.getByRole('textbox', { name: 'Description *' }).fill('Embedded Systems');
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.locator('[id="mui-component-select-proficiencyLevels.0.value"]').click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Expert' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'Intermediate' }).first().click();
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+ await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'beginner' }).click();
   await page.locator('div').filter({ hasText: 'Create New SkillSkill Name *' }).nth(1).click();
   await page.getByRole('button', { name: 'Save' }).click();
@@ -123,20 +123,20 @@ async function addSkill(page) {
   await page.getByRole('textbox', { name: 'Description *' }).fill('new skill added');
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.locator('[id="mui-component-select-proficiencyLevels.0.value"]').click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Expert' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'Intermediate' }).first().click();
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'beginner' }).click();
   await page.locator('div').filter({ hasText: 'Create New SkillSkill Name *' }).nth(1).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
 
-  // await page.reload();
+  await page.reload();
       await page.waitForTimeout(3000);
   
    if (await (page.getByText('Skill created successfully').nth(1)).isVisible())  {
@@ -164,7 +164,7 @@ async function editSkill(page) {
   await page.getByRole('textbox', { name: 'Description *' }).dblclick();
   await page.getByRole('textbox', { name: 'Description *' }).fill('Edited');
   await page.getByRole('button', { name: 'Update' }).click();;
-  // await page.reload();
+  await page.reload();
   await page.waitForTimeout(3000);
   
 
@@ -179,7 +179,7 @@ async function editSkill(page) {
         }
 
   console.log("Edited skill")
-  await page.reload();
+  
 }
 
 async function deletePreviousSkill(page){

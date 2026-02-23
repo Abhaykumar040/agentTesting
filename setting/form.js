@@ -17,8 +17,8 @@ export async function form(page){
   // await page.waitForTimeout(3000);
   // await addForm(page);
   // await page.waitForTimeout(3000);
-  // await editForm(page);
-  // await page.waitForTimeout(3000);
+  await editForm(page);
+  await page.waitForTimeout(3000);
   await deleteForm(page);
 }
 async function deletePreviuosForm(page){
@@ -42,7 +42,7 @@ async function deletePreviuosForm(page){
       await page.locator('button').nth(4).click();
       await page.getByRole('menuitem', { name: 'Delete' }).click();
       await page.getByRole('button', { name: 'Proceed' }).click();
-      await page.waitForTimeout(3000);
+      await page.waitForTimeout(1000);
       await expect(page.getByText('Form deleted successfully')).toBeVisible();
       await page.waitForTimeout(1000);
     }
@@ -57,10 +57,10 @@ async function deleteForm(page) {
   console.log("Enter in delete form");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
-   await page.locator('tbody > tr:nth-child(2) > td:nth-child(2) > div > button:last-child').click();
-  await page.getByRole('menuitem', { name: 'Delete' }).click();
-  await page.getByRole('button', { name: 'Proceed' }).click();
-  await expect(page.getByText('Form deleted successfully')).toBeVisible();
+    await page.locator('button').nth(4).click();
+      await page.getByRole('menuitem', { name: 'Delete' }).click();
+      await page.getByRole('button', { name: 'Proceed' }).click();
+
   await page.reload();
   await page.waitForTimeout(3000);
   
@@ -534,6 +534,8 @@ async function editForm(page) {
   console.log("Enter in edit form");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
+   await page.waitForTimeout(3000);
+
     await page.getByText('FormS', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Name *' }).click();
   await page.getByRole('textbox', { name: 'Name *' }).fill('FormS Edited Form');

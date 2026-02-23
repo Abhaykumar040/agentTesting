@@ -11,8 +11,7 @@ const screenshotPath=`screenshot/${testData.companyType}/zone`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function zone(page){
- await deletePreviuosZone(page);
- await page.waitForTimeout(3000);
+
  await addZone(page);
  await page.waitForTimeout(3000);
  await deleteZone(page);

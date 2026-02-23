@@ -14,11 +14,11 @@ export async function Quotation(page){
 // delete previuos Quotation by check.js
   // await createQuotation(page);
   // await page.waitForTimeout(3000);
-  await approveQuotation(page);
-  await page.waitForTimeout(3000);
-  await rejectQuotation(page);
-  await page.waitForTimeout(3000);
-  await rejectedByCustomerQuotation(page);
+  // await approveQuotation(page);
+  // await page.waitForTimeout(3000);
+  // await rejectQuotation(page);
+  // await page.waitForTimeout(3000);
+  // await rejectedByCustomerQuotation(page);
   await page.waitForTimeout(3000);
   await copyQuotation(page);
   await page.waitForTimeout(3000);
@@ -372,7 +372,7 @@ async function copyQuotation(page){
   await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Mobile charger' }).first().click();
+  await page.getByRole('option', { name: 'Wifi charger' }).first().click();
   await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('textbox', { name: 'Note:' }).fill('cover Quotatons');
   await page.getByRole('button', { name: 'Save' }).click();

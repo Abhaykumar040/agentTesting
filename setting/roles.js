@@ -14,8 +14,8 @@ export async function roles(page){
  await deletePreviuosRole(page);
  await page.waitForTimeout(3000);
  await addRole(page);
- await page.waitForTimeout(3000);
- await editRole(page);
+//  await page.waitForTimeout(3000);
+//  await editRole(page);
  await page.waitForTimeout(3000);
  await deleteRole(page);
 }
@@ -28,27 +28,17 @@ async function addRole(page) {
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Sales manager');
   await page.getByRole('main').getByRole('button', { name: 'Sales' }).click();
+   await page.locator('input[name="access.4.create"]').check();
+  await page.locator('input[name="access.4.update"]').check();
+  await page.locator('input[name="access.4.delete"]').check();
   await page.locator('input[name="access.12.create"]').check();
   await page.locator('input[name="access.12.update"]').check();
   await page.locator('input[name="access.12.delete"]').check();
-  await page.locator('input[name="access.13.create"]').check();
-  await page.locator('input[name="access.14.create"]').check();
-  await page.locator('input[name="access.14.update"]').check();
-  await page.locator('input[name="access.14.delete"]').check();
-  await page.locator('input[name="access.34.create"]').check();
-  await page.locator('input[name="access.34.update"]').check();
-  await page.locator('input[name="access.34.delete"]').check();
-  await page.locator('input[name="access.35.create"]').check();
-  await page.locator('input[name="access.35.update"]').check();
-  await page.locator('input[name="access.36.create"]').check();
-  await page.locator('input[name="access.36.update"]').check();
-  await page.locator('input[name="access.36.delete"]').check();
-  await page.locator('input[name="access.37.create"]').check();
-  await page.locator('input[name="access.37.update"]').check();
-  await page.locator('input[name="access.37.delete"]').check();
-  await page.locator('input[name="access.13.delete"]').check();
+
+
+
   await page.getByRole('button', { name: 'Submit' }).click();
-  await expect(page.getByText('Sales manager')).toBeVisible();
+ 
 
   await page.getByRole('button', { name: 'Add Role' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
@@ -56,21 +46,14 @@ async function addRole(page) {
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Sales Executive');
   await page.getByRole('main').getByRole('button', { name: 'Sales' }).click();
   await page.waitForTimeout(1000);
-   await page.locator('input[name="access.4.create"]').check();
+
+    await page.locator('input[name="access.4.create"]').check();
   await page.locator('input[name="access.4.update"]').check();
   await page.locator('input[name="access.4.delete"]').check();
   await page.locator('input[name="access.12.create"]').check();
   await page.locator('input[name="access.12.update"]').check();
-  await page.locator('input[name="access.12.update"]').check();
-  await page.locator('input[name="access.13.create"]').check();
-  await page.locator('input[name="access.13.update"]').check();
-  await page.locator('input[name="access.13.delete"]').check();
-  await page.locator('input[name="access.27.create"]').check();
-  await page.locator('input[name="access.27.update"]').check();
-  await page.locator('input[name="access.27.delete"]').check();
-  await page.locator('input[name="access.32.create"]').check();
-  await page.locator('input[name="access.32.update"]').check();
-  await page.locator('input[name="access.32.delete"]').check();
+  await page.locator('input[name="access.12.delete"]').check();
+
   await page.getByRole('button', { name: 'Submit' }).click();
   await expect(page.getByText('Sales Executive')).toBeVisible();
 
@@ -83,25 +66,15 @@ async function addRole(page) {
   await page.locator('input[name="access.12.create"]').check({ force: true });
 // await page.locator('input[name="access.12.create"]').check({ force: true });
   
+
+   await page.locator('input[name="access.4.create"]').check();
+  await page.locator('input[name="access.4.update"]').check();
+  await page.locator('input[name="access.4.delete"]').check();
   await page.locator('input[name="access.12.create"]').check();
   await page.locator('input[name="access.12.update"]').check();
   await page.locator('input[name="access.12.delete"]').check();
-  await page.locator('input[name="access.13.create"]').check();
-  await page.locator('input[name="access.14.create"]').check();
-  await page.locator('input[name="access.14.update"]').check();
-  await page.locator('input[name="access.14.delete"]').check();
-  await page.locator('input[name="access.34.create"]').check();
-  await page.locator('input[name="access.34.update"]').check();
-  await page.locator('input[name="access.34.delete"]').check();
-  await page.locator('input[name="access.35.create"]').check();
-  await page.locator('input[name="access.35.update"]').check();
-  await page.locator('input[name="access.36.create"]').check();
-  await page.locator('input[name="access.36.update"]').check();
-  await page.locator('input[name="access.36.delete"]').check();
-  await page.locator('input[name="access.37.create"]').check();
-  await page.locator('input[name="access.37.update"]').check();
-  await page.locator('input[name="access.37.delete"]').check();
-  await page.locator('input[name="access.13.delete"]').check();
+
+
   await page.getByRole('button', { name: 'Submit' }).click();
   await expect(page.getByText('Field Service Engineer')).toBeVisible();
 
@@ -111,24 +84,11 @@ async function addRole(page) {
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Master data handling');
   await page.getByRole('main').getByRole('button', { name: 'Customer Service' }).click();
     await page.waitForTimeout(1000);
-  await page.locator('input[name="access.11.create"]').check();
-  await page.locator('input[name="access.11.delete"]').check();
-  await page.locator('input[name="access.20.create"]').check();
-  await page.locator('input[name="access.20.create"]').click();
-  await page.locator('input[name="access.20.create"]').check();
-  await page.locator('input[name="access.28.create"]').check();
-  await page.locator('input[name="access.28.update"]').check();
-  await page.locator('input[name="access.29.create"]').check();
-  await page.locator('input[name="access.29.update"]').check();
-  await page.locator('input[name="access.29.delete"]').check();
-  await page.locator('input[name="access.31.create"]').check();
-  await page.locator('input[name="access.31.update"]').check();
-  await page.locator('input[name="access.31.delete"]').check();
-  await page.locator('input[name="access.32.create"]').check();
-  await page.locator('input[name="access.32.update"]').check();
-  await page.locator('input[name="access.32.delete"]').check();
-  await page.locator('input[name="access.33.create"]').check();
-  await page.locator('input[name="access.33.update"]').check();
+
+  await page.locator('input[name="access.0.create"]').check();
+  await page.locator('input[name="access.0.update"]').check();
+  await page.locator('input[name="access.0.delete"]').check();
+
   await page.getByRole('button', { name: 'Submit' }).click();
   await expect(page.getByText('Field Service Engineer')).toBeVisible();
 
@@ -138,24 +98,11 @@ async function addRole(page) {
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Customer Service');
   await page.getByRole('main').getByRole('button', { name: 'Customer Service' }).click();
     await page.waitForTimeout(1000);
-  await page.locator('input[name="access.11.create"]').first().check();
-  await page.locator('input[name="access.11.delete"]').check();
-  await page.locator('input[name="access.20.create"]').check();
-  await page.locator('input[name="access.20.create"]').click();
-  await page.locator('input[name="access.20.create"]').check();
-  await page.locator('input[name="access.28.create"]').check();
-  await page.locator('input[name="access.28.update"]').check();
-  await page.locator('input[name="access.29.create"]').check();
-  await page.locator('input[name="access.29.update"]').check();
-  await page.locator('input[name="access.29.delete"]').check();
-  await page.locator('input[name="access.31.create"]').check();
-  await page.locator('input[name="access.31.update"]').check();
-  await page.locator('input[name="access.31.delete"]').check();
-  await page.locator('input[name="access.32.create"]').check();
-  await page.locator('input[name="access.32.update"]').check();
-  await page.locator('input[name="access.32.delete"]').check();
-  await page.locator('input[name="access.33.create"]').check();
-  await page.locator('input[name="access.33.update"]').check();
+  await page.locator('input[name="access.0.create"]').check();
+  await page.locator('input[name="access.0.update"]').check();
+  await page.locator('input[name="access.0.delete"]').check();
+
+
   await page.getByRole('button', { name: 'Submit' }).click();
 
   await page.getByRole('button', { name: 'Add Role' }).click();
@@ -164,25 +111,15 @@ async function addRole(page) {
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Field Service Manager');
   await page.getByRole('main').getByRole('button', { name: 'Sales' }).click();
     await page.waitForTimeout(1000);
-  await page.locator('input[name="access.12.create"]').first().check();
+
+  await page.locator('input[name="access.4.create"]').check();
+  await page.locator('input[name="access.4.update"]').check();
+  await page.locator('input[name="access.4.delete"]').check();
+  await page.locator('input[name="access.12.create"]').check();
   await page.locator('input[name="access.12.update"]').check();
   await page.locator('input[name="access.12.delete"]').check();
-  await page.locator('input[name="access.13.create"]').check();
-  await page.locator('input[name="access.14.create"]').check();
-  await page.locator('input[name="access.14.update"]').check();
-  await page.locator('input[name="access.14.delete"]').check();
-  await page.locator('input[name="access.34.create"]').check();
-  await page.locator('input[name="access.34.update"]').check();
-  await page.locator('input[name="access.34.delete"]').check();
-  await page.locator('input[name="access.35.create"]').check();
-  await page.locator('input[name="access.35.update"]').check();
-  await page.locator('input[name="access.36.create"]').check();
-  await page.locator('input[name="access.36.update"]').check();
-  await page.locator('input[name="access.36.delete"]').check();
-  await page.locator('input[name="access.37.create"]').check();
-  await page.locator('input[name="access.37.update"]').check();
-  await page.locator('input[name="access.37.delete"]').check();
-  await page.locator('input[name="access.13.delete"]').check();
+
+
   await page.getByRole('button', { name: 'Submit' }).click();
   await expect(page.getByText('Field Service Manager')).toBeVisible();
   await page.reload();

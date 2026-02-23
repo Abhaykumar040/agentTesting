@@ -13,13 +13,13 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function product(page){
-  // await deletePreviousProduct(page);
-  // await page.waitForTimeout(3000);
-  // await addProduct(page);
-  // await page.waitForTimeout(3000);
-  // await editProduct(page);
-  // await page.waitForTimeout(3000);
-  // await referencedProduct(page);
+  await deletePreviousProduct(page);
+  await page.waitForTimeout(3000);
+  await addProduct(page);
+  await page.waitForTimeout(3000);
+  await editProduct(page);
+  await page.waitForTimeout(3000);
+  await referencedProduct(page);
   await page.waitForTimeout(3000);
   await deleteProduct(page);
 }

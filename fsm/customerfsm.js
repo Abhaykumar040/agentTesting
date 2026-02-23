@@ -13,10 +13,10 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function customerfsm(page){
-   await deletePreviousCustomer(page);
-     await page.waitForTimeout(3000);
-    //  await customerDownload(page);
-    //    await page.waitForTimeout(3000);
+  //  await deletePreviousCustomer(page);
+  //    await page.waitForTimeout(3000);
+     await customerDownload(page);
+       await page.waitForTimeout(3000);
     await createFsmCustomer(page);
     await page.waitForTimeout(3000);
     await editFsmCustomer(page);

@@ -99,12 +99,21 @@ console.log("crmSettings",crmSetting.matchedCount, crmSetting.modifiedCount);
 // console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
 
 
-const zone = await db.collection("zones").updateMany(
+const invoice = await db.collection("quotations").updateMany(
   {  company:companyId,
   status:1 },
   { $set:{ status: 3 } }
 );
-console.log("invoice",zone.matchedCount, zone.modifiedCount);
+console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
+
+
+
+// const zone = await db.collection("zones").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set:{ status: 3 } }
+// );
+// console.log("invoice",zone.matchedCount, zone.modifiedCount);
 
 
 
@@ -122,9 +131,9 @@ console.log("invoice",zone.matchedCount, zone.modifiedCount);
 //   { $set: { status: 3 } }
 // );
 
-const u4 = await db.collection("agents").updateMany(
-  {  company: company,status:1 },
-  { $set: { status: 3 } }
-);
+// const u4 = await db.collection("agents").updateMany(
+//   {  company: company,status:1 },
+//   { $set: { status: 3 } }
+// );
 
 console.log("agent updated:", u4.matchedCount);
