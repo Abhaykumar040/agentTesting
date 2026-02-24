@@ -11,16 +11,16 @@ const testData = JSON.parse(rawData);
 const screenshotPath=`screenshot/${testData.companyType}/ticket`;
 const pathName=`outputData/priority/${testData.companyType}`
 
-export async function Tickets(page){
-  // await addNewTickets(page);
-  // await page.waitForTimeout(30000);
-  // await editTicket(page);
+export async function ticketInsideCustomer(page){
+  await addNewTickets(page);
+  await page.waitForTimeout(30000);
+//   await editTicket(page);
 //  await sendTicket(page);
-  // await exportExcelInTicketsNormal(page);
-  // await page.waitForTimeout(1000);
-  // await exportExcelInTicketFilter(page);
+//   await exportExcelInTicketsNormal(page);
+//   await page.waitForTimeout(1000);
+//   await exportExcelInTicketFilter(page);
 
-  await uploadFilesTicket(page);
+//   await uploadFilesTicket(page);
 
   
 
@@ -31,13 +31,15 @@ export async function Tickets(page){
 async function addNewTickets(page) {
   console.log('Enter in add new tickets');
   await page.getByRole('button', { name: 'Customer Service' }).click();
-  await page.getByRole('link', { name: 'Tickets' }).click();
+    await page.getByRole('link', { name: 'Customers' }).click();
+  await page.getByText('Jony Rathor').first().click();
+  await page.getByRole('tab', { name: 'Support Tickets' }).click();
+
+
   await page.getByRole('button', { name: 'New Case' }).click();
   await page.getByRole('textbox', { name: 'Enter case title' }).click();
   await page.getByRole('textbox', { name: 'Enter case title' }).fill('Power cutoff issue');
-  await page.getByRole('combobox', { name: 'Search or type customer email' }).click();
-  await page.waitForTimeout(1000);
-   await page.getByRole('option', { name: 'Anil Rathor (akbk6551+1136@' }).click();
+
   // await page.getByRole('button', { name: 'Select Case Issue' }).click();
   await page.getByRole('button', { name: 'Select Case Issue' }).click();
   await page.getByRole('option', { name: 'Product Not Working' }).first().click();
@@ -61,12 +63,12 @@ async function addNewTickets(page) {
   await expect(page.getByText('Support Case created')).toBeVisible();
 
 
+//2nd ticket
+ await page.getByRole('tab', { name: 'Support Tickets' }).click();
   await page.getByRole('button', { name: 'New Case' }).click();
    await page.getByRole('textbox', { name: 'Enter case title' }).click();
   await page.getByRole('textbox', { name: 'Enter case title' }).fill('Power cutoff issue');
-  await page.getByRole('combobox', { name: 'Search or type customer email' }).click();
-  await page.waitForTimeout(1000);
-   await page.getByRole('option', { name: 'Neeraj Rathor (akbk6551+1217@' }).click();
+
   await page.getByRole('button', { name: 'Select Case Issue' }).click();
   await page.getByRole('option', { name: 'Installation Request1' }).click();
   await page.getByRole('button', { name: 'Select Priority' }).click();
@@ -86,11 +88,13 @@ async function addNewTickets(page) {
   await page.getByRole('button', { name: 'Select SLA' }).click();
   await page.getByRole('option', { name: 'AMC / Maintenance 3' }).click();
   await page.getByRole('button', { name: 'Create Case' }).click();
-  await expect(page.getByText('Support Case created')).toBeVisible();
 
-  await page.waitForTimeout(2000);
+
+  await page.waitForTimeout(1000);
+   await page.getByRole('tab', { name: 'Support Tickets' }).click();
+    await page.waitForTimeout(2000);
   
-    if (await page.getByText('Support Case created').first().isVisible()) 
+    if (page.getByText('Showing 1 to 1 of 1 entries').isVisible()) 
     {
       await page.screenshot({ path: `./${screenshotPath}/addNewTickets.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"addNewTickets","true",`./${screenshotPath}/addNewTickets.png`)
@@ -100,13 +104,13 @@ async function addNewTickets(page) {
       await page.screenshot({ path: `./${screenshotPath}/addNewTickets.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"addNewTickets","false",`./${screenshotPath}/addNewTickets.png`)
     }
-    await page.reload();
+   
   console.log('add new tickets completed');
 }
 
 
 async function editTicket(page){
-    await page.getByText('createSupport1').click();
+     await page.getByText('doneSupport2').click();
   await page.getByRole('button', { name: 'Select an Agent' }).click();
   await page.getByRole('option', { name: 'Yogesh Yadav' }).click();
   await page.getByRole('button', { name: 'Update Case' }).click();

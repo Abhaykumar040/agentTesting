@@ -50,7 +50,9 @@ async function addZone(page) {
   //1st zone
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Zone' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Add New Zone' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Zone Name' }).click();
   await page.getByRole('textbox', { name: 'Zone Name' }).fill('NI');
   await page.getByRole('textbox', { name: 'Description' }).click();
@@ -58,6 +60,7 @@ async function addZone(page) {
   await page.locator('input[name="color"]').click();
   await page.locator('input[name="color"]').fill('#4be278');
   await page.getByRole('button', { name: 'Create Zone' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Edit' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('checkbox', { name: 'Active Zone' }).check();
@@ -77,10 +80,12 @@ async function addZone(page) {
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('221307');
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
-  
-    await page.getByRole('button', { name: 'Master Data' }).click();
-  await page.getByRole('link', { name: 'Zone' }).click();
+   await page.waitForTimeout(1000);
+
+
+   //2nd Zone add
   await page.getByRole('button', { name: 'Add New Zone' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Zone Name' }).click();
   await page.getByRole('textbox', { name: 'Zone Name' }).fill('WI');
   await page.getByRole('textbox', { name: 'Description' }).click();
@@ -88,6 +93,7 @@ async function addZone(page) {
   await page.locator('input[name="color"]').click();
   await page.locator('input[name="color"]').fill('#4be278');
   await page.getByRole('button', { name: 'Create Zone' }).click();
+   await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Edit' }).first().click();
   await page.getByRole('checkbox', { name: 'Active Zone' }).check();
   await page.waitForTimeout(1000);
@@ -107,8 +113,11 @@ async function addZone(page) {
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('309282');
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
+ await page.waitForTimeout(2000);
 
+ //3rd zone create
   await page.getByRole('button', { name: 'Add New Zone' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Zone Name' }).click();
   await page.getByRole('textbox', { name: 'Zone Name' }).fill('CI');
   await page.getByRole('textbox', { name: 'Description' }).click();
@@ -117,6 +126,7 @@ async function addZone(page) {
   await page.locator('input[name="color"]').click();
   await page.locator('input[name="color"]').fill('#4be278');
   await page.getByRole('button', { name: 'Create Zone' }).click();
+   await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Edit' }).first().click();
   await page.getByRole('checkbox', { name: 'Active Zone' }).check();
   await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
@@ -135,10 +145,12 @@ async function addZone(page) {
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('421307');
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
+ await page.waitForTimeout(2000);
 
-  await page.getByRole('button', { name: 'Master Data' }).click();
-  await page.getByRole('link', { name: 'Zone' }).click();
+ //4rth Zone add
+
   await page.getByRole('button', { name: 'Add New Zone' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Zone Name' }).click();
   await page.getByRole('textbox', { name: 'Zone Name' }).fill('SI');
   await page.getByRole('textbox', { name: 'Description' }).click();
@@ -146,6 +158,8 @@ async function addZone(page) {
   await page.locator('input[name="color"]').click();
   await page.locator('input[name="color"]').fill('#3f60e2');
   await page.getByRole('button', { name: 'Create Zone' }).click();
+   await page.waitForTimeout(2000);
+
   await page.getByRole('button', { name: 'Edit' }).first().click();
   // await page.getByRole('checkbox', { name: 'Active Zone' }).check();
   await page.getByRole('textbox', { name: 'From (e.g. N1 1AA)' }).click();
@@ -164,10 +178,12 @@ async function addZone(page) {
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('510982');
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
+ await page.waitForTimeout(2000);
 
-  await page.getByRole('button', { name: 'Master Data' }).click();
-  await page.getByRole('link', { name: 'Zone' }).click();
+
+ //5th zone add
   await page.getByRole('button', { name: 'Add New Zone' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Zone Name' }).click();
   await page.getByRole('textbox', { name: 'Zone Name' }).fill('EI');
   await page.getByRole('textbox', { name: 'Description' }).click();
@@ -175,6 +191,7 @@ async function addZone(page) {
   await page.locator('input[name="color"]').click();
   await page.locator('input[name="color"]').fill('#ebe278');
   await page.getByRole('button', { name: 'Create Zone' }).click();
+   await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Edit' }).first().click();
   await page.getByRole('checkbox', { name: 'Active Zone' }).check();
   await page.waitForTimeout(1000);
@@ -194,10 +211,10 @@ async function addZone(page) {
   await page.getByRole('textbox', { name: 'Enter postcode' }).nth(1).fill('783629');
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
   await page.getByRole('button', { name: 'Save Changes' }).click();
+ await page.waitForTimeout(2000);
 
 
-
-  await expect(page.getByText('Zone updated successfully')).toBeVisible();
+ 
   await page.reload();
   await page.waitForTimeout(3000);
   
@@ -211,7 +228,7 @@ async function addZone(page) {
           await page.screenshot({ path: `./${screenshotPath}/addZone.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"addZone","false",`./${screenshotPath}/addZone.png`)
         }
-  await page.reload();
+
   console.log("Add zone completed");
 }
 

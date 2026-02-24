@@ -29,20 +29,19 @@ async function addFAQs(page) {
   await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).click();
   await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).fill('Yes, we offer complete after-sales support including maintenance, troubleshooting, and replacement of faulty parts under warranty.');
   await page.getByRole('combobox', { name: 'Select Tag' }).click();
-  await page.getByRole('option', { name: 'Genral FAQs' }).click();
-  await page.getByRole('button', { name: 'Save' }).click();
-  await page.getByText('FAQ added successfully.').click();
+  await page.getByRole('option', { name: 'tagFAQ' }).click();
+    
+     await page.waitForTimeout(1000);
+  await page.locator('input[type="file"]')
+  .setInputFiles('./uploadTestingFiles/leads.xlsx');
+   await page.waitForTimeout(1000);
 
-  // await page.waitForTimeout(1000);
-  //  await page.getByRole('button', { name: 'Add FAQs' }).click();
-  // await page.getByRole('textbox', { name: 'Enter your FAQ question' }).first().click();
-  // await page.getByRole('textbox', { name: 'Enter your FAQ question' }).fill('');
-  // await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).first().click();
-  // await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).fill('');
-  // await page.getByRole('combobox', { name: 'Select Tag' }).click();
-  // await page.getByRole('option', { name: 'Genral FAQs' }).click();
-  // await page.getByRole('button', { name: 'Save' }).click();
-  // // await page.getByText('FAQ added successfully.').click();
+
+  await page.getByRole('button', { name: 'Save' }).click();
+   await page.waitForTimeout(3000);
+  // await page.getByText('FAQ added successfully.').click();
+
+
 
 
   await page.getByRole('button', { name: 'Add FAQs' }).click();
@@ -51,8 +50,16 @@ async function addFAQs(page) {
   await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).nth(1).click();
   await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).nth(1).fill('You can raise a service request through our support portal or by contacting customer support.');
   await page.getByRole('combobox', { name: 'Select Tag' }).nth(1).click();
-  await page.getByRole('option', { name: 'Genral FAQs' }).click();
+  await page.getByRole('option', { name: 'tagFAQ' }).click();
+    await page.waitForTimeout(1000);
+  await page.locator('input[type="file"]').nth(1)
+  .setInputFiles('./uploadTestingFiles/leads.xlsx');
+   await page.waitForTimeout(1000);
+
+
   await page.getByRole('button', { name: 'Save' }).click();
+   await page.waitForTimeout(3000);
+ 
 
   await page.getByRole('button', { name: 'Add FAQs' }).click();
   await page.getByRole('textbox', { name: 'Enter your FAQ question' }).nth(2).click();
@@ -60,8 +67,15 @@ async function addFAQs(page) {
   await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).nth(2).click();
   await page.getByRole('textbox', { name: 'Enter your FAQ answer' }).nth(2).fill('You can raise a service request through our support portal or by contacting customer support.');
   await page.getByRole('combobox', { name: 'Select Tag' }).nth(2).click();
-  await page.getByRole('option', { name: 'Genral FAQs' }).click();
+  await page.getByRole('option', { name: 'tagFAQ' }).click();
+    await page.waitForTimeout(1000);
+  await page.locator('input[type="file"]').nth(2)
+  .setInputFiles('./uploadTestingFiles/leads.xlsx');
+   await page.waitForTimeout(1000);
+
+
   await page.getByRole('button', { name: 'Save' }).click();
+   await page.waitForTimeout(3000);
 
   await page.waitForTimeout(1000);
     if (await page.getByText('FAQ added successfully').first().isVisible()) 

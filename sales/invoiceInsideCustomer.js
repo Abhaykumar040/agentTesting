@@ -9,7 +9,7 @@ const testData = JSON.parse(rawData);
 const screenshotPath=`screenshot/${testData.companyType}/invoices`;
 const pathName=`outputData/priority/${testData.companyType}`
 
-export async function Invoices(page){
+export async function invoicesInsideCustomer(page){
   await addInvoices(page);
   await page.waitForTimeout(3000);
    await page.waitForTimeout(3000);
@@ -17,9 +17,6 @@ export async function Invoices(page){
   await editInvoices(page);
   await page.waitForTimeout(3000);
   await sendInvoices(page);
- 
-  await page.waitForTimeout(3000);
-  await createInvoiceByQuotation(page);
   await page.waitForTimeout(3000);
   await exportInvoiceNormal(page);
   await page.waitForTimeout(3000);
@@ -29,14 +26,18 @@ export async function Invoices(page){
 async function addInvoices(page){
   console.log('Enter in add invoice');
   await page.getByRole('button', { name: 'Sales' }).click();
-await page.getByRole('link', { name: 'Invoices' }).click();
+  await page.getByRole('link', { name: 'Customers' }).click();
+  await page.getByText('Jony Rathor').first().click();
 
+  await page.waitForTimeout(1000);
+ await page.getByRole('tab', { name: 'Invoice' }).click();
+ await page.waitForTimeout(1000);
 //1st Invoice create
+
   await page.getByRole('link', { name: 'Add Invoice' }).click();
 await page.waitForTimeout(1000);
-  await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Anil Rathor' }).click();
-  await page.waitForTimeout(1000);
+
+
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
   await page.getByRole('checkbox', { name: 'UPI Transfer' }).check();
@@ -59,24 +60,32 @@ await page.waitForTimeout(1000);
   await page.getByText('Invoice Notes ,a').click();
   await page.getByText('Invoice Notes ,a').fill('Invoice Notes ,aCreated');
   await page.getByRole('button', { name: 'Save' }).click();
-   await page.waitForTimeout(1000);
+
 
 //2nd invoice create
+
+
+  await page.waitForTimeout(1000);
+ await page.getByRole('tab', { name: 'Invoice' }).click();
+ await page.waitForTimeout(1000);
   await page.getByRole('link', { name: 'Add Invoice' }).click();
-  await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Anil Rathor' }).click();
+
+  await page.waitForTimeout(1000);
+
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'Wifi charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
-  await page.waitForTimeout(1000);
+
 
 
 //3rd invoice create
+
+  await page.waitForTimeout(1000);
+ await page.getByRole('tab', { name: 'Invoice' }).click();
+ await page.waitForTimeout(1000);
   await page.getByRole('link', { name: 'Add Invoice' }).click();
-  await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Anil Rathor' }).click();
    await page.waitForTimeout(1000);
     await page.locator('div').filter({ hasText: /^Address$/ }).click();
   await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
@@ -85,6 +94,9 @@ await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Wifi charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
+
+  await page.waitForTimeout(1000);
+ await page.getByRole('tab', { name: 'Invoice' }).click();
 
   await page.waitForTimeout(3000);
   if (await page.getByText('PENDING PAYMENT').nth(2).isVisible())  
@@ -104,6 +116,9 @@ await page.waitForTimeout(1000);
 async function sendInvoices(page) {
   console.log('Enter in send invoice');
 
+  await page.waitForTimeout(1000);
+ await page.getByRole('tab', { name: 'Invoice' }).click();
+ await page.waitForTimeout(1000);
     await page.getByText('PENDING PAYMENT').first().click();
     
   await page.waitForTimeout(1000);
@@ -137,6 +152,11 @@ async function sendInvoices(page) {
 
 async function editInvoices(page){
   console.log('Enter in edit invoice');
+  
+  await page.waitForTimeout(1000);
+ await page.getByRole('tab', { name: 'Invoice' }).click();
+ await page.waitForTimeout(1000);
+
     await page.locator('body tr:nth-of-type(1) td:nth-of-type(8) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Edit' }).click();
     await page.waitForTimeout(1000);
@@ -146,9 +166,10 @@ async function editInvoices(page){
   await page.getByText('Invoice Notes ,a').click();
   await page.getByText('Invoice Notes ,a').fill('Invoice Notes ,aEdited');
   await page.getByRole('button', { name: 'Update' }).click();
-
-  await page.getByRole('button', { name: 'Back to list' }).click();
+ await page.waitForTimeout(1000);
+  await page.goBack();
   await page.waitForTimeout(1000);
+
     await page.getByText('PENDING PAYMENT').first().click();
 
 
@@ -165,17 +186,21 @@ async function editInvoices(page){
     await updateOpJson(`./${screenshotPath}/`,"editInvoices","false",`./${screenshotPath}/editInvoices.png`)
   }
 
-   await page.getByRole('button', { name: 'Back to list' }).click();  await page.reload();
+  await page.goBack();
   console.log('edit Invoice completed');
 }
 
 async function cancelInvoice(page){
   console.log('Enter in cancel invoice');
+
+  
+  await page.waitForTimeout(1000);
+ await page.getByRole('tab', { name: 'Invoice' }).click();
+ await page.waitForTimeout(1000);
    await page.locator('body tr:nth-of-type(2) td:nth-of-type(8) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Cancel' }).click();
 
-  await page.waitForTimeout(1000);
-    await page.reload();
+ 
   await page.waitForTimeout(3000);
   if (await page.getByText('CANCELLED').isVisible())  
   {
@@ -190,57 +215,7 @@ async function cancelInvoice(page){
 
   console.log('cancel invoice completed');
 }
-async function createInvoiceByQuotation(page) {
-  console.log('Enter in create invoice by quotation');
-  await page.getByRole('button', { name: 'Sales' }).click();
-  await page.getByRole('link', { name: 'Quotations' }).click();
-  await page.getByRole('link', { name: 'Add Quotation' }).click();
-  
-  await page.waitForTimeout(1000);
-  await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Shyam Sundar' }).click();
-  await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Mukundpatti' }).click();
-  await page.getByRole('checkbox', { name: 'Notes' }).uncheck();
-  await page.getByRole('combobox').first().click();
-  await page.getByRole('option', { name: 'Wifi charger' }).click();
 
-  await page.getByRole('button', { name: 'Save' }).click()
-  await page.waitForTimeout(2000);
- 
-  await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
-  await page.getByRole('menuitem', { name: 'Approve' }).click();
-  await page.waitForTimeout(2000);
-  await expect(page.getByText('Quotation updated successfully')).toBeVisible();
-  await page.locator('.MuiBox-root.css-70qvj9 > button:nth-child(2)').first().click();
-  await page.getByRole('menuitem', { name: 'Accept' }).click();
-  // await page.waitForTimeout(2000);
-  // await expect(page.getByText('Quotation updated successfully')).toBeVisible();
-  await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
-  await page.getByRole('button', { name: 'Create Invoice' }).click();
-  await page.getByRole('button', { name: 'Update' }).click();
-  
-  await page.waitForTimeout(2000);
-
-  await page.reload();
-  
-  await page.getByRole('button', { name: 'Sales' }).click();
-  await page.getByRole('link', { name: 'Invoices' }).click();
-  await page.waitForTimeout(3000);
-    if (await page.getByText('Shyam Sundar').first().isVisible())  
-    {
-      await page.screenshot({ path: `./${screenshotPath}/createInvoiceByQuotation.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"createInvoiceByQuotation","true",`./${screenshotPath}/createInvoiceByQuotation.png`)
-  
-    }
-    else{
-      await page.screenshot({ path: `./${screenshotPath}/createInvoiceByQuotation.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"createInvoiceByQuotation","false",`./${screenshotPath}/createInvoiceByQuotation.png`)
-    }
-   
-
-  console.log('Create invoice by quotation');
-}
 
 async function exportInvoiceNormal(page){
   console.log('Enter in export invoice normal');

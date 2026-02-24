@@ -47,64 +47,64 @@ if (!user) {
 // );
 // console.log("userDetails",u11.matchedCount, u11.modifiedCount);
 
-const leads = await db.collection("leads").updateMany(
-  {  company,
-  status:1 },
-  { $set: { status: 3 } }
-);
-console.log("leads",leads.matchedCount, leads.modifiedCount);
+// const leads = await db.collection("leads").updateMany(
+//   {  company,
+//   status:1 },
+//   { $set: { status: 3 } }
+// );
+// console.log("leads",leads.matchedCount, leads.modifiedCount);
 
-const tickets = await db.collection("supportcases").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set: { status: 3 } }
-);
-console.log("ticekts",tickets.matchedCount, tickets.modifiedCount);
+// const tickets = await db.collection("supportcases").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set: { status: 3 } }
+// );
+// console.log("ticekts",tickets.matchedCount, tickets.modifiedCount);
 
-const queue = await db.collection("queues").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set: { status: 3 } }
-);
-console.log("queue",queue.matchedCount, queue.modifiedCount);
+// const queue = await db.collection("queues").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set: { status: 3 } }
+// );
+// console.log("queue",queue.matchedCount, queue.modifiedCount);
 
-const teams = await db.collection("teams").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set: { status: 3 } }
-);
-console.log("teams",teams.matchedCount, teams.modifiedCount);
+// const teams = await db.collection("teams").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set: { status: 3 } }
+// );
+// console.log("teams",teams.matchedCount, teams.modifiedCount);
 
-const faq = await db.collection("faqs").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set: { status: 3 } }
-);
-console.log("faq",faq.matchedCount, faq.modifiedCount);
-
-
-
-const crmSetting = await db.collection("crmsettings").updateOne(
-  {  company,
-  status:1 },
-  { $set: { sla: [],caseCategories:[] } }
-);
-console.log("crmSettings",crmSetting.matchedCount, crmSetting.modifiedCount);
-
-const invoice = await db.collection("invoices").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set:{ status: 3 } }
-);
-console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
+// const faq = await db.collection("faqs").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set: { status: 3 } }
+// );
+// console.log("faq",faq.matchedCount, faq.modifiedCount);
 
 
-const quotation = await db.collection("quotations").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set:{ status: 3 } }
-);
-console.log("quotation",quotation.matchedCount, quotation.modifiedCount);
+
+// const crmSetting = await db.collection("crmsettings").updateOne(
+//   {  company,
+//   status:1 },
+//   { $set: { sla: [],caseCategories:[] } }
+// );
+// console.log("crmSettings",crmSetting.matchedCount, crmSetting.modifiedCount);
+
+// const invoice = await db.collection("invoices").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set:{ status: 3 } }
+// );
+// console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
+
+
+// const quotation = await db.collection("quotations").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set:{ status: 3 } }
+// );
+// console.log("quotation",quotation.matchedCount, quotation.modifiedCount);
 
 
 
@@ -113,7 +113,7 @@ const zone = await db.collection("zones").updateMany(
   status:1 },
   { $set:{ status: 3 } }
 );
-console.log("invoice",zone.matchedCount, zone.modifiedCount);
+console.log("zone",zone.matchedCount, zone.modifiedCount);
 
 
 
