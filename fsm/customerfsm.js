@@ -23,7 +23,9 @@ export async function customerfsm(page){
     await page.waitForTimeout(3000);
     await deleteFsmCustomer(page);
     await page.waitForTimeout(3000);
-    await addressCreateFsmCustomer(page);
+    await addressCreateFsmCustomerCommercial(page);
+    await page.waitForTimeout(3000);
+    await addressCreateFsmCustomerIndividual(page);
     await page.waitForTimeout(3000);
     await jobCreateFsmCustomer(page);
     await page.waitForTimeout(3000);
@@ -553,7 +555,7 @@ await page.reload();
 console.log("delete previous customer completed");
 }
 
-async function addressCreateFsmCustomer(page){
+async function addressCreateFsmCustomerCommercial(page){
   console.log('Enter in address createFsmCustomer');
    await page.getByRole('button', { name: 'Field Service' }).click();
   await page.getByRole('link', { name: 'Customers' }).click();
@@ -571,20 +573,133 @@ async function addressCreateFsmCustomer(page){
   await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Mukundpatti');
   await page.getByText('Make this default shipping').click();
   await page.getByRole('button', { name: 'Save' }).click();
+
+  // await page.getByRole('button', { name: 'Add new address' }).click();
+  // await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  // await page.getByRole('textbox', { name: 'Search for a location' }).fill('mumbai');
+  // await page.getByText('Mumbai, Maharashtra, India', { exact: true }).click();
+  // await page.getByRole('textbox', { name: 'Address Line 1' }).click();
+  // await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Borivali');
+  // await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).click();
+  // await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).fill('320001');
+  // await page.getByRole('checkbox', { name: 'Make this default shipping' }).check();
+  // await page.getByRole('button', { name: 'Save' }).click();
+  await page.getByRole('button', { name: 'Add new address' }).click();
+  await page.getByText('Billing AddressBilling').click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('jamnagar');
+  await page.waitForTimeout(2000);
+  await page.getByText('Jamnagar, Gujarat, India', { exact: true }).click();
+  await page.getByRole('textbox', { name: 'Address Line 1' }).click();
+  await page.waitForTimeout(2000);
+  await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Jamnagar');
+  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).click();
+  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).fill('300120');
+  await page.getByText('Make this default billing').click();
+  await page.getByRole('button', { name: 'Save' }).click();
+  await page.getByRole('button', { name: 'Add new address' }).click();
+  await page.locator('div').filter({ hasText: /^Billing AddressBilling address info here$/ }).nth(1).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('prayagraj');
+  await page.waitForTimeout(2000);
+  await page.getByText('Prayagraj, Uttar Pradesh, India', { exact: true }).click();
+  await page.getByRole('textbox', { name: 'Address Line 1' }).click();
+  await page.waitForTimeout(2000);
+  await page.getByRole('textbox', { name: 'Address Line 1' }).fill('mundera bajar');
+  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).click();
+  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).fill('221406');
+  await page.getByRole('button', { name: 'Save' }).click();
+  await page.getByRole('button', { name: 'Add new address' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('bhadohi');
+  await page.waitForTimeout(2000);
+  await page.getByRole('listitem').filter({ hasText: 'Bhadohi, Uttar Pradesh, India' }).click();
+  await page.getByRole('textbox', { name: 'Address Line 1' }).click();
+  await page.waitForTimeout(2000);
+  await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Gopiganj');
+  await page.getByRole('button', { name: 'Save' }).click();
   await page.waitForTimeout(1000);
     if (await page.getByText('Address Added successfully').isVisible()) 
     {
-      await page.screenshot({ path: `./${screenshotPath}/addressCreateFsmCustomer.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"addressCreateFsmCustomer","true",`./${screenshotPath}/addressCreateFsmCustomer.png`)
+      await page.screenshot({ path: `./${screenshotPath}/addressCreateFsmCustomerCommercial.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"addressCreateFsmCustomerCommercial","true",`./${screenshotPath}/addressCreateFsmCustomerCommercial.png`)
   
     }
     else{
-      await page.screenshot({ path: `./${screenshotPath}/addressCreateFsmCustomer.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"addressCreateFsmCustomer","false",`./${screenshotPath}/addressCreateFsmCustomer.png`)
+      await page.screenshot({ path: `./${screenshotPath}/addressCreateFsmCustomerCommercial.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"addressCreateFsmCustomerCommercial","false",`./${screenshotPath}/addressCreateFsmCustomerCommercial.png`)
     }
     await page.reload();
   console.log('Address createFsmCustomer completed');
 }
+
+async function addressCreateFsmCustomerIndividual(page){
+  console.log('Enter in address create fsm customer individiual');
+   await page.getByRole('button', { name: 'Field Service' }).click();
+  await page.getByRole('link', { name: 'Customers' }).click();
+   await page.getByRole('row', { name: 'Anil Rathor akbk6551+1136@' }).getByLabel('Edit').click();
+  await page.getByRole('tab', { name: 'Address' }).click();
+  await page.getByRole('button', { name: 'Add new address' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('mumbai');
+  await page.waitForTimeout(2000);
+  await page.getByText('Mumbai, Maharashtra, India', { exact: true }).click();
+  await page.getByRole('textbox', { name: 'Address Line 1' }).click();
+  await page.waitForTimeout(2000);
+  await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Borivali');
+  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).click();
+  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).fill('320001');
+  await page.getByRole('checkbox', { name: 'Make this default shipping' }).check();
+  await page.getByRole('button', { name: 'Save' }).click();
+  await page.getByRole('button', { name: 'Add new address' }).click();
+  await page.getByText('Billing AddressBilling').click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('jamnagar');
+  await page.waitForTimeout(2000);
+  await page.getByText('Jamnagar, Gujarat, India', { exact: true }).click();
+  await page.getByRole('textbox', { name: 'Address Line 1' }).click();
+  await page.waitForTimeout(2000);
+  await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Jamnagar');
+  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).click();
+  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).fill('300120');
+  await page.getByText('Make this default billing').click();
+  await page.getByRole('button', { name: 'Save' }).click();
+  await page.getByRole('button', { name: 'Add new address' }).click();
+  await page.locator('div').filter({ hasText: /^Billing AddressBilling address info here$/ }).nth(1).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('prayagraj');
+  await page.waitForTimeout(2000);
+  await page.getByText('Prayagraj, Uttar Pradesh, India', { exact: true }).click();
+  await page.getByRole('textbox', { name: 'Address Line 1' }).click();
+  await page.waitForTimeout(2000);
+  await page.getByRole('textbox', { name: 'Address Line 1' }).fill('mundera bajar');
+  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).click();
+  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).fill('221406');
+  await page.getByRole('button', { name: 'Save' }).click();
+  await page.getByRole('button', { name: 'Add new address' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('bhadohi');
+  await page.waitForTimeout(2000);
+  await page.getByRole('listitem').filter({ hasText: 'Bhadohi, Uttar Pradesh, India' }).click();
+  await page.getByRole('textbox', { name: 'Address Line 1' }).click();
+  await page.waitForTimeout(2000);
+  await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Gopiganj');
+  await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(1000);
+  if (await page.getByText('Address Added successfully').isVisible()) 
+  {
+    await page.screenshot({ path: `./${screenshotPath}/addressCreateFsmCustomerIndividual.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"addressCreateFsmCustomerIndividual","true",`./${screenshotPath}/addressCreateFsmCustomerIndividual.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/addressCreateFsmCustomerIndividual.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"addressCreateFsmCustomerIndividual","false",`./${screenshotPath}/addressCreateFsmCustomerIndividual.png`)
+  }
+  await page.reload();
+  console.log('Address create fsm customer individiual completed');
+}
+
 async function jobCreateFsmCustomer(page){
   console.log('Enter in jobCreateFsmCustomer');
    await page.getByRole('button', { name: 'Field Service' }).click();
@@ -663,10 +778,10 @@ async function cyclicJobCreateFsmCustomer(page){
   await page.getByRole('button', { name: 'Frequency Type Daily' }).click();
   await page.getByRole('option', { name: 'Weekly' }).click();
   await page.getByRole('button', { name: 'Sun' }).click();
-  await page.getByRole('textbox', { name: 'Schedule Start Date' }).fill('2026-02-22');
+  await page.getByRole('textbox', { name: 'Schedule Start Date' }).fill('2026-03-22');
   await page.getByRole('textbox', { name: 'Schedule End Date' }).fill('2026-03-30');
   await page.getByRole('button', { name: 'Create Job' }).click();
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(2000);
     if (await page.getByText('Cyclic job created').isVisible()) 
     {
       await page.screenshot({ path: `./${screenshotPath}/cyclicJobCreateFsmCustomer.png`, fullPage: true });

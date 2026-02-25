@@ -428,7 +428,7 @@
     },
     "cyclicJobCreateFsmCustomer": {
       "path": "./screenshot/parent/customerfsm/cyclicJobCreateFsmCustomer.png",
-      "note": "true"
+      "note": "false"
     },
     "contactDetailsFsmCustomer": {
       "path": "./screenshot/parent/customerfsm/contactDetailsFsmCustomer.png",
@@ -436,6 +436,14 @@
     },
     "documentsUploadFsmCustomer": {
       "path": "./screenshot/parent/customerfsm/documentsUploadFsmCustomer.png",
+      "note": "true"
+    },
+    "addressCreateFsmCustomerCommercial": {
+      "path": "./screenshot/parent/customerfsm/addressCreateFsmCustomerCommercial.png",
+      "note": "true"
+    },
+    "addressCreateFsmCustomerIndividual": {
+      "path": "./screenshot/parent/customerfsm/addressCreateFsmCustomerIndividual.png",
       "note": "true"
     }
   },
@@ -566,6 +574,86 @@
     },
     "jobScheduleInInternalJobEdit": {
       "path": "./screenshot/parent/cyclicJob/jobScheduleInInternalJobEdit.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/formCustomization/": {
+    "editformCustomization1": {
+      "path": "./screenshot/parent/formCustomization/editformCustomization1.png",
+      "note": "true"
+    },
+    "editformCustomization2": {
+      "path": "./screenshot/parent/formCustomization/editformCustomization2.png",
+      "note": "true"
+    },
+    "editformCustomization3": {
+      "path": "./screenshot/parent/formCustomization/editformCustomization3.png",
+      "note": "true"
+    },
+    "checkformVisiblity1": {
+      "path": "./screenshot/parent/formCustomization/checkformVisiblity1.png",
+      "note": "true"
+    },
+    "checkformVisiblity2": {
+      "path": "./screenshot/parent/formCustomization/checkformVisiblity2.png",
+      "note": "true"
+    },
+    "checkFormEditable1": {
+      "path": "./screenshot/parent/formCustomization/checkFormEditable1.png",
+      "note": "true"
+    },
+    "checkFormEditable2": {
+      "path": "./screenshot/parent/formCustomization/checkFormEditable2.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/CompanySetup/": {
+    "editCompanySetup1": {
+      "path": "./screenshot/parent/CompanySetup/editCompanySetup1.png",
+      "note": "true"
+    },
+    "editCompanySetup2": {
+      "path": "./screenshot/parent/CompanySetup/editCompanySetup2.png",
+      "note": "true"
+    },
+    "editCompanySetup3": {
+      "path": "./screenshot/parent/CompanySetup/editCompanySetup3.png",
+      "note": "true"
+    },
+    "quotationSettingInCompanySetup1": {
+      "path": "./screenshot/parent/CompanySetup/quotationSettingInCompanySetup1.png",
+      "note": "true"
+    },
+    "quotationSettingInCompanySetup2": {
+      "path": "./screenshot/parent/CompanySetup/quotationSettingInCompanySetup2.png",
+      "note": "true"
+    },
+    "quotationSettingInCompanySetup3": {
+      "path": "./screenshot/parent/CompanySetup/quotationSettingInCompanySetup3.png",
+      "note": "true"
+    },
+    "invoiceSettingInCompanySetup1": {
+      "path": "./screenshot/parent/CompanySetup/invoiceSettingInCompanySetup1.png",
+      "note": "true"
+    },
+    "invoiceSettingInCompanySetup2": {
+      "path": "./screenshot/parent/CompanySetup/invoiceSettingInCompanySetup2.png",
+      "note": "true"
+    },
+    "invoiceSettingInCompanySetup3": {
+      "path": "./screenshot/parent/CompanySetup/invoiceSettingInCompanySetup3.png",
+      "note": "true"
+    },
+    "bellingAddressInCompanySetup1": {
+      "path": "./screenshot/parent/CompanySetup/bellingAddressInCompanySetup1.png",
+      "note": "true"
+    },
+    "bellingAddressInCompanySetup2": {
+      "path": "./screenshot/parent/CompanySetup/bellingAddressInCompanySetup2.png",
+      "note": "true"
+    },
+    "bellingAddressInCompanySetup3": {
+      "path": "./screenshot/parent/CompanySetup/bellingAddressInCompanySetup3.png",
       "note": "true"
     }
   }

@@ -11,6 +11,7 @@ import { FAQs } from '../customerService/faq';
 import { customerInC_service } from '../customerService/customerInC_Service';
 import { Queue } from '../customerService/Queues';
 import { loginRight } from './login';
+import { companySetup } from '../setting/CompanySetup';
 import { team } from '../customerService/team';
 import { cs_agent } from '../customerService/cs-agent';
 import { Invoices } from '../sales/invoices';
@@ -18,6 +19,7 @@ import { Quotation } from '../sales/quotation';
 import { zone } from '../masterData/zone';
 import { customer } from '../sales/customer';
 import { assetsCategory } from '../masterData/assets-category';
+import { formCustomization } from '../setting/formCustomization';
 import { priority } from '../setting/priority';
 import { salesAgents } from '../sales/sales-agents';
 import { roles } from '../setting/roles';
@@ -37,6 +39,8 @@ test.beforeAll(async () => {
 });
 test('basic test', async ({ page }) => {
 await loginRight(page);
+// await companySetup(page);
+// await formCustomization(page);
 // await priority(page);
 // await roles(page);
 // await status(page);
@@ -60,10 +64,10 @@ await loginRight(page);
 // await FAQs(page);
 // await Engineer(page);
 // await jobType(page);
-// await customerfsm(page);
+await customerfsm(page);
 // await AssetManagement(page);
 // await internalJob(page);
-await cyclicJob(page);
+// await cyclicJob(page);
 
 
 // await page.waitForTimeout(30000);
