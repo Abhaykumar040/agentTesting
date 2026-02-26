@@ -16,18 +16,17 @@ export async function skill(page){
   
   // await deletePreviousProficiency(page);
   // await page.waitForTimeout(3000);
-  // await deletePreviousSkill(page);
-  // await page.waitForTimeout(3000);
+  await deletePreviousSkill(page);
+  await page.waitForTimeout(3000);
   // await addProficiency(page);
   // await page.waitForTimeout(3000);
-  // await addSkill(page);
-  //   await page.waitForTimeout(3000);
+  await addSkill(page);
+    await page.waitForTimeout(3000);
   // await editProficiency(page);
   // await page.waitForTimeout(3000);
-  // await editSkill(page);
-  // await page.waitForTimeout(3000);
-  // await assignSkill(page)
-  // await page.waitForTimeout(3000);
+  await editSkill(page);
+  await page.waitForTimeout(3000);
+
   await deleteSkill(page);
 
 }
@@ -374,39 +373,4 @@ async function deleteProficiency(page) {
           await updateOpJson(`./${screenshotPath}/`,"deleteSkill","false",`./${screenshotPath}/deleteSkill.png`)
         }
   await page.reload();
-}
-
-async function assignSkill(page){
-  console.log('Enter in assign skill');
-  await page.getByRole('row', { name: 'Skill Description Proficiency' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'Assign Skill (5)' }).click();
-  await page.getByRole('checkbox').nth(2).check();
-  await page.getByRole('checkbox').nth(3).check();
-  await page.getByRole('checkbox').nth(4).check();
-  await page.getByRole('checkbox').nth(5).check();
-  await page.getByRole('button', { name: 'Embedded Systems (0)' }).click();
-  await page.getByRole('button', { name: 'Testing & Troubleshooting (0)' }).click();
-  await page.getByRole('button', { name: 'Embedded Systems (0)' }).click();
-  await page.getByRole('checkbox').nth(2).check();
-  await page.getByRole('checkbox').nth(3).check();
-  await page.getByRole('checkbox').nth(4).check();
-  await page.getByRole('checkbox').nth(5).check();
-  await page.getByRole('button', { name: 'Testing & Troubleshooting (0)' }).click();
-  await page.getByRole('checkbox').nth(2).check();
-  await page.getByRole('checkbox').nth(3).check();
-  await page.getByRole('checkbox').nth(4).check();
-  await page.getByRole('checkbox').nth(5).check();
-  await page.getByRole('button', { name: 'Soldering & Rework (0)' }).click();
-  await page.getByRole('checkbox').nth(2).check();
-  await page.locator('div').filter({ hasText: /^Ravi TiwariZone: NI$/ }).first().click();
-  await page.getByRole('checkbox').nth(3).check();
-  await page.getByRole('checkbox').nth(4).check();
-  await page.getByRole('checkbox').nth(5).check();
-  await page.getByRole('button', { name: 'Repairing (0)' }).click();
-  await page.getByRole('checkbox').nth(2).check();
-  await page.getByRole('checkbox').nth(3).check();
-  await page.getByRole('checkbox').nth(4).check();
-  await page.getByRole('checkbox').nth(5).check();
-  await page.getByRole('button', { name: 'Assign All Skills' }).click();
-  console.log('Assign skill completed');
 }

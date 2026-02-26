@@ -46,7 +46,7 @@
   "./screenshot/parent/skill/": {
     "addskill": {
       "path": "./screenshot/parent/skill/addskill.png",
-      "note": "false"
+      "note": "true"
     },
     "editSkill": {
       "path": "./screenshot/parent/skill/editSkill.png",

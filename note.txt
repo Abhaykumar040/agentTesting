@@ -57,3 +57,5 @@ await chooser.setFiles('downloads/leads.xlsx');
   await globalExportDocument(page, page.getByRole('button', { name: 'Export To Excel' }),'lead2.xlsx');
 
   await page.click("body tr:nth-of-type(4) td:nth-of-type(4) div button:last-of-type svg");
+
+    await page.getByRole('row', { name: 'Sushil Singh' }).click();

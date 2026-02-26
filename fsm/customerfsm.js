@@ -13,27 +13,27 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function customerfsm(page){
-   await deletePreviousCustomer(page);
-     await page.waitForTimeout(3000);
+  //  await deletePreviousCustomer(page);
+  //    await page.waitForTimeout(3000);
     //  await customerDownload(page);
     //    await page.waitForTimeout(3000);
-    await createFsmCustomer(page);
-    await page.waitForTimeout(3000);
-    await editFsmCustomer(page);
-    await page.waitForTimeout(3000);
-    await deleteFsmCustomer(page);
-    await page.waitForTimeout(3000);
-    await addressCreateFsmCustomerCommercial(page);
-    await page.waitForTimeout(3000);
-    await addressCreateFsmCustomerIndividual(page);
-    await page.waitForTimeout(3000);
-    await jobCreateFsmCustomer(page);
-    await page.waitForTimeout(3000);
+    // await createFsmCustomer(page);
+    // await page.waitForTimeout(3000);
+    // await editFsmCustomer(page);
+    // await page.waitForTimeout(3000);
+    // await deleteFsmCustomer(page);
+    // await page.waitForTimeout(3000);
+    // await addressCreateFsmCustomerCommercial(page);
+    // await page.waitForTimeout(3000);
+    // await addressCreateFsmCustomerIndividual(page);
+    // await page.waitForTimeout(3000);
+    // await jobCreateFsmCustomer(page);
+    // await page.waitForTimeout(3000);
     await cyclicJobCreateFsmCustomer(page);
     await page.waitForTimeout(3000);
-    await contactDetailsFsmCustomer(page);
-    await page.waitForTimeout(3000);
-    await documentsUploadFsmCustomer(page);
+    // await contactDetailsFsmCustomer(page);
+    // await page.waitForTimeout(3000);
+    // await documentsUploadFsmCustomer(page);
 }
 
 async function createFsmCustomer(page) {
@@ -559,67 +559,75 @@ async function addressCreateFsmCustomerCommercial(page){
   console.log('Enter in address createFsmCustomer');
    await page.getByRole('button', { name: 'Field Service' }).click();
   await page.getByRole('link', { name: 'Customers' }).click();
-  await page.getByRole('combobox', { name: 'Select Customer Type' }).click();
-  await page.getByRole('option', { name: 'commercial' }).click();
-   await page.getByRole('row', { name: 'Sushil Singh akbk6551+1218@' }).getByLabel('Edit').click();
+  await page.waitForTimeout(3000);
+   await page.getByRole('row', { name: 'Sushil Singh' }).click();
+    await page.waitForTimeout(1000);
+
+    //1st address commercial
   await page.getByRole('tab', { name: 'Address' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Add new address' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria');
   await page.waitForTimeout(2000);
   await page.getByRole('listitem').filter({ hasText: /^Khamaria, Uttar Pradesh, India$/ }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Address Line 1' }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Mukundpatti');
   await page.getByText('Make this default shipping').click();
   await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(1000);
 
-  // await page.getByRole('button', { name: 'Add new address' }).click();
-  // await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  // await page.getByRole('textbox', { name: 'Search for a location' }).fill('mumbai');
-  // await page.getByText('Mumbai, Maharashtra, India', { exact: true }).click();
-  // await page.getByRole('textbox', { name: 'Address Line 1' }).click();
-  // await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Borivali');
-  // await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).click();
-  // await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).fill('320001');
-  // await page.getByRole('checkbox', { name: 'Make this default shipping' }).check();
-  // await page.getByRole('button', { name: 'Save' }).click();
+
+  //2nd address commercial biling
   await page.getByRole('button', { name: 'Add new address' }).click();
-  await page.getByText('Billing AddressBilling').click();
+  await page.waitForTimeout(1000);
+
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('jamnagar');
   await page.waitForTimeout(2000);
   await page.getByText('Jamnagar, Gujarat, India', { exact: true }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Address Line 1' }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Jamnagar');
   await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).click();
   await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).fill('300120');
-  await page.getByText('Make this default billing').click();
+    await page.getByText('Make this default shipping').click();
+   await page.getByRole('checkbox', { name: 'Use as a billing address?' }).check();
   await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(1000);
+
+
+  //3rd address commercial all
+
   await page.getByRole('button', { name: 'Add new address' }).click();
+  await page.waitForTimeout(1000);
   await page.locator('div').filter({ hasText: /^Billing AddressBilling address info here$/ }).nth(1).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('prayagraj');
   await page.waitForTimeout(2000);
   await page.getByText('Prayagraj, Uttar Pradesh, India', { exact: true }).click();
+await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Address Line 1' }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Address Line 1' }).fill('mundera bajar');
   await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).click();
   await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).fill('221406');
+ 
   await page.getByRole('button', { name: 'Save' }).click();
-  await page.getByRole('button', { name: 'Add new address' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).fill('bhadohi');
-  await page.waitForTimeout(2000);
-  await page.getByRole('listitem').filter({ hasText: 'Bhadohi, Uttar Pradesh, India' }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1' }).click();
-  await page.waitForTimeout(2000);
-  await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Gopiganj');
-  await page.getByRole('button', { name: 'Save' }).click();
-  await page.waitForTimeout(1000);
-    if (await page.getByText('Address Added successfully').isVisible()) 
+await page.waitForTimeout(1000);
+ 
+
+
+    if (await page.getByText('Site AddressDefault AddressJamnagarJamnagar, Gujarat').isVisible()
+    && await page.getByText('Billing Addressmundera').isVisible()
+  && await page.getByText('Site AddressMukundpattiKhamaria, Uttar Pradesh').isVisible()
+&& await page.getByText('Billing AddressDefault AddressJamnagarJamnagar, Gujarat').isVisible()) 
     {
       await page.screenshot({ path: `./${screenshotPath}/addressCreateFsmCustomerCommercial.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"addressCreateFsmCustomerCommercial","true",`./${screenshotPath}/addressCreateFsmCustomerCommercial.png`)
@@ -632,91 +640,113 @@ async function addressCreateFsmCustomerCommercial(page){
     await page.reload();
   console.log('Address createFsmCustomer completed');
 }
-
 async function addressCreateFsmCustomerIndividual(page){
-  console.log('Enter in address create fsm customer individiual');
+  console.log('Enter in address createFsmCustomer');
    await page.getByRole('button', { name: 'Field Service' }).click();
   await page.getByRole('link', { name: 'Customers' }).click();
-   await page.getByRole('row', { name: 'Anil Rathor akbk6551+1136@' }).getByLabel('Edit').click();
+  await page.waitForTimeout(3000);
+   await page.getByText('Anil Dubey').click();
+    await page.waitForTimeout(1000);
+
+    //1st address individual
   await page.getByRole('tab', { name: 'Address' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Add new address' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).fill('mumbai');
+  await page.waitForTimeout(1000);
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria');
   await page.waitForTimeout(2000);
-  await page.getByText('Mumbai, Maharashtra, India', { exact: true }).click();
+  await page.getByRole('listitem').filter({ hasText: /^Khamaria, Uttar Pradesh, India$/ }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Address Line 1' }).click();
-  await page.waitForTimeout(2000);
-  await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Borivali');
-  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).click();
-  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).fill('320001');
-  await page.getByRole('checkbox', { name: 'Make this default shipping' }).check();
+  await page.waitForTimeout(500);
+  await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Mukundpatti');
+  await page.getByText('Make this default shipping').click();
   await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(1000);
+
+
+  //2nd address individual biling
   await page.getByRole('button', { name: 'Add new address' }).click();
-  await page.getByText('Billing AddressBilling').click();
+  await page.waitForTimeout(1000);
+
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('jamnagar');
   await page.waitForTimeout(2000);
   await page.getByText('Jamnagar, Gujarat, India', { exact: true }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Address Line 1' }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Jamnagar');
   await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).click();
   await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).fill('300120');
-  await page.getByText('Make this default billing').click();
+    await page.getByText('Make this default shipping').click();
+   await page.getByRole('checkbox', { name: 'Use as a billing address?' }).check();
   await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(1000);
+
+
+  //3rd address individual all
+
   await page.getByRole('button', { name: 'Add new address' }).click();
+  await page.waitForTimeout(1000);
   await page.locator('div').filter({ hasText: /^Billing AddressBilling address info here$/ }).nth(1).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('prayagraj');
   await page.waitForTimeout(2000);
   await page.getByText('Prayagraj, Uttar Pradesh, India', { exact: true }).click();
+await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Address Line 1' }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Address Line 1' }).fill('mundera bajar');
   await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).click();
   await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).fill('221406');
+ 
   await page.getByRole('button', { name: 'Save' }).click();
-  await page.getByRole('button', { name: 'Add new address' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).fill('bhadohi');
-  await page.waitForTimeout(2000);
-  await page.getByRole('listitem').filter({ hasText: 'Bhadohi, Uttar Pradesh, India' }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1' }).click();
-  await page.waitForTimeout(2000);
-  await page.getByRole('textbox', { name: 'Address Line 1' }).fill('Gopiganj');
-  await page.getByRole('button', { name: 'Save' }).click();
-  await page.waitForTimeout(1000);
-  if (await page.getByText('Address Added successfully').isVisible()) 
-  {
-    await page.screenshot({ path: `./${screenshotPath}/addressCreateFsmCustomerIndividual.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"addressCreateFsmCustomerIndividual","true",`./${screenshotPath}/addressCreateFsmCustomerIndividual.png`)
+await page.waitForTimeout(1000);
 
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/addressCreateFsmCustomerIndividual.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"addressCreateFsmCustomerIndividual","false",`./${screenshotPath}/addressCreateFsmCustomerIndividual.png`)
-  }
-  await page.reload();
-  console.log('Address create fsm customer individiual completed');
+
+    if (await page.getByText('Site AddressDefault AddressJamnagarJamnagar, Gujarat').isVisible()
+    && await page.getByText('Billing Addressmundera').isVisible()
+  && await page.getByText('Site AddressMukundpattiKhamaria, Uttar Pradesh').isVisible()
+&& await page.getByText('Billing AddressDefault AddressJamnagarJamnagar, Gujarat').isVisible()) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/addressCreateFsmCustomerIndividual.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"addressCreateFsmCustomerIndividual","true",`./${screenshotPath}/addressCreateFsmCustomerIndividual.png`)
+  
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/addressCreateFsmCustomerIndividual.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"addressCreateFsmCustomerIndividual","false",`./${screenshotPath}/addressCreateFsmCustomerIndividual.png`)
+    }
+    await page.reload();
+  console.log('Address createFsmCustomer completed');
 }
+
+
 
 async function jobCreateFsmCustomer(page){
   console.log('Enter in jobCreateFsmCustomer');
    await page.getByRole('button', { name: 'Field Service' }).click();
   await page.getByRole('link', { name: 'Customers' }).click();
-  await page.getByRole('combobox', { name: 'Select Customer Type' }).click();
-  await page.getByRole('option', { name: 'commercial' }).click();
-   await page.getByRole('row', { name: 'Sushil Singh akbk6551+1218@' }).getByLabel('Edit').click();
+  await page.waitForTimeout(1000);
+   await page.getByRole('row', { name: 'Sushil Singh' }).click();
+    await page.waitForTimeout(1000);
     await page.getByRole('tab', { name: 'Job Details' }).click();
+     await page.waitForTimeout(1000);
   await page.getByRole('link', { name: 'Add New Job' }).click();
   await page.getByRole('button', { name: 'Address' }).click();
   await page.getByRole('option', { name: 'Mukundpatti' }).click();
   await page.getByRole('button', { name: 'Job Type' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Installation6' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Job Description' }).click();
   await page.getByRole('textbox', { name: 'Job Description' }).fill('Installation');
   await page.getByRole('button', { name: 'Priority' }).click();
-  await page.getByRole('option', { name: 'least - Low installationX' }).click();
+await page.getByRole('option', { name: 'XLowX - Low installationX' }).click();
   await page.getByRole('textbox', { name: 'Comments' }).click();
   await page.getByRole('textbox', { name: 'Comments' }).fill('Installation process');
   await page.getByRole('button', { name: 'Status Profile' }).click();
@@ -770,8 +800,8 @@ async function cyclicJobCreateFsmCustomer(page){
   await page.getByRole('button', { name: 'Job Type' }).click();
   await page.getByRole('option', { name: 'Installation6' }).click();
   await page.getByRole('button', { name: 'Priority' }).click();
-  await page.getByRole('option', { name: 'least' }).click();
-  await page.getByRole('combobox', { name: 'Asset' }).click();
+  await page.getByRole('option', { name: 'High' }).click();
+ 
   await page.getByRole('combobox', { name: 'Asset' }).click();
   await page.getByRole('button', { name: 'Soldering & Rework' }).click();
   await page.getByRole('button', { name: 'Embedded Systems' }).click();

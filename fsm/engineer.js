@@ -13,13 +13,15 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function Engineer(page){
-  await deletePreviousEngineer(page);
-  await page.waitForTimeout(3000);
-  await createEngineer(page);
-  await page.waitForTimeout(3000);
-  await emailVarificationEngineer(page);
-  await page.waitForTimeout(3000);
-  await deleteEngineer(page);
+  // await deletePreviousEngineer(page);
+  // await page.waitForTimeout(3000);
+  // await createEngineer(page);
+  // await page.waitForTimeout(3000);
+  // await emailVarificationEngineer(page);
+  // await page.waitForTimeout(3000);
+  // await deleteEngineer(page);
+ await page.waitForTimeout(1000);
+  await assignSkill(page);
 
 }
 async function deletePreviousEngineer(page){
@@ -325,3 +327,33 @@ async function emailVarificationEngineer(page){
   await page.reload();
 }
 
+
+async function assignSkill(page){
+  console.log('Enter in assign skill');
+   await page.getByRole('button', { name: 'Master Data' }).click();
+  await page.getByRole('link', { name: 'Skill' }).click();
+ await page.waitForTimeout(3000);
+  await page.getByRole('row', { name: 'Skill Description Proficiency' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'Assign Skill (4)' }).click();
+  await page.getByRole('checkbox').nth(2).check();
+  await page.getByRole('checkbox').nth(3).check();
+  await page.getByRole('checkbox').nth(4).check();
+  await page.getByRole('checkbox').nth(5).check();
+  
+  await page.getByRole('button', { name: 'Testing & Troubleshooting (0)' }).click();
+
+
+  await page.getByRole('checkbox').nth(4).check();
+  await page.getByRole('checkbox').nth(5).check();
+
+  await page.getByRole('button', { name: 'Soldering & Rework (0)' }).click();
+ 
+  await page.getByRole('checkbox').nth(5).check();
+  await page.getByRole('button', { name: 'Repairing (0)' }).click();
+  await page.getByRole('checkbox').nth(2).check();
+  
+  
+  await page.getByRole('button', { name: 'Assign All Skills' }).click();
+   await page.waitForTimeout(1000);
+  console.log('Assign skill completed');
+}
