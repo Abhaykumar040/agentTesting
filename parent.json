@@ -428,7 +428,7 @@
     },
     "cyclicJobCreateFsmCustomer": {
       "path": "./screenshot/parent/customerfsm/cyclicJobCreateFsmCustomer.png",
-      "note": "false"
+      "note": "true"
     },
     "contactDetailsFsmCustomer": {
       "path": "./screenshot/parent/customerfsm/contactDetailsFsmCustomer.png",

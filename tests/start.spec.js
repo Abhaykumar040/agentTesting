@@ -30,6 +30,9 @@ import { product } from '../masterData/product';
 import { skill } from '../masterData/skill';
 import { customerfsm } from '../fsm/customerfsm';
 import { lead } from '../sales/lead';
+import { quotationInsideCustomer } from '../sales/quotationInsideCustomer';
+import { invoicesInsideCustomer } from '../sales/invoiceInsideCustomer';
+import { ticketInsideCustomer } from '../customerService/ticketInsideCustomer';
 
 let testData; 
 
@@ -54,13 +57,18 @@ await loginRight(page);
 // await lead(page);
 // await customer(page);
 // await Quotation(page);
+// await quotationInsideCustomer(page);
 // await Invoices(page);
+// await invoicesInsideCustomer(page);
+
+
 // await cs_agent(page);
 // await team(page);
 // await setting(page);
 // await customerInC_service(page); 
 // await Queue(page);
 // await Tickets(page);
+// await ticketInsideCustomer(page);
 // await FAQs(page);
 // await Engineer(page);
 // await jobType(page);

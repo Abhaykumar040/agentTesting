@@ -14,19 +14,22 @@ const pathName=`outputData/status/${testData.companyType}`
 
 export async function skill(page){
   
-  await deletePreviousProficiency(page);
-  await page.waitForTimeout(3000);
-  await deletePreviousSkill(page);
-  await page.waitForTimeout(3000);
-  await addProficiency(page);
-  await page.waitForTimeout(3000);
-  await addSkill(page);
-  await page.waitForTimeout(3000);
-  await editSkill(page);
-  await page.waitForTimeout(3000);
-  await assignSkill(page)
-  await page.waitForTimeout(3000);
+  // await deletePreviousProficiency(page);
+  // await page.waitForTimeout(3000);
+  // await deletePreviousSkill(page);
+  // await page.waitForTimeout(3000);
+  // await addProficiency(page);
+  // await page.waitForTimeout(3000);
+  // await addSkill(page);
+  //   await page.waitForTimeout(3000);
+  // await editProficiency(page);
+  // await page.waitForTimeout(3000);
+  // await editSkill(page);
+  // await page.waitForTimeout(3000);
+  // await assignSkill(page)
+  // await page.waitForTimeout(3000);
   await deleteSkill(page);
+
 }
 async function addSkill(page) {
   console.log("Enter in Add Skill")
@@ -42,15 +45,15 @@ async function addSkill(page) {
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Expert' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'Intermediate' }).click();
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'beginner' }).click();
   await page.locator('div').filter({ hasText: 'Create New SkillSkill Name *' }).nth(1).click();
   await page.getByRole('button', { name: 'Save' }).click();
-
+await page.waitForTimeout(500);
     await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Skill' }).click();
   await page.getByRole('button', { name: 'Add Skill' }).click();
@@ -60,14 +63,14 @@ async function addSkill(page) {
   await page.getByRole('textbox', { name: 'Description *' }).fill('Soldering & Rework');
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.locator('[id="mui-component-select-proficiencyLevels.0.value"]').click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'Expert' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'Intermediate' }).click();
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'beginner' }).click();
   await page.locator('div').filter({ hasText: 'Create New SkillSkill Name *' }).nth(1).click();
   await page.getByRole('button', { name: 'Save' }).click();
@@ -81,14 +84,14 @@ async function addSkill(page) {
   await page.getByRole('textbox', { name: 'Description *' }).fill('Testing & Troubleshooting');
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.locator('[id="mui-component-select-proficiencyLevels.0.value"]').click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Expert' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'Intermediate' }).click();
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'beginner' }).click();
   await page.locator('div').filter({ hasText: 'Create New SkillSkill Name *' }).nth(1).click();
   await page.getByRole('button', { name: 'Save' }).click();
@@ -102,14 +105,14 @@ async function addSkill(page) {
   await page.getByRole('textbox', { name: 'Description *' }).fill('Embedded Systems');
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.locator('[id="mui-component-select-proficiencyLevels.0.value"]').click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Expert' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'Intermediate' }).first().click();
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+ await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'beginner' }).click();
   await page.locator('div').filter({ hasText: 'Create New SkillSkill Name *' }).nth(1).click();
   await page.getByRole('button', { name: 'Save' }).click();
@@ -123,23 +126,23 @@ async function addSkill(page) {
   await page.getByRole('textbox', { name: 'Description *' }).fill('new skill added');
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.locator('[id="mui-component-select-proficiencyLevels.0.value"]').click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Expert' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'Intermediate' }).first().click();
   await page.getByRole('button', { name: 'Add Level' }).click();
   await page.getByLabel('', { exact: true }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(500);
   await page.getByRole('option', { name: 'beginner' }).click();
   await page.locator('div').filter({ hasText: 'Create New SkillSkill Name *' }).nth(1).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
 
-  // await page.reload();
+  await page.reload();
       await page.waitForTimeout(3000);
   
-   if (await (page.getByText('Skill created successfully').nth(1)).isVisible())  {
+   if (await page.getByText('Soldering & Rework').first().isVisible())  {
           await page.screenshot({ path: `./${screenshotPath}/addskill.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"addskill","true",`./${screenshotPath}/addskill.png`)
           
@@ -160,15 +163,16 @@ async function editSkill(page) {
   await page.getByRole('link', { name: 'Skill' }).click();
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(1).click();
   await page.getByRole('textbox', { name: 'Skill Name *' }).click();
-  await page.getByRole('textbox', { name: 'Skill Name *' }).fill('Edited ');
+  await page.getByRole('textbox', { name: 'Skill Name *' }).fill('JavaEdited');
   await page.getByRole('textbox', { name: 'Description *' }).dblclick();
-  await page.getByRole('textbox', { name: 'Description *' }).fill('Edited');
-  await page.getByRole('button', { name: 'Update' }).click();;
-  // await page.reload();
+  await page.getByRole('textbox', { name: 'Description *' }).fill('JavaEdited');
+  await page.getByRole('button', { name: 'Update' }).click();
+  await page.waitForTimeout(1000);
+  await page.reload();
   await page.waitForTimeout(3000);
   
 
-   if (await page.getByText('Skill updated successfully', {exact:true}).first().isVisible())  {
+   if (await page.getByText('JavaEdited').first().isVisible())  {
           await page.screenshot({ path: `./${screenshotPath}/editSkill.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"editSkill","true",`./${screenshotPath}/editSkill.png`)
           
@@ -179,7 +183,7 @@ async function editSkill(page) {
         }
 
   console.log("Edited skill")
-  await page.reload();
+  
 }
 
 async function deletePreviousSkill(page){
@@ -300,15 +304,45 @@ async function addProficiency(page){
 
 
 }
+async function editProficiency(page) {
+   await page.getByRole('tab', { name: 'Proficiency Level' }).click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(1).click();
+  await page.getByRole('textbox', { name: 'e.g., Intermediate, Expert' }).click();
+  await page.getByRole('textbox', { name: 'e.g., Intermediate, Expert' }).fill('pro');
+  await page.getByRole('textbox', { name: 'Level description' }).click();
+  await page.getByRole('textbox', { name: 'Level description' }).fill('proD');
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(1).click();
+  await page.getByRole('tab', { name: 'General' }).click();
+  await page.getByRole('button', { name: 'Add Skill' }).click();
+  await page.getByLabel('', { exact: true }).click();
 
+
+
+   await page.waitForTimeout(1000);
+  
+   if (await page.getByRole('option', { name: 'pro' }).isVisible())  {
+          await page.screenshot({ path: `./${screenshotPath}/editProficiency.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"editProficiency","true",`./${screenshotPath}/editProficiency.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/editProficiency.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"editProficiency","false",`./${screenshotPath}/editProficiency.png`)
+        }
+
+          // await page.getByRole('option', { name: 'pro' }).click();
+  // await page.getByRole('button', { name: 'Cancel' }).click();
+  await page.reload();
+  console.log("Delete proficiency completed")
+}
 async function deleteSkill(page){
   console.log("Enter In delete skill")
-  await page.getByRole('button').filter({ hasText: /^$/ }).nth(2).click();
+   await page.getByRole('button').filter({ hasText: /^$/ }).nth(2).click();
   await page.getByRole('menuitem', { name: 'Delete' }).click()
   // await page.reload();
   await page.waitForTimeout(3000);
   
-   if (await page.getByText('Skill deleted successfully').isVisible())  {
+   if (await page.getByText('JavaEdited').first().isVisible())  {
           await page.screenshot({ path: `./${screenshotPath}/deleteSkill.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"deleteSkill","true",`./${screenshotPath}/deleteSkill.png`)
           

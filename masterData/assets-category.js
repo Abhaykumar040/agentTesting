@@ -49,7 +49,7 @@ async function addAssets(page) {
   await page.getByRole('textbox', { name: 'Category Name' }).fill('Assets3');
   await page.getByRole('combobox', { name: 'Form *' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'FormDelete' }).click();
+  await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('button', { name: 'Add Category' }).click();
   await expect(page.getByRole('cell', { name: 'Asset Management' }).first()).toBeVisible();
 
@@ -95,7 +95,7 @@ async function editAssets(page){
   console.log("Enter in edit assets");
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Asset Category' }).click();
-  await page.locator('button').nth(2).click();
+  await page.locator('tr:nth-child(1) > td:nth-child(5) > div > button:first-child svg').click();
   await page.getByRole('textbox', { name: 'Category Name' }).click();
   await page.getByRole('textbox', { name: 'Category Name' }).fill('Charger Cabal');
   await page.getByRole('combobox', { name: 'Form *' }).click();
@@ -104,12 +104,12 @@ async function editAssets(page){
   await page.getByRole('button', { name: 'Update Category' }).click();
   await expect(page.getByText('Asset Category updated')).toBeVisible();
 
-  await page.locator('button').nth(4).click();
+ await page.locator('tr:nth-child(2) > td:nth-child(5) > div > button:first-child svg').click();
   await page.getByRole('textbox', { name: 'Category Name' }).click();
   await page.getByRole('textbox', { name: 'Category Name' }).fill('Adaptor');
   await page.getByRole('combobox', { name: 'Form *' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'FormDelete' , exact:true}).click();
+  await page.getByRole('option', { name: 'FormA' , exact:true}).click();
   await page.getByRole('button', { name: 'Update Category' }).click();
   await expect(page.getByText('Asset Category updated')).toBeVisible();
 
@@ -145,9 +145,9 @@ async function editAssets(page){
 
 async function deleteAssets(page){
   console.log("Enter in delete assets");
-  // await page.getByRole('button', { name: 'Master Data' }).click();
-  // await page.getByRole('link', { name: 'Asset Category' }).click();
-  await page.locator('button').nth(3).click();
+  await page.getByRole('button', { name: 'Master Data' }).click();
+  await page.getByRole('link', { name: 'Asset Category' }).click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(4).click();
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.getByRole('button', { name: 'Proceed' }).click();
   // await expect(page.getByText('Asset Category deleted')).toBeVisible();
@@ -185,7 +185,7 @@ async function deletePreviuosAssets(page){
       break;
     }
     // console.log("Before delete line 185")
-    await page.locator('button').nth(3).click();
+   await page.locator('button').nth(4).click();
     await page.getByRole('menuitem', { name: 'Delete' }).click();
     await page.getByRole('button', { name: 'Proceed' }).click();
     await page.waitForTimeout(2000);

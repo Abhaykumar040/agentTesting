@@ -14,14 +14,14 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function lead(page){
-  // await addLead(page);
-  // await page.waitForTimeout(3000);
-  // await editLead(page);
-  // await page.waitForTimeout(3000);
-  // await emailThreadInLead(page);
-  // await page.waitForTimeout(3000);
-  // await activityInLead(page);
-  // await page.waitForTimeout(3000);
+  await addLead(page);
+  await page.waitForTimeout(3000);
+  await editLead(page);
+  await page.waitForTimeout(3000);
+  await emailThreadInLead(page);
+  await page.waitForTimeout(3000);
+  await activityInLead(page);
+  await page.waitForTimeout(3000);
   await documentInLead(page); 
   await page.waitForTimeout(3000); 
   await exportLeadFileNormal(page);
@@ -295,11 +295,14 @@ async function editLead(page){
   await page.locator('input[name="lastName"]').fill('Rathor Edited');
   await page.locator('input[name="companyName"]').click();
   await page.locator('input[name="companyName"]').fill('EV Mobile Pvt Ltd');
-  await page.getByLabel('').nth(2).click();
+
+
+   await page.getByRole('combobox', { name: 'Search or add industry' }).click();
   await page.getByRole('option', { name: 'Website' }).click();
-  await page.getByLabel('').nth(3).click();
+
+    await page.getByRole('button', { name: 'Warm' }).click();
   await page.getByRole('option', { name: 'Hot' }).click();
-  await page.getByLabel('', { exact: true }).click();
+   await page.getByRole('button', { name: 'New' }).click();
   await page.getByRole('option', { name: 'Converted' }).click();
   await page.getByRole('spinbutton').click();
   await page.getByRole('spinbutton').fill('02');
@@ -396,7 +399,7 @@ async function activityInLead(page){
   await page.getByText('akbk6551+1230@gmail.com').click();
   await page.waitForTimeout(2000);
   await page.getByRole('tab', { name: 'Activity' }).click();
-   if (await page.getByText('lkijdffgmlkdgkl g n jgl dgmfdg',{exact:true}).isVisible()) 
+   if (await page.getByText('lkijdffgmlkdgkl g n jgl dgmfdg',{exact:true}).first().isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/activityInLead.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"activityInLead","true",`./${screenshotPath}/activityInLead.png`)
@@ -421,12 +424,15 @@ async function documentInLead(page) {
   
   await page.getByRole('tab', { name: 'Documents' }).click();
 
-  await page.getByRole('button', { name: 'Browse Files' }).click();
-  await page.locator('input[type="file"]').setInputFiles('./download1/leads.xlsx')
+ 
+  await page.locator('input[type="file"]').setInputFiles('./download1/leads.xlsx');
+  await page.pause();
   
   // await chooser.setFiles('downloads/leads.xlsx');
   await page.getByRole('button', { name: 'Upload Files' }).click();
+   await page.waitForTimeout(3000);
   await page.getByRole('button', { name: 'Save' }).click();
+   await page.waitForTimeout(1000);
   await page.reload();
   await page.getByRole('button', { name: 'Sales' }).click();
   await page.waitForTimeout(1000);

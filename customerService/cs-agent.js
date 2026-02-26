@@ -10,10 +10,10 @@ const screenshotPath=`screenshot/${testData.companyType}/cs-agent`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function cs_agent(page) {
-  await addCSAgent(page);  
-  await page.waitForTimeout(3000);
-  await addRoleInCSAgent(page);
-  await page.waitForTimeout(3000);
+  // await addCSAgent(page);  
+  // await page.waitForTimeout(3000);
+  // await addRoleInCSAgent(page);
+  // await page.waitForTimeout(3000);
   await emailVarifiedInCSAgent(page);
 
 }
@@ -27,9 +27,9 @@ async function addCSAgent(page){
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).fill('Jay kumar Rathor');
   await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+1265@gmail.com');
+  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+12651@gmail.com');
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('9865741232');
+  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('98657412321');
   await page.getByRole('combobox', { name: 'Select roles' }).click();
   await page.getByRole('option', { name: 'Customer Service' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click();
@@ -51,9 +51,9 @@ async function addCSAgent(page){
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).fill('Yogesh Yadav');
   await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+1266@gmail.com');
+  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+12661@gmail.com');
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('9865741231');
+  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('98657412311');
   await page.getByRole('combobox', { name: 'Select roles' }).click();
   await page.getByRole('option', { name: 'Customer Service' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click();
@@ -73,9 +73,9 @@ async function addCSAgent(page){
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).fill('Shivam');
   await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+1267@gmail.com');
+  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+12671@gmail.com');
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('9865741230');
+  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('98657412301');
   await page.getByRole('combobox', { name: 'Select roles' }).click();
   await page.getByRole('option', { name: 'Customer Service' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click();
@@ -113,9 +113,9 @@ async function emailVarifiedInCSAgent(page){
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).fill('Shivam');
   await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+1268@gmail.com');
+  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+12681@gmail.com');
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('9865741229');
+  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('98657412291');
   await page.getByRole('combobox', { name: 'Select roles' }).click();
   await page.getByRole('option', { name: 'Customer Service' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click()
@@ -144,7 +144,7 @@ async function addRoleInCSAgent(page) {
   await page.getByRole('combobox', { name: 'Search role to add' }).click();
   await page.getByRole('option', { name: 'Master data handling' }).click();
   await page.getByRole('combobox', { name: 'Search role to add' }).click();
-  await page.getByRole('option', { name: 'Edited Sales Executive' }).click();
+  await page.getByRole('option', { name: 'Sales Executive' }).click();
   await page.getByRole('button', { name: 'Add Role' }).click();
   await page.waitForTimeout(2000);
     if (await page.getByText('Agent updated successfully',{exact:true}).isVisible()) 

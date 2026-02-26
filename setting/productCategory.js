@@ -35,7 +35,7 @@ async function deletePreviousProductCategory(page){
       if (total <= 0) {
       break;
       }
-      await page.locator('button').nth(3).click();
+       await page.locator('button').nth(4).click();
       await page.getByRole('menuitem', { name: 'Delete' }).click();
       await page.getByRole('button', { name: 'Proceed' }).click();
       await page.waitForTimeout(2000);
@@ -151,17 +151,20 @@ async function  editProductCategry(page) {
   console.log("Enter in edit product category")
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Product Category' }).click();
-  await page.locator('button').nth(2).click();
+    await page.getByText('PC2').first().click();
   await page.getByRole('textbox', { name: 'Title *' }).click();
-  await page.getByRole('textbox', { name: 'Title *' }).fill('laptop charger cable Edited');
+  await page.getByRole('textbox', { name: 'Title *' }).fill('PC2X');
   await page.getByRole('textbox', { name: 'Description *' }).click();
-  await page.getByRole('textbox', { name: 'Description *' }).fill('use in laptop charger Edited');
+  await page.getByRole('textbox', { name: 'Description *' }).fill('PC2DX');
   await page.getByRole('textbox', { name: 'Comment' }).click();
-  await page.getByRole('textbox', { name: 'Comment' }).fill('cost effective Edited');
+  await page.getByRole('textbox', { name: 'Comment' }).fill('PC2CX');
   await page.getByRole('button', { name: 'Update' }).click();
+  await page.waitForTimeout(3000);
   await page.reload();
   await page.waitForTimeout(3000);
-  if (!await page.getByText('use in laptop charger' ,{ exact: true }).isVisible())  
+  if (await page.getByText('PC2X' ,{ exact: true }).first().isVisible()&&
+  await page.getByText('PC2DX' ,{ exact: true }).isVisible()&&
+  await page.getByText('PC2CX' ,{ exact: true }).isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/editProductCategry.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"editProductCategry","true",`./${screenshotPath}/editProductCategry.png`)
@@ -179,13 +182,13 @@ async function deleteProductCategory(page) {
  console.log("Enter in delete product category");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Product Category' }).click();
-  await page.locator('button').nth(5).click();
+    await page.locator('tbody > tr:nth-child(9) > td:nth-child(4) button:last-child').click();
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.getByRole('button', { name: 'Proceed' }).click();
   await expect(page.getByText('Product category deleted')).toBeVisible();
   await page.reload();
   await page.waitForTimeout(3000);
-  if (!await page.getByText('use for connetion to internet', { exact: true }).isVisible())  
+  if (!await page.getByText('PC2', { exact: true }).first().isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/deleteProductCategory.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"deleteProductCategory","true",`./${screenshotPath}/deleteProductCategory.png`)

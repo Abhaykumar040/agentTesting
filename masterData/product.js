@@ -39,7 +39,7 @@ async function deletePreviousProduct(page){
   if (total <= 0) {
     break;
   }
-    await page.locator('button').nth(2).click();
+    await page.locator('button').nth(3).click();
   await page.getByRole('menuitem', { name: 'Delete' }).first().click();
     await page.waitForTimeout(2000);
     await expect(page.getByText('Product deleted successfully').first()).toBeVisible();
@@ -70,7 +70,7 @@ async function addProduct(page){
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('123');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('6532');
   await page.getByRole('button', { name: 'Add' }).click();
@@ -91,7 +91,7 @@ async function addProduct(page){
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('123');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('6532');
   await page.getByRole('button', { name: 'Add' }).click();
@@ -112,7 +112,7 @@ async function addProduct(page){
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('123');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('6532');
   await page.getByRole('button', { name: 'Add' }).click();
@@ -133,7 +133,7 @@ async function addProduct(page){
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('123');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('6532');
   await page.getByRole('button', { name: 'Add' }).click();
@@ -154,7 +154,7 @@ async function addProduct(page){
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('123');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('6532');
   await page.getByRole('button', { name: 'Add' }).click();
@@ -175,7 +175,7 @@ async function addProduct(page){
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('123');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('6532');
   await page.getByRole('button', { name: 'Add' }).click();
@@ -202,7 +202,7 @@ async function editProduct(page) {
   console.log("Enter in Edit product");
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Products' }).click();
-  await page.locator('button').nth(3).click();
+    await page.getByText('Mobile charger', { exact: true }).click();
   await page.getByRole('button', { name: 'Product Category * laptop' }).click();
   await page.getByRole('option', { name: 'Fiber optical cable - use for' }).click();
   await page.getByRole('textbox', { name: 'Title *' }).click();
@@ -214,7 +214,7 @@ async function editProduct(page) {
   await page.getByRole('textbox', { name: 'Price *' }).click();
   await page.getByRole('textbox', { name: 'Price *' }).fill('4789');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('7896');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('2');
   await page.getByRole('textbox', { name: 'HSN Code' }).dblclick();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('54852');
   await page.getByRole('button', { name: 'Status Active' }).click();
@@ -243,8 +243,8 @@ async function deleteProduct(page) {
   console.log("Enter in delete Product");
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Products' }).click();
-  await page.locator('button[aria-haspopup="true"]').first().click();
-  await page.getByRole('menuitem', { name: /delete/i }).click();
+ await page.locator('tr:nth-child(4) > td:nth-child(8) > div > button:last-child svg').click();
+    await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.waitForLoadState('networkidle');
   await page.reload();
   await page.getByRole('button', { name: 'Master Data' }).click();
@@ -283,7 +283,7 @@ async function referencedProduct(page) {
   await page.getByRole('textbox', { name: 'Tax (%)' }).click();
   await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
   await page.getByRole('textbox', { name: 'Quantity *' }).click();
-  await page.getByRole('textbox', { name: 'Quantity *' }).fill('450');
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('1');
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('5205');
   await page.getByRole('tab', { name: 'Referenced Products' }).click();

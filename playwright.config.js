@@ -6,8 +6,11 @@ export default defineConfig({
 
   use: {
     acceptDownloads: true,
-    slowMo: 1000,
+  
     headless: false,
     viewport: { width: 1366, height: 768 },
+  },
+   launchOptions: {
+    slowMo: 1000, // ✅ 1 second delay har action me
   },
 });

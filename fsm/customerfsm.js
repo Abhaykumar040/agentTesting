@@ -38,8 +38,8 @@ export async function customerfsm(page){
 
 async function createFsmCustomer(page) {
   console.log('Enter in create fsm customer');
-   await page.getByRole('button', { name: 'Field Service' }).click();
-  await page.getByRole('link', { name: 'Customers' }).click();
+  //  await page.getByRole('button', { name: 'Field Service' }).click();
+  // await page.getByRole('link', { name: 'Customers' }).click();
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('radio', { name: 'Commercial' }).check();
   await page.getByRole('button', { name: 'Select Title' }).click();

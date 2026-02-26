@@ -10,8 +10,8 @@ const screenshotPath=`screenshot/${testData.companyType}/customerinC_Service`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function customerInC_service(page) {
-  await deletePreviuosCustomerInC_Service(page);
-  await page.waitForTimeout(3000);
+  // await deletePreviuosCustomerInC_Service(page);
+  // await page.waitForTimeout(3000);
   await addCustomerInC_Service(page);
   await page.waitForTimeout(3000);
   await emailCustomerInC_Service(page)

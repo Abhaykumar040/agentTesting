@@ -41,9 +41,9 @@ async function addSalesAgent(page) {
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).fill('Ramesh Kumar');
   await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+1121@gmail.com');
+  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+112111@gmail.com');
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('9872349823');
+  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('987234982311');
   await page.getByRole('combobox', { name: 'Select roles' }).click();
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Sales Manager' }).click();
@@ -54,9 +54,9 @@ async function addSalesAgent(page) {
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).fill('Mahesh Kumar');
   await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+1122@gmail.com');
+  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+112211@gmail.com');
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('9872349824');
+  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('987234982411');
   await page.getByRole('combobox', { name: 'Select roles' }).click();
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Sales Manager' }).click();
@@ -67,9 +67,9 @@ async function addSalesAgent(page) {
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).fill('Yogesh Kumar');
   await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+1123@gmail.com');
+  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+112311@gmail.com');
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('9872349825');
+  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('987234982511');
   await page.getByRole('combobox', { name: 'Select roles' }).click();
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Sales Manager' }).click();
@@ -80,9 +80,9 @@ async function addSalesAgent(page) {
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).fill('Santosh Kumar');
   await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+1126@gmail.com');
+  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+112611@gmail.com');
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('9872349826');
+  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('987234982611');
   await page.getByRole('combobox', { name: 'Select roles' }).click();
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Sales Manager' }).click();
