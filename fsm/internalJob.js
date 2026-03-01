@@ -398,8 +398,12 @@ async function exportInternalJObNormal(page){
   ]);
   await pdfDownload.saveAs('downloads/exportPDFInternalJObNormal.pdf');
     await page.waitForTimeout(2000);
-  
-    if (await page.getByText('Bilal Ahamad',{exact:true}).first().isVisible()) 
+  const result = await dataRead(
+    "./downloads/exportPDFInternalJObNormal.pdf",
+    ["Installation6","Sushil Singh"],
+    []
+);
+    if ( result.success) 
     {
       await page.screenshot({ path: `./${screenshotPath}/exportInternalJObNormal.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"exportInternalJObNormal","true",`./${screenshotPath}/exportInternalJObNormal.png`)
