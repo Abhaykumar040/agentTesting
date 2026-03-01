@@ -20,7 +20,10 @@ await editCompanySetup(page);
  await invoiceSettingInCompanySetup(page);
  await page.waitForTimeout(3000);
  await bellingAddressInCompanySetup(page);
-
+ await page.waitForTimeout(3000);
+ await quotationSetting(page);
+ await page.waitForTimeout(3000);
+ await invoiceSetting(page);
 }
 
 
@@ -308,4 +311,212 @@ async function bellingAddressInCompanySetup(page){
   } 
   await page.reload();
   console.log('belling address in company setup completed');
+}
+
+async function quotationSetting(page){
+  console.log("Enter in quotation setting");
+  await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Company Setup' }).click();
+  await page.getByRole('tab', { name: 'Quotation Settings' }).click();
+  await page.getByRole('radio', { name: 'Item Level' }).check();
+  await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(2000);
+  if (await page.getByText('Company updated successfully').isVisible())  
+  {
+    await page.screenshot({ path: `./${screenshotPath}/quotationSettingSelectItemLevel1.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"quotationSettingSelectItemLevel1","true",`./${screenshotPath}/quotationSettingSelectItemLevel1.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/quotationSettingSelectItemLevel1.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"quotationSettingSelectItemLevel1","false",`./${screenshotPath}/quotationSettingSelectItemLevel1.png`)
+  } 
+  await page.reload();
+  await page.getByRole('button', { name: 'Sales' }).click();
+  await page.getByRole('link', { name: 'Quotations' }).click();
+  await page.getByRole('link', { name: 'Add Quotation' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('combobox', { name: 'Customer' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
+  await page.getByRole('combobox', { name: 'Address' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Khamaria Khamaria Uttar' }).click();
+  await page.getByRole('combobox').first().click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Smart watch charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(1).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Mobile charger' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).fill('Mobile products');
+  await page.getByRole('button', { name: 'Save' }).click();
+  // await page.getByText('Quotation created successfully').click();
+  await page.waitForTimeout(2000);
+    
+  if (await page.getByText('Quotation created successfully').isVisible())  
+  {
+   await page.screenshot({ path: `./${screenshotPath}/quotationSettingSelectItemLevel2.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"quotationSettingSelectItemLevel2","true",`./${screenshotPath}/quotationSettingSelectItemLevel2.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/quotationSettingSelectItemLevel2.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"quotationSettingSelectItemLevel2","false",`./${screenshotPath}/quotationSettingSelectItemLevel2.png`)
+  }  
+  await page.reload();
+
+   await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Company Setup' }).click();
+  await page.getByRole('tab', { name: 'Quotation Settings' }).click();
+  await page.getByRole('radio', { name: 'Header Level' }).check();
+  await page.getByRole('button', { name: 'Save' }).click();
+   if (await page.getByText('Company updated successfully').isVisible())  
+  {
+    await page.screenshot({ path: `./${screenshotPath}/quotationSettingSelectHeaderLevel1.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"quotationSettingSelectHeaderLevel1","true",`./${screenshotPath}/quotationSettingSelectHeaderLevel1.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/quotationSettingSelectHeaderLevel1.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"quotationSettingSelectHeaderLevel1","false",`./${screenshotPath}/quotationSettingSelectHeaderLevel1.png`)
+  } 
+  await page.getByRole('button', { name: 'Sales' }).click();
+  await page.getByRole('link', { name: 'Quotations' }).click();
+  await page.getByRole('link', { name: 'Add Quotation' }).click();
+  await page.waitForTimeout(1000);
+  await page.locator('div').filter({ hasText: /^Customer$/ }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Anil Rathor' }).click();
+  await page.getByRole('combobox').first().click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Wifi charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(1).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'EV charger' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).click();
+  await page.getByRole('textbox', { name: 'Note:' }).fill('Some product');
+  await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(2000);
+    
+  if (await page.getByText('Quotation created successfully').isVisible())  
+  {
+   await page.screenshot({ path: `./${screenshotPath}/quotationSettingSelectHeaderLevel2.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"quotationSettingSelectHeaderLevel2","true",`./${screenshotPath}/quotationSettingSelectHeaderLevel2.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/quotationSettingSelectHeaderLevel2.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"quotationSettingSelectHeaderLevel2","false",`./${screenshotPath}/quotationSettingSelectHeaderLevel2.png`)
+  } 
+  await page.reload();
+  console.log("quotation setting completed");
+}
+
+async function invoiceSetting(page){
+  console.log('Enter in invoice setting');
+await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Company Setup' }).click();
+  await page.getByRole('tab', { name: 'Invoice Settings' }).click();
+  await page.getByRole('radio', { name: 'Item Level' }).check();
+  await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(2000);
+  if (await page.getByText('Company updated successfully').isVisible())  
+  {
+    await page.screenshot({ path: `./${screenshotPath}/invoiceSettingSelectItemLevel1.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"invoiceSettingSelectItemLevel1","true",`./${screenshotPath}/invoiceSettingSelectItemLevel1.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/invoiceSettingSelectItemLevel1.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"invoiceSettingSelectItemLevel1","false",`./${screenshotPath}/invoiceSettingSelectItemLevel1.png`)
+  } 
+  await page.getByRole('button', { name: 'Sales' }).click();
+  await page.getByRole('link', { name: 'Invoices' }).click();
+   await page.getByRole('link', { name: 'Add Invoice' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('combobox', { name: 'Customer' }).click();
+  await page.waitForTimeout(1000);
+  await page.locator('#customer-search-option-2').click();
+  await page.locator('div').filter({ hasText: /^Address$/ }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
+  await page.getByRole('checkbox', { name: 'UPI Transfer' }).check();
+  await page.getByRole('combobox').first().click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(1).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'EV charger' }).click();
+  await page.locator('textarea[name="note"]').click();
+  await page.locator('textarea[name="note"]').fill('Product Invoice');
+  await page.getByRole('button', { name: 'Save' }).click();
+  // await page.getByText('Quotation created successfully').click();
+  await page.waitForTimeout(2000);
+    
+  if (await page.getByText('Quotation created successfully').isVisible())  
+  {
+   await page.screenshot({ path: `./${screenshotPath}/invoiceSettingSelectItemLevel2.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"invoiceSettingSelectItemLevel2","true",`./${screenshotPath}/invoiceSettingSelectItemLevel2.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/invoiceSettingSelectItemLevel2.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"invoiceSettingSelectItemLevel2","false",`./${screenshotPath}/invoiceSettingSelectItemLevel2.png`)
+  }  
+  await page.reload();
+
+   await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Company Setup' }).click();
+  await page.getByRole('tab', { name: 'Invoice Settings' }).click();
+  await page.getByRole('radio', { name: 'Header Level' }).check();
+  await page.getByRole('button', { name: 'Save' }).click();
+   if (await page.getByText('Company updated successfully').isVisible())  
+  {
+    await page.screenshot({ path: `./${screenshotPath}/invoiceSettingSelectHeaderLevel1.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"invoiceSettingSelectHeaderLevel1","true",`./${screenshotPath}/invoiceSettingSelectHeaderLevel1.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/invoiceSettingSelectHeaderLevel1.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"invoiceSettingSelectHeaderLevel1","false",`./${screenshotPath}/invoiceSettingSelectHeaderLevel1.png`)
+  } 
+
+  await page.getByRole('button', { name: 'Sales' }).click();
+  await page.getByRole('link', { name: 'Invoices' }).click();
+  await page.getByRole('link', { name: 'Add Invoice' }).click();
+  await page.waitForTimeout(1000);
+  await page.locator('div').filter({ hasText: /^Customer$/ }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Neeraj Rathor' }).click();
+  await page.getByRole('combobox', { name: 'Address' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Mukundpatti Khamaria Uttar' }).click();
+  await page.getByRole('checkbox', { name: 'UPI Transfer' }).check();
+  await page.getByRole('combobox').first().click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(1).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'EV charger' }).click();
+  await page.locator('textarea[name="note"]').click();
+  await page.locator('textarea[name="note"]').fill('Product Invoice');
+  await page.getByRole('button', { name: 'Save' }).click();
+  await page.waitForTimeout(2000);
+  if (await page.getByText('Invoice created successfully').isVisible())  
+  {
+   await page.screenshot({ path: `./${screenshotPath}/invoiceSettingSelectHeaderLevel2.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"invoiceSettingSelectHeaderLevel2","true",`./${screenshotPath}/invoiceSettingSelectHeaderLevel2.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/invoiceSettingSelectHeaderLevel2.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"invoiceSettingSelectHeaderLevel2","false",`./${screenshotPath}/invoiceSettingSelectHeaderLevel2.png`)
+  } 
+  await page.reload();
+  console.log("Invoice setting completed");
 }

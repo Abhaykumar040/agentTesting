@@ -445,6 +445,14 @@
     "addressCreateFsmCustomerIndividual": {
       "path": "./screenshot/parent/customerfsm/addressCreateFsmCustomerIndividual.png",
       "note": "true"
+    },
+    "jobCreateFsmCustomerCommercial": {
+      "path": "./screenshot/parent/customerfsm/jobCreateFsmCustomerCommercial.png",
+      "note": "true"
+    },
+    "jobCreateFsmCustomerIndividual": {
+      "path": "./screenshot/parent/customerfsm/jobCreateFsmCustomerIndividual.png",
+      "note": "true"
     }
   },
   "./screenshot/parent/engineer/": {
@@ -654,6 +662,38 @@
     },
     "bellingAddressInCompanySetup3": {
       "path": "./screenshot/parent/CompanySetup/bellingAddressInCompanySetup3.png",
+      "note": "true"
+    },
+    "quotationSettingSelectItemLevel1": {
+      "path": "./screenshot/parent/CompanySetup/quotationSettingSelectItemLevel1.png",
+      "note": "true"
+    },
+    "quotationSettingSelectItemLevel2": {
+      "path": "./screenshot/parent/CompanySetup/quotationSettingSelectItemLevel2.png",
+      "note": "true"
+    },
+    "quotationSettingSelectHeaderLevel1": {
+      "path": "./screenshot/parent/CompanySetup/quotationSettingSelectHeaderLevel1.png",
+      "note": "false"
+    },
+    "quotationSettingSelectHeaderLevel2": {
+      "path": "./screenshot/parent/CompanySetup/quotationSettingSelectHeaderLevel2.png",
+      "note": "false"
+    },
+    "invoiceSettingSelectItemLevel1": {
+      "path": "./screenshot/parent/CompanySetup/invoiceSettingSelectItemLevel1.png",
+      "note": "true"
+    },
+    "invoiceSettingSelectItemLevel2": {
+      "path": "./screenshot/parent/CompanySetup/invoiceSettingSelectItemLevel2.png",
+      "note": "false"
+    },
+    "invoiceSettingSelectHeaderLevel1": {
+      "path": "./screenshot/parent/CompanySetup/invoiceSettingSelectHeaderLevel1.png",
+      "note": "false"
+    },
+    "invoiceSettingSelectHeaderLevel2": {
+      "path": "./screenshot/parent/CompanySetup/invoiceSettingSelectHeaderLevel2.png",
       "note": "true"
     }
   }

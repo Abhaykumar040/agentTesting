@@ -387,6 +387,7 @@ async function exportInternalJObNormal(page){
 
   ]);
   await excelDownload.saveAs('downloads/exportExcelInternalJObNormal.xlsx');
+
   // pdf file
   const [pdfDownload] = await Promise.all([
 

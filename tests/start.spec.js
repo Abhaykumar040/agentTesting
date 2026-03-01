@@ -74,7 +74,7 @@ await loginRight(page);
 // await jobType(page);
 await customerfsm(page);
 // await AssetManagement(page);
-// await internalJob(page);
+await internalJob(page);
 // await cyclicJob(page);
 
 
