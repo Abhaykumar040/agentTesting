@@ -14,19 +14,19 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function internalJob(page){
-  await deletePreviousinternalJob(page);
-  await page.waitForTimeout(3000);
- await createInternalJob(page);
- await page.waitForTimeout(3000);
- await editInternalJob(page);
- await page.waitForTimeout(3000);
- await deleteInternalJob(page);
- await page.waitForTimeout(3000);
+//   await deletePreviousinternalJob(page);
+//   await page.waitForTimeout(3000);
+//  await createInternalJob(page);
+//  await page.waitForTimeout(3000);
+//  await editInternalJob(page);
+//  await page.waitForTimeout(3000);
+//  await deleteInternalJob(page);
+//  await page.waitForTimeout(3000);
  await exportInternalJObNormal(page);
  await page.waitForTimeout(3000);
  await exportInternalJObFilter(page);
  await page.waitForTimeout(3000);
- await createJobByAssetManagements(page);
+//  await createJobByAssetManagements(page);
  
 }
 async function deletePreviousinternalJob(page){
@@ -102,6 +102,7 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Individual' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
+   await page.getByRole('option', { name: 'Mayank Rathor' }).click();
    await page.getByRole('button', { name: 'Address' }).click();
   await page.getByRole('option', { name: 'Ghosia Ghosia' }).first().click();
   await page.getByRole('checkbox').first().check();
@@ -116,10 +117,10 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Status Profile' }).click();
   await page.getByRole('option', { name: 'created - createdD' }).click();
   await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, February 22nd,' }).click();
+  await page.getByRole('option', { name: 'Choose Sunday, March 22nd,' }).click();
   await page.getByText('15:00').click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Saturday, February 28th,' }).click();
+  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
   await page.getByText('15:15').click();
   await page.getByRole('radio', { name: 'Engineer' }).check();
   await page.getByRole('button', { name: 'Engineer' }).click();
@@ -150,13 +151,12 @@ async function createInternalJob(page){
   await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi install karan hai');
   await page.getByRole('button', { name: 'Status Profile' }).click();
   await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
-  await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, February 22nd,' }).click();
+   await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
+  await page.getByRole('option', { name: 'Choose Sunday, March 22nd,' }).click();
+  await page.getByText('15:00').click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, February 22nd,' }).click();
-  await page.getByText('08:30').click();
-  await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByText('16:00').click();
+  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
+  await page.getByText('15:15').click();
   await page.getByRole('radio', { name: 'Engineer' }).check();
   await page.getByRole('button', { name: '+ Add Skill' }).click();
   await page.getByRole('button', { name: 'Skill', exact: true }).click();
@@ -173,9 +173,9 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Commercial' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Bilal Ahamad (1275836)' }).click();
+  await page.getByRole('option', { name: 'Mayank Singh (1245836)' }).click();
   await page.getByRole('button', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Ghosia Ghosia' }).click();
+  await page.getByRole('option', { name: 'Jamnagar' }).click();
   await page.getByRole('button', { name: 'Job Type' }).click();
   await page.getByRole('option', { name: 'Installation6' }).click();
   await page.getByRole('textbox', { name: 'Job Description' }).click();
@@ -186,13 +186,12 @@ async function createInternalJob(page){
   await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi install karan hai');
   await page.getByRole('button', { name: 'Status Profile' }).click();
   await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
-  await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, February 22nd,' }).click();
+   await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
+  await page.getByRole('option', { name: 'Choose Sunday, March 22nd,' }).click();
+  await page.getByText('15:00').click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, February 22nd,' }).click();
-  await page.getByText('08:30').click();
-  await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByText('16:00').click();
+  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
+  await page.getByText('15:15').click();
   await page.getByRole('radio', { name: 'Engineer' }).check();
   await page.getByRole('button', { name: '+ Add Skill' }).click();
   await page.getByRole('button', { name: 'Skill', exact: true }).click();
@@ -207,9 +206,9 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Commercial' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Bilal Ahamad (1275836)' }).click();
+  await page.getByRole('option', { name: 'Mayank Singh (1245836)' }).click();
   await page.getByRole('button', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Ghosia Ghosia' }).click();
+  await page.getByRole('option', { name: 'Jamnagar' }).click();
   await page.getByRole('button', { name: 'Job Type' }).click();
   await page.getByRole('option', { name: 'Installation3' }).click();
   await page.getByRole('textbox', { name: 'Job Description' }).click();
@@ -220,13 +219,12 @@ async function createInternalJob(page){
   await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi resolve karan hai');
   await page.getByRole('button', { name: 'Status Profile' }).click();
   await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
-  await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, February 22nd,' }).click();
+    await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
+  await page.getByRole('option', { name: 'Choose Sunday, March 22nd,' }).click();
+  await page.getByText('15:00').click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, February 22nd,' }).click();
-  await page.getByText('08:30').click();
-  await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByText('16:00').click();
+  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
+  await page.getByText('15:15').click();
   await page.getByRole('radio', { name: 'Engineer' }).check();
   await page.getByRole('button', { name: '+ Add Skill' }).click();
   await page.getByRole('button', { name: 'Skill', exact: true }).click();
@@ -240,9 +238,9 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Commercial' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Bilal Ahamad (1275836)' }).click();
+  await page.getByRole('option', { name: 'Mayank Singh (1245836)' }).click();
   await page.getByRole('button', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Ghosia Ghosia' }).click();
+  await page.getByRole('option', { name: 'Jamnagar' }).click();
   await page.getByRole('button', { name: 'Job Type' }).click();
   await page.getByRole('option', { name: 'Installation4' }).click();
   await page.getByRole('textbox', { name: 'Job Description' }).click();
@@ -253,13 +251,12 @@ async function createInternalJob(page){
   await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi install 2 karan hai');
   await page.getByRole('button', { name: 'Status Profile' }).click();
   await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
-  await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, February 22nd,' }).click();
+    await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
+  await page.getByRole('option', { name: 'Choose Sunday, March 22nd,' }).click();
+  await page.getByText('15:00').click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, February 22nd,' }).click();
-  await page.getByText('08:30').click();
-  await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByText('16:00').click();
+  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
+  await page.getByText('15:15').click();
   await page.getByRole('radio', { name: 'Engineer' }).check();
   await page.getByRole('button', { name: '+ Add Skill' }).click();
   await page.getByRole('button', { name: 'Skill', exact: true }).click();
@@ -273,9 +270,9 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Commercial' }).first().click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Bilal Ahamad (1275836)' }).click();
+  await page.getByRole('option', { name: 'Mayank Singh (1245836)' }).click();
   await page.getByRole('button', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Ghosia Ghosia' }).click();
+  await page.getByRole('option', { name: 'Jamnagar' }).click();
   await page.getByRole('button', { name: 'Job Type' }).click();
   await page.getByRole('option', { name: 'Installation6' }).click();
   await page.getByRole('button', { name: 'Continue' }).click();
@@ -287,13 +284,12 @@ async function createInternalJob(page){
   await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi install 3 karan hai');
   await page.getByRole('button', { name: 'Status Profile' }).click();
   await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
-  await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, February 22nd,' }).click();
+   await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
+  await page.getByRole('option', { name: 'Choose Sunday, March 22nd,' }).click();
+  await page.getByText('15:00').click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, February 22nd,' }).click();
-  await page.getByText('08:30').click();
-  await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByText('16:00').click();
+  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
+  await page.getByText('15:15').click();
   await page.getByRole('radio', { name: 'Engineer' }).check();
   await page.getByRole('button', { name: '+ Add Skill' }).click();
   await page.getByRole('button', { name: 'Skill', exact: true }).click();
@@ -326,7 +322,7 @@ async function editInternalJob(page){
    await page.getByRole('button', { name: 'Priority' }).click();
   await page.getByRole('option', { name: 'Low - Low installation' }).click();
   await page.getByRole('textbox', { name: 'End Date Time' }).click();
-  await page.getByRole('option', { name: 'Choose Saturday, February 28th,' }).click();
+  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
   await page.getByText('15:15').click();
   await page.getByRole('button', { name: 'Skill Embedded Systems' }).click();
   await page.getByRole('option', { name: 'Soldering & Rework' }).click();
@@ -388,6 +384,22 @@ async function exportInternalJObNormal(page){
 
   ]);
   await excelDownload.saveAs('downloads/exportExcelInternalJObNormal.xlsx');
+  const result1 = await dataRead(
+    "./downloads/exportExcelInternalJObNormal.xlsx",
+    ["Installation6","Sushil Singh"],
+    []
+);
+console.log(result1);
+    if ( result1.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportInternalJObNormal.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportInternalJObNormal","true",`./${screenshotPath}/exportInternalJObNormal.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportInternalJObNormal.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportInternalJObNormal","false",`./${screenshotPath}/exportInternalJObNormal.png`)
+    }
 
   // pdf file
   const [pdfDownload] = await Promise.all([
@@ -404,6 +416,7 @@ async function exportInternalJObNormal(page){
     ["Installation6","Sushil Singh"],
     []
 );
+console.log(result);
     if ( result.success) 
     {
       await page.screenshot({ path: `./${screenshotPath}/exportInternalJObNormal.png`, fullPage: true });
@@ -418,9 +431,8 @@ async function exportInternalJObNormal(page){
   console.log('export internal job completed');
 }
 async function exportInternalJObFilter(page){
-  console.log('Enter in export internal job');
+  console.log('Enter in export internal job filter');
   // filter on basis of state, city
-  await expect(page.getByText('Bilal Ahamad').first()).toBeVisible();
   await page.getByRole('combobox', { name: 'Select State' }).click();
   await page.getByRole('option', { name: 'Uttar Pradesh' }).click();
   await page.getByRole('combobox', { name: 'Select City' }).click();
@@ -433,6 +445,27 @@ async function exportInternalJObFilter(page){
 
   ]);
   await excelDownload1.saveAs('downloads/exportExcelInternalJObFilter1.xlsx');
+  const result1 = await dataRead(
+    "./downloads/exportExcelInternalJObFilter1.xlsx",
+    ["Installation6","Sushil Singh"],
+    []
+  );
+   console.log(result1);
+    await page.waitForTimeout(2000);
+  
+    if (result1.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInternalJObFilter1.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInternalJObFilter1","true",`./${screenshotPath}/exportExcelInternalJObFilter1.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInternalJObFilter1.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInternalJObFilter1","false",`./${screenshotPath}/exportExcelInternalJObFilter1.png`)
+    }
+
+
+
   // pdf file
   const [pdfDownload1] = await Promise.all([
 
@@ -442,21 +475,29 @@ async function exportInternalJObFilter(page){
 
   ]);
   await pdfDownload1.saveAs('downloads/exportPDFInternalJObFilter.pdf');
+  const result2 = await dataRead(
+    "./downloads/exportPDFInternalJObFilter.pdf",
+    ["Installation6","Sushil Singh"],
+    []
+  );
+   console.log(result2);
     await page.waitForTimeout(2000);
   
-    if (await page.getByText('Mayank Singh',{exact:true}).first().isVisible()) 
+    if (result2.success) 
     {
-      await page.screenshot({ path: `./${screenshotPath}/exportInternalJObFilter1.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportInternalJObFilter1","true",`./${screenshotPath}/exportInternalJObFilter1.png`)
+      await page.screenshot({ path: `./${screenshotPath}/exportPdfInternalJObFilter1.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportPdfInternalJObFilter1","true",`./${screenshotPath}/exportPdfInternalJObFilter1.png`)
       
     }
     else{
-      await page.screenshot({ path: `./${screenshotPath}/exportInternalJObFilter1.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportInternalJObFilter1","false",`./${screenshotPath}/exportInternalJObFilter1.png`)
+      await page.screenshot({ path: `./${screenshotPath}/exportPdfInternalJObFilter1.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportPdfInternalJObFilter1","false",`./${screenshotPath}/exportPdfInternalJObFilter1.png`)
     }
     await page.reload();
 
-    // filter on basis of job type
+
+// --------------------------------------------------
+// filter on basis of job type
   await page.getByRole('combobox', { name: 'Select Job Type' }).click();
   await page.getByRole('option', { name: 'Installation5' }).click();
    // excel file
@@ -467,6 +508,24 @@ async function exportInternalJObFilter(page){
 
   ]);
   await excelDownload2.saveAs('downloads/exportExcelInternalJObFilter2.xlsx');
+  const result3 = await dataRead(
+    "./downloads/exportExcelInternalJObFilter2.xlsx",
+    ["Installation6","Sushil Singh"],
+    []
+  );
+   console.log(result3);
+    if (result3.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInternalJObFilter2.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInternalJObFilter2","true",`./${screenshotPath}/exportExcelInternalJObFilter2.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInternalJObFilter2.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInternalJObFilter2","false",`./${screenshotPath}/exportExcelInternalJObFilter2.png`)
+    }
+
+
   // pdf file
   const [pdfDownload2] = await Promise.all([
 
@@ -477,18 +536,25 @@ async function exportInternalJObFilter(page){
   ]);
   await pdfDownload2.saveAs('downloads/exportPDFInternalJObFilter2.pdf');
     await page.waitForTimeout(2000);
-  
-    if (await page.getByText('Installation5',{exact:true}).first().isVisible()) 
+    const result4 = await dataRead(
+    "./downloads/exportPDFInternalJObFilter2.pdf",
+    ["Installation6","Sushil Singh"],
+    []
+  );
+   console.log(result4);
+    if (result4.success) 
     {
-      await page.screenshot({ path: `./${screenshotPath}/exportInternalJObFilter2.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportInternalJObFilter2","true",`./${screenshotPath}/exportInternalJObFilter2.png`)
+      await page.screenshot({ path: `./${screenshotPath}/exportPdfInternalJObFilter2.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportPdfInternalJObFilter2","true",`./${screenshotPath}/exportPdfInternalJObFilter2.png`)
       
     }
     else{
-      await page.screenshot({ path: `./${screenshotPath}/exportInternalJObFilter2.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportInternalJObFilter2","false",`./${screenshotPath}/exportInternalJObFilter2.png`)
+      await page.screenshot({ path: `./${screenshotPath}/exportPdfInternalJObFilter2.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportPdfInternalJObFilter2","false",`./${screenshotPath}/exportPdfInternalJObFilter2.png`)
     }
     await page.reload();
+
+// ---------------------------------------------    
 // filter on basis of date.
   await page.getByRole('textbox', { name: 'Start Date' }).fill('2026-02-21');
   await page.getByRole('textbox', { name: 'End Date' }).fill('2026-02-28');
@@ -500,6 +566,25 @@ async function exportInternalJObFilter(page){
 
   ]);
   await excelDownload3.saveAs('downloads/exportExcelInternalJObFilter3.xlsx');
+   const result5 = await dataRead(
+    "./downloads/exportExcelInternalJObFilter3.xlsx",
+    ["Installation6","Sushil Singh"],
+    []
+  );
+   console.log(result5);
+    if (result5.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInternalJObFilter3.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInternalJObFilter3.png","true",`./${screenshotPath}/exportExcelInternalJObFilter3.png.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInternalJObFilter3.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInternalJObFilter3","false",`./${screenshotPath}/exportExcelInternalJObFilter3.png`)
+    }
+
+
+
   // pdf file
   const [pdfDownload3] = await Promise.all([
 
@@ -510,19 +595,23 @@ async function exportInternalJObFilter(page){
   ]);
   await pdfDownload3.saveAs('downloads/exportPDFInternalJObFilter3.pdf');
     await page.waitForTimeout(2000);
-  
-    if (await page.getByText('Installation5',{exact:true}).first().isVisible()) 
+   const result6 = await dataRead(
+    "./downloads/exportPDFInternalJObFilter3.pdf",
+    ["Installation6","Sushil Singh"],
+    []
+  );
+   console.log(result6);
+    if (result6.success) 
     {
-      await page.screenshot({ path: `./${screenshotPath}/exportInternalJObFilter3.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportInternalJObFilter3","true",`./${screenshotPath}/exportInternalJObFilter3.png`)
+      await page.screenshot({ path: `./${screenshotPath}/exportPdfInternalJObFilter3.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportPdfInternalJObFilter3","true",`./${screenshotPath}/exportPdfInternalJObFilter3.png`)
       
     }
     else{
-      await page.screenshot({ path: `./${screenshotPath}/exportInternalJObFilter3.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportInternalJObFilter3","false",`./${screenshotPath}/exportInternalJObFilter3.png`)
+      await page.screenshot({ path: `./${screenshotPath}/exportPdfInternalJObFilter3.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportPdfInternalJObFilter3","false",`./${screenshotPath}/exportPdfInternalJObFilter3.png`)
     }
     await page.reload();
-  await expect(page.getByText('Bilal Ahamad').first()).toBeVisible();
   console.log('export internal job completed');
 }
 

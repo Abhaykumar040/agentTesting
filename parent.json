@@ -369,6 +369,42 @@
     "exportCustomerInC_ServiceFilter4": {
       "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter4.png",
       "note": "true"
+    },
+    "exportExcelCustomerInC_ServiceNormal": {
+      "path": "./screenshot/parent/customerinC_Service/exportExcelCustomerInC_ServiceNormal.png",
+      "note": "true"
+    },
+    "exportExcelCustomerInC_ServiceFilter1": {
+      "path": "./screenshot/parent/customerinC_Service/exportExcelCustomerInC_ServiceFilter1.png",
+      "note": "false"
+    },
+    "exportPDFCustomerInC_ServiceFilter1": {
+      "path": "./screenshot/parent/customerinC_Service/exportPDFCustomerInC_ServiceFilter1.png",
+      "note": "false"
+    },
+    "exportExcelCustomerInC_ServiceFilter2": {
+      "path": "./screenshot/parent/customerinC_Service/exportExcelCustomerInC_ServiceFilter2.png",
+      "note": "true"
+    },
+    "exportPDFCustomerInC_ServiceFilter2": {
+      "path": "./screenshot/parent/customerinC_Service/exportPDFCustomerInC_ServiceFilter2.png",
+      "note": "true"
+    },
+    "exportExcelCustomerInC_ServiceFilter3": {
+      "path": "./screenshot/parent/customerinC_Service/exportExcelCustomerInC_ServiceFilter3.png",
+      "note": "true"
+    },
+    "exportPDFCustomerInC_ServiceFilter3": {
+      "path": "./screenshot/parent/customerinC_Service/exportPDFCustomerInC_ServiceFilter3.png",
+      "note": "true"
+    },
+    "exportExcelCustomerInC_ServiceFilter4": {
+      "path": "./screenshot/parent/customerinC_Service/exportExcelCustomerInC_ServiceFilter4.png",
+      "note": "false"
+    },
+    "exportPDFCustomerInC_ServiceFilter4": {
+      "path": "./screenshot/parent/customerinC_Service/exportPDFCustomerInC_ServiceFilter4.png",
+      "note": "false"
     }
   },
   "./screenshot/parent/Queues/": {
@@ -392,6 +428,18 @@
     },
     "exportExcelInTicketFilter": {
       "path": "./screenshot/parent/ticket/exportExcelInTicketFilter.png",
+      "note": "true"
+    },
+    "exportExcelInTicketFilter1": {
+      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter1.png",
+      "note": "true"
+    },
+    "exportExcelInTicketFilter2": {
+      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter2.png",
+      "note": "true"
+    },
+    "exportExcelInTicketFilter3": {
+      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter3.png",
       "note": "true"
     }
   },
@@ -520,7 +568,7 @@
     },
     "exportInternalJObFilter1": {
       "path": "./screenshot/parent/internlJob/exportInternalJObFilter1.png",
-      "note": "true"
+      "note": "false"
     },
     "exportInternalJObFilter2": {
       "path": "./screenshot/parent/internlJob/exportInternalJObFilter2.png",
@@ -532,6 +580,30 @@
     },
     "createJobByAssetManagements": {
       "path": "./screenshot/parent/internlJob/createJobByAssetManagements.png",
+      "note": "true"
+    },
+    "exportExcelInternalJObFilter1": {
+      "path": "./screenshot/parent/internlJob/exportExcelInternalJObFilter1.png",
+      "note": "true"
+    },
+    "exportPdfInternalJObFilter1": {
+      "path": "./screenshot/parent/internlJob/exportPdfInternalJObFilter1.png",
+      "note": "true"
+    },
+    "exportExcelInternalJObFilter2": {
+      "path": "./screenshot/parent/internlJob/exportExcelInternalJObFilter2.png",
+      "note": "true"
+    },
+    "exportPdfInternalJObFilter2": {
+      "path": "./screenshot/parent/internlJob/exportPdfInternalJObFilter2.png",
+      "note": "true"
+    },
+    "exportExcelInternalJObFilter3.png": {
+      "path": "./screenshot/parent/internlJob/exportExcelInternalJObFilter3.png.png",
+      "note": "true"
+    },
+    "exportPdfInternalJObFilter3": {
+      "path": "./screenshot/parent/internlJob/exportPdfInternalJObFilter3.png",
       "note": "true"
     }
   },
@@ -612,6 +684,34 @@
     },
     "checkFormEditable2": {
       "path": "./screenshot/parent/formCustomization/checkFormEditable2.png",
+      "note": "true"
+    },
+    "dealerVarifiedInDashboard": {
+      "path": "./screenshot/parent/formCustomization/dealerVarifiedInDashboard.png",
+      "note": "false"
+    },
+    "dealerNonVarifiedInDashboard": {
+      "path": "./screenshot/parent/formCustomization/dealerNonVarifiedInDashboard.png",
+      "note": "false"
+    },
+    "JobsByTypeInDashboard": {
+      "path": "./screenshot/parent/formCustomization/JobsByTypeInDashboard.png",
+      "note": "true"
+    },
+    "JobsByStatusInDashboard": {
+      "path": "./screenshot/parent/formCustomization/JobsByStatusInDashboard.png",
+      "note": "true"
+    },
+    "CustomerServiceResolvedInDashboard": {
+      "path": "./screenshot/parent/formCustomization/CustomerServiceResolvedInDashboard.png",
+      "note": "true"
+    },
+    "SalesQuotationInDashboard": {
+      "path": "./screenshot/parent/formCustomization/SalesQuotationInDashboard.png",
+      "note": "true"
+    },
+    "SalesInvoiceInDashboard": {
+      "path": "./screenshot/parent/formCustomization/SalesInvoiceInDashboard.png",
       "note": "true"
     }
   },
@@ -694,6 +794,36 @@
     },
     "invoiceSettingSelectHeaderLevel2": {
       "path": "./screenshot/parent/CompanySetup/invoiceSettingSelectHeaderLevel2.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/dashboard/": {
+    "dealerVarifiedInDashboard": {
+      "path": "./screenshot/parent/dashboard/dealerVarifiedInDashboard.png",
+      "note": "false"
+    },
+    "dealerNonVarifiedInDashboard": {
+      "path": "./screenshot/parent/dashboard/dealerNonVarifiedInDashboard.png",
+      "note": "false"
+    },
+    "JobsByTypeInDashboard": {
+      "path": "./screenshot/parent/dashboard/JobsByTypeInDashboard.png",
+      "note": "true"
+    },
+    "JobsByStatusInDashboard": {
+      "path": "./screenshot/parent/dashboard/JobsByStatusInDashboard.png",
+      "note": "true"
+    },
+    "CustomerServiceResolvedInDashboard": {
+      "path": "./screenshot/parent/dashboard/CustomerServiceResolvedInDashboard.png",
+      "note": "true"
+    },
+    "SalesQuotationInDashboard": {
+      "path": "./screenshot/parent/dashboard/SalesQuotationInDashboard.png",
+      "note": "true"
+    },
+    "SalesInvoiceInDashboard": {
+      "path": "./screenshot/parent/dashboard/SalesInvoiceInDashboard.png",
       "note": "true"
     }
   }

@@ -33,7 +33,7 @@ import { lead } from '../sales/lead';
 import { quotationInsideCustomer } from '../sales/quotationInsideCustomer';
 import { invoicesInsideCustomer } from '../sales/invoiceInsideCustomer';
 import { ticketInsideCustomer } from '../customerService/ticketInsideCustomer';
-
+import { dashboard } from '../dashboard/dashboard';
 let testData; 
 
 test.beforeAll(async () => {
@@ -67,16 +67,16 @@ await loginRight(page);
 // await setting(page);
 // await customerInC_service(page); 
 // await Queue(page);
-// await Tickets(page);
+await Tickets(page);
 // await ticketInsideCustomer(page);
 // await FAQs(page);
 // await Engineer(page);
 // await jobType(page);
-await customerfsm(page);
+// await customerfsm(page);
 // await AssetManagement(page);
-await internalJob(page);
+// await internalJob(page);
 // await cyclicJob(page);
-
+// await dashboard(page);
 
 // await page.waitForTimeout(30000);
 
