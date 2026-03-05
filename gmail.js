@@ -123,21 +123,25 @@ function checkLatest(targetTo) {
 
 }
 
-(async () => {
+// (async () => {
 
-  console.log("STARTING EMAIL CHECK");
+//   console.log("STARTING EMAIL CHECK");
 
-  try {
+//   try {
 
-    const email = await waitForEmail("akbk6551+1141@gmail.com");
+//     const email = await waitForEmail("akbk6551+1141@gmail.com");
 
-    console.log("EMAIL FOUND:");
-    console.log(email);
+//     console.log("EMAIL FOUND:");
+//     console.log(email);
 
-  } catch (err) {
 
-    console.log("ERROR:", err.message);
 
-  }
 
-})();
+
+//   } catch (err) {
+
+//     console.log("ERROR:", err.message);
+
+//   }
+
+// })();
