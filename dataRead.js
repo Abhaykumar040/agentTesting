@@ -1,7 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import XLSX from 'xlsx';
-import pdf from "pdf-parse as pdfjsLib";
+import fs from "fs";
+import path from "path";
+import XLSX from "xlsx";
+import pdf from "pdf-parse";
 
 export async function dataRead(
   fileName,
@@ -17,18 +17,13 @@ export async function dataRead(
   const ext = path.extname(fileName).toLowerCase();
   let content = "";
 
-  // ---------- PDF Handling ----------
+  // ---------- PDF Handling (Fixed) ----------
   if (ext === ".pdf") {
 
-    const data = new Uint8Array(fs.readFileSync(fileName));
-    const pdf = await pdfjsLib.getDocument({ data }).promise;
+    const dataBuffer = fs.readFileSync(fileName);
+    const data = await pdf(dataBuffer);
+    content = data.text;
 
-    for (let i = 1; i <= pdf.numPages; i++) {
-      const page = await pdf.getPage(i);
-      const textContent = await page.getTextContent();
-      const pageText = textContent.items.map(item => item.str).join(" ");
-      content += pageText + "\n";
-    }
   }
 
   // ---------- XLSX Handling ----------
@@ -74,18 +69,3 @@ export async function dataRead(
     unwantedCheck: unwantedResults
   };
 }
-
-// Example usage
-// (async () => {
-//   try {
-//     const result = await dataRead(
-//       "./c.pdf",
-//       ["Job Type", "Job ID"],
-//       ["J-1", "Dealer Code"]
-//     );
-
-//     console.log(result);
-//   } catch (err) {
-//     console.error("Error:", err.message);
-//   }
-// })();

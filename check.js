@@ -108,12 +108,12 @@ if (!user) {
 
 
 
-const zone = await db.collection("zones").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set:{ status: 3 } }
-);
-console.log("zone",zone.matchedCount, zone.modifiedCount);
+// const zone = await db.collection("zones").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set:{ status: 3 } }
+// );
+// console.log("zone",zone.matchedCount, zone.modifiedCount);
 
 
 

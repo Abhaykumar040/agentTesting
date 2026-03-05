@@ -763,12 +763,12 @@ async function jobCreateFsmCustomerCommercial(page){
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'In progressX - In progressDX' }).click();
   await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Thursday, February 5th,' }).click();
+  await page.getByRole('option', { name: 'Choose Thursday, March 5th,' }).click();
   await page.getByText('12:00', { exact: true }).click();
   await page.getByRole('button', { name: 'Status Profile In progressX' }).click();
   await page.getByRole('option', { name: 'In progressX - In progressDX' }).click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Saturday, February 28th,' }).click();
+  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
   await page.getByText('13:00').click();
   await page.getByRole('radio', { name: 'Engineer' }).check();
   await page.getByRole('radio', { name: 'Engineer' }).check();
@@ -825,13 +825,13 @@ async function jobCreateFsmCustomerIndividual(page){
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'In progressX - In progressDX' }).click();
   await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Thursday, February 5th,' }).click();
+  await page.getByRole('option', { name: 'Choose Thursday, March 5th,' }).click();
   await page.getByText('12:00', { exact: true }).click();
   await page.getByRole('button', { name: 'Status Profile In progressX' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'In progressX - In progressDX' }).click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Saturday, February 28th,' }).click();
+  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
   await page.getByText('13:00').click();
   await page.getByRole('radio', { name: 'Engineer' }).check();
   await page.getByRole('button', { name: 'Engineer' }).click();
@@ -966,4 +966,12 @@ async function documentsUploadFsmCustomer(page){
     await page.reload();
   // await page.getByRole('button', { name: 'Cancel' }).click();
   console.log('documents Upload fsm customer');
+}
+
+
+async function exportCustomerFsmNormal(page){
+  
+}
+async function exportCustomerFsmFilter(page){
+
 }
