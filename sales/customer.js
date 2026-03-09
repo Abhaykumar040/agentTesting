@@ -27,7 +27,7 @@ export async function customer(page){
  await editCustomer(page);
  await page.waitForTimeout(3000);
  await exportCustomerNormal(page);
- await page.waitForTimeout(3000);
+ await page.waitForTimeout(3000);""
  await exportCustomerFilter(page);
  await deleteCustomer(page);
 }
