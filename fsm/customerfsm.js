@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
+import { markCustomerCreated, isCustomerCreated, getTestData } from '../customerControl';
 
 
 
@@ -14,10 +15,17 @@ const pathName=`outputData/status/${testData.companyType}`
 
 export async function customerfsm(page){
    await deletePreviousCustomer(page);
-     await page.waitForTimeout(3000);
+   await page.waitForTimeout(3000);
     //  await customerDownload(page);
     //    await page.waitForTimeout(3000);
+  if (!(await isCustomerCreated())) {
     await createFsmCustomer(page);
+    await markCustomerCreated('createFsmCustomer');
+    await page.waitForTimeout(3000);
+  } else {
+    console.log('Customer already created, single customer create...');
+    await createFsmCustomerOne(page);
+  }
     await page.waitForTimeout(3000);
     await editFsmCustomer(page);
     await page.waitForTimeout(3000);
@@ -36,6 +44,53 @@ export async function customerfsm(page){
     await contactDetailsFsmCustomer(page);
     await page.waitForTimeout(3000);
     await documentsUploadFsmCustomer(page);
+}
+
+async function createFsmCustomerOne(page){
+ console.log("Enter in create fsm customer one ");
+ await page.getByRole('button', { name: 'Add New Customer' }).click();
+  await page.getByRole('radio', { name: 'Commercial' }).check();
+  await page.getByRole('button', { name: 'Select Title' }).click();
+  await page.getByRole('option', { name: 'Ms.' }).click();
+  await page.getByRole('textbox', { name: 'First Name *' }).click();
+  await page.getByRole('textbox', { name: 'First Name *' }).fill('Uzma');
+  await page.getByRole('textbox', { name: 'Last Name *' }).click();
+  await page.getByRole('textbox', { name: 'Last Name *' }).fill('Khatoon');
+  await page.getByRole('textbox', { name: 'Email *' }).click();
+  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1318@gmail.com');
+  await page.getByRole('textbox', { name: 'Person In Charge *' }).click();
+  await page.getByRole('textbox', { name: 'Person In Charge *' }).fill('Sushil Rana');
+  await page.getByRole('textbox', { name: 'Dealer/Company Name' }).click();
+  await page.getByRole('textbox', { name: 'Dealer/Company Name' }).fill('Mayank Rajput');
+  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).click();
+  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1245845');
+  await page.getByRole('textbox', { name: 'Phone *' }).click();
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('9863576112');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('Aurai');
+  await page.waitForTimeout(1000);
+  await page.getByText('Aurai, Uttar Pradesh, India', { exact: true }).click();
+  await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Ghosia');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('tab', { name: 'Contact Details' }).click();
+  await page.getByRole('button', { name: 'Primary Contact' }).click();
+  await page.getByRole('option', { name: 'Showroom' }).click();
+  await page.getByRole('textbox', { name: 'Full Name' }).click();
+  await page.getByRole('textbox', { name: 'Full Name' }).fill('Anuj Kumar');
+  await page.getByRole('textbox', { name: 'email@example.com' }).click();
+  await page.getByRole('textbox', { name: 'email@example.com' }).fill('akbk6551+1244@gmail.com');
+  await page.getByRole('textbox', { name: 'Phone number' }).click();
+  await page.getByRole('textbox', { name: 'Phone number' }).fill('7894215411');
+  await page.getByRole('textbox', { name: 'Additional notes about this' }).click();
+  await page.getByRole('textbox', { name: 'Additional notes about this' }).fill('Sothing Purchess');
+  await page.getByRole('button', { name: 'Add Contact' }).click();
+  // await page.getByText('CancelCreate Customer').click();
+  await page.getByRole('button', { name: 'Create Customer' }).click();
+ console.log("create fsm customer one completed");
 }
 
 async function createFsmCustomer(page) {

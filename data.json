@@ -1,6 +1,8 @@
 {
-    "url":"https://erp-company-web-uat-bpdthsanc7azabhv.z01.azurefd.net/",
-    "emailStart":"",
-    "emailEnd":"",
-    "companyType":"parent"
+  "url": "https://erp-company-web-uat-bpdthsanc7azabhv.z01.azurefd.net/",
+  "emailStart": "",
+  "emailEnd": "",
+  "companyType": "parent",
+  "customerCreated": true,
+  "customerCreatedSection": "customer"
 }

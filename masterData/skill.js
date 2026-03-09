@@ -233,7 +233,6 @@ await page.getByRole('button').filter({ hasText: /^$/ }).nth(2).click();
 await page.reload();
 }
 
-
 async function addProficiency(page){
   console.log("Enter In add proficiency ")
   await page.getByRole('button', { name: 'Master Data' }).click();

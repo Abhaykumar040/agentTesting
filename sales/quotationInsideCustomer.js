@@ -15,8 +15,8 @@ export async function quotationInsideCustomer(page){
   await createQuotation(page);
   await page.waitForTimeout(3000);
   await approveQuotation(page);
-    await acceptQuotation(page);
   await page.waitForTimeout(3000);
+    await acceptQuotation(page);
   await page.waitForTimeout(3000);
   await rejectQuotation(page);
 
@@ -46,6 +46,7 @@ async function createQuotation(page){
  //1st Quotation create
   await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Customers' }).click();
+  await page.waitForTimeout(1000);
   await page.getByText('Jony Rathor').first().click();
   await page.getByRole('tab', { name: 'Quotation' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
@@ -111,7 +112,7 @@ async function createQuotation(page){
     await page.waitForTimeout(500);
    await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
   await page.getByRole('combobox').first().click();
-  await page.getByRole('option', { name: 'Fiber Optics cable' }).click();
+  await page.getByRole('option', { name: 'EV charger' }).click();
   await page.locator('input[name="products.0.discount"]').click();
   await page.locator('input[name="products.0.discount"]').fill('090');
   await page.getByRole('button', { name: 'Save' }).click();
@@ -341,7 +342,7 @@ await page.waitForTimeout(1000);
    await page.goBack();
    await page.waitForTimeout(1000);
 await page.getByRole('tab', { name: 'Quotation' }).click();
-await page.waitForTimeout(1000);
+await page.waitForTimeout(2000);
 
 
 

@@ -232,7 +232,24 @@ async function exportCyclicJobNormal(page) {
       page.getByRole('button', { name: 'Export To Excel' }).click()
   
     ]);
-    await excelDownload.saveAs('downloads/exportExcelCyclicJobNormal.xlsx');
+    await excelDownload.saveAs('downloads/exportExcelCyclicJobNormal1.xlsx');
+      const result1 = await dataRead(
+          "./downloads/exportExcelCyclicJobNormal1.xlsx",
+          ["Mayank Rathor","akbk6551+1139@gmail.com"],
+          []
+      );
+      console.log(result1);
+      if (result1.success) 
+      {
+        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobNormal1.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobNormal1","true",`./${screenshotPath}/exportCyclicJobNormal1.png`)
+        
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobNormal1.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobNormal1","false",`./${screenshotPath}/exportCyclicJobNormal1.png`)
+      }
+
     // pdf file
     const [pdfDownload] = await Promise.all([
   
@@ -243,16 +260,21 @@ async function exportCyclicJobNormal(page) {
     ]);
     await pdfDownload.saveAs('downloads/exportPDFCyclicJobNormal.pdf');
       await page.waitForTimeout(2000);
-    
-      if (await page.getByText('Bilal Ahamad',{exact:true}).first().isVisible()) 
+     const result2 = await dataRead(
+          "./downloads/exportPDFCyclicJobNormal.pdf",
+          ["Mayank Rathor","akbk6551+1139@gmail.com"],
+          []
+      );
+      console.log(result2);
+      if (result2.success) 
       {
-        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobNormal.png`, fullPage: true });
-        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobNormal","true",`./${screenshotPath}/exportCyclicJobNormal.png`)
+        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobNormal2.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobNormal2","true",`./${screenshotPath}/exportCyclicJobNormal2.png`)
         
       }
       else{
-        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobNormal.png`, fullPage: true });
-        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobNormal","false",`./${screenshotPath}/exportCyclicJobNormal.png`)
+        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobNormal2.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobNormal2","false",`./${screenshotPath}/exportCyclicJobNormal2.png`)
       }
       await page.reload();
   console.log('Export Cyclic job normal completed');
@@ -273,6 +295,22 @@ async function exportCyclicJobFilter(page) {
   
     ]);
     await excelDownload1.saveAs('downloads/exportExcelCyclicJobFilte1.xlsx');
+    const result3 = await dataRead(
+          "./downloads/exportExcelCyclicJobFilte1.xlsx",
+          ["Mayank Rathor","akbk6551+1139@gmail.com"],
+          []
+      );
+      console.log(result3);
+      if (result3.success) 
+      {
+        await page.screenshot({ path: `./${screenshotPath}/exportExcelCyclicJobFilter1.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportExcelCyclicJobFilter1","true",`./${screenshotPath}/exportExcelCyclicJobFilter1.png`)
+        
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportExcelCyclicJobFilter1.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportExcelCyclicJobFilter1","false",`./${screenshotPath}/exportExcelCyclicJobFilter1.png`)
+      }
     // pdf file
     const [pdfDownload1] = await Promise.all([
   
@@ -283,16 +321,21 @@ async function exportCyclicJobFilter(page) {
     ]);
     await pdfDownload1.saveAs('downloads/exportPdfCyclicJobFilter1.pdf');
       await page.waitForTimeout(2000);
-    
-      if (await page.getByText('Daily Jobs').first().isVisible()) 
+    const result4 = await dataRead(
+          "./downloads/exportPdfCyclicJobFilter1.pdf",
+          ["Mayank Rathor","akbk6551+1139@gmail.com"],
+          []
+      );
+      console.log(result4);
+      if (result4.success) 
       {
-        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobFilter1.png`, fullPage: true });
-        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobFilter1","true",`./${screenshotPath}/exportCyclicJobFilter1.png`)
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCyclicJobFilter1.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCyclicJobFilter1","true",`./${screenshotPath}/exportPdfCyclicJobFilter1.png`)
         
       }
       else{
-        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobFilter1.png`, fullPage: true });
-        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobFilter1","false",`./${screenshotPath}/exportCyclicJobFilter1.png`)
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCyclicJobFilter1.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCyclicJobFilter1","false",`./${screenshotPath}/exportPdfCyclicJobFilter1.png`)
       }
       await page.reload();
    await page.locator('div').filter({ hasText: /^8963$/ }).click();
@@ -307,6 +350,22 @@ async function exportCyclicJobFilter(page) {
   
     ]);
     await excelDownload2.saveAs('downloads/exportExcelCyclicJobFilter2.xlsx');
+     const result5 = await dataRead(
+          "./downloads/exportExcelCyclicJobFilter2.xlsx",
+          ["Mayank Rathor","akbk6551+1139@gmail.com"],
+          []
+      );
+      console.log(result5);
+        if (result5.success) 
+      {
+        await page.screenshot({ path: `./${screenshotPath}/exportExcelCyclicJobFilter2.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportExcelCyclicJobFilter2","true",`./${screenshotPath}/exportExcelCyclicJobFilter2.png`)
+        
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportExcelCyclicJobFilter2.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportExcelCyclicJobFilter2","false",`./${screenshotPath}/exportExcelCyclicJobFilter2.png`)
+      }
     // pdf file
     const [pdfDownload2] = await Promise.all([
   
@@ -317,16 +376,21 @@ async function exportCyclicJobFilter(page) {
     ]);
     await pdfDownload2.saveAs('downloads/exportPdfCyclicJobFilter2.pdf');
       await page.waitForTimeout(2000);
-    
-      if (await page.getByText('Monthly Jobs').first().isVisible()) 
+      const result6 = await dataRead(
+          "./downloads/exportPdfCyclicJobFilter2.pdf",
+          ["Mayank Rathor","akbk6551+1139@gmail.com"],
+          []
+      );
+      console.log(result6);
+      if (result6.success) 
       {
-        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobFilter2.png`, fullPage: true });
-        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobFilter2","true",`./${screenshotPath}/exportCyclicJobFilter2.png`)
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCyclicJobFilter2.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCyclicJobFilter2","true",`./${screenshotPath}/exportPdfCyclicJobFilter2.png`)
         
       }
       else{
-        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobFilter2.png`, fullPage: true });
-        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobFilter2","false",`./${screenshotPath}/exportCyclicJobFilter2.png`)
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCyclicJobFilter2.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCyclicJobFilter2","false",`./${screenshotPath}/exportPdfCyclicJobFilter2.png`)
       }
       await page.reload();
    await page.locator('div').filter({ hasText: /^8963$/ }).click();
@@ -341,6 +405,22 @@ async function exportCyclicJobFilter(page) {
   
     ]);
     await excelDownload3.saveAs('downloads/exportExcelCyclicJobFilter3.xlsx');
+      const result7 = await dataRead(
+          "./downloads/exportExcelCyclicJobFilter3.xlsx",
+          ["Mayank Rathor","akbk6551+1139@gmail.com"],
+          []
+      );
+      console.log(result7);
+      if (result7.success) 
+      {
+        await page.screenshot({ path: `./${screenshotPath}/exportExcelCyclicJobFilter3.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportExcelCyclicJobFilter3","true",`./${screenshotPath}/exportExcelCyclicJobFilter3.png`)
+        
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportExcelCyclicJobFilter3.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportExcelCyclicJobFilter3","false",`./${screenshotPath}/exportExcelCyclicJobFilter3.png`)
+      }
     // pdf file
     const [pdfDownload3] = await Promise.all([
   
@@ -351,16 +431,21 @@ async function exportCyclicJobFilter(page) {
     ]);
     await pdfDownload3.saveAs('downloads/exportPdfCyclicJobFilter3.pdf');
       await page.waitForTimeout(2000);
-    
-      if (await page.getByText('Monthly Jobs').first().isVisible()) 
+      const result8 = await dataRead(
+          "./downloads/exportPdfCyclicJobFilter3.pdf",
+          ["Mayank Rathor","akbk6551+1139@gmail.com"],
+          []
+      );
+      console.log(result8);
+      if (result8.success) 
       {
-        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobFilter3.png`, fullPage: true });
-        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobFilter3","true",`./${screenshotPath}/exportCyclicJobFilter3.png`)
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCyclicJobFitler3.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCyclicJobFitler3","true",`./${screenshotPath}/exportPdfCyclicJobFitler3.png`)
         
       }
       else{
-        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobFilter3.png`, fullPage: true });
-        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobFilter3","false",`./${screenshotPath}/exportCyclicJobFilter3.png`)
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCyclicJobFitler3.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCyclicJobFitler3","false",`./${screenshotPath}/exportPdfCyclicJobFitler3.png`)
       }
       await page.reload();
   await page.locator('div').filter({ hasText: /^8963$/ }).click();
@@ -375,6 +460,22 @@ async function exportCyclicJobFilter(page) {
   
     ]);
     await excelDownload4.saveAs('downloads/exportExcelCyclicJobFilter4.xlsx');
+    const result9 = await dataRead(
+          "./downloads/exportExcelCyclicJobFilter4.xlsx",
+          ["Mayank Rathor","akbk6551+1139@gmail.com"],
+          []
+      );
+      console.log(result9);
+       if (result9.success) 
+      {
+        await page.screenshot({ path: `./${screenshotPath}/exportExcelCyclicJobFilter4.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportExcelCyclicJobFilter4","true",`./${screenshotPath}/exportExcelCyclicJobFilter4.png`)
+        
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportExcelCyclicJobFilter4.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportExcelCyclicJobFilter4","false",`./${screenshotPath}/exportExcelCyclicJobFilter4.png`)
+      }
     // pdf file
     const [pdfDownload4] = await Promise.all([
   
@@ -385,16 +486,21 @@ async function exportCyclicJobFilter(page) {
     ]);
     await pdfDownload4.saveAs('downloads/exportPdfCyclicJobFilter4.pdf');
       await page.waitForTimeout(2000);
-    
-      if (await page.getByText('Monthly Jobs').first().isVisible()) 
+     const result10 = await dataRead(
+          "./downloads/exportPdfCyclicJobFilter4.pdf",
+          ["Mayank Rathor","akbk6551+1139@gmail.com"],
+          []
+      );
+      console.log(result10);
+      if (result10.success) 
       {
-        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobFilter4.png`, fullPage: true });
-        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobFilter4","true",`./${screenshotPath}/exportCyclicJobFilter4.png`)
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCyclicJobFilter4.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCyclicJobFilter4","true",`./${screenshotPath}/exportPdfCyclicJobFilter4.png`)
         
       }
       else{
-        await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobFilter4.png`, fullPage: true });
-        await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobFilter4","false",`./${screenshotPath}/exportCyclicJobFilter4.png`)
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCyclicJobFilter4.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCyclicJobFilter4","false",`./${screenshotPath}/exportPdfCyclicJobFilter4.png`)
       }
       await page.reload();
       console.log("Export cyclic job filter completed");

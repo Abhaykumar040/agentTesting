@@ -230,27 +230,27 @@
   "./screenshot/parent/quotation/": {
     "createQuotation": {
       "path": "./screenshot/parent/quotation/createQuotation.png",
-      "note": "false"
+      "note": "true"
     },
     "approveQuotation": {
       "path": "./screenshot/parent/quotation/approveQuotation.png",
-      "note": "false"
+      "note": "true"
     },
     "rejectQuotation": {
       "path": "./screenshot/parent/quotation/rejectQuotation.png",
-      "note": "false"
+      "note": "true"
     },
     "rejectedByCustomerQuotation": {
       "path": "./screenshot/parent/quotation/rejectedByCustomerQuotation.png",
-      "note": "false"
+      "note": "true"
     },
     "copyQuotation": {
       "path": "./screenshot/parent/quotation/copyQuotation.png",
-      "note": "false"
+      "note": "true"
     },
     "acceptQuotation": {
       "path": "./screenshot/parent/quotation/acceptQuotation.png",
-      "note": "false"
+      "note": "true"
     },
     "sendQuotation": {
       "path": "./screenshot/parent/quotation/sendQuotation.png",
@@ -263,6 +263,18 @@
     "deleteQuotation": {
       "path": "./screenshot/parent/quotation/deleteQuotation.png",
       "note": "false"
+    },
+    "editQuotationRejected": {
+      "path": "./screenshot/parent/quotation/editQuotationRejected.png",
+      "note": "true"
+    },
+    "editQuotationAccepted": {
+      "path": "./screenshot/parent/quotation/editQuotationAccepted.png",
+      "note": "true"
+    },
+    "editQuotationManagerApproved": {
+      "path": "./screenshot/parent/quotation/editQuotationManagerApproved.png",
+      "note": "true"
     }
   },
   "./screenshot/parent/invoices/": {

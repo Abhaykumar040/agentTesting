@@ -79,11 +79,10 @@ async function createQuotation(page){
   await page.getByRole('link', { name: 'Add Quotation' }).click();
    await page.waitForTimeout(1000);
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Anil Rathor' }).click();
-   await page.waitForTimeout(500);
+  await page.getByRole('option', { name: 'Shyam Sundar' }).click();
+  await page.waitForTimeout(500);
   await page.getByRole('combobox', { name: 'Address' }).click();
-  
-  await page.getByRole('option', { name: 'Khamaria Khamaria Uttar' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti Khamaria Uttar' }).click();
   await page.getByRole('checkbox', { name: 'Notes' }).uncheck();
   await page.getByRole('checkbox', { name: 'Terms and Conditions' }).uncheck();
   await page.getByRole('combobox').first().click();
@@ -113,7 +112,7 @@ async function createQuotation(page){
   await page.locator('div').filter({ hasText: /^Address$/ }).click();
   await page.getByRole('option', { name: 'Khamaria Khamaria Uttar' }).click();
   await page.getByRole('combobox').first().click();
-  await page.getByRole('option', { name: 'Fiber Optics cable' }).click();
+  await page.getByRole('option', { name: 'Wifi charger' }).click();
   await page.locator('input[name="products.0.discount"]').click();
   await page.locator('input[name="products.0.discount"]').fill('090');
   await page.getByRole('button', { name: 'Save' }).click();

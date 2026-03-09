@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
+import { markCustomerCreated, isCustomerCreated, getTestData } from '../customerControl';
 
 
 const rawData = await fs.readFile('./data.json', 'utf8');
@@ -13,7 +14,15 @@ const pathName=`outputData/priority/${testData.companyType}`
 export async function customer(page){
  await deletePreviuosCustomer(page);
  await page.waitForTimeout(3000);
- await addCustomer(page);
+ if (!(await isCustomerCreated())) {
+  await addCustomer(page);
+  await markCustomerCreated('customer');
+  await page.waitForTimeout(3000);
+ } else {
+  console.log('Customer already created, so  create only one customer...');
+  await createCustomerOne(page);
+ }
+
  await page.waitForTimeout(3000);
  await editCustomer(page);
  await page.waitForTimeout(3000);
@@ -21,6 +30,52 @@ export async function customer(page){
  await page.waitForTimeout(3000);
  await exportCustomerFilter(page);
  await deleteCustomer(page);
+}
+
+async function createCustomerOne(page){
+   await page.getByRole('button', { name: 'Sales' }).click();
+  await page.getByRole('link', { name: 'Customers' }).click();
+  
+  await page.getByRole('button', { name: 'Add New Customer' }).click();
+  await page.getByRole('radio', { name: 'Commercial' }).check();
+  await page.getByRole('button', { name: 'Select Title' }).click();
+  await page.getByRole('option', { name: 'Ms.' }).click();
+  await page.getByRole('textbox', { name: 'First Name *' }).click();
+  await page.getByRole('textbox', { name: 'First Name *' }).fill('Aashna');
+  await page.getByRole('textbox', { name: 'Last Name *' }).click();
+  await page.getByRole('textbox', { name: 'Last Name *' }).fill('Maurya');
+  await page.getByRole('textbox', { name: 'Email *' }).click();
+  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1218@gmail.com');
+  await page.getByRole('textbox', { name: 'Person In Charge *' }).click();
+  await page.getByRole('textbox', { name: 'Person In Charge *' }).fill('Sushil Maurya');
+  await page.getByRole('textbox', { name: 'Dealer/Company Name' }).click();
+  await page.getByRole('textbox', { name: 'Dealer/Company Name' }).fill('Mayank Rajput');
+  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).click();
+  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1245346');
+  await page.getByRole('textbox', { name: 'Phone *' }).click();
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('9863334112');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('Aurai');
+  await page.getByText('Aurai, Uttar Pradesh, India', { exact: true }).click();
+  await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
+  await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Ghosia');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('tab', { name: 'Contact Details' }).click();
+  await page.getByRole('button', { name: 'Primary Contact' }).click();
+  await page.getByRole('option', { name: 'Showroom' }).click();
+  await page.getByRole('textbox', { name: 'Full Name' }).click();
+  await page.getByRole('textbox', { name: 'Full Name' }).fill('Anuj Kumar');
+  await page.getByRole('textbox', { name: 'email@example.com' }).click();
+  await page.getByRole('textbox', { name: 'email@example.com' }).fill('akbk6551+1349@gmail.com');
+  await page.getByRole('textbox', { name: 'Phone number' }).click();
+  await page.getByRole('textbox', { name: 'Phone number' }).fill('78963335411');
+  await page.getByRole('textbox', { name: 'Additional notes about this' }).click();
+  await page.getByRole('textbox', { name: 'Additional notes about this' }).fill('Sothing Purchess');
+  await page.getByRole('button', { name: 'Add Contact' }).click();
+  // await page.getByText('CancelCreate Customer').click();
+  await page.getByRole('button', { name: 'Create Customer' }).click();
 }
 
 async function exportCustomerNormal(page) {
@@ -168,8 +223,6 @@ async function exportCustomerFilter(page) {
  console.log('export customer filter completed');
 }
 
-
-
 async function deletePreviuosCustomer(page){
   console.log("Enter in delete previou customer");
   await page.getByRole('button', { name: 'Sales' }).click();
@@ -194,6 +247,7 @@ async function deletePreviuosCustomer(page){
 await page.reload();
 console.log("delete previous customer completed");
 }
+
 async function addCustomer(page){
   console.log("Enter in add customer");
   await page.getByRole('button', { name: 'Sales' }).click();
@@ -216,7 +270,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).click();
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1245836');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9863574112');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000001');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -233,7 +287,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'email@example.com' }).click();
   await page.getByRole('textbox', { name: 'email@example.com' }).fill('akbk6551+1219@gmail.com');
   await page.getByRole('textbox', { name: 'Phone number' }).click();
-  await page.getByRole('textbox', { name: 'Phone number' }).fill('78963215411');
+  await page.getByRole('textbox', { name: 'Phone number' }).fill('8000000002');
   await page.getByRole('textbox', { name: 'Additional notes about this' }).click();
   await page.getByRole('textbox', { name: 'Additional notes about this' }).fill('Sothing Purchess');
   await page.getByRole('button', { name: 'Add Contact' }).click();
@@ -257,7 +311,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).click();
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1345836');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9863574192');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000003');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -274,7 +328,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'email@example.com' }).click();
   await page.getByRole('textbox', { name: 'email@example.com' }).fill('akbk6551+1221@gmail.com');
   await page.getByRole('textbox', { name: 'Phone number' }).click();
-  await page.getByRole('textbox', { name: 'Phone number' }).fill('78903215411');
+  await page.getByRole('textbox', { name: 'Phone number' }).fill('8000000004');
   await page.getByRole('textbox', { name: 'Additional notes about this' }).click();
   await page.getByRole('textbox', { name: 'Additional notes about this' }).fill('Sothing Purchess');
   await page.getByRole('button', { name: 'Add Contact' }).click();
@@ -298,7 +352,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).click();
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1275836');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9863576112');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000005');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -315,7 +369,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'email@example.com' }).click();
   await page.getByRole('textbox', { name: 'email@example.com' }).fill('akbk6551+1223@gmail.com');
   await page.getByRole('textbox', { name: 'Phone number' }).click();
-  await page.getByRole('textbox', { name: 'Phone number' }).fill('78963265411');
+  await page.getByRole('textbox', { name: 'Phone number' }).fill('8000000006');
   await page.getByRole('textbox', { name: 'Additional notes about this' }).click();
   await page.getByRole('textbox', { name: 'Additional notes about this' }).fill('Sothing Purchess');
   await page.getByRole('button', { name: 'Add Contact' }).click();
@@ -331,9 +385,9 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Last Name *' }).click();
   await page.getByRole('textbox', { name: 'Last Name *' }).fill('Rathor');
   await page.getByRole('textbox', { name: 'Email *' }).click();
-  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1119@gmail.com');
+  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1109@gmail.com');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9834724787');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000007');
   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803948');
   await page.getByRole('button', { name: 'Select Access Method' }).click();
@@ -359,7 +413,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Email *' }).click();
   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1212@gmail.com');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9834724747');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000008');
   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803941');
   await page.getByRole('button', { name: 'Select Access Method' }).click();
@@ -385,7 +439,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Email *' }).click();
   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1213@gmail.com');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9834724797');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000009');
   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9802948');
   await page.getByRole('button', { name: 'Select Access Method' }).click();
@@ -411,7 +465,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Email *' }).click();
   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1214@gmail.com');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9834724784');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000010');
   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803998');
   await page.getByRole('button', { name: 'Select Access Method' }).click();
@@ -437,7 +491,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Email *' }).click();
   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1215@gmail.com');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9834704787');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000011');
   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803148');
   await page.getByRole('button', { name: 'Select Access Method' }).click();
@@ -463,7 +517,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Email *' }).click();
   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1217@gmail.com');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9834724790');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000012');
   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803248');
   await page.getByRole('button', { name: 'Select Access Method' }).click();
@@ -489,7 +543,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Email *' }).click();
   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1119@gmail.com');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9834724787');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000013');
   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803948');
   await page.getByRole('button', { name: 'Select Access Method' }).click();
@@ -517,7 +571,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1136@gmail.com');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9123456789');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000014');
   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('98039481');
   await page.getByRole('button', { name: 'Select Access Method' }).click();
@@ -543,7 +597,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Email *' }).click();
   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1139@gmail.com');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9123456790');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000015');
   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('98039482');
   await page.getByRole('button', { name: 'Select Access Method' }).click();
@@ -570,7 +624,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1140@gmail.com');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9834724791');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000016');
   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('98039483');
   await page.getByRole('button', { name: 'Select Access Method' }).click();
@@ -596,7 +650,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Email *' }).click();
   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1140@gmail.com');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('9834724792');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000017');
   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('98039484');
   await page.getByRole('button', { name: 'Select Access Method' }).click();
@@ -631,6 +685,7 @@ await page.reload();
   console.log("Add customer");
 
 }
+
 async function editCustomer(page){
   console.log("Enter in Edit customer");
   await page.getByRole('button', { name: 'Sales' }).click();
@@ -684,6 +739,7 @@ async function editCustomer(page){
   await page.reload();
   console.log("edit customer completed");
 }
+
 async function deleteCustomer(page){
   console.log("Enter in delete customer");
   // await page.getByRole('button', { name: 'Sales' }).click();
