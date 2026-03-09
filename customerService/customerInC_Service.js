@@ -4,7 +4,6 @@ const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
 import { dataRead } from '../dataRead';
-import { markCustomerCreated, isCustomerCreated, getTestData } from '../customerControl';
 
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
@@ -14,14 +13,17 @@ const pathName=`outputData/priority/${testData.companyType}`
 export async function customerInC_service(page) {
   await deletePreviuosCustomerInC_Service(page);
   await page.waitForTimeout(3000);
-  if (!(await isCustomerCreated())) {
-    await addCustomerInC_Service(page);
-    await markCustomerCreated('customerInC_Service');
-    await page.waitForTimeout(3000);
-  } else {
-    console.log('Customer already created, single customer create...');
-    await createCustomerInC_ServiceOne(page);
-  }
+
+
+     const rawData = await fs.readFile('./data.json', 'utf8');
+        const testData = JSON.parse(rawData);
+  
+    if (testData.companySubscription==='crm') {
+       await addCustomerInC_Service(page);
+      await page.waitForTimeout(3000);
+    } else {
+      await createCustomerInC_ServiceOne(page);
+    }
   await page.waitForTimeout(3000);
   await emailCustomerInC_Service(page)
   await page.waitForTimeout(3000);

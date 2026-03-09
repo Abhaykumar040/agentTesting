@@ -3,6 +3,5 @@
   "emailStart": "",
   "emailEnd": "",
   "companyType": "parent",
-  "customerCreated": true,
-  "customerCreatedSection": "customer"
+  "companySubscription":"all"
 }

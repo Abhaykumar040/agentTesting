@@ -3,7 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
-import { markCustomerCreated, isCustomerCreated, getTestData } from '../customerControl';
+
 
 
 const rawData = await fs.readFile('./data.json', 'utf8');
@@ -14,14 +14,17 @@ const pathName=`outputData/priority/${testData.companyType}`
 export async function customer(page){
  await deletePreviuosCustomer(page);
  await page.waitForTimeout(3000);
- if (!(await isCustomerCreated())) {
-  await addCustomer(page);
-  await markCustomerCreated('customer');
-  await page.waitForTimeout(3000);
- } else {
-  console.log('Customer already created, so  create only one customer...');
-  await createCustomerOne(page);
- }
+
+
+  const rawData = await fs.readFile('./data.json', 'utf8');
+         const testData = JSON.parse(rawData);
+   
+     if (testData.companySubscription==='sales') {
+        await addCustomer(page);
+       await page.waitForTimeout(3000);
+     } else {
+       await createCustomerOne(page);
+     }
 
  await page.waitForTimeout(3000);
  await editCustomer(page);
