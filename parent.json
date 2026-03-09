@@ -14,7 +14,11 @@
     },
     "deletePriority": {
       "path": "./screenshot/parent/priority/deletePriority.png",
-      "note": "false"
+      "note": "true"
+    },
+    "PriorityCreateAndDeleteDuringCreation": {
+      "path": "./screenshot/parent/priority/PriorityCreateAndDeleteDuringCreation.png",
+      "note": "true"
     }
   },
   "./screenshot/parent/status/": {

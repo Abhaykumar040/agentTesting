@@ -59,3 +59,5 @@ await chooser.setFiles('downloads/leads.xlsx');
   await page.click("body tr:nth-of-type(4) td:nth-of-type(4) div button:last-of-type svg");
 
     await page.getByRole('row', { name: 'Sushil Singh' }).click();
+
+     await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();
