@@ -24,9 +24,14 @@ async function addRole(page) {
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Roles' }).click();
   await page.getByRole('button', { name: 'Add Role' }).click();
+  await page.waitForTimeout(3000);
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Sales manager');
   await page.getByRole('main').getByRole('button', { name: 'Sales' }).click();
+  await page.waitForTimeout(3000);
+  
+  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();
+ 
    await page.locator('input[name="access.4.create"]').check();
   await page.locator('input[name="access.4.update"]').check();
   await page.locator('input[name="access.4.delete"]').check();
@@ -46,9 +51,8 @@ async function addRole(page) {
   await page.getByRole('main').getByRole('button', { name: 'Sales' }).click();
   await page.waitForTimeout(1000);
 
-    await page.locator('input[name="access.4.create"]').check();
-  await page.locator('input[name="access.4.update"]').check();
-  await page.locator('input[name="access.4.delete"]').check();
+  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();
+ 
   await page.locator('input[name="access.12.create"]').check();
   await page.locator('input[name="access.12.update"]').check();
   await page.locator('input[name="access.12.delete"]').check();

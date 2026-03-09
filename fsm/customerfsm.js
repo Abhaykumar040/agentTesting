@@ -3,7 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
-import { markCustomerCreated, isCustomerCreated, getTestData } from '../customerControl';
+
 
 
 
@@ -18,12 +18,16 @@ export async function customerfsm(page){
    await page.waitForTimeout(3000);
     //  await customerDownload(page);
     //    await page.waitForTimeout(3000);
-  if (!(await isCustomerCreated())) {
+
+      const rawData = await fs.readFile('./data.json', 'utf8');
+      const testData = JSON.parse(rawData);
+
+  if (testData.companySubscription==='fsm') {
     await createFsmCustomer(page);
-    await markCustomerCreated('createFsmCustomer');
+    
     await page.waitForTimeout(3000);
   } else {
-    console.log('Customer already created, single customer create...');
+    
     await createFsmCustomerOne(page);
   }
     await page.waitForTimeout(3000);
