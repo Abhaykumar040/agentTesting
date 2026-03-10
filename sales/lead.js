@@ -14,20 +14,20 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function lead(page){
-  await addLead(page);
-  await page.waitForTimeout(3000);
-  await editLead(page);
-  await page.waitForTimeout(3000);
-  await emailThreadInLead(page);
-  await page.waitForTimeout(3000);
-  await activityInLead(page);
-  await page.waitForTimeout(3000);
+  // await addLead(page);
+  // await page.waitForTimeout(3000);
+  // await editLead(page);
+  // await page.waitForTimeout(3000);
+  // await emailThreadInLead(page);
+  // await page.waitForTimeout(3000);
+  // await activityInLead(page);
+  // await page.waitForTimeout(3000);
   await documentInLead(page); 
   await page.waitForTimeout(3000); 
-  await exportLeadFileNormal(page);
-  await page.waitForTimeout(3000); 
-  await exportLeadFileFilter(page);
-  await importLead(page);
+  // await exportLeadFileNormal(page);
+  // await page.waitForTimeout(3000); 
+  // await exportLeadFileFilter(page);
+  // await importLead(page);
 }
 
 
@@ -344,47 +344,48 @@ async function editLead(page){
 }
 
 
-// async function emailThreadInLead(page){
-//   console.log('Enter in email thread of lead');
-//   await page.getByText('L-340').click();
-//   await page.waitForTimeout(2000);
-//   await page.getByRole('tab', { name: 'Email Thread' }).click();
-//   await page.getByRole('combobox', { name: 'Enter email and press Enter' }).first().click();
-//   await page.getByRole('combobox', { name: 'Enter email and press Enter' }).first().fill('akbk6551@gmail.com');
-//   await page.getByRole('combobox', { name: 'Enter email and press Enter' }).nth(1).click();
-//   await page.getByRole('textbox', { name: 'Enter email subject...' }).click();
-//   await page.getByRole('textbox', { name: 'Enter email subject...' }).click();
-//   await page.getByRole('textbox', { name: 'Enter email subject...' }).fill('Discussion Regarding New Lead – Jogendar Maurya');
-//   await page.getByRole('checkbox', { name: 'Schedule Meet' }).check();
-//   await page.getByRole('textbox', { name: 'Enter meeting subject...' }).click();
-//   await page.getByRole('textbox', { name: 'Enter meeting subject...' }).click();
-//   await page.getByRole('textbox', { name: 'Enter meeting subject...' }).fill('Discussion about deal');
-//   await page.getByRole('checkbox', { name: 'Send as Calendar Event' }).check();
-//   await page.getByRole('textbox', { name: 'Select start date and time' }).click();
-//   await page.getByRole('option', { name: 'Choose Friday, February 13th,' }).click();
-//   await page.getByText('00:30').click();
-//   await page.getByRole('textbox', { name: '0' }).first().click();
-//   await page.getByRole('textbox', { name: '0' }).first().fill('2');
-//   await page.getByRole('textbox', { name: '0' }).nth(1).click();
-//   await page.getByRole('textbox', { name: '0' }).nth(1).fill('30');
-//   await page.locator('.editor-content').click();
-//   await page.locator('.editor-content').click();
-//   await page.locator('.editor-content').fill('Hi Team,\n\n\n\n\n\n\nI have scheduled a meeting with Jogendar Maurya from EV Charger.\n\n\n\n\n\n\nRequirement: [Short description of client need]\n\n\nMeeting Agenda: Requirement discussion and next steps.\n\n\n\n\n\n\nPlease review and let me know if anything needs to be prepared before the call.\n\n\n\n\n\n\nThanks,\n\n\n[Your Name]');
-//   await page.getByRole('button', { name: 'Attach Files' }).click();
-//   await page.getByRole('button', { name: 'Attach Files' }).setInputFiles('details1.xlsx');
-//   await page.getByRole('button', { name: 'Send Email' }).click();
-//   console.log('email thread done in lead');
-// }
+async function emailThreadInLead(page){
+  console.log('Enter in email thread of lead');
+  await page.getByText('Aman Yadav').click();
+  await page.waitForTimeout(2000);
+  await page.getByRole('tab', { name: 'Email Thread' }).click();
+  await page.getByRole('combobox', { name: 'Enter email and press Enter' }).first().click();
+  await page.getByRole('combobox', { name: 'Enter email and press Enter' }).first().fill('akbk6551@gmail.com');
+  await page.getByRole('combobox', { name: 'Enter email and press Enter' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'Enter email subject...' }).click();
+  await page.getByRole('textbox', { name: 'Enter email subject...' }).click();
+  await page.getByRole('textbox', { name: 'Enter email subject...' }).fill('Discussion Regarding New Lead – Jogendar Maurya');
+  await page.getByRole('checkbox', { name: 'Schedule Meet' }).check();
+  await page.getByRole('textbox', { name: 'Enter meeting subject...' }).click();
+  await page.getByRole('textbox', { name: 'Enter meeting subject...' }).click();
+  await page.getByRole('textbox', { name: 'Enter meeting subject...' }).fill('Discussion about deal');
+  await page.getByRole('checkbox', { name: 'Send as Calendar Event' }).check();
+  await page.getByRole('textbox', { name: 'Select start date and time' }).click();
+  await page.getByRole('option', { name: 'Choose Friday, March 27th,' }).click();
+  await page.getByText('00:30').click();
+  await page.getByRole('textbox', { name: '0' }).first().click();
+  await page.getByRole('textbox', { name: '0' }).first().fill('2');
+  await page.getByRole('textbox', { name: '0' }).nth(1).click();
+  await page.getByRole('textbox', { name: '0' }).nth(1).fill('30');
+  await page.locator('.editor-content').click();
+  await page.locator('.editor-content').click();
+  await page.locator('.editor-content').fill('Hi Team,\n\n\n\n\n\n\nI have scheduled a meeting with Jogendar Maurya from EV Charger.\n\n\n\n\n\n\nRequirement: [Short description of client need]\n\n\nMeeting Agenda: Requirement discussion and next steps.\n\n\n\n\n\n\nPlease review and let me know if anything needs to be prepared before the call.\n\n\n\n\n\n\nThanks,\n\n\n[Your Name]');
+  await page.getByRole('button', { name: 'Attach Files' }).click();
+  await page.getByRole('button', { name: 'Attach Files' }).setInputFiles('details1.xlsx');
+  await page.getByRole('button', { name: 'Send Email' }).click();
+  console.log('email thread done in lead');
+}
 
 
 async function activityInLead(page){
   console.log("Enter in activity's lead");
-  await page.getByText('akbk6551+1230@gmail.com').click();
+  await page.getByText('Jitendra Tyagi').click();
   await page.waitForTimeout(2000);
   await page.getByRole('tab', { name: 'Activity' }).click();
   await page.getByRole('button', { name: 'Add Activity' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Note', exact: true }).click();
-  await page.waitForTimeout(2000);
+  
   await page.getByRole('option', { name: 'Meeting' }).click();
   await page.getByRole('textbox', { name: 'Meeting Subject' }).click();
   await page.getByRole('textbox', { name: 'Meeting Subject' }).fill('Discussion About deals');
@@ -392,13 +393,15 @@ async function activityInLead(page){
   await page.getByPlaceholder('Duration in minutes').fill('12');
   await page.getByRole('textbox', { name: 'Description' }).fill('lkijdffgmlkdgkl g n jgl dgmfdg');
   await page.getByRole('button', { name: 'Add Meeting' }).click();
+  await page.waitForTimeout(2000);
   await page.reload();
   await page.getByRole('button', { name: 'Sales' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('link', { name: 'Lead Management' }).first().click();
-  await page.getByText('akbk6551+1230@gmail.com').click();
+  await page.getByText('Jitendra Tyagi').click();
   await page.waitForTimeout(2000);
   await page.getByRole('tab', { name: 'Activity' }).click();
+  await page.waitForTimeout(2000);
    if (await page.getByText('lkijdffgmlkdgkl g n jgl dgmfdg',{exact:true}).first().isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/activityInLead.png`, fullPage: true });
@@ -419,7 +422,7 @@ async function documentInLead(page) {
    await page.getByRole('button', { name: 'Sales' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('link', { name: 'Lead Management' }).first().click();
-  await page.getByText('akbk6551+1230@gmail.com').first().click();
+  await page.getByText('Jitendra Tyagi').first().click();
   
   
   await page.getByRole('tab', { name: 'Documents' }).click();
@@ -437,10 +440,10 @@ async function documentInLead(page) {
   await page.getByRole('button', { name: 'Sales' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('link', { name: 'Lead Management' }).first().click();
-  await page.getByText('akbk6551+1230@gmail.com').click();
+  await page.getByText('Jitendra Tyagi').click();
   await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Documents' }).first().click();
-   if (await page.getByText('text.txt',{exact:true}).isVisible()) 
+   if (await page.getByText('leads.xlsx',{exact:true}).isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/documentInLead.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"documentInLead","true",`./${screenshotPath}/documentInLead.png`)

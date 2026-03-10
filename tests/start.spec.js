@@ -44,8 +44,12 @@ test('basic test', async ({ page }) => {
 await loginRight(page);
 // await companySetup(page);
 // await formCustomization(page);
-// await priority(page);
-await roles(page);
+
+
+// await priority(page);//doneA
+
+
+// await roles(page);
 // await status(page);
 // await productCategory(page);
 // await form(page);
@@ -54,7 +58,7 @@ await roles(page);
 // await assetsCategory(page);
 // await product(page);
 // await salesAgents(page);
-// await lead(page);
+await lead(page);
 // await customer(page);
 // await Quotation(page);
 // await quotationInsideCustomer(page);

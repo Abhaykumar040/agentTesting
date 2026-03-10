@@ -13,10 +13,10 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function form(page){
-  // await deletePreviuosForm(page);
-  // await page.waitForTimeout(3000);
-  // await addForm(page);
-  // await page.waitForTimeout(3000);
+  await deletePreviuosForm(page);
+  await page.waitForTimeout(3000);
+  await addForm(page);
+  await page.waitForTimeout(3000);
   await editForm(page);
   await page.waitForTimeout(3000);
   await deleteForm(page);

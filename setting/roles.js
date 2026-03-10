@@ -96,9 +96,9 @@ async function addRole(page) {
     await page.waitForTimeout(1000);
 
 //  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();
-     await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
-     await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
-     await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
+     await page.locator("//h6[normalize-space()='CS-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
+     await page.locator("//h6[normalize-space()='CS-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
+     await page.locator("//h6[normalize-space()='CS-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
 
   await page.getByRole('button', { name: 'Submit' }).click();
   await expect(page.getByText('Field Service Engineer')).toBeVisible();

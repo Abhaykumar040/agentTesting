@@ -13,12 +13,12 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 
 export async function priority(page){
-await deletePreviuosPriority(page);
- await page.waitForTimeout(3000);
-await addPriorit(page);
- await page.waitForTimeout(3000);
- await editPriority(page);
-  await page.waitForTimeout(3000);
+// await deletePreviuosPriority(page);
+//  await page.waitForTimeout(3000);
+// await addPriorit(page);
+//  await page.waitForTimeout(3000);
+//  await editPriority(page);
+//   await page.waitForTimeout(3000);
   await deletePriority(page);
 }
 async function deletePreviuosPriority(page){
@@ -53,6 +53,54 @@ async function addPriorit(page) {
   console.log("Enter in Add priority");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Priority' }).click();
+
+
+//add 1st priority job
+await page.getByRole('button', { name: 'Add New Priority' }).click();
+  await page.getByRole('textbox', { name: 'Enter Priority Type' }).click();
+  await page.getByRole('textbox', { name: 'Enter Priority Type' }).fill('MaintPriorityJob');
+  await page.getByLabel('', { exact: true }).click();
+  await page.getByRole('option', { name: 'Job' }).click();
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).fill('High');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).fill('High maint');
+  await page.getByRole('textbox', { name: 'Position' }).click();
+  await page.getByRole('textbox', { name: 'Position' }).fill('1');
+  await page.getByRole('checkbox', { name: 'Default' }).check();
+  await page.getByRole('button', { name: 'Create' }).click();
+  await page.waitForTimeout(3000);
+
+
+
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().fill('Low');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('Low maint');
+  await page.getByRole('textbox', { name: 'Position' }).first().click();
+  await page.getByRole('textbox', { name: 'Position' }).first().fill('2');
+  await page.getByRole('button', { name: 'Create' }).click();
+  await page.waitForTimeout(3000);
+
+
+
+  await page.getByRole('button', { name: 'Priority' }).click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('Medium');
+  await page.getByRole('textbox', { name: 'Priority *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority *' }).first().fill('Medium');
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().click();
+  await page.getByRole('textbox', { name: 'Priority Description *' }).first().fill('Medium maint');
+   await page.getByRole('textbox', { name: 'Position' }).first().click();
+  await page.getByRole('textbox', { name: 'Position' }).first().fill('3');
+  await page.getByRole('button', { name: 'Create' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('button', { name: 'Back to List' }).click();
+    await page.waitForTimeout(3000);
+
+ //add 2nd priority job
   await page.getByRole('button', { name: 'Add New Priority' }).click();
   await page.getByRole('textbox', { name: 'Enter Priority Type' }).click();
   await page.getByRole('textbox', { name: 'Enter Priority Type' }).fill('InstallationPriorityJob');
@@ -144,6 +192,9 @@ async function addPriorit(page) {
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(3).click();
     await page.getByRole('button', { name: 'Back to List' }).click();
 await page.waitForTimeout(3000);
+
+
+ //add 1st priority support
   await page.getByRole('button', { name: 'Add New Priority' }).click();
   await page.getByRole('textbox', { name: 'Enter Priority Type' }).click();
   await page.getByRole('textbox', { name: 'Enter Priority Type' }).fill('PrioritySupport1');
@@ -184,6 +235,8 @@ await page.waitForTimeout(3000);
 
 
   await page.getByRole('button', { name: 'Back to List' }).click();
+
+   //add 2nd priority support
   await page.getByRole('button', { name: 'Add New Priority' }).click();
   await page.getByRole('textbox', { name: 'Enter Priority Type' }).click();
   await page.getByRole('textbox', { name: 'Enter Priority Type' }).fill('PrioritySupport2');

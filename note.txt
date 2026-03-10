@@ -64,3 +64,10 @@ await chooser.setFiles('downloads/leads.xlsx');
      await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
      await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
      await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
+
+
+     db.zones.updateMany(
+  { company: ObjectId("68dcfc116e4e85ccbf65b2f1"), status: 1 },
+  { $set: { status: 3 } }
+)
+
