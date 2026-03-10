@@ -4,6 +4,7 @@ const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
 import { globalExportDocument } from '../globalExportDocument';
+import { dataRead } from '../dataRead';
 
 
 
@@ -14,7 +15,7 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function lead(page){
-  // await addLead(page);
+  await addLead(page);
   // await page.waitForTimeout(3000);
   // await editLead(page);
   // await page.waitForTimeout(3000);
@@ -22,11 +23,11 @@ export async function lead(page){
   // await page.waitForTimeout(3000);
   // await activityInLead(page);
   // await page.waitForTimeout(3000);
-  await documentInLead(page); 
-  await page.waitForTimeout(3000); 
-  // await exportLeadFileNormal(page);
+  // await documentInLead(page); 
   // await page.waitForTimeout(3000); 
-  // await exportLeadFileFilter(page);
+  await exportLeadFileNormal(page);
+  await page.waitForTimeout(3000); 
+  await exportLeadFileFilter(page);
   // await importLead(page);
 }
 
@@ -164,13 +165,13 @@ async function addLead(page){
   await page.getByRole('textbox', { name: 'Phone *' }).fill('8678346542');
   await page.getByRole('combobox', { name: 'Search or add industry' }).click();
   await page.getByRole('textbox', { name: 'Topic' }).click();
-  await page.getByRole('textbox', { name: 'Topic' }).fill('sells');
+  await page.getByRole('textbox', { name: 'Topic' }).fill('software');
   await page.getByRole('button', { name: 'Lead Source' }).click();
   await page.getByRole('option', { name: 'Email Campaign' }).click();
   await page.getByRole('button', { name: 'Lead Rating' }).click();
   await page.getByRole('option', { name: 'Warm' }).click();
   await page.getByRole('button', { name: 'Sales Agent' }).click();
-  await page.getByRole('option', { name: 'Mahesh Kumar' }).click();
+  await page.getByRole('option', { name: 'Santosh Kumar' }).click();
   await page.getByRole('textbox', { name: 'Referral' }).click();
   await page.getByRole('textbox', { name: 'Referral' }).fill('Mahesh');
   await page.getByRole('textbox', { name: 'Description' }).click();
@@ -472,6 +473,8 @@ async function exportLeadFileNormal(page) {
   ]);
 
   await excelDownload.saveAs('downloads/leadNormal.xlsx');
+
+
   const [pdfDownload] = await Promise.all([
 
     page.waitForEvent('download'),
@@ -480,6 +483,44 @@ async function exportLeadFileNormal(page) {
 
   ]);
   await pdfDownload.saveAs('downloads/leadPdfNormal.pdf');
+
+
+
+  const result1 = await dataRead(
+          "./downloads/leadPdfNormal.pdf",
+        ["Anjali Rathor","Jitendra Tyagi"],
+        []
+      );
+      console.log(result1);
+    if (result1.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketsNormal.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketsNormal","true",`./${screenshotPath}/exportExcelInTicketsNormal.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketsNormal.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketsNormal","false",`./${screenshotPath}/exportExcelInTicketsNormal.png`)
+    }
+
+
+
+    const result2 = await dataRead(
+       "./downloads/leadNormal.xlsx",
+        ["Anjali Rathor","Jitendra Tyagi","EV Mobile Pvt Ltd"],
+        []
+    );
+    console.log(result2);
+  if (result2.success) 
+  {
+    await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketsNormal2.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketsNormal2","true",`./${screenshotPath}/exportExcelInTicketsNormal2.png`)
+    
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketsNormal2.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketsNormal2","false",`./${screenshotPath}/exportExcelInTicketsNormal2.png`)
+  }
   // await page.waitForTimeout(1000);
   
   // if (await page.getByText('text.txt',{exact:true}).isVisible()) 
@@ -509,6 +550,25 @@ async function exportLeadFileFilter(page){
   ]);
   await excelDownload.saveAs('downloads/leadFilter.xlsx');
 
+
+   const result1 = await dataRead(
+          "./downloads/leadFilter.xlsx",
+        ["Anjali Rathor"],
+        ["Jitendra Tyagi"]
+      );
+      console.log(result1);
+    if (result1.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterX.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterX","true",`./${screenshotPath}/exportExcelInLeadFilterX.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterX.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterX","false",`./${screenshotPath}/exportExcelInLeadFilterX.png`)
+    }
+
+
   // pdf file
  const [pdfDownload] = await Promise.all([
 
@@ -518,22 +578,32 @@ async function exportLeadFileFilter(page){
 
   ]);
   await pdfDownload.saveAs('downloads/leadPdfFilter.pdf');
+
+
+   const result2 = await dataRead(
+          "./downloads/leadPdfFilter.pdf",
+        ["Anjali Rathor"],
+        ["Jitendra Tyagi"]
+      );
+      console.log(result2);
+    if (result2.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterP.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterP","true",`./${screenshotPath}/exportExcelInLeadFilterP.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterP.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterP","false",`./${screenshotPath}/exportExcelInLeadFilterP.png`)
+    }
+
   // .....................................................
   await page.getByRole('button', { name: 'Open' }).nth(1).click();
   await page.getByRole('option', { name: 'Converted' }).click();
   await page.waitForTimeout(1000);
   
-  if (await page.getByText('text.txt',{exact:true}).isVisible()) 
-  {
-    await page.screenshot({ path: `./${screenshotPath}/exportLeadFileFilter.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportLeadFileFilter","true",`./${screenshotPath}/exportLeadFileFilter.png`)
-    
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/exportLeadFileFilter.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportLeadFileFilter","false",`./${screenshotPath}/exportLeadFileFilter.png`)
-  }
-  await expect(page.getByText('Anjali Rathor Edited')).toBeVisible();
+ 
+
    const [excelDownload1] = await Promise.all([
 
     page.waitForEvent('download'),
@@ -541,6 +611,25 @@ async function exportLeadFileFilter(page){
 
   ]);
   await excelDownload1.saveAs('downloads/leadFilter1.xlsx');
+
+
+   const result3 = await dataRead(
+          "./downloads/leadFilter1.xlsx",
+          ['Anjali Rathor Edited'],
+        ["Santosh Kumar","Jitendra Tyagi"]
+        
+      );
+      console.log(result3);
+    if (result3.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatusX.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatusX","true",`./${screenshotPath}/exportExcelInLeadFilterStatusX.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatusX.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatusX","false",`./${screenshotPath}/exportExcelInLeadFilterStatusX.png`)
+    }
 
   // pdf file
   const [pdfDownload1] = await Promise.all([
@@ -552,6 +641,24 @@ async function exportLeadFileFilter(page){
   ]);
   await pdfDownload1.saveAs('downloads/leadPdfFilter1.pdf');
   
+
+   const result4 = await dataRead(
+          "./downloads/leadPdfFilter1.pdf",
+          ['Anjali Rathor Edited'],
+        ["Santosh Kumar","Jitendra Tyagi"]
+      );
+      console.log(result4);
+    if (result4.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatusP.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatusP","true",`./${screenshotPath}/exportExcelInLeadFilterStatusP.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatusP.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatusP","false",`./${screenshotPath}/exportExcelInLeadFilterStatusP.png`)
+    }
+
   await page.reload();
   console.log('exported lead filter completed');
 
