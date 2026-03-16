@@ -19,7 +19,7 @@ export async function customer(page){
   const rawData = await fs.readFile('./data.json', 'utf8');
          const testData = JSON.parse(rawData);
    
-     if (testData.companySubscription==='sales') {
+     if (testData.companySubscription==='sales'||testData.companySubscription==='all') {
         await addCustomer(page);
        await page.waitForTimeout(3000);
      } else {
@@ -693,7 +693,7 @@ async function editCustomer(page){
   console.log("Enter in Edit customer");
   await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Customers' }).click();
-  await page.getByRole('row', { name: 'Kolpit Rathor akbk6551+1140@' }).getByLabel('Edit').click();
+  await page.getByRole('row', { name: 'Kolpit Rathor' }).getByLabel('Edit').click();
   await page.getByRole('textbox', { name: 'First Name *' }).click();
   await page.getByRole('textbox', { name: 'First Name *' }).fill('Arjun');
   await page.getByRole('textbox', { name: 'Last Name *' }).click();

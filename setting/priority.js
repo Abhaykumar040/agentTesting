@@ -13,12 +13,12 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 
 export async function priority(page){
-// await deletePreviuosPriority(page);
-//  await page.waitForTimeout(3000);
-// await addPriorit(page);
-//  await page.waitForTimeout(3000);
-//  await editPriority(page);
-//   await page.waitForTimeout(3000);
+await deletePreviuosPriority(page);
+ await page.waitForTimeout(3000);
+await addPriorit(page);
+ await page.waitForTimeout(3000);
+ await editPriority(page);
+  await page.waitForTimeout(3000);
   await deletePriority(page);
 }
 async function deletePreviuosPriority(page){

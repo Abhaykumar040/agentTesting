@@ -1,0 +1,98 @@
+{
+  "./screenshot/parent/priority/": {
+    "priorityWitoutPosition": {
+      "path": "./screenshot/parent/priority/priorityWitoutPosition.png",
+      "note": "true"
+    },
+    "PriorityCreateAndDeleteDuringCreation": {
+      "path": "./screenshot/parent/priority/PriorityCreateAndDeleteDuringCreation.png",
+      "note": "true"
+    },
+    "editPriority": {
+      "path": "./screenshot/parent/priority/editPriority.png",
+      "note": "true"
+    },
+    "deletePriority": {
+      "path": "./screenshot/parent/priority/deletePriority.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/roles/": {
+    "deletePreviuosRole": {
+      "path": "./screenshot/parent/roles/deletePreviuosRole.png",
+      "note": "true"
+    },
+    "addRole": {
+      "path": "./screenshot/parent/roles/addRole.png",
+      "note": "true"
+    },
+    "deleteRole": {
+      "path": "./screenshot/parent/roles/deleteRole.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/status/": {
+    "addStatus": {
+      "path": "./screenshot/parent/status/addStatus.png",
+      "note": "false"
+    },
+    "editStatus": {
+      "path": "./screenshot/parent/status/editStatus.png",
+      "note": "true"
+    },
+    "deleteStatus": {
+      "path": "./screenshot/parent/status/deleteStatus.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/productCategory/": {
+    "addProductCategory": {
+      "path": "./screenshot/parent/productCategory/addProductCategory.png",
+      "note": "false"
+    },
+    "editProductCategry": {
+      "path": "./screenshot/parent/productCategory/editProductCategry.png",
+      "note": "false"
+    },
+    "deleteProductCategory": {
+      "path": "./screenshot/parent/productCategory/deleteProductCategory.png",
+      "note": "false"
+    }
+  },
+  "./screenshot/parent/form/": {
+    "addForm": {
+      "path": "./screenshot/parent/form/addForm.png",
+      "note": "false"
+    },
+    "editForm": {
+      "path": "./screenshot/parent/form/editForm.png",
+      "note": "true"
+    },
+    "deleteForm": {
+      "path": "./screenshot/parent/form/deleteForm.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/skill/": {
+    "addProficiency": {
+      "path": "./screenshot/parent/skill/addProficiency.png",
+      "note": "true"
+    },
+    "addskill": {
+      "path": "./screenshot/parent/skill/addskill.png",
+      "note": "true"
+    },
+    "editProficiency": {
+      "path": "./screenshot/parent/skill/editProficiency.png",
+      "note": "true"
+    },
+    "editSkill": {
+      "path": "./screenshot/parent/skill/editSkill.png",
+      "note": "true"
+    },
+    "deleteSkill": {
+      "path": "./screenshot/parent/skill/deleteSkill.png",
+      "note": "false"
+    }
+  }
+}

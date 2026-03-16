@@ -26,7 +26,7 @@ export async function customerfsm(page){
     await createFsmCustomer(page);
     
     await page.waitForTimeout(3000);
-  } else {
+  } else if(testData.companySubscription==='all'){
     
     await createFsmCustomerOne(page);
   }

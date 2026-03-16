@@ -21,7 +21,7 @@ export async function customerInC_service(page) {
     if (testData.companySubscription==='crm') {
        await addCustomerInC_Service(page);
       await page.waitForTimeout(3000);
-    } else {
+    } else if(testData.companySubscription==='all') {
       await createCustomerInC_ServiceOne(page);
     }
   await page.waitForTimeout(3000);

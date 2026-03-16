@@ -14,16 +14,16 @@ const pathName=`outputData/status/${testData.companyType}`
 
 export async function skill(page){
   
-  // await deletePreviousProficiency(page);
-  // await page.waitForTimeout(3000);
+  await deletePreviousProficiency(page);
+  await page.waitForTimeout(3000);
   await deletePreviousSkill(page);
   await page.waitForTimeout(3000);
-  // await addProficiency(page);
-  // await page.waitForTimeout(3000);
+  await addProficiency(page);
+  await page.waitForTimeout(3000);
   await addSkill(page);
     await page.waitForTimeout(3000);
-  // await editProficiency(page);
-  // await page.waitForTimeout(3000);
+  await editProficiency(page);
+  await page.waitForTimeout(3000);
   await editSkill(page);
   await page.waitForTimeout(3000);
 
