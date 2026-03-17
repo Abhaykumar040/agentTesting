@@ -3,7 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
-
+import {waitForEmail} from '../gmail'
 
 
 const rawData = await fs.readFile('./data.json', 'utf8');
@@ -19,8 +19,8 @@ export async function Engineer(page){
   // await page.waitForTimeout(3000);
   // await emailVarificationEngineer(page);
   // await page.waitForTimeout(3000);
-  // await deleteEngineer(page);
- await page.waitForTimeout(1000);
+  await deleteEngineer(page);
+  await page.waitForTimeout(1000);
   await assignSkill(page);
 
 }
@@ -61,9 +61,9 @@ async function deleteEngineer(page){
   await page.reload();
 }
 async function createEngineer(page){
-  await page.getByRole('button', { name: 'Field Service' }).click();
-  await page.getByRole('link', { name: 'Engineers' }).click();
-  await page.waitForTimeout(1000);
+  // await page.getByRole('button', { name: 'Field Service' }).click();
+  // await page.getByRole('link', { name: 'Engineers' }).click();
+  // await page.waitForTimeout(1000);
    await page.getByRole('button', { name: 'Add New Engineer' }).click();
    await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Title' }).click();
@@ -148,7 +148,7 @@ async function createEngineer(page){
   await page.getByRole('textbox', { name: 'Email *' }).click();
   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+2100@gmail.com');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('7896354125');
+  await page.getByRole('textbox', { name: 'Phone *' }).fill('7896354925');
   await page.getByRole('textbox', { name: 'Alternate Phone' }).click();
   await page.getByRole('textbox', { name: 'Alternate Phone' }).fill('9632587401');
   await page.getByRole('combobox', { name: 'Zone *' }).click();
@@ -311,20 +311,48 @@ async function editEngineerfsm(page){
   await expect(page.getByText('Onboarding email resent')).toBeVisible();
 }
 
-async function emailVarificationEngineer(page){
-  await page.getByRole('row', { name: 'Ansh Singh Engineer is' }).getByLabel('Email not verified').click();
-  await page.waitForTimeout(3000);
-  if (await page.getByText('Onboarding email resent').isVisible()) 
-  {
-  await page.screenshot({ path: `./${screenshotPath}/emailVarificationEngineer.png`, fullPage: true });
-  await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","true",`./${screenshotPath}/emailVarificationEngineer.png`)
 
+async function emailVarificationEngineer(page){
+  console.log('enter in email varification engineer');
+   await page.getByRole('row', { name: 'Ansh Singh Working hours: 09:' }).getByLabel('Email not verified').click();
+
+  const screenshotFile = `./${screenshotPath}/emailVarificationEngineer.png`;
+
+  try {
+    console.log("Clicked on Email not verified");
+
+    await page.waitForSelector('text=Onboarding email resent', { timeout: 10000 });
+    console.log("Onboarding email resent message visible");
+
+    console.log("Waiting for email...");
+    const email = await waitForEmail("akbk6551+1141@gmail.com", 120000);
+
+    console.log("Email result:", email);
+
+    if (email) {
+      console.log("Email received successfully");
+      console.log("Email subject:", email.subject);
+      console.log("Email to:", email.to);
+
+      await page.screenshot({ path: screenshotFile, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","true",screenshotFile);
+    } 
+    else {
+      console.log("Email not found");
+
+      await page.screenshot({ path: screenshotFile, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","false",screenshotFile);
+    }
+
+  } catch (err) {
+    console.log("Email verification error:", err.message);
+
+    await page.screenshot({ path: screenshotFile, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","false",screenshotFile);
   }
-  else{
-  await page.screenshot({ path: `./${screenshotPath}/emailVarificationEngineer.png`, fullPage: true });
-  await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","false",`./${screenshotPath}/emailVarificationEngineer.png`)
-  }
+
   await page.reload();
+  console.log('email varificaion completed');
 }
 
 

@@ -52,6 +52,7 @@ async function createAssetManagement(page) {
   await page.getByRole('textbox', { name: 'Warranty Expire' }).fill('2027-10-21');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
+  await page.waitForTimeout(2000);
   await page.getByText('Jony Rathor (akbk6551+1109@').click();
   await page.locator('.MuiSelect-select').click();
   await page.getByRole('option', { name: '+ Add New Address' }).click();
@@ -96,7 +97,8 @@ async function createAssetManagement(page) {
   await page.getByRole('textbox', { name: 'Warranty Expire' }).fill('2027-10-21');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByText('Mayank Rathor (akbk6551+1139@').click();
+  await page.waitForTimeout(2000);
+  await page.getByText('Neeraj Rathor (akbk6551+1217@').click();
   await page.locator('.MuiSelect-select').click();
   await page.getByRole('option', { name: '+ Add New Address' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
@@ -141,7 +143,8 @@ async function createAssetManagement(page) {
   await page.getByRole('textbox', { name: 'Warranty Expire' }).fill('2027-10-21');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByText('Mayank Rathor (akbk6551+1139@').click();
+  await page.waitForTimeout(2000);
+  await page.getByText('Neeraj Rathor (akbk6551+1217@').click();
   await page.locator('.MuiSelect-select').click();
   await page.getByRole('option', { name: '+ Add New Address' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
@@ -185,6 +188,7 @@ async function createAssetManagement(page) {
   await page.getByRole('textbox', { name: 'Warranty Expire' }).fill('2027-10-21');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
+  await page.waitForTimeout(2000);
   await page.getByText('Jony Rathor (akbk6551+1119@').click();
   await page.locator('.MuiSelect-select').click();
   await page.getByRole('option', { name: '+ Add New Address' }).click();

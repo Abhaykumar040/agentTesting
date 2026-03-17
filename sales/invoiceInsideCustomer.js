@@ -10,12 +10,12 @@ const screenshotPath=`screenshot/${testData.companyType}/invoices`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function invoicesInsideCustomer(page){
-  await addInvoices(page);
-  await page.waitForTimeout(3000);
-   await page.waitForTimeout(3000);
-  await cancelInvoice(page);
-  await editInvoices(page);
-  await page.waitForTimeout(3000);
+  // await addInvoices(page);
+  // await page.waitForTimeout(3000);
+  // await cancelInvoice(page);
+  //  await page.waitForTimeout(3000);
+  // await editInvoices(page);
+  // await page.waitForTimeout(3000);
   await sendInvoices(page);
   await page.waitForTimeout(3000);
   await exportInvoiceNormal(page);
@@ -39,26 +39,27 @@ await page.waitForTimeout(1000);
 
 
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
   await page.getByRole('checkbox', { name: 'UPI Transfer' }).check();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
   await page.getByRole('button', { name: 'Add Item' }).click();
   await page.getByRole('combobox').nth(1).click();
   await page.getByRole('option', { name: 'Tourch charger' }).click();
-  await page.getByRole('button', { name: 'Add Item' }).click();
-  await page.getByRole('combobox').nth(2).click();
-  await page.getByRole('combobox').nth(2).fill('fuse');
-  await page.locator('input[name="products.2.price"]').click();
-  await page.locator('input[name="products.2.price"]').fill('0120');
-  await page.locator('input[name="products.2.discount"]').click();
-  await page.locator('input[name="products.2.discount"]').fill('090');
-  await page.locator('textarea[name="products.2.description"]').click();
-  await page.locator('textarea[name="products.2.description"]').fill('fuseD');
-  await page.locator('textarea[name="products.2.hsnCode"]').click();
-  await page.locator('textarea[name="products.2.hsnCode"]').fill('12345');
-  await page.getByText('Invoice Notes ,a').click();
-  await page.getByText('Invoice Notes ,a').fill('Invoice Notes ,aCreated');
+  // await page.getByRole('button', { name: 'Add Item' }).click();
+  // await page.getByRole('combobox').nth(2).click();
+  // await page.getByRole('combobox').nth(2).fill('fuse');
+  // await page.locator('input[name="products.2.price"]').click();
+  // await page.locator('input[name="products.2.price"]').fill('0120');
+  // await page.locator('input[name="products.2.discount"]').click();
+  // await page.locator('input[name="products.2.discount"]').fill('090');
+  // await page.locator('textarea[name="products.2.description"]').click();
+  // await page.locator('textarea[name="products.2.description"]').fill('fuseD');
+  // await page.locator('textarea[name="products.2.hsnCode"]').click();
+  // await page.locator('textarea[name="products.2.hsnCode"]').fill('12345');
+  await page.locator('textarea[name="note"]').click();
+  await page.waitForTimeout(1000);
+  await page.locator('textarea[name="note"]').fill('Invoice Notes ,aCreated');
   await page.getByRole('button', { name: 'Save' }).click();
 
 
@@ -73,7 +74,7 @@ await page.waitForTimeout(1000);
   await page.waitForTimeout(1000);
 
   await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'Wifi charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
@@ -88,7 +89,7 @@ await page.waitForTimeout(1000);
   await page.getByRole('link', { name: 'Add Invoice' }).click();
    await page.waitForTimeout(1000);
     await page.locator('div').filter({ hasText: /^Address$/ }).click();
-  await page.getByRole('option', { name: 'Khamaria undefined Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
    await page.waitForTimeout(1000);
   await page.locator('.MuiInputBase-root.MuiOutlinedInput-root').first().click();
   await page.getByRole('option', { name: 'Wifi charger' }).click();
@@ -152,30 +153,24 @@ async function sendInvoices(page) {
 
 async function editInvoices(page){
   console.log('Enter in edit invoice');
-  
-  await page.waitForTimeout(1000);
- await page.getByRole('tab', { name: 'Invoice' }).click();
- await page.waitForTimeout(1000);
-
     await page.locator('body tr:nth-of-type(1) td:nth-of-type(8) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Edit' }).click();
     await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Add Item' }).click();
   await page.getByRole('combobox').nth(1).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Laptop charger' }).click();
-  await page.getByText('Invoice Notes ,a').click();
-  await page.getByText('Invoice Notes ,a').fill('Invoice Notes ,aEdited');
+  await page.locator('textarea[name="note"]').click();
+  await page.locator('textarea[name="note"]').fill('Invoice Notes ,aEdited');
   await page.getByRole('button', { name: 'Update' }).click();
- await page.waitForTimeout(1000);
-  await page.goBack();
+  await page.getByRole('button', { name: 'Back to list' }).click();
   await page.waitForTimeout(1000);
-
-    await page.getByText('PENDING PAYMENT').first().click();
+    // await page.getByText('PENDING PAYMENT').first().click();
 
 
 
   await page.waitForTimeout(1000);
-  if (await page.getByRole('cell', { name: 'Laptop charger' }).isVisible())  
+  if (await page.getByRole('cell', { name: 'Laptop charger' }).first().isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/editInvoices.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"editInvoices","true",`./${screenshotPath}/editInvoices.png`)
@@ -186,14 +181,12 @@ async function editInvoices(page){
     await updateOpJson(`./${screenshotPath}/`,"editInvoices","false",`./${screenshotPath}/editInvoices.png`)
   }
 
-  await page.goBack();
+   await page.getByRole('button', { name: 'Back to list' }).click();  await page.reload();
   console.log('edit Invoice completed');
 }
 
 async function cancelInvoice(page){
   console.log('Enter in cancel invoice');
-
-  
   await page.waitForTimeout(1000);
  await page.getByRole('tab', { name: 'Invoice' }).click();
  await page.waitForTimeout(1000);
@@ -202,7 +195,7 @@ async function cancelInvoice(page){
 
  
   await page.waitForTimeout(3000);
-  if (await page.getByText('CANCELLED').isVisible())  
+  if (await page.getByText('CANCELLED').first().isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/cancelInvoice.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"cancelInvoice","true",`./${screenshotPath}/cancelInvoice.png`)

@@ -14,14 +14,14 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function internalJob(page){
-//   await deletePreviousinternalJob(page);
-//   await page.waitForTimeout(3000);
-//  await createInternalJob(page);
-//  await page.waitForTimeout(3000);
-//  await editInternalJob(page);
-//  await page.waitForTimeout(3000);
-//  await deleteInternalJob(page);
-//  await page.waitForTimeout(3000);
+  await deletePreviousinternalJob(page);
+  await page.waitForTimeout(3000);
+ await createInternalJob(page);
+ await page.waitForTimeout(3000);
+ await editInternalJob(page);
+ await page.waitForTimeout(3000);
+ await deleteInternalJob(page);
+ await page.waitForTimeout(3000);
  await exportInternalJObNormal(page);
  await page.waitForTimeout(3000);
  await exportInternalJObFilter(page);

@@ -34,13 +34,17 @@ async function createJobType(page){
   await page.getByRole('combobox', { name: 'Search forms' }).click();
   await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('checkbox', { name: 'Engineer/Vendor' }).check();
-  await page.getByRole('button', { name: 'Number Range ID *' }).click();
-  await page.getByRole('option', { name: 'quotation' }).click();
+  // await page.getByRole('button', { name: 'Number Range ID *' }).click();
+  // await page.waitForTimeout(1000);
+  // await page.getByRole('option', { name: 'quotation' }).click();
   await page.getByRole('button', { name: 'Priority *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'InstallationPriorityJob' }).click();
   await page.getByRole('button', { name: 'Status Profile *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
@@ -52,13 +56,17 @@ async function createJobType(page){
   await page.getByRole('combobox', { name: 'Search forms' }).click();
   await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('checkbox', { name: 'Engineer/Vendor' }).check();
-  await page.getByRole('button', { name: 'Number Range ID *' }).click();
-  await page.getByRole('option', { name: 'quotation' }).click();
+  // await page.getByRole('button', { name: 'Number Range ID *' }).click();
+  // await page.waitForTimeout(1000);
+  // await page.getByRole('option', { name: 'quotation' }).click();
   await page.getByRole('button', { name: 'Priority *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'InstallationPriorityJob' }).click();
   await page.getByRole('button', { name: 'Status Profile *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Testing & Troubleshooting' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
@@ -70,13 +78,17 @@ async function createJobType(page){
   await page.getByRole('combobox', { name: 'Search forms' }).click();
   await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('checkbox', { name: 'Engineer/Vendor' }).check();
-  await page.getByRole('button', { name: 'Number Range ID *' }).click();
-  await page.getByRole('option', { name: 'quotation' }).click();
+  // await page.getByRole('button', { name: 'Number Range ID *' }).click();
+  // await page.waitForTimeout(1000);
+  // await page.getByRole('option', { name: 'quotation' }).click();
   await page.getByRole('button', { name: 'Priority *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'InstallationPriorityJob' }).click();
   await page.getByRole('button', { name: 'Status Profile *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
@@ -90,13 +102,16 @@ async function createJobType(page){
   await page.getByRole('combobox', { name: 'Search forms' }).click();
   await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('checkbox', { name: 'Engineer/Vendor' }).check();
-  await page.getByRole('button', { name: 'Number Range ID *' }).click();
-  await page.getByRole('option', { name: 'job' }).click();
+  // await page.getByRole('button', { name: 'Number Range ID *' }).click();
+  // await page.getByRole('option', { name: 'job' }).click();
   await page.getByRole('button', { name: 'Priority *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'InstallationPriorityJob' }).click();
   await page.getByRole('button', { name: 'Status Profile *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
@@ -108,13 +123,17 @@ async function createJobType(page){
   await page.getByRole('combobox', { name: 'Search forms' }).click();
   await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('checkbox', { name: 'Engineer/Vendor' }).check();
-  await page.getByRole('button', { name: 'Number Range ID *' }).click();
-  await page.getByRole('option', { name: 'job' }).click();
+  // await page.getByRole('button', { name: 'Number Range ID *' }).click();
+  // await page.waitForTimeout(1000);
+  // await page.getByRole('option', { name: 'job' }).click();
   await page.getByRole('button', { name: 'Priority *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'InstallationPriorityJob' }).click();
   await page.getByRole('button', { name: 'Status Profile *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Testing & Troubleshooting' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
@@ -126,13 +145,17 @@ async function createJobType(page){
   await page.getByRole('combobox', { name: 'Search forms' }).click();
   await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('checkbox', { name: 'Engineer/Vendor' }).check();
-  await page.getByRole('button', { name: 'Number Range ID *' }).click();
-  await page.getByRole('option', { name: 'job' }).click();
+  // await page.getByRole('button', { name: 'Number Range ID *' }).click();
+  // await page.getByRole('option', { name: 'job' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Priority *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'InstallationPriorityJob' }).click();
   await page.getByRole('button', { name: 'Status Profile *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
@@ -146,13 +169,17 @@ async function createJobType(page){
   await page.getByRole('combobox', { name: 'Search forms' }).click();
   await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('checkbox', { name: 'Engineer/Vendor' }).check();
-  await page.getByRole('button', { name: 'Number Range ID *' }).click();
-  await page.getByRole('option', { name: 'supportCase' }).click();
+  // await page.getByRole('button', { name: 'Number Range ID *' }).click();
+  // await page.waitForTimeout(1000);
+  // await page.getByRole('option', { name: 'supportCase' }).click();
   await page.getByRole('button', { name: 'Priority *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'InstallationPriorityJob' }).click();
   await page.getByRole('button', { name: 'Status Profile *' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'installationStatusJob' }).click();
   await page.getByRole('button', { name: 'Skill' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Embedded Systems' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
@@ -164,8 +191,8 @@ async function createJobType(page){
   await page.getByRole('combobox', { name: 'Search forms' }).click();
   await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('checkbox', { name: 'Engineer/Vendor' }).check();
-  await page.getByRole('button', { name: 'Number Range ID *' }).click();
-  await page.getByRole('option', { name: 'supportCase' }).click();
+  // await page.getByRole('button', { name: 'Number Range ID *' }).click();
+  // await page.getByRole('option', { name: 'supportCase' }).click();
   await page.getByRole('button', { name: 'Priority *' }).click();
   await page.getByRole('option', { name: 'InstallationPriorityJob' }).click();
   await page.getByRole('button', { name: 'Status Profile *' }).click();
@@ -182,8 +209,8 @@ async function createJobType(page){
   await page.getByRole('combobox', { name: 'Search forms' }).click();
   await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('checkbox', { name: 'Engineer/Vendor' }).check();
-  await page.getByRole('button', { name: 'Number Range ID *' }).click();
-  await page.getByRole('option', { name: 'supportCase' }).click();
+  // await page.getByRole('button', { name: 'Number Range ID *' }).click();
+  // await page.getByRole('option', { name: 'supportCase' }).click();
   await page.getByRole('button', { name: 'Priority *' }).click();
   await page.getByRole('option', { name: 'InstallationPriorityJob' }).click();
   await page.getByRole('button', { name: 'Status Profile *' }).click();
@@ -200,8 +227,8 @@ async function createJobType(page){
   await page.getByRole('combobox', { name: 'Search forms' }).click();
   await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('checkbox', { name: 'Engineer/Vendor' }).check();
-  await page.getByRole('button', { name: 'Number Range ID *' }).click();
-  await page.getByRole('option', { name: 'supportCase' }).click();
+  // await page.getByRole('button', { name: 'Number Range ID *' }).click();
+  // await page.getByRole('option', { name: 'supportCase' }).click();
   await page.getByRole('button', { name: 'Priority *' }).click();
   await page.getByRole('option', { name: 'InstallationPriorityJob' }).click();
   await page.getByRole('button', { name: 'Status Profile *' }).click();
@@ -218,8 +245,8 @@ async function createJobType(page){
   await page.getByRole('combobox', { name: 'Search forms' }).click();
   await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('checkbox', { name: 'Engineer/Vendor' }).check();
-  await page.getByRole('button', { name: 'Number Range ID *' }).click();
-  await page.getByRole('option', { name: 'supportCase' }).click();
+  // await page.getByRole('button', { name: 'Number Range ID *' }).click();
+  // await page.getByRole('option', { name: 'supportCase' }).click();
   await page.getByRole('button', { name: 'Priority *' }).click();
   await page.getByRole('option', { name: 'InstallationPriorityJob' }).click();
   await page.getByRole('button', { name: 'Status Profile *' }).click();
@@ -236,8 +263,8 @@ async function createJobType(page){
   await page.getByRole('combobox', { name: 'Search forms' }).click();
   await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('checkbox', { name: 'Engineer/Vendor' }).check();
-  await page.getByRole('button', { name: 'Number Range ID *' }).click();
-  await page.getByRole('option', { name: 'supportCase' }).click();
+  // await page.getByRole('button', { name: 'Number Range ID *' }).click();
+  // await page.getByRole('option', { name: 'supportCase' }).click();
   await page.getByRole('button', { name: 'Priority *' }).click();
   await page.getByRole('option', { name: 'InstallationPriorityJob' }).click();
   await page.getByRole('button', { name: 'Status Profile *' }).click();
@@ -254,8 +281,8 @@ async function createJobType(page){
   await page.getByRole('combobox', { name: 'Search forms' }).click();
   await page.getByRole('option', { name: 'FormJ1' }).click();
   await page.getByRole('checkbox', { name: 'Engineer/Vendor' }).check();
-  await page.getByRole('button', { name: 'Number Range ID *' }).click();
-  await page.getByRole('option', { name: 'supportCase' }).click();
+  // await page.getByRole('button', { name: 'Number Range ID *' }).click();
+  // await page.getByRole('option', { name: 'supportCase' }).click();
   await page.getByRole('button', { name: 'Priority *' }).click();
   await page.getByRole('option', { name: 'InstallationPriorityJob' }).click();
   await page.getByRole('button', { name: 'Status Profile *' }).click();
@@ -289,7 +316,7 @@ async function editJobType(page){
   await page.getByRole('textbox', { name: 'Installation' }).click();
   await page.getByRole('textbox', { name: 'Installation' }).fill('sample Edited');
   await page.getByRole('combobox', { name: 'Search forms' }).click();
-  await page.getByRole('option', { name: 'FormDelete' }).click();
+  await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
   await page.getByRole('checkbox', { name: 'Customer' }).check();
   await page.getByRole('button', { name: 'Update' }).click();
    await page.waitForTimeout(2000);

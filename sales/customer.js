@@ -15,16 +15,16 @@ export async function customer(page){
  await deletePreviuosCustomer(page);
  await page.waitForTimeout(3000);
 
-
-  const rawData = await fs.readFile('./data.json', 'utf8');
-         const testData = JSON.parse(rawData);
+ await addCustomer(page);
+  // const rawData = await fs.readFile('./data.json', 'utf8');
+  //        const testData = JSON.parse(rawData);
    
-     if (testData.companySubscription==='sales'||testData.companySubscription==='all') {
-        await addCustomer(page);
-       await page.waitForTimeout(3000);
-     } else {
-       await createCustomerOne(page);
-     }
+  //    if (testData.companySubscription==='sales'||testData.companySubscription==='all') {
+  //       await addCustomer(page);
+  //      await page.waitForTimeout(3000);
+  //    } else {
+  //      await createCustomerOne(page);
+  //    }
 
  await page.waitForTimeout(3000);
  await editCustomer(page);

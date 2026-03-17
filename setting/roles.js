@@ -37,7 +37,7 @@ async function addRole(page) {
      await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
      await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
 
-  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();
+    await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();
     //  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
      await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
      await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
@@ -55,9 +55,10 @@ async function addRole(page) {
   await page.waitForTimeout(1000);
 
   await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();
-  // await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
-  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
-  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
+    //  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
+     await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
+     await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
+
   await page.getByRole('button', { name: 'Submit' }).click();
   await expect(page.getByText('Sales Executive')).toBeVisible();
 
@@ -66,21 +67,20 @@ async function addRole(page) {
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Field Service Engineer');
   await page.getByRole('main').getByRole('button', { name: 'Sales' }).click();
+  // await page.getByRole('main').getByRole('button', { name: 'Field Service' }).click();
   await page.waitForTimeout(1000);
-//   await page.locator('input[name="access.12.create"]').check({ force: true });
-// // await page.locator('input[name="access.12.create"]').check({ force: true });
   await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();
-    //  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
-     await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
-     await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
+  //  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
+  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
+  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
 
   await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();
-  // await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
+  //  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
   await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
   await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
      
   await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();
-  // await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
+  //  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
   await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
   await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
 
@@ -92,25 +92,12 @@ async function addRole(page) {
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Master data handling');
-   await page.getByRole('main').getByRole('button', { name: 'Customer Service' }).click();
+  await page.getByRole('main').getByRole('button', { name: 'Sales' }).click();
+  // await page.getByRole('main').getByRole('button', { name: 'Master Data' }).click();
     await page.waitForTimeout(1000);
 
-//  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();
-     await page.locator("//h6[normalize-space()='CS-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
-     await page.locator("//h6[normalize-space()='CS-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
-     await page.locator("//h6[normalize-space()='CS-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
-
-  await page.getByRole('button', { name: 'Submit' }).click();
-  await expect(page.getByText('Field Service Engineer')).toBeVisible();
-
-  await page.getByRole('button', { name: 'Add Role' }).click();
-  await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
-  await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
-  await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Customer Service');
-  await page.getByRole('main').getByRole('button', { name: 'Customer Service' }).click();
-    await page.waitForTimeout(1000);
   await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();
-  // await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
+  //  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
   await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
   await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
 
@@ -119,8 +106,23 @@ async function addRole(page) {
   await page.getByRole('button', { name: 'Add Role' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
+  await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Customer Service');
+  await page.getByRole('main').getByRole('button', { name: 'Sales' }).click();
+  // await page.getByRole('main').getByRole('button', { name: 'Customer Service' }).click();
+    await page.waitForTimeout(1000);
+  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();
+    //  await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='View']").click();
+     await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Delete']").click();
+     await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Update']").click();
+
+  await page.getByRole('button', { name: 'Submit' }).click();
+
+  await page.getByRole('button', { name: 'Add Role' }).click();
+  await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
+  await page.getByRole('textbox', { name: 'Enter Role Name*' }).click();
   await page.getByRole('textbox', { name: 'Enter Role Name*' }).fill('Field Service Manager');
   await page.getByRole('main').getByRole('button', { name: 'Sales' }).click();
+  // await page.getByRole('main').getByRole('button', { name: 'Field Service' }).click();
     await page.waitForTimeout(1000);
 
   await page.locator("//h6[normalize-space()='Sales-Customers']/ancestor::div[1]/following-sibling::div//span[normalize-space()='Create']").click();

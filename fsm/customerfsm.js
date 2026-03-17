@@ -16,8 +16,8 @@ const pathName=`outputData/status/${testData.companyType}`
 export async function customerfsm(page){
    await deletePreviousCustomer(page);
    await page.waitForTimeout(3000);
-    //  await customerDownload(page);
-    //    await page.waitForTimeout(3000);
+     await customerDownload(page);
+       await page.waitForTimeout(3000);
 
       const rawData = await fs.readFile('./data.json', 'utf8');
       const testData = JSON.parse(rawData);
@@ -520,10 +520,10 @@ await page.getByRole('radio', { name: 'Email' }).check();
 
 async function editFsmCustomer(page){
   console.log('Enter in edit fsm customer');
-  // await page.getByRole('button', { name: 'Field Service' }).click();
-  // await page.getByRole('link', { name: 'Customers' }).click();
-  await page.getByRole('combobox', { name: 'Select Customer Type' }).click();
-  await page.getByRole('option', { name: 'commercial' }).click();
+  await page.getByRole('button', { name: 'Field Service' }).click();
+  await page.getByRole('link', { name: 'Customers' }).click();
+  // await page.getByRole('combobox', { name: 'Select Customer Type' }).click();
+  // await page.getByRole('option', { name: 'commercial' }).click();
    await page.getByRole('row', { name: 'Sushil Singh akbk6551+1218@' }).getByLabel('Edit').click();
   await page.getByRole('button', { name: 'Dealer Information' }).click();
   await page.getByRole('textbox', { name: 'Trade Name' }).click();
@@ -713,7 +713,7 @@ async function addressCreateFsmCustomerIndividual(page){
    await page.getByRole('button', { name: 'Field Service' }).click();
   await page.getByRole('link', { name: 'Customers' }).click();
   await page.waitForTimeout(3000);
-   await page.getByText('Anil Rathor').click();
+   await page.getByText('Anil Dubey').first().click();
     await page.waitForTimeout(1000);
 
     //1st address individual
@@ -923,8 +923,8 @@ async function cyclicJobCreateFsmCustomer(page){
   console.log('Enter in cyclic job create fsm customer');
    await page.getByRole('button', { name: 'Field Service' }).click();
   await page.getByRole('link', { name: 'Customers' }).click();
-  await page.getByRole('combobox', { name: 'Select Customer Type' }).click();
-  await page.getByRole('option', { name: 'commercial' }).click();
+  // await page.getByRole('combobox', { name: 'Select Customer Type' }).click();
+  // await page.getByRole('option', { name: 'commercial' }).click();
    await page.getByRole('row', { name: 'Sushil Singh akbk6551+1218@' }).getByLabel('Edit').click();
   await page.getByRole('tab', { name: 'Cyclic Jobs' }).click();
   await page.getByRole('button', { name: 'Create Cyclic Job' }).click();
@@ -1001,8 +1001,8 @@ async function documentsUploadFsmCustomer(page){
   console.log('Enter in documents Upload fsm customer');
    await page.getByRole('button', { name: 'Field Service' }).click();
   await page.getByRole('link', { name: 'Customers' }).click();
-  await page.getByRole('combobox', { name: 'Select Customer Type' }).click();
-  await page.getByRole('option', { name: 'commercial' }).click();
+  // await page.getByRole('combobox', { name: 'Select Customer Type' }).click();
+  // await page.getByRole('option', { name: 'commercial' }).click();
    await page.getByRole('row', { name: 'Sushil Singh akbk6551+1218@' }).getByLabel('Edit').click();
     await page.getByRole('tab', { name: 'Documents' }).click();
   await page.getByRole('button', { name: 'Browse Files' }).click();

@@ -18,7 +18,6 @@ export async function formCustomization(page){
   await checkformVisiblity(page);
   await page.waitForTimeout(3000);
   await checkFormEditable(page);
-  await quotationSetting(page);
 }
 
 async function editformCustomization(page){

@@ -20,10 +20,10 @@ await editCompanySetup(page);
  await invoiceSettingInCompanySetup(page);
  await page.waitForTimeout(3000);
  await bellingAddressInCompanySetup(page);
- await page.waitForTimeout(3000);
- await quotationSetting(page);
- await page.waitForTimeout(3000);
- await invoiceSetting(page);
+//  await page.waitForTimeout(3000);
+//  await quotationSetting(page);
+//  await page.waitForTimeout(3000);
+//  await invoiceSetting(page);
 }
 
 

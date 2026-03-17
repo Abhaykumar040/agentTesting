@@ -15,7 +15,7 @@ function connectIMAP() {
   });
 }
 
-async function waitForEmail(targetTo, maxWait = 120000) {
+export async function waitForEmail(targetTo, maxWait = 120000) {
 
   const startTime = Date.now();
 

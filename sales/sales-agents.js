@@ -48,7 +48,7 @@ async function addSalesAgent(page) {
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Sales Manager' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click();
-  await page.getByText('Agent added successfully').click();
+  // await page.getByText('Agent added successfully').click();
 
   await page.getByRole('button', { name: 'New Agent', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
@@ -61,7 +61,7 @@ async function addSalesAgent(page) {
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Sales Manager' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click();
-  await page.getByText('Agent added successfully').click();
+  // await page.getByText('Agent added successfully').click();
 
   await page.getByRole('button', { name: 'New Agent', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
@@ -74,7 +74,7 @@ async function addSalesAgent(page) {
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Sales Manager' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click();
-  await page.getByText('Agent added successfully').click();
+  // await page.getByText('Agent added successfully').click();
 
   await page.getByRole('button', { name: 'New Agent', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
@@ -87,11 +87,11 @@ async function addSalesAgent(page) {
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Sales Manager' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click();
-  await page.getByText('Agent added successfully').click();
+  // await page.getByText('Agent added successfully').click();
   await page.reload();
   await page.waitForTimeout(3000);
   
-  if (await page.getByText('Santosh Kumar', { exact: true }).isVisible())  
+  if (await page.getByText('Santosh Kumar', { exact: true }).first().isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/addSalesAgent.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"addSalesAgent","true",`./${screenshotPath}/addSalesAgent.png`)

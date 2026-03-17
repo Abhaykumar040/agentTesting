@@ -11,26 +11,26 @@ const companyId="68dcfc116e4e85ccbf65b2f1";
 const company = new ObjectId("68dcfc116e4e85ccbf65b2f1");
 const type = "agent";
 
-const user = await db.collection("users").findOne({
+// const user = await db.collection("users").findOne({
  
-  company,
-  type,status:1
-});
-const userDetails = await db.collection("userdetails").findOne({
+//   company,
+//   type,status:1
+// });
+// const userDetails = await db.collection("userdetails").findOne({
 
-  company,
-  type,status:1
-});
-const invoicesss = await db.collection("invoices").findOne({
+//   company,
+//   type,status:1
+// });
+// const invoicesss = await db.collection("invoices").findOne({
 
-  company,
- status:1
-});
+//   company,
+//  status:1
+// });
 
-if (!user) {
-  console.log("User not found with given conditions");
-  process.exit(0);
-}
+// if (!user) {
+//   console.log("User not found with given conditions");
+//   process.exit(0);
+// }
 
 // const userId = user._id;
 // const userDetailsId=userDetails._id;
@@ -68,12 +68,12 @@ if (!user) {
 // );
 // console.log("queue",queue.matchedCount, queue.modifiedCount);
 
-// const teams = await db.collection("teams").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set: { status: 3 } }
-// );
-// console.log("teams",teams.matchedCount, teams.modifiedCount);
+const teams = await db.collection("teams").updateMany(
+  {  company:companyId,
+  status:1 },
+  { $set: { status: 3 } }
+);
+console.log("teams",teams.matchedCount, teams.modifiedCount);
 
 // const faq = await db.collection("faqs").updateMany(
 //   {  company:companyId,
@@ -99,12 +99,12 @@ if (!user) {
 // console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
 
 
-// const quotation = await db.collection("quotations").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set:{ status: 3 } }
-// );
-// console.log("quotation",quotation.matchedCount, quotation.modifiedCount);
+const quotation = await db.collection("quotations").updateMany(
+  {  company:companyId,
+  status:1 },
+  { $set:{ status: 3 } }
+);
+console.log("quotation",quotation.matchedCount, quotation.modifiedCount);
 
 
 
@@ -125,13 +125,13 @@ console.log("zone",zone.matchedCount, zone.modifiedCount);
 
 // console.log("userdetails updated:", u2.modifiedCount);
 
-// // -------- STEP 4 — update agent --------
+// // // -------- STEP 4 — update agent --------
 // const u3 = await db.collection("tenantusers").updateMany(
 //   {  company: company ,type,status:1},
 //   { $set: { status: 3 } }
 // );
-//
 
 
 
-console.log("agent updated:", u4.matchedCount);
+
+// console.log("agent updated:", u4.matchedCount);

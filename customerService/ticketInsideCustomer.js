@@ -12,11 +12,11 @@ const screenshotPath=`screenshot/${testData.companyType}/ticket`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function ticketInsideCustomer(page){
-  await addNewTickets(page);
-  await page.waitForTimeout(30000);
-//   await editTicket(page);
-//  await sendTicket(page);
-//   await exportExcelInTicketsNormal(page);
+  // await addNewTickets(page);
+  // await page.waitForTimeout(3000);
+  await editTicket(page);
+ await sendTicket(page);
+  await exportExcelInTicketsNormal(page);
 //   await page.waitForTimeout(1000);
 //   await exportExcelInTicketFilter(page);
 
@@ -70,9 +70,9 @@ async function addNewTickets(page) {
   await page.getByRole('textbox', { name: 'Enter case title' }).fill('Power cutoff issue');
 
   await page.getByRole('button', { name: 'Select Case Issue' }).click();
-  await page.getByRole('option', { name: 'Installation Request1' }).click();
+  await page.getByRole('option', { name: 'Product Not Workings6' }).click();
   await page.getByRole('button', { name: 'Select Priority' }).click();
-  await page.getByRole('option', { name: 'createSupport1' }).click();
+  await page.getByRole('option', { name: 'createdSupport2' }).click();
   await page.getByRole('button', { name: 'Select Status Profile' }).click();
   await page.getByRole('option', { name: 'Open' }).click();
   await page.getByRole('button', { name: 'Portal' }).click();
@@ -110,7 +110,7 @@ async function addNewTickets(page) {
 
 
 async function editTicket(page){
-     await page.getByText('doneSupport2').click();
+     await page.getByText('createdSupport2').first().click();
   await page.getByRole('button', { name: 'Select an Agent' }).click();
   await page.getByRole('option', { name: 'Yogesh Yadav' }).click();
   await page.getByRole('button', { name: 'Update Case' }).click();
@@ -131,7 +131,7 @@ async function editTicket(page){
 }
 
 async function sendTicket(page){
-  await page.getByText('createSupport1').click();
+  await page.getByText('createdSupport2').first().click();
   await page.locator('div').filter({ hasText: /^Case DetailsEmail ThreadTimelineDocumentsAdditional Info$/ }).first().click();
   await page.getByRole('tab', { name: 'Email Thread' }).click();
   await page.getByRole('combobox', { name: 'Enter email and press Enter' }).first().click();

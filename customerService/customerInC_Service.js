@@ -14,16 +14,16 @@ export async function customerInC_service(page) {
   await deletePreviuosCustomerInC_Service(page);
   await page.waitForTimeout(3000);
 
-
-     const rawData = await fs.readFile('./data.json', 'utf8');
-        const testData = JSON.parse(rawData);
+  await addCustomerInC_Service(page);
+    //  const rawData = await fs.readFile('./data.json', 'utf8');
+    //     const testData = JSON.parse(rawData);
   
-    if (testData.companySubscription==='crm') {
-       await addCustomerInC_Service(page);
-      await page.waitForTimeout(3000);
-    } else if(testData.companySubscription==='all') {
-      await createCustomerInC_ServiceOne(page);
-    }
+    // if (testData.companySubscription==='crm') {
+    //    await addCustomerInC_Service(page);
+    //   await page.waitForTimeout(3000);
+    // } else if(testData.companySubscription==='all') {
+    //   await createCustomerInC_ServiceOne(page);
+    // }
   await page.waitForTimeout(3000);
   await emailCustomerInC_Service(page)
   await page.waitForTimeout(3000);
@@ -499,11 +499,11 @@ await page.getByRole('radio', { name: 'Email' }).check();
 
 async function emailCustomerInC_Service(page){
   console.log('Enter in email customer in customer service');
-  await page.getByRole('button', { name: 'Customer Service' }).click();
+  // await page.getByRole('button', { name: 'Customer Service' }).click();
   await page.getByRole('link', { name: 'Customers' }).click()
-  await page.getByRole('row', { name: 'Kolpit Rathor akbk6551+1141@' }).getByLabel('Email not verified').click();
+  await page.getByRole('row', { name: 'Anil Rathor akbk6551+1136@' }).getByLabel('Email not verified').click();
   await page.waitForTimeout(1000);
-  if (await page.getByText('Onboarding email resent').isVisible()) 
+  if (await page.getByText('Onboarding email resent').isVisible())
   {
     await page.screenshot({ path: `./${screenshotPath}/emailCustomerInC_Service.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"emailCustomerInC_Service","true",`./${screenshotPath}/emailCustomerInC_Service.png`)
@@ -520,9 +520,9 @@ async function emailCustomerInC_Service(page){
 
 async function editCustomerInC_Service(page){
   console.log('Enter in edit customer in customer in service');
-  await page.getByRole('button', { name: 'Customer Service' }).click();
-  await page.getByRole('link', { name: 'Customers' }).click()
- await page.getByRole('row', { name: 'Kolpit Rathor akbk6551+1141@' }).getByLabel('Edit').click();
+  // await page.getByRole('button', { name: 'Customer Service' }).click();
+  // await page.getByRole('link', { name: 'Customers' }).click()
+ await page.getByRole('row', { name: 'Anil Rathor akbk6551+1136@' }).getByLabel('Edit').click();
   await page.getByRole('textbox', { name: 'First Name *' }).click();
   await page.getByRole('textbox', { name: 'First Name *' }).fill('Anil');
   await page.getByRole('textbox', { name: 'Last Name *' }).click();
@@ -572,11 +572,11 @@ async function editCustomerInC_Service(page){
   await page.getByRole('button', { name: 'New Case' }).click();
   await page.getByRole('textbox', { name: 'Enter case title' }).click();
   await page.getByRole('textbox', { name: 'Enter case title' }).fill('power issue');
-  await page.getByRole('combobox', { name: 'Search or type customer email' }).click();
-  await page.getByRole('combobox', { name: 'Search or type customer email' }).click();
-  await page.getByRole('option', { name: 'Anil Rathor (akbk6551+1136@' }).click();
+  // await page.getByRole('combobox', { name: 'Search or type customer email' }).click();
+  // await page.getByRole('combobox', { name: 'Search or type customer email' }).click();
+  // await page.getByRole('option', { name: 'Anil Rathor (akbk6551+1136@' }).click();
   await page.getByRole('button', { name: 'Select Case Issue' }).click();
-  await page.getByRole('option', { name: 'Product Not Working8' }).click();
+  await page.getByRole('option', { name: 'Product Not Workings6' }).click();
   await page.getByRole('button', { name: 'Select Priority' }).click();
   await page.getByRole('option', { name: 'createdSupport2' }).click();
   await page.getByRole('button', { name: 'Select Status Profile' }).click();
@@ -587,7 +587,7 @@ async function editCustomerInC_Service(page){
   await page.getByRole('textbox', { name: 'Describe the case in detail...' }).fill('Power issue');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Select an Agent' }).click();
-  await page.getByRole('option', { name: 'Jay kumar Rathor' }).click();
+  await page.getByRole('option', { name: 'Jay kumar Rathor' }).first().click();
   await page.getByRole('button', { name: 'Next: SLA' }).click();
   await page.getByRole('button', { name: 'Select SLA' }).click();
   await page.getByRole('option', { name: 'Critical / Breakdown Issue' }).click();
@@ -716,245 +716,245 @@ async function exportCustomerInC_ServiceNormal(page) {
 }
 
 
-async function exportCustomerInC_ServiceFilter(page) {
-  console.log('Enter in export excel of customer in c_service'); 
-  console.log('1');
-  await page.getByRole('combobox', { name: 'Select State' }).click();
-  await page.getByRole('option', { name: 'Uttar Pradesh' }).click();
-  await page.getByRole('combobox', { name: 'Select City' }).click();
-  await page.getByRole('option', { name: 'Aurai' }).click();
-  const [excelDownload1] = await Promise.all([
+// async function exportCustomerInC_ServiceFilter(page) {
+//   console.log('Enter in export excel of customer in c_service'); 
+//   console.log('1');
+//   await page.getByRole('combobox', { name: 'Select State' }).click();
+//   await page.getByRole('option', { name: 'Uttar Pradesh' }).click();
+//   await page.getByRole('combobox', { name: 'Select City' }).click();
+//   await page.getByRole('option', { name: 'Aurai' }).click();
+//   const [excelDownload1] = await Promise.all([
 
-    page.waitForEvent('download'),
-    page.getByRole('button', { name: 'Export To Excel' }).click()
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'Export To Excel' }).click()
 
-  ]);
-  await excelDownload1.saveAs('downloads/exportExcelCustomerInC_ServiceFilter1.xlsx');
-  const result3 = await dataRead(
-      "./downloads/exportExcelCustomerInC_ServiceFilter1.xlsx",
-      ["Mayank Rathor","akbk6551+1139@gmail.com"],
-      ["Mayank Singh","akbk6551+1739@gmail.com"]
-  );
-  console.log(result3);
-  if (result3.success) 
-  {
-    await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter1.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter1","true",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter1.png`)
+//   ]);
+//   await excelDownload1.saveAs('downloads/exportExcelCustomerInC_ServiceFilter1.xlsx');
+//   const result3 = await dataRead(
+//       "./downloads/exportExcelCustomerInC_ServiceFilter1.xlsx",
+//       ["Mayank Rathor","akbk6551+1139@gmail.com"],
+//       ["Mayank Singh","akbk6551+1739@gmail.com"]
+//   );
+//   console.log(result3);
+//   if (result3.success) 
+//   {
+//     await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter1.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter1","true",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter1.png`)
 
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter1.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter1","false",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter1.png`)
-  }
+//   }
+//   else{
+//     await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter1.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter1","false",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter1.png`)
+//   }
  
-  console.log('2');
-  // pdf file
- const [pdfDownload1] = await Promise.all([
+//   console.log('2');
+//   // pdf file
+//  const [pdfDownload1] = await Promise.all([
 
-    page.waitForEvent('download'),
+//     page.waitForEvent('download'),
 
-    page.getByRole('button', { name: 'Export To PDF' }).click()
+//     page.getByRole('button', { name: 'Export To PDF' }).click()
 
-  ]);
-  await pdfDownload1.saveAs('downloads/exportPDFCustomerInC_ServiceFilter1.pdf');
-  const result4 = await dataRead(
-      "./downloads/exportPDFCustomerInC_ServiceFilter1.pdf",
-      ["Mayank Rathor","akbk6551+1139@gmail.com","individual"],
-      ["Mayank Singh","akbk6551+1739@gmail.com"]
-  );
-  console.log(result4);
+//   ]);
+//   await pdfDownload1.saveAs('downloads/exportPDFCustomerInC_ServiceFilter1.pdf');
+//   const result4 = await dataRead(
+//       "./downloads/exportPDFCustomerInC_ServiceFilter1.pdf",
+//       ["Mayank Rathor","akbk6551+1139@gmail.com","individual"],
+//       ["Mayank Singh","akbk6551+1739@gmail.com"]
+//   );
+//   console.log(result4);
 
-  //  await page.waitForTimeout(1000);
-  if (result4.success) 
-  {
-    await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter1.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter1","true",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter1.png`)
+//   //  await page.waitForTimeout(1000);
+//   if (result4.success) 
+//   {
+//     await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter1.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter1","true",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter1.png`)
 
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter1.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter1","false",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter1.png`)
-  }
+//   }
+//   else{
+//     await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter1.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter1","false",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter1.png`)
+//   }
     
-  await page.reload();
-  console.log('3');
+//   await page.reload();
+//   console.log('3');
 
-  // ---------------------------------------------------------
+//   // ---------------------------------------------------------
 
-  await page.getByRole('combobox', { name: 'Select Customer Type' }).click();
-  await page.getByRole('option', { name: 'commercial' }).click();
-  const [excelDownload2] = await Promise.all([
+//   await page.getByRole('combobox', { name: 'Select Customer Type' }).click();
+//   await page.getByRole('option', { name: 'commercial' }).click();
+//   const [excelDownload2] = await Promise.all([
 
-    page.waitForEvent('download'),
-    page.getByRole('button', { name: 'Export To Excel' }).click()
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'Export To Excel' }).click()
 
-  ]);
-  await excelDownload2.saveAs('downloads/exportExcelCustomerInC_ServiceFilter2.xlsx');
-  const result5 = await dataRead(
-      "./downloads/exportExcelCustomerInC_ServiceFilter2.xlsx",
-      ["Imran Khan","akbk6551+1222@gmail.com"],
-      ["Mayank Rathor","akbk6551+1139@gmail.com"]
-  );
-  console.log(result5);
-   if (result5.success) 
-  {
-    await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter2.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter2","true",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter2.png`)
+//   ]);
+//   await excelDownload2.saveAs('downloads/exportExcelCustomerInC_ServiceFilter2.xlsx');
+//   const result5 = await dataRead(
+//       "./downloads/exportExcelCustomerInC_ServiceFilter2.xlsx",
+//       ["Imran Khan","akbk6551+1222@gmail.com"],
+//       ["Mayank Rathor","akbk6551+1139@gmail.com"]
+//   );
+//   console.log(result5);
+//    if (result5.success) 
+//   {
+//     await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter2.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter2","true",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter2.png`)
 
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter2.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter2","false",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter2.png`)
-  }
+//   }
+//   else{
+//     await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter2.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter2","false",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter2.png`)
+//   }
 
-  console.log('4');
-  // pdf file
- const [pdfDownload2] = await Promise.all([
+//   console.log('4');
+//   // pdf file
+//  const [pdfDownload2] = await Promise.all([
 
-    page.waitForEvent('download'),
+//     page.waitForEvent('download'),
 
-    page.getByRole('button', { name: 'Export To PDF' }).click()
+//     page.getByRole('button', { name: 'Export To PDF' }).click()
 
-  ]);
-  await pdfDownload2.saveAs('downloads/exportPDFCustomerInC_ServiceFilter2.pdf');
-  const result6 = await dataRead(
-      "./downloads/exportPDFCustomerInC_ServiceFilter2.pdf",
-      ["Imran Khan","akbk6551+1222@gmail.com"],
-      ["Mayank Rathor","akbk6551+1139@gmail.com"]
-  );
-  console.log(result6);
-  //  await page.waitForTimeout(1000);
-  if (result6.success) 
-  {
-    await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter2.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter2","true",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter2.png`)
+//   ]);
+//   await pdfDownload2.saveAs('downloads/exportPDFCustomerInC_ServiceFilter2.pdf');
+//   const result6 = await dataRead(
+//       "./downloads/exportPDFCustomerInC_ServiceFilter2.pdf",
+//       ["Imran Khan","akbk6551+1222@gmail.com"],
+//       ["Mayank Rathor","akbk6551+1139@gmail.com"]
+//   );
+//   console.log(result6);
+//   //  await page.waitForTimeout(1000);
+//   if (result6.success) 
+//   {
+//     await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter2.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter2","true",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter2.png`)
 
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter2.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter2","false",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter2.png`)
-  }
+//   }
+//   else{
+//     await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter2.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter2","false",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter2.png`)
+//   }
     
-  await page.reload();
+//   await page.reload();
 
-  console.log('5');
+//   console.log('5');
 
-  // -----------------------------------------------------------------------------
+//   // -----------------------------------------------------------------------------
 
-  await page.getByRole('combobox', { name: 'Select Customer', exact: true }).click();
-  await page.getByRole('option', { name: 'Anil Rathor' }).click();
-  const [excelDownload3] = await Promise.all([
+//   await page.getByRole('combobox', { name: 'Select Customer', exact: true }).click();
+//   await page.getByRole('option', { name: 'Anil Rathor' }).click();
+//   const [excelDownload3] = await Promise.all([
 
-    page.waitForEvent('download'),
-    page.getByRole('button', { name: 'Export To Excel' }).click()
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'Export To Excel' }).click()
 
-  ]);
-  await excelDownload3.saveAs('downloads/exportExcelCustomerInC_ServiceFilter3.xlsx');
-   const result7 = await dataRead(
-      "./downloads/exportExcelCustomerInC_ServiceFilter3.xlsx",
-      ["Anil Rathor","akbk6551+1136@gmail.com"],
-      ["Mayank Rathor","akbk6551+1139@gmail.com"]
-  );
-  console.log(result7);
-   if (result7.success) 
-  {
-    await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter3.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter3","true",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter3.png`)
+//   ]);
+//   await excelDownload3.saveAs('downloads/exportExcelCustomerInC_ServiceFilter3.xlsx');
+//    const result7 = await dataRead(
+//       "./downloads/exportExcelCustomerInC_ServiceFilter3.xlsx",
+//       ["Anil Rathor","akbk6551+1136@gmail.com"],
+//       ["Mayank Rathor","akbk6551+1139@gmail.com"]
+//   );
+//   console.log(result7);
+//    if (result7.success) 
+//   {
+//     await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter3.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter3","true",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter3.png`)
 
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter3.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter3","false",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter3.png`)
-  }
+//   }
+//   else{
+//     await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter3.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter3","false",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter3.png`)
+//   }
 
-  console.log('6');
-  // pdf file
- const [pdfDownload3] = await Promise.all([
+//   console.log('6');
+//   // pdf file
+//  const [pdfDownload3] = await Promise.all([
 
-    page.waitForEvent('download'),
+//     page.waitForEvent('download'),
 
-    page.getByRole('button', { name: 'Export To PDF' }).click()
+//     page.getByRole('button', { name: 'Export To PDF' }).click()
 
-  ]);
-  await pdfDownload3.saveAs('downloads/exportPDFCustomerInC_ServiceFilter3.pdf');
-  const result8 = await dataRead(
-      "./downloads/exportPDFCustomerInC_ServiceFilter3.pdf",
-      ["Anil Rathor","akbk6551+1136@gmail.com"],
-      ["Mayank Rathor","akbk6551+1139@gmail.com"]
-  );
-  console.log(result8);
-  if (result8.success) 
-  {
-    await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter3.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter3","true",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter3.png`)
+//   ]);
+//   await pdfDownload3.saveAs('downloads/exportPDFCustomerInC_ServiceFilter3.pdf');
+//   const result8 = await dataRead(
+//       "./downloads/exportPDFCustomerInC_ServiceFilter3.pdf",
+//       ["Anil Rathor","akbk6551+1136@gmail.com"],
+//       ["Mayank Rathor","akbk6551+1139@gmail.com"]
+//   );
+//   console.log(result8);
+//   if (result8.success) 
+//   {
+//     await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter3.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter3","true",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter3.png`)
 
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter3.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter3","false",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter3.png`)
-  }
+//   }
+//   else{
+//     await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter3.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter3","false",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter3.png`)
+//   }
     
-  await page.reload();
+//   await page.reload();
   
-  console.log('7');
-// --------------------------------------------------------------------
-  await page.getByRole('combobox', { name: 'Select Dealer Code' }).click();
-  await page.getByRole('option', { name: '1275836' }).click();
-  const [excelDownload4] = await Promise.all([
+//   console.log('7');
+// // --------------------------------------------------------------------
+//   await page.getByRole('combobox', { name: 'Select Dealer Code' }).click();
+//   await page.getByRole('option', { name: '1275836' }).click();
+//   const [excelDownload4] = await Promise.all([
 
-    page.waitForEvent('download'),
-    page.getByRole('button', { name: 'Export To Excel' }).click()
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'Export To Excel' }).click()
 
-  ]);
-  await excelDownload4.saveAs('downloads/exportExcelCustomerInC_ServiceFilter4.xlsx'); 
-  const result9 = await dataRead(
-      "./downloads/exportExcelCustomerInC_ServiceFilter4.xlsx",
-      ["Imran Khan","akbk6551+1222@gmail.com"],
-      ["Mayank Rathor","akbk6551+1139@gmail.com"]
-  );
-  console.log(result9);
-  if (result9.success) 
-  {
-    await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter4.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter4","true",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter4.png`)
+//   ]);
+//   await excelDownload4.saveAs('downloads/exportExcelCustomerInC_ServiceFilter4.xlsx'); 
+//   const result9 = await dataRead(
+//       "./downloads/exportExcelCustomerInC_ServiceFilter4.xlsx",
+//       ["Imran Khan","akbk6551+1222@gmail.com"],
+//       ["Mayank Rathor","akbk6551+1139@gmail.com"]
+//   );
+//   console.log(result9);
+//   if (result9.success) 
+//   {
+//     await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter4.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter4","true",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter4.png`)
 
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter4.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter4","false",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter4.png`)
-  }
-
-
-  console.log('8');
+//   }
+//   else{
+//     await page.screenshot({ path: `./${screenshotPath}/exportExcelCustomerInC_ServiceFilter4.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportExcelCustomerInC_ServiceFilter4","false",`./${screenshotPath}/exportExcelCustomerInC_ServiceFilter4.png`)
+//   }
 
 
-  // pdf file
- const [pdfDownload4] = await Promise.all([
+//   console.log('8');
 
-    page.waitForEvent('download'),
 
-    page.getByRole('button', { name: 'Export To PDF' }).click()
+//   // pdf file
+//  const [pdfDownload4] = await Promise.all([
 
-  ]);
-  await pdfDownload4.saveAs('downloads/exportPDFCustomerInC_ServiceFilter4.pdf');
-  const result10 = await dataRead(
-      "./downloads/exportPDFCustomerInC_ServiceFilter4.pdf",
-     ["Imran Khan","akbk6551+1222@gmail.com"],
-      ["Mayank Rathor","akbk6551+1139@gmail.com"]
-  );
-  console.log(result10);
-  if (result10.success) 
-  {
-    await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter4.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter4","true",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter4.png`)
+//     page.waitForEvent('download'),
 
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter4.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter4","false",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter4.png`)
-  }
+//     page.getByRole('button', { name: 'Export To PDF' }).click()
+
+//   ]);
+//   await pdfDownload4.saveAs('downloads/exportPDFCustomerInC_ServiceFilter4.pdf');
+//   const result10 = await dataRead(
+//       "./downloads/exportPDFCustomerInC_ServiceFilter4.pdf",
+//      ["Imran Khan","akbk6551+1222@gmail.com"],
+//       ["Mayank Rathor","akbk6551+1139@gmail.com"]
+//   );
+//   console.log(result10);
+//   if (result10.success) 
+//   {
+//     await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter4.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter4","true",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter4.png`)
+
+//   }
+//   else{
+//     await page.screenshot({ path: `./${screenshotPath}/exportPDFCustomerInC_ServiceFilter4.png`, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"exportPDFCustomerInC_ServiceFilter4","false",`./${screenshotPath}/exportPDFCustomerInC_ServiceFilter4.png`)
+//   }
     
-  await page.reload();
-  console.log('9');
-  console.log('Export excel of customer in c_service is completed');
-}
+//   await page.reload();
+//   console.log('9');
+//   console.log('Export excel of customer in c_service is completed');
+// }

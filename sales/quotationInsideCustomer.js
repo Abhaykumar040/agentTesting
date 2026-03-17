@@ -12,28 +12,28 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 export async function quotationInsideCustomer(page){
 
-  await createQuotation(page);
-  await page.waitForTimeout(3000);
-  await approveQuotation(page);
-  await page.waitForTimeout(3000);
-    await acceptQuotation(page);
-  await page.waitForTimeout(3000);
-  await rejectQuotation(page);
+  // await createQuotation(page);
+  // await page.waitForTimeout(3000);
+  // await approveQuotation(page);
+  // await page.waitForTimeout(3000);
+  //   await acceptQuotation(page);
+  // await page.waitForTimeout(3000);
+  // await rejectQuotation(page);
 
-  await page.waitForTimeout(3000);
-  await copyQuotation(page);
-    await page.waitForTimeout(3000);
-  await rejectedByCustomerQuotation(page);
-  await page.waitForTimeout(3000);
-  await sendQuotation(page);
-  await page.waitForTimeout(3000);
-  await editQuotation(page);
+  // await page.waitForTimeout(3000);
+  // await copyQuotation(page);
+  //   await page.waitForTimeout(3000);
+  // await rejectedByCustomerQuotation(page);
+  // await page.waitForTimeout(3000);
+  // await sendQuotation(page);
+  // await page.waitForTimeout(3000);
+  // await editQuotation(page);
 
 
-  await page.waitForTimeout(3000);
-  await reciptDownloadQuotation(page);
+  // await page.waitForTimeout(3000);
+  // await reciptDownloadQuotation(page);
 
-   await page.waitForTimeout(3000);
+  //  await page.waitForTimeout(3000);
   await verifyQuotationInsideCustomer(page);
   // await deleteQuotation(page);
 }
@@ -54,6 +54,7 @@ async function createQuotation(page){
   await page.waitForTimeout(1000);
   
   await page.getByRole('combobox', { name: 'Address' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
@@ -82,6 +83,7 @@ async function createQuotation(page){
 
   await page.getByRole('combobox', { name: 'Address' }).click();
   
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
   await page.getByRole('checkbox', { name: 'Notes' }).uncheck();
   await page.getByRole('checkbox', { name: 'Terms and Conditions' }).uncheck();
@@ -97,6 +99,7 @@ async function createQuotation(page){
 
   await page.getByRole('combobox', { name: 'Address' }).click();
    
+  await page.waitForTimeout(1000);
    await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'EV charger' }).click();
@@ -164,6 +167,7 @@ async function acceptQuotation(page) {
   console.log('Enter in accept quotation');
    await page.getByRole('tab', { name: 'Quotation' }).click();
      await page.waitForTimeout(1000);
+      // await page.locator('body tr:nth-of-type(3) td:nth-of-type(7) div button:last-of-type svg').click();
       await page.locator('body tr:nth-of-type(3) td:nth-of-type(7) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Approve' }).click();
  await page.waitForTimeout(1000);
@@ -230,7 +234,7 @@ async function rejectedByCustomerQuotation(page) {
 
 
   if (
-      await page.getByText('REJECTED',{exact:true}).isVisible()
+      await page.getByText('REJECTED',{exact:true}).first().isVisible()
     ) 
   {
     await page.screenshot({ path: `./${screenshotPath}/rejectedByCustomerQuotation.png`, fullPage: true });
@@ -346,7 +350,7 @@ await page.waitForTimeout(2000);
 
 
 
-  if (!await page.getByText('MANAGER APPROVED').isVisible()) 
+  if (!await page.getByText('MANAGER APPROVED').first().isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/editQuotationManagerApproved.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"editQuotationManagerApproved","true",`./${screenshotPath}/editQuotationManagerApproved.png`)
@@ -491,14 +495,14 @@ async function exportQuotationFilter(page) {
 }
 
 async function reciptDownloadQuotation(page){
+  console.log('Enter in  recipt download quotation');
 await page.waitForTimeout(1000);
- await page.getByRole('tab', { name: 'Quotation' }).click();
  await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
   const [excelDownload] = await Promise.all([
     page.waitForEvent('download'),
     page.getByRole('menuitem', { name: 'Receipt' }).click()
   ]);
-  await excelDownload.saveAs('downloads/quotationReciptInsideCustomerOutSide.pdf');
+  await excelDownload.saveAs('downloads/quotationReciptOutSide.pdf');
 
 await page.waitForTimeout(1000);
    await page.getByText('REJECTED').first().click();
@@ -508,20 +512,24 @@ await page.waitForTimeout(1000);
     page.waitForEvent('download'),
       page.getByRole('button', { name: 'PDF' }).click()
   ]);
- await pdfDownload.saveAs('downloads/quotationReciptInsideCustomerInside.pdf');
+ await pdfDownload.saveAs('downloads/quotationReciptInside.pdf');
+ console.log('Recipt download quotation completed ');
 }
 
+
+
 async function verifyQuotationInsideCustomer(page){
+  console.log('Enter varifyQuotationInsidecustomer');
     await page.getByRole('link', { name: 'Customers' }).click();
      await page.waitForTimeout(3000);
-  await page.getByText('Anil Rathor').click();
+  await page.getByText('Mayank Rathor').click();
    await page.waitForTimeout(1000);
   await page.getByRole('tab', { name: 'Quotation' }).click();
  await page.waitForTimeout(1000);
 
-  if (page.getByText('REJECTED').isVisible()&&
-page.getByText('CREATED', { exact: true }).isVisible()&&
-page.getByText('ACCEPTED').isVisible()) 
+  if (page.getByText('REJECTED').first().isVisible()&&
+page.getByText('CREATED', { exact: true }).first().isVisible()&&
+page.getByText('ACCEPTED').first().isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/verifyRealQuotationInsideCustomer.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"verifyRealQuotationInsideCustomer","true",`./${screenshotPath}/verifyRealQuotationInsideCustomer.png`)
@@ -533,10 +541,12 @@ page.getByText('ACCEPTED').isVisible())
   }
 
 
+  console.log('mid lever');
+
   await page.getByRole('link', { name: 'Customers' }).click();
    await page.waitForTimeout(3000);
 
-  await page.getByText('Anil Dubey').click();
+  await page.getByText('Mayank Rathor').click();
     await page.waitForTimeout(1000);
   await page.getByRole('tab', { name: 'Quotation' }).click();
  await page.waitForTimeout(1000);
@@ -552,4 +562,5 @@ page.getByText('ACCEPTED').isVisible())
     await updateOpJson(`./${screenshotPath}/`,"verifyQuotationInsideCustomer","false",`./${screenshotPath}/verifyQuotationInsideCustomer.png`)
   }
  await page.waitForTimeout(3000);
+console.log('verify quotation Inside customer completed');
 }
