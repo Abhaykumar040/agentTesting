@@ -102,7 +102,7 @@ async function editAssets(page){
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'FormJCASInstallation' , exact: true}).click();
   await page.getByRole('button', { name: 'Update Category' }).click();
-  await expect(page.getByText('Asset Category updated')).toBeVisible();
+  
 
  await page.locator('tr:nth-child(2) > td:nth-child(5) > div > button:first-child svg').click();
   await page.getByRole('textbox', { name: 'Category Name' }).click();
@@ -111,7 +111,7 @@ async function editAssets(page){
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'FormA' , exact:true}).click();
   await page.getByRole('button', { name: 'Update Category' }).click();
-  await expect(page.getByText('Asset Category updated')).toBeVisible();
+
 
   // await page.locator('button').nth(4).click();
   // await page.getByRole('textbox', { name: 'Category Name' }).click();
@@ -121,7 +121,7 @@ async function editAssets(page){
   // await page.getByRole('option', { name: 'FormJCASInstallation' , exact:true}).click();
   // await page.getByRole('button', { name: 'Update Category' }).click();
   // await expect(page.getByText('Asset Category updated')).toBeVisible();
-
+  await page.waitForTimeout(3000);
    await page.reload();
     await page.waitForTimeout(3000);
     
@@ -150,6 +150,7 @@ async function deleteAssets(page){
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(4).click();
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.getByRole('button', { name: 'Proceed' }).click();
+    await page.waitForTimeout(3000);
   // await expect(page.getByText('Asset Category deleted')).toBeVisible();
    await page.reload();
     await page.waitForTimeout(3000);

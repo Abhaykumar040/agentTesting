@@ -299,7 +299,14 @@ async function editLead(page){
 
 
    await page.getByRole('combobox', { name: 'Search or add industry' }).click();
-  await page.getByRole('option', { name: 'Website' }).click();
+
+  // await page.getByRole('option', { name: 'Website' }).click();
+  try {
+  await page.getByRole('option', { name: 'Website' }).click({ timeout: 2000 });
+} catch (e) {
+  await page.keyboard.press('Enter');
+   await page.getByRole('option', { name: 'Website' }).click({ timeout: 2000 });
+}
 
     await page.getByRole('button', { name: 'Warm' }).click();
   await page.getByRole('option', { name: 'Hot' }).click();

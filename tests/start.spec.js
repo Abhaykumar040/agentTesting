@@ -58,12 +58,12 @@ await loginRight(page);
 // await assetsCategory(page);
 // await product(page);
 // await salesAgents(page);
-// await lead(page);
-// await customer(page);
-// await Quotation(page);
-// await quotationInsideCustomer(page);
-// await Invoices(page);
-// await invoicesInsideCustomer(page);
+await lead(page);
+await customer(page);
+await Quotation(page);
+await quotationInsideCustomer(page);
+await Invoices(page);
+await invoicesInsideCustomer(page);
 
 
 // await cs_agent(page);
