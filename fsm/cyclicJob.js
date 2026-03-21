@@ -15,16 +15,16 @@ const pathName=`outputData/status/${testData.companyType}`
 export async function cyclicJob(page){
   await createCyclicJob(page);
   await page.waitForTimeout(3000);
-  // await startCyclicJob(page);
-  // await page.waitForTimeout(3000);
-  // await cancleWholeSessionCyclicJob(page);
-  // await page.waitForTimeout(3000);
+  await startCyclicJob(page);
+  await page.waitForTimeout(3000);
+  await cancleWholeSessionCyclicJob(page);
+  await page.waitForTimeout(3000);
   await cancleCurrentSessionCyclicJob(page);
   await page.waitForTimeout(3000);
-   // await deleteCyclicJob(page);
-  // await page.waitForTimeout(3000);
-  // await deleteAllCyclicJob(page);
-  // await page.waitForTimeout(3000);
+   await deleteCyclicJob(page);
+  await page.waitForTimeout(3000);
+  await deleteAllCyclicJob(page);
+  await page.waitForTimeout(3000);
   await cyclicJobByInternalJob(page);
   await page.waitForTimeout(3000);
   await createCyclicJobByCustomer(page);
@@ -285,8 +285,10 @@ async function exportCyclicJobFilter(page) {
   await page.getByText('Charger', { exact: true }).click();
   await page.getByRole('tab', { name: 'Cyclic Jobs' }).click();
   await page.locator('div').filter({ hasText: /^8963$/ }).click();
-  await page.getByRole('combobox', { name: 'Job Type' }).click();
-  await page.getByRole('option', { name: 'Installation3' }).click();
+    await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Job Type' }).click();
+  await page.getByRole('menuitem', { name: 'Installation3' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
   // excel file
     const [excelDownload1] = await Promise.all([
   
@@ -340,8 +342,10 @@ async function exportCyclicJobFilter(page) {
       await page.reload();
    await page.locator('div').filter({ hasText: /^8963$/ }).click();
   await page.getByRole('tab', { name: 'Cyclic Jobs' }).click();
-  await page.getByRole('combobox', { name: 'Priority' }).click();
-  await page.getByRole('option', { name: 'least' }).click();
+    await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Priority' }).click();
+  await page.getByRole('menuitem', { name: 'least' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
   // excel file
     const [excelDownload2] = await Promise.all([
   
@@ -395,8 +399,10 @@ async function exportCyclicJobFilter(page) {
       await page.reload();
    await page.locator('div').filter({ hasText: /^8963$/ }).click();
   await page.getByRole('tab', { name: 'Cyclic Jobs' }).click();
-   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Rathor' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer' }).click();
+  await page.getByRole('menuitem', { name: 'Mayank Rathor' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
   // excel file
     const [excelDownload3] = await Promise.all([
   
@@ -450,8 +456,10 @@ async function exportCyclicJobFilter(page) {
       await page.reload();
   await page.locator('div').filter({ hasText: /^8963$/ }).click();
   await page.getByRole('tab', { name: 'Cyclic Jobs' }).click();
-  await page.getByRole('combobox', { name: 'Asset' }).click();
-  await page.getByRole('option', { name: 'Mobile charger Edited' }).click();
+   await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Asset' }).click();
+  await page.getByRole('menuitem', { name: 'Mobile charger' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
   // excel file
     const [excelDownload4] = await Promise.all([
   

@@ -11,11 +11,15 @@ const screenshotPath=`screenshot/${testData.companyType}/tag`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function tag(page){
-
-
+ await addTag(page);
+ await page.waitForTimeout(3000);
+ await editTag(page);
+ await page.waitForTimeout(3000);
+ await deleteTag(page);
 }
+
 async function addTag(page){
-await page.getByRole('button', { name: 'Master Data' }).click();
+  await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Tag Manager' }).click();
   await page.getByRole('button', { name: 'Add Tag' }).click();
   await page.getByRole('button', { name: 'Select Feature' }).click();
@@ -57,9 +61,11 @@ await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('button', { name: 'Jobs' }).click();
   await page.getByRole('button', { name: 'Field Service' }).click();
 }
+
 async function editTag(page){
     
 }
+
 async function deleteTag(page){
     
 }

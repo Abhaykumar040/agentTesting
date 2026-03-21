@@ -547,8 +547,10 @@ async function exportLeadFileNormal(page) {
 async function exportLeadFileFilter(page){
   console.log('Enter in export lead file filter ');
   // excel file
-  await page.getByRole('combobox', { name: 'Select Agents' }).click();
-  await page.getByRole('option', { name: 'Mahesh Kumar' }).click();
+   await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Agent' }).click();
+  await page.getByRole('menuitem', { name: 'Mahesh Kumar' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
   const [excelDownload] = await Promise.all([
 
     page.waitForEvent('download'),
@@ -605,8 +607,10 @@ async function exportLeadFileFilter(page){
     }
 
   // .....................................................
-  await page.getByRole('button', { name: 'Open' }).nth(1).click();
-  await page.getByRole('option', { name: 'Converted' }).click();
+   await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Status' }).click();
+  await page.getByRole('menuitem', { name: 'Converted' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
   await page.waitForTimeout(1000);
   
  

@@ -12,19 +12,14 @@ const screenshotPath=`screenshot/${testData.companyType}/ticket`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function ticketInsideCustomer(page){
-  // await addNewTickets(page);
-  // await page.waitForTimeout(3000);
+  await addNewTickets(page);
+  await page.waitForTimeout(3000);
   await editTicket(page);
- await sendTicket(page);
+  await sendTicket(page);
   await exportExcelInTicketsNormal(page);
-//   await page.waitForTimeout(1000);
-//   await exportExcelInTicketFilter(page);
-
-//   await uploadFilesTicket(page);
-
-  
-
-  
+  await page.waitForTimeout(1000);
+  await exportExcelInTicketFilter(page);
+  await uploadFilesTicket(page);
 
 }
 
@@ -170,9 +165,15 @@ async function exportExcelInTicketsNormal(page) {
 
   ]);
   await excelDownload.saveAs('downloads/exportExcelInTicketsNormal.xlsx');
+  const result1 = await dataRead(
+        "./downloads/exportExcelInTicketsNormal.xlsx",
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
+    );
+    console.log(result1);
   await page.waitForTimeout(2000);
 
-  if (await page.getByText('createSupport1',{exact:true}).first().isVisible()) 
+  if (result1.success) 
   {
     await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketsNormal.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketsNormal","true",`./${screenshotPath}/exportExcelInTicketsNormal.png`)
@@ -193,9 +194,16 @@ async function exportExcelInTicketFilter(page) {
 
   ]);
   await excelDownload.saveAs('downloads/exportExcelInTicketFilter.xlsx');
+  
+  const result2 = await dataRead(
+        "./downloads/exportExcelInTicketFilter.xlsx",
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
+    );
+    console.log(result2);
   await page.waitForTimeout(2000);
 
-  if (await page.getByText('createdSupport2',{exact:true}).first().isVisible()) 
+  if (result2.success) 
   {
     await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketFilter.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketFilter","true",`./${screenshotPath}/exportExcelInTicketFilter.png`)
