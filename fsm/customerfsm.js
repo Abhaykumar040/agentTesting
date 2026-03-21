@@ -48,6 +48,295 @@ export async function customerfsm(page){
     await contactDetailsFsmCustomer(page);
     await page.waitForTimeout(3000);
     await documentsUploadFsmCustomer(page);
+    await page.waitForTimeout(3000);
+    await exportCustomerFsmNormal(page);
+    await page.waitForTimeout(3000);
+    await exportCustomerFsmFilter(page);
+    
+}
+async function exportCustomerFsmNormal(page) {
+  console.log("Enter in export customer normal");
+  // await page.getByRole('button', { name: 'Sales' }).click();
+  // await page.getByRole('link', { name: 'Customers' }).click();
+   const [excelDownload] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload.saveAs('downloads/exportExelCustomerNormal.xlsx');
+  const result1 = await dataRead(
+        "./downloads/exportExelCustomerNormal.xlsx",
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
+    );
+    console.log(result1);
+  await page.waitForTimeout(2000);
+  if (result1.success) 
+  {
+  await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerNormal.png`, fullPage: true });
+  await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerNormal","true",`./${screenshotPath}/exportExelCustomerNormal.png`)
+
+  }
+  else{
+  await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerNormal.png`, fullPage: true });
+  await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerNormal","false",`./${screenshotPath}/exportExelCustomerNormal.png`)
+  }
+
+  // PDF
+  const [pdfDownload] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload.saveAs('downloads/exportPdfCustomerNormal.pdf');
+ const result2 = await dataRead(
+        "./downloads/exportPdfCustomerNormal.pdf",
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
+    );
+    console.log(result2);
+  await page.waitForTimeout(2000);
+  if (result2.success) 
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerNormal.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerNormal","true",`./${screenshotPath}/exportPdfCustomerNormal.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerNormal.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerNormal","false",`./${screenshotPath}/exportPdfCustomerNormal.png`)
+        }
+ await page.reload();
+ console.log("export customer normal ");
+  
+}
+
+async function exportCustomerFsmFilter(page) {
+  console.log("Enter in export customer filter");
+  // Filter (State, City)
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'State' }).click();
+  await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByText('City').click();
+  await page.getByRole('menuitem', { name: 'Aurai' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.waitForTimeout(2000);
+
+  // Exel
+  const [excelDownload1] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload1.saveAs('downloads/exportExelCustomerFilter1.xlsx');
+  const result3 = await dataRead(
+        "./downloads/exportExelCustomerFilter1.xlsx",
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
+    );
+    console.log(result3);
+  await page.waitForTimeout(2000)
+  if (result3.success) 
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter1.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter1","true",`./${screenshotPath}/exportExelCustomerFilter1.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter1.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter1","false",`./${screenshotPath}/exportExelCustomerFilter1.png`)
+        }
+
+
+  // PDF
+  const [pdfDownload1] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload1.saveAs('downloads/exportPdfCustomerFilter2.pdf');
+ const result4 = await dataRead(
+        "./downloads/exportPdfCustomerFilter2.pdf",
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
+    );
+    console.log(result4);
+  await page.waitForTimeout(2000)
+  if (result4.success) 
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter2.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter2","true",`./${screenshotPath}/exportPdfCustomerFilter2.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter2.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter2","false",`./${screenshotPath}/exportPdfCustomerFilter2.png`)
+        }
+
+
+ await page.reload();
+
+  // filter (Commercial or Individual)
+   await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer Type' }).click();
+  await page.getByRole('menuitem', { name: 'commercial' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.waitForTimeout(2000);
+
+  const [excelDownload2] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload2.saveAs('downloads/exportExelCustomerFilter3.xlsx');
+   const result5 = await dataRead(
+        "./downloads/exportExelCustomerFilter3.xlsx",
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
+    );
+    console.log(result4);
+  await page.waitForTimeout(2000)
+  if (result5.success) 
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter3.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter3","true",`./${screenshotPath}/exportExelCustomerFilter3.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter3.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter3","false",`./${screenshotPath}/exportExelCustomerFilter3.png`)
+        }
+
+  // PDF
+  const [pdfDownload2] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload2.saveAs('downloads/exportPdfCustomerFilter4.pdf');
+    const result6 = await dataRead(
+        "./downloads/exportPdfCustomerFilter4.pdf",
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
+    );
+    console.log(result6);
+  await page.waitForTimeout(2000)
+  if (result6.success) 
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter4.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter4","true",`./${screenshotPath}/exportPdfCustomerFilter4.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter4.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter4","false",`./${screenshotPath}/exportPdfCustomerFilter4.png`)
+        }
+
+
+ await page.reload();
+
+  // Customer name filter
+   await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer', exact: true }).click();
+  await page.getByRole('menuitem', { name: 'Mayank Rathor' }).getByRole('checkbox').check();
+  await page.waitForTimeout(2000);
+  const [excelDownload3] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload3.saveAs('downloads/exportExelCustomerFilter5.xlsx');
+  const result7 = await dataRead(
+        "./downloads/exportExelCustomerFilter5.xlsx",
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
+    );
+    console.log(result7);
+  await page.waitForTimeout(2000)
+  if (result7.success) 
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter5.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter5","true",`./${screenshotPath}/exportExelCustomerFilter5.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter5.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter5","false",`./${screenshotPath}/exportExelCustomerFilter5.png`)
+        }
+  // PDF
+  const [pdfDownload3] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload3.saveAs('downloads/exportPdfCustomerFilter6.pdf');
+ const result8 = await dataRead(
+        "./downloads/exportPdfCustomerFilter6.pdf",
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
+    );
+    console.log(result8);
+  await page.waitForTimeout(2000)
+  if (result8.success) 
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter6.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter6","true",`./${screenshotPath}/exportPdfCustomerFilter6.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter6.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter6","false",`./${screenshotPath}/exportPdfCustomerFilter6.png`)
+        }
+ await page.reload();
+
+  // Code base filter
+   await page.getByRole('menuitem', { name: 'Dealer Code' }).click();
+  await page.getByRole('menuitem', { name: '1345836' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.waitForTimeout(2000);
+     const [excelDownload] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload.saveAs('downloads/exportExelCustomerFilter7.xlsx');
+  const result9 = await dataRead(
+        "./downloads/exportExelCustomerFilter7.xlsx",
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
+    );
+    console.log(result9);
+  await page.waitForTimeout(2000)
+  if (result9.success) 
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter7.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter7","true",`./${screenshotPath}/exportExelCustomerFilter7.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter7.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter7","false",`./${screenshotPath}/exportExelCustomerFilter7.png`)
+        }
+
+  // PDF
+  const [pdfDownload] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload.saveAs('downloads/exportPdfCustomerFilter8.pdf');
+ const result10 = await dataRead(
+        "./downloads/exportPdfCustomerFilter8.pdf",
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
+    );
+    console.log(result10);
+  await page.waitForTimeout(2000)
+  if (result10.success) 
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter8.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter8","true",`./${screenshotPath}/exportPdfCustomerFilter8.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter8.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter8","false",`./${screenshotPath}/exportPdfCustomerFilter8.png`)
+        }
+ await page.reload();
+
+ console.log('export customer filter completed');
 }
 
 async function createFsmCustomerOne(page){

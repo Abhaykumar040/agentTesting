@@ -433,10 +433,15 @@ console.log(result);
 async function exportInternalJObFilter(page){
   console.log('Enter in export internal job filter');
   // filter on basis of state, city
-  await page.getByRole('combobox', { name: 'Select State' }).click();
-  await page.getByRole('option', { name: 'Uttar Pradesh' }).click();
-  await page.getByRole('combobox', { name: 'Select City' }).click();
-  await page.getByRole('option', { name: 'Khamaria' }).click();
+   await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'State' }).click();
+  await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByText('City').click();
+  await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  
   // excel file
   const [excelDownload1] = await Promise.all([
 
@@ -498,8 +503,11 @@ async function exportInternalJObFilter(page){
 
 // --------------------------------------------------
 // filter on basis of job type
-  await page.getByRole('combobox', { name: 'Select Job Type' }).click();
-  await page.getByRole('option', { name: 'Installation5' }).click();
+await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Job Type' }).click();
+  await page.getByRole('menuitem', { name: 'Installation5' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+
    // excel file
   const [excelDownload2] = await Promise.all([
 
@@ -556,8 +564,11 @@ async function exportInternalJObFilter(page){
 
 // ---------------------------------------------    
 // filter on basis of date.
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Custom Date' }).click();
   await page.getByRole('textbox', { name: 'Start Date' }).fill('2026-02-21');
   await page.getByRole('textbox', { name: 'End Date' }).fill('2026-02-28');
+  await page.getByRole('button', { name: 'OK' }).click();
   // excel file
   const [excelDownload3] = await Promise.all([
 
