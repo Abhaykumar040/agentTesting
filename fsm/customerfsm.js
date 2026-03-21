@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
+import { dataRead } from '../dataRead';
 
 
 
@@ -16,7 +17,7 @@ const pathName=`outputData/status/${testData.companyType}`
 export async function customerfsm(page){
    await deletePreviousCustomer(page);
    await page.waitForTimeout(3000);
-     await customerDownload(page);
+
        await page.waitForTimeout(3000);
 
       const rawData = await fs.readFile('./data.json', 'utf8');
@@ -980,10 +981,10 @@ await page.waitForTimeout(1000);
  
 
 
-    if (await page.getByText('Site AddressDefault AddressJamnagarJamnagar, Gujarat').isVisible()
-    && await page.getByText('Billing Addressmundera').isVisible()
-  && await page.getByText('Site AddressMukundpattiKhamaria, Uttar Pradesh').isVisible()
-&& await page.getByText('Billing AddressDefault AddressJamnagarJamnagar, Gujarat').isVisible()) 
+    if (await page.getByText('Site AddressDefault AddressJamnagarJamnagar, Gujarat').first().isVisible()
+    && await page.getByText('Billing Addressmundera').first().isVisible()
+  && await page.getByText('Site AddressMukundpattiKhamaria, Uttar Pradesh').first().isVisible()
+&& await page.getByText('Billing AddressDefault AddressJamnagarJamnagar, Gujarat').first().isVisible()) 
     {
       await page.screenshot({ path: `./${screenshotPath}/addressCreateFsmCustomerCommercial.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"addressCreateFsmCustomerCommercial","true",`./${screenshotPath}/addressCreateFsmCustomerCommercial.png`)
@@ -1065,10 +1066,10 @@ await page.waitForTimeout(1000);
 await page.waitForTimeout(1000);
 
 
-    if (await page.getByText('Site AddressDefault AddressJamnagarJamnagar, Gujarat').isVisible()
-    && await page.getByText('Billing Addressmundera').isVisible()
-  && await page.getByText('Site AddressMukundpattiKhamaria, Uttar Pradesh').isVisible()
-&& await page.getByText('Billing AddressDefault AddressJamnagarJamnagar, Gujarat').isVisible()) 
+    if (await page.getByText('Site AddressDefault AddressJamnagarJamnagar, Gujarat').first().isVisible()
+    && await page.getByText('Billing Addressmundera').first().isVisible()
+  && await page.getByText('Site AddressMukundpattiKhamaria, Uttar Pradesh').first().isVisible()
+&& await page.getByText('Billing AddressDefault AddressJamnagarJamnagar, Gujarat').first().isVisible()) 
     {
       await page.screenshot({ path: `./${screenshotPath}/addressCreateFsmCustomerIndividual.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"addressCreateFsmCustomerIndividual","true",`./${screenshotPath}/addressCreateFsmCustomerIndividual.png`)
@@ -1317,9 +1318,3 @@ async function documentsUploadFsmCustomer(page){
 }
 
 
-async function exportCustomerFsmNormal(page){
-  
-}
-async function exportCustomerFsmFilter(page){
-
-}
