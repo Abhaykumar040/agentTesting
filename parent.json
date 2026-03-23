@@ -442,7 +442,7 @@
     },
     "addressCreateFsmCustomerIndividual": {
       "path": "./screenshot/parent/customerfsm/addressCreateFsmCustomerIndividual.png",
-      "note": "true"
+      "note": "false"
     },
     "cyclicJobCreateFsmCustomer": {
       "path": "./screenshot/parent/customerfsm/cyclicJobCreateFsmCustomer.png",
@@ -455,6 +455,18 @@
     "documentsUploadFsmCustomer": {
       "path": "./screenshot/parent/customerfsm/documentsUploadFsmCustomer.png",
       "note": "true"
+    },
+    "createFsmCustomer": {
+      "path": "./screenshot/parent/customerfsm/createFsmCustomer.png",
+      "note": "true"
+    },
+    "jobCreateFsmCustomerCommercial": {
+      "path": "./screenshot/parent/customerfsm/jobCreateFsmCustomerCommercial.png",
+      "note": "true"
+    },
+    "jobCreateFsmCustomerIndividual": {
+      "path": "./screenshot/parent/customerfsm/jobCreateFsmCustomerIndividual.png",
+      "note": "true"
     }
   },
   "./screenshot/parent/AssetManagement/": {
@@ -464,6 +476,12 @@
     },
     "createChildAssetManagement": {
       "path": "./screenshot/parent/AssetManagement/createChildAssetManagement.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/internlJob/": {
+    "createInternalJob": {
+      "path": "./screenshot/parent/internlJob/createInternalJob.png",
       "note": "true"
     }
   }

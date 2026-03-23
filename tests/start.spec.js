@@ -10,7 +10,7 @@ import { setting } from '../customerService/setting';
 import { FAQs } from '../customerService/faq';
 import { customerInC_service } from '../customerService/customerInC_Service';
 import { Queue } from '../customerService/Queues';
-import { loginRight } from './login';
+import { loginCustomerPortal, loginEngineerPortal, loginRight } from './login';
 import { companySetup } from '../setting/CompanySetup';
 import { team } from '../customerService/team';
 import { cs_agent } from '../customerService/cs-agent';
