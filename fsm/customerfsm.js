@@ -17,9 +17,9 @@ const pathName=`outputData/status/${testData.companyType}`
 export async function customerfsm(page){
    await deletePreviousCustomer(page);
    await page.waitForTimeout(3000);
-
+    //  await customerDownload(page);
        await page.waitForTimeout(3000);
-
+ await createFsmCustomer(page);
       const rawData = await fs.readFile('./data.json', 'utf8');
       const testData = JSON.parse(rawData);
 
@@ -1003,7 +1003,7 @@ async function addressCreateFsmCustomerIndividual(page){
    await page.getByRole('button', { name: 'Field Service' }).click();
   await page.getByRole('link', { name: 'Customers' }).click();
   await page.waitForTimeout(3000);
-   await page.getByText('Anil Dubey').first().click();
+   await page.getByText('Anil Rathor').first().click();
     await page.waitForTimeout(1000);
 
     //1st address individual
@@ -1094,7 +1094,7 @@ async function jobCreateFsmCustomerCommercial(page){
   await page.getByRole('link', { name: 'Add New Job' }).click();
     await page.getByRole('button', { name: 'Address' }).click();
     await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Jamnagar' }).click();
+  await page.getByRole('option', { name: 'Jamnagar' }).first().click();
   // await page.getByRole('checkbox').check();
   await page.getByRole('button', { name: 'Job Type' }).click();
   await page.waitForTimeout(1000);
@@ -1104,7 +1104,7 @@ async function jobCreateFsmCustomerCommercial(page){
   await page.getByRole('textbox', { name: 'Job Description' }).fill('Installation');
   await page.getByRole('button', { name: 'Priority' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'least - Low installationX' }).click();
+  await page.getByRole('option', { name: 'Medium - Medium installation' }).click();
   await page.getByRole('textbox', { name: 'Comments' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Comments' }).fill('Least Imp');
@@ -1119,10 +1119,9 @@ async function jobCreateFsmCustomerCommercial(page){
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
   await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
   await page.getByText('13:00').click();
-  await page.getByRole('radio', { name: 'Engineer' }).check();
-  await page.getByRole('radio', { name: 'Engineer' }).check();
+   await page.getByRole('radio', { name: 'Engineer' }).check();
   await page.getByRole('button', { name: 'Engineer' }).click();
-  await page.getByRole('option', { name: 'None' }).click();
+  await page.getByRole('option', { name: 'suhani singh' }).click();
   await page.getByRole('button', { name: '+ Add Skill' }).click();
   await page.getByRole('button', { name: 'Skill', exact: true }).click();
   await page.waitForTimeout(1000);
@@ -1182,9 +1181,9 @@ async function jobCreateFsmCustomerIndividual(page){
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
   await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
   await page.getByText('13:00').click();
-  await page.getByRole('radio', { name: 'Engineer' }).check();
+   await page.getByRole('radio', { name: 'Engineer' }).check();
   await page.getByRole('button', { name: 'Engineer' }).click();
-  await page.getByRole('option', { name: 'None' }).click();
+  await page.getByRole('option', { name: 'suhani singh' }).click();
   await page.getByRole('button', { name: '+ Add Skill' }).click();
   await page.getByRole('button', { name: 'Skill', exact: true }).click();
   await page.waitForTimeout(1000);
@@ -1221,7 +1220,7 @@ async function cyclicJobCreateFsmCustomer(page){
   await page.getByRole('textbox', { name: 'Job Title' }).click();
   await page.getByRole('textbox', { name: 'Job Title' }).fill('Installation');
   await page.getByRole('button', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Mukundpatti' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti' }).first().click();
   await page.getByRole('textbox', { name: 'Description' }).click();
   await page.getByRole('textbox', { name: 'Description' }).fill('Installation');
   await page.getByRole('button', { name: 'Job Type' }).click();
@@ -1316,5 +1315,7 @@ async function documentsUploadFsmCustomer(page){
   // await page.getByRole('button', { name: 'Cancel' }).click();
   console.log('documents Upload fsm customer');
 }
+
+
 
 

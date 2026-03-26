@@ -21,7 +21,7 @@ export async function cyclicJob(page){
   await page.waitForTimeout(3000);
   await cancleCurrentSessionCyclicJob(page);
   await page.waitForTimeout(3000);
-   await deleteCyclicJob(page);
+  await deleteCyclicJob(page);
   await page.waitForTimeout(3000);
   await deleteAllCyclicJob(page);
   await page.waitForTimeout(3000);

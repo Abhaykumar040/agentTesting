@@ -4,6 +4,7 @@ const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
 import { dataRead } from '../dataRead';
+import { loginCustomerPortal } from '../tests/login';
 
 
 
@@ -23,11 +24,6 @@ export async function Tickets(page){
   await exportExcelInTicketFilter(page);
 
   // await uploadFilesTicket(page);
-
-  
-
-  
-
 }
 
 async function addNewTickets(page) {
@@ -109,6 +105,13 @@ async function addNewTickets(page) {
   console.log('add new tickets completed');
 }
 
+async function verifyTicketInCustomerPortal(page) {
+  await loginCustomerPortal(page);
+   await page.getByRole('link', { name: 'Support Tickets' }).click();
+  // check support Tickets 
+  
+
+}
 
 async function editTicket(page){
   await page.getByText('createdSupport2').first().click();
