@@ -1,7 +1,7 @@
 node check.js
 
 npx playwright test --ui
-npx playwright test --headed
+npx playwright test --headednode
 npx playwright test
 npx playwright codegen https://strgerpcmpwebinddev.z29.web.core.windows.net/
 npx playwright codegen https://erp-company.zynkatech.com/settings/company-setup/

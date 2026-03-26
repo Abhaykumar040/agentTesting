@@ -18,7 +18,7 @@ export async function team(page) {
 
 async function addTeam(page) {
   console.log('Enter in add team');
-   await page.getByRole('button', { name: 'Customer Service' }).click();
+  //  await page.getByRole('button', { name: 'Customer Service' }).click();
   await page.getByRole('link', { name: 'Teams' }).click();
   await page.getByRole('button', { name: 'New Team' }).click();
   await page.getByRole('textbox', { name: 'e.g. Technical Support Team' }).click();
@@ -57,12 +57,12 @@ async function editTeam(page){
   await page.getByRole('menuitem', { name: 'Edit Team' }).click();
   await page.getByRole('button', { name: 'Add Team Members' }).click();
   await page.getByRole('button', { name: 'Agent' }).click();
-  await page.getByRole('option', { name: 'Yogesh Yadav' }).first().click();
+  await page.getByRole('option', { name: 'Shivam' }).first().click();
   await page.getByRole('button', { name: 'Add Member' }).click();
   await expect(page.getByText('Team updated successfully')).toBeVisible();
   await page.getByRole('button', { name: 'Add Team Members' }).click();
   await page.getByRole('button', { name: 'Agent' }).click();
-  await page.getByRole('option', { name: 'Jay kumar Rathor' }).click();
+  await page.getByRole('option', { name: 'Jitendra' }).click();
   await page.getByRole('button', { name: 'Add Member' }).click();
   await page.waitForTimeout(1000);
         

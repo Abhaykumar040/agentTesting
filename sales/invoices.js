@@ -44,6 +44,7 @@ await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
   await page.getByRole('button', { name: 'Add Item' }).click();
   await page.getByRole('combobox').nth(1).click();
+  await page.waitForTimeout(3000);
   await page.getByRole('option', { name: 'Tourch charger' }).click();
   // await page.getByRole('button', { name: 'Add Item' }).click();
   // await page.getByRole('combobox').nth(2).click();
@@ -69,7 +70,7 @@ await page.waitForTimeout(1000);
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.getByRole('option', { name: 'Khamaria Khamaria Uttar' }).click();
   await page.getByRole('combobox').first().click();
-  await page.getByRole('option', { name: 'Wifi charger' }).click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
   await page.waitForTimeout(1000);
 
@@ -84,7 +85,7 @@ await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Khamaria Khamaria Uttar' }).click();
    await page.waitForTimeout(1000);
   await page.locator('.MuiInputBase-root.MuiOutlinedInput-root').first().click();
-  await page.getByRole('option', { name: 'Wifi charger' }).click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
 

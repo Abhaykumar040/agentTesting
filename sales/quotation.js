@@ -54,9 +54,11 @@ async function createQuotation(page){
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Mukundpatti Khamaria Uttar' }).click();
   await page.getByRole('combobox').first().click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
   await page.getByRole('button', { name: 'Add Item' }).click();
   await page.getByRole('combobox').nth(1).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Tourch charger' }).click();
   await page.getByRole('button', { name: 'Add Item' }).click();
   await page.getByRole('combobox').nth(2).click();
@@ -82,10 +84,10 @@ async function createQuotation(page){
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Mukundpatti Khamaria Uttar' }).click();
-  await page.getByRole('checkbox', { name: 'Notes' }).uncheck();
-  await page.getByRole('checkbox', { name: 'Terms and Conditions' }).uncheck();
+  await page.getByRole('checkbox', { name: 'Notes' }).check();
+  await page.getByRole('checkbox', { name: 'Terms and Conditions' }).check();
   await page.getByRole('combobox').first().click();
-  await page.getByRole('option', { name: 'Wifi charger' }).click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
    await page.waitForTimeout(1000);
 
@@ -113,7 +115,7 @@ async function createQuotation(page){
   await page.locator('div').filter({ hasText: /^Address$/ }).click();
   await page.getByRole('option', { name: 'Khamaria Khamaria Uttar' }).click();
   await page.getByRole('combobox').first().click();
-  await page.getByRole('option', { name: 'Wifi charger' }).click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
   await page.locator('input[name="products.0.discount"]').click();
   await page.locator('input[name="products.0.discount"]').fill('090');
   await page.getByRole('button', { name: 'Save' }).click();

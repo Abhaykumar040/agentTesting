@@ -263,7 +263,7 @@ await page.getByRole('button', { name: 'Add New Status' }).click();
   await page.getByRole('spinbutton', { name: 'Position *' }).first().fill('6');
   await page.getByRole('button', { name: 'Create' }).first().click();
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(3).click();
-  
+  await page.getByRole('button', { name: 'Back to List' }).click();
 
    await page.getByRole('button', { name: 'Add New Status' }).click();
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).click();
@@ -301,6 +301,9 @@ await page.getByRole('button', { name: 'Add New Status' }).click();
 }
 async function editStatus(page){
   console.log("Enter in edit status");
+  
+  await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Status Profile' }).click();
   await page.getByText('InstallationStatusJob').first().click();
  await page.waitForTimeout(1000);
    await page.getByRole('button').filter({ hasText: /^$/ }).nth(1).click();

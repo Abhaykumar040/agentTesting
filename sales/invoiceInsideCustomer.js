@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
+import { loginCustomerPortal } from '../tests/login';
 
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
@@ -15,9 +16,9 @@ export async function invoicesInsideCustomer(page){
   // await cancelInvoice(page);
   //  await page.waitForTimeout(3000);
   // await editInvoices(page);
+  // // await page.waitForTimeout(3000);
+  // await sendInvoices(page);
   // await page.waitForTimeout(3000);
-  await sendInvoices(page);
-  await page.waitForTimeout(3000);
   await exportInvoiceNormal(page);
   await page.waitForTimeout(3000);
   await exportInvoiceFilter(page);
@@ -25,74 +26,157 @@ export async function invoicesInsideCustomer(page){
 
 async function addInvoices(page){
   console.log('Enter in add invoice');
-  await page.getByRole('button', { name: 'Sales' }).click();
+//   // await page.getByRole('button', { name: 'Sales' }).click();
+//   await page.getByRole('link', { name: 'Customers' }).click();
+//   await page.waitForTimeout(1000);
+//   await page.getByText('Arjun Singh').first().click();
+
+//   await page.waitForTimeout(1000);
+//  await page.getByRole('tab', { name: 'Invoice' }).click();
+//  await page.waitForTimeout(1000);
+// //1st Invoice create
+
+//   await page.getByRole('link', { name: 'Add Invoice' }).click();
+// await page.waitForTimeout(1000);
+
+
+//   await page.getByRole('combobox', { name: 'Address' }).click();
+//   await page.waitForTimeout(1000);
+//   await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
+//   await page.getByRole('checkbox', { name: 'UPI Transfer' }).check();
+//   await page.getByRole('combobox').first().click();
+//   await page.getByRole('option', { name: 'Smart watch charger' }).click();
+//   await page.getByRole('button', { name: 'Add Item' }).click();
+//   await page.getByRole('combobox').nth(1).click();
+//   await page.getByRole('option', { name: 'Tourch charger' }).click();
+//   // await page.getByRole('button', { name: 'Add Item' }).click();
+//   // await page.getByRole('combobox').nth(2).click();
+//   // await page.getByRole('combobox').nth(2).fill('fuse');
+//   // await page.locator('input[name="products.2.price"]').click();
+//   // await page.locator('input[name="products.2.price"]').fill('0120');
+//   // await page.locator('input[name="products.2.discount"]').click();
+//   // await page.locator('input[name="products.2.discount"]').fill('090');
+//   // await page.locator('textarea[name="products.2.description"]').click();
+//   // await page.locator('textarea[name="products.2.description"]').fill('fuseD');
+//   // await page.locator('textarea[name="products.2.hsnCode"]').click();
+//   // await page.locator('textarea[name="products.2.hsnCode"]').fill('12345');
+//   await page.locator('textarea[name="note"]').click();
+//   await page.waitForTimeout(1000);
+//   await page.locator('textarea[name="note"]').fill('Invoice Notes ,aCreated');
+//   await page.getByRole('button', { name: 'Save' }).click();
+
+
+// //2nd invoice create
+
+
+//   await page.waitForTimeout(1000);
+//  await page.getByRole('tab', { name: 'Invoice' }).click();
+//  await page.waitForTimeout(1000);
+//   await page.getByRole('link', { name: 'Add Invoice' }).click();
+
+//   await page.waitForTimeout(1000);
+
+//   await page.getByRole('combobox', { name: 'Address' }).click();
+//   await page.waitForTimeout(1000);
+//   await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
+//   await page.getByRole('combobox').first().click();
+//   await page.getByRole('option', { name: 'Tourch charger' }).click();
+//   await page.getByRole('button', { name: 'Save' }).click();
+
+
+
+// //3rd invoice create
+//   await page.waitForTimeout(1000);
+//   await page.getByRole('tab', { name: 'Invoice' }).click();
+//   await page.waitForTimeout(1000);
+//   await page.getByRole('link', { name: 'Add Invoice' }).click();
+
+//   await page.waitForTimeout(1000);
+
+//   await page.getByRole('combobox', { name: 'Address' }).click();
+//   await page.waitForTimeout(1000);
+//   await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
+//   await page.getByRole('combobox').first().click();
+//   await page.getByRole('option', { name: 'Tourch charger' }).click();
+//   await page.getByRole('button', { name: 'Save' }).click();
+//    await page.locator('body tr:nth-of-type(2) td:nth-of-type(8) div button:last-of-type svg').click();
+//   await page.getByRole('menuitem', { name: 'Cancel' }).click();
+
+
+// // 4th invoice create
+// await page.waitForTimeout(1000);
+// //  await page.getByRole('tab', { name: 'Invoice' }).click();
+//  await page.waitForTimeout(1000);
+//   await page.getByRole('link', { name: 'Add Invoice' }).click();
+
+//   await page.waitForTimeout(1000);
+
+//   await page.getByRole('combobox', { name: 'Address' }).click();
+//   await page.waitForTimeout(1000);
+//   await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
+//   await page.getByRole('combobox').first().click();
+//   await page.getByRole('option', { name: 'Tourch charger' }).click();
+//   await page.getByRole('button', { name: 'Save' }).click();
+ 
+
+  // check in customer portal 
+  
+  await page.goto("https://strgerpcuswebinddev.z29.web.core.windows.net/profile-detail/");
+    await page.getByRole('textbox', { name: 'Email' }).click();
+    await page.getByRole('textbox', { name: 'Email' }).fill('akbk6551+1140@gmail.com');
+    await page.getByRole('textbox', { name: 'Password' }).click();
+    await page.getByRole('textbox', { name: 'Password' }).fill('India@123');
+    await page.getByRole('checkbox', { name: 'I accept the Terms and' }).check();
+    await page.getByRole('button', { name: 'Login' }).click();
+    await page.getByRole('link', { name: 'Profile' }).click();
+       await page.getByRole('link', { name: 'Invoices' }).click();
+       await page.waitForTimeout(3000);
+       if(await page.getByText('PENDING PAYMENT').first().isVisible()){
+        console.log("Internal Job in Engineer portal is visible");
+
+        await page.screenshot({ path: `./${screenshotPath}/checkCreateInvoiceInCustomerPortal.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkCreateInvoiceInCustomerPortal","true",`./${screenshotPath}/checkCreateInvoiceInCustomerPortal.png`)
+       }else{
+        console.log("Internal Job in Engineer portal is not visible");
+      
+        await page.screenshot({ path: `./${screenshotPath}/checkCreateInvoiceInCustomerPortal.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkCreateInvoiceInCustomerPortal","false",`./${screenshotPath}/checkCreateInvoiceInCustomerPortal.png`)
+      }
+      await page.locator('button').nth(5).click();
+      await page.getByRole('button', { name: 'Paid', exact: true }).click();
+      if(await page.getByText('PAID').first().isVisible()){
+        console.log("Internal Job in Engineer portal is visible");
+        await page.screenshot({ path: `./${screenshotPath}/paidInvoiceInCustomerPortal.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"paidInvoiceInCustomerPortal","true",`./${screenshotPath}/paidInvoiceInCustomerPortal.png`)
+     
+       }else{
+        console.log("Internal Job in Engineer portal is not visible");
+      
+        await page.screenshot({ path: `./${screenshotPath}/paidInvoiceInCustomerPortal.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"paidInvoiceInCustomerPortal","false",`./${screenshotPath}/paidInvoiceInCustomerPortal.png`)
+      }
+       
+    await page.waitForTimeout(2000);
+     console.log("Going back to company portal...");
+    await page.goto("https://strgerpcmpwebinddev.z29.web.core.windows.net/");
+    console.log("Company portal login completed");
+
+// 5th invoice create
+await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Customers' }).click();
-  await page.getByText('Jony Rathor').first().click();
-
   await page.waitForTimeout(1000);
- await page.getByRole('tab', { name: 'Invoice' }).click();
- await page.waitForTimeout(1000);
-//1st Invoice create
-
-  await page.getByRole('link', { name: 'Add Invoice' }).click();
+  await page.getByText('Arjun Singh').first().click();
 await page.waitForTimeout(1000);
-
-
-  await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
-  await page.getByRole('checkbox', { name: 'UPI Transfer' }).check();
-  await page.getByRole('combobox').first().click();
-  await page.getByRole('option', { name: 'Smart watch charger' }).click();
-  await page.getByRole('button', { name: 'Add Item' }).click();
-  await page.getByRole('combobox').nth(1).click();
-  await page.getByRole('option', { name: 'Tourch charger' }).click();
-  // await page.getByRole('button', { name: 'Add Item' }).click();
-  // await page.getByRole('combobox').nth(2).click();
-  // await page.getByRole('combobox').nth(2).fill('fuse');
-  // await page.locator('input[name="products.2.price"]').click();
-  // await page.locator('input[name="products.2.price"]').fill('0120');
-  // await page.locator('input[name="products.2.discount"]').click();
-  // await page.locator('input[name="products.2.discount"]').fill('090');
-  // await page.locator('textarea[name="products.2.description"]').click();
-  // await page.locator('textarea[name="products.2.description"]').fill('fuseD');
-  // await page.locator('textarea[name="products.2.hsnCode"]').click();
-  // await page.locator('textarea[name="products.2.hsnCode"]').fill('12345');
-  await page.locator('textarea[name="note"]').click();
-  await page.waitForTimeout(1000);
-  await page.locator('textarea[name="note"]').fill('Invoice Notes ,aCreated');
-  await page.getByRole('button', { name: 'Save' }).click();
-
-
-//2nd invoice create
-
-
-  await page.waitForTimeout(1000);
- await page.getByRole('tab', { name: 'Invoice' }).click();
- await page.waitForTimeout(1000);
-  await page.getByRole('link', { name: 'Add Invoice' }).click();
-
-  await page.waitForTimeout(1000);
-
-  await page.getByRole('combobox', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
-  await page.getByRole('combobox').first().click();
-  await page.getByRole('option', { name: 'Wifi charger' }).click();
-  await page.getByRole('button', { name: 'Save' }).click();
-
-
-
-//3rd invoice create
-
-  await page.waitForTimeout(1000);
  await page.getByRole('tab', { name: 'Invoice' }).click();
  await page.waitForTimeout(1000);
   await page.getByRole('link', { name: 'Add Invoice' }).click();
    await page.waitForTimeout(1000);
     await page.locator('div').filter({ hasText: /^Address$/ }).click();
-  await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
    await page.waitForTimeout(1000);
   await page.locator('.MuiInputBase-root.MuiOutlinedInput-root').first().click();
-  await page.getByRole('option', { name: 'Wifi charger' }).click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
 
@@ -147,30 +231,30 @@ async function sendInvoices(page) {
   }
  
  
+   await page.getByRole('button', { name: 'Back to list' }).click();
   console.log('send invoice completed');
 }
 
 
 async function editInvoices(page){
   console.log('Enter in edit invoice');
+ await page.getByRole('tab', { name: 'Invoice' }).click();
     await page.locator('body tr:nth-of-type(1) td:nth-of-type(8) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Edit' }).click();
     await page.waitForTimeout(1000);
-  await page.getByRole('button', { name: 'Add Item' }).click();
-  await page.getByRole('combobox').nth(1).click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Laptop charger' }).click();
+   await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(2).click();
+  await page.getByRole('option', { name: 'EV charger' }).click();
   await page.locator('textarea[name="note"]').click();
   await page.locator('textarea[name="note"]').fill('Invoice Notes ,aEdited');
   await page.getByRole('button', { name: 'Update' }).click();
-  await page.getByRole('button', { name: 'Back to list' }).click();
   await page.waitForTimeout(1000);
     // await page.getByText('PENDING PAYMENT').first().click();
 
 
 
   await page.waitForTimeout(1000);
-  if (await page.getByRole('cell', { name: 'Laptop charger' }).first().isVisible())  
+  if (await page.getByRole('Invoice updated successfully').first().isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/editInvoices.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"editInvoices","true",`./${screenshotPath}/editInvoices.png`)

@@ -30,12 +30,12 @@ export async function loginRight(page){
 
 export async function loginCustomerPortal(page){
   
-  await page.goto("https://erp-customer-web-b6dretg6gbercne0.z01.azurefd.net/");
+  await page.goto("https://strgerpcuswebinddev.z29.web.core.windows.net/profile-detail/");
 
   await page.getByRole('textbox', { name: 'Email' }).click();
-  await page.getByRole('textbox', { name: 'Email' }).fill('akbk6551+0028@gmail.com');
+  await page.getByRole('textbox', { name: 'Email' }).fill('akbk6551+1140@gmail.com');
   await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill('Anshil@123');
+  await page.getByRole('textbox', { name: 'Password' }).fill('India@123');
   await page.getByRole('checkbox', { name: 'I accept the Terms and' }).check();
   await page.getByRole('button', { name: 'Login' }).click();
   await page.getByRole('link', { name: 'Profile' }).click();

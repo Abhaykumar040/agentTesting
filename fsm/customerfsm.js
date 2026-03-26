@@ -1141,6 +1141,28 @@ async function jobCreateFsmCustomerCommercial(page){
       await page.screenshot({ path: `./${screenshotPath}/jobCreateFsmCustomerCommercial.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"jobCreateFsmCustomerCommercial","false",`./${screenshotPath}/jobCreateFsmCustomerCommercial.png`)
     }
+
+    // check in engineer portal 
+       await loginEngineerPortal(page);
+       if(await page.getByText('Installation5').first().isVisible()){
+        console.log("Internal Job in Engineer portal is visible");
+        await page.screenshot({ path: `./${screenshotPath}/checkInternalJobInFsmCustomer.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkInternalJobInFsmCustomer","true",`./${screenshotPath}/checkInternalJobInFsmCustomer.png`)
+     
+       }else{
+        console.log("Internal Job in Engineer portal is not visible");
+      
+        await page.screenshot({ path: `./${screenshotPath}/checkInternalJobInFsmCustomer.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkInternalJobInFsmCustomer","false",`./${screenshotPath}/checkInternalJobInFsmCustomer.png`)
+      
+        
+       }
+       
+    await page.waitForTimeout(3000);
+     console.log("Going back to company portal...");
+    // await loginRight(page);
+    await page.goto("https://strgerpcmpwebinddev.z29.web.core.windows.net/");
+    console.log("Company portal login completed");
     await page.reload();
   console.log('job create fsm customer completed');
 }
@@ -1203,6 +1225,29 @@ async function jobCreateFsmCustomerIndividual(page){
       await page.screenshot({ path: `./${screenshotPath}/jobCreateFsmCustomerIndividual.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"jobCreateFsmCustomerIndividual","false",`./${screenshotPath}/jobCreateFsmCustomerIndividual.png`)
     }
+
+    // check in engineer portal 
+       await loginEngineerPortal(page);
+       if(await page.getByText('Installation5').first().isVisible()){
+        console.log("Internal Job in Engineer portal is visible");
+        await page.screenshot({ path: `./${screenshotPath}/checkInternalJobIndividualInFsmCustomer.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkInternalJobIndividualInFsmCustomer","true",`./${screenshotPath}/checkInternalJobIndividualInFsmCustomer.png`)
+     
+       }else{
+        console.log("Internal Job in Engineer portal is not visible");
+      
+        await page.screenshot({ path: `./${screenshotPath}/checkInternalJobIndividualInFsmCustomer.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkInternalJobIndividualInFsmCustomer","false",`./${screenshotPath}/checkInternalJobIndividualInFsmCustomer.png`)
+      
+        
+       }
+       
+    await page.waitForTimeout(3000);
+     console.log("Going back to company portal...");
+    // await loginRight(page);
+    await page.goto("https://strgerpcmpwebinddev.z29.web.core.windows.net/");
+    console.log("Company portal login completed");
+
     await page.reload();
   console.log('job create fsm customer completed');
 }

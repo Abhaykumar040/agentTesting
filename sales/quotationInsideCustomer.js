@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
+import { loginCustomerPortal } from '../tests/login';
 
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
@@ -12,28 +13,28 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 export async function quotationInsideCustomer(page){
 
-  // await createQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await approveQuotation(page);
-  // await page.waitForTimeout(3000);
-  //   await acceptQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await rejectQuotation(page);
+  await createQuotation(page);
+  await page.waitForTimeout(3000);
+  await approveQuotation(page);
+  await page.waitForTimeout(3000);
+    await acceptQuotation(page);
+  await page.waitForTimeout(3000);
+  await rejectQuotation(page);
 
-  // await page.waitForTimeout(3000);
-  // await copyQuotation(page);
-  //   await page.waitForTimeout(3000);
-  // await rejectedByCustomerQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await sendQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await editQuotation(page);
+  await page.waitForTimeout(3000);
+  await copyQuotation(page);
+    await page.waitForTimeout(3000);
+  await rejectedByCustomerQuotation(page);
+  await page.waitForTimeout(3000);
+  await sendQuotation(page);
+  await page.waitForTimeout(3000);
+  await editQuotation(page);
 
 
-  // await page.waitForTimeout(3000);
-  // await reciptDownloadQuotation(page);
+  await page.waitForTimeout(3000);
+  await reciptDownloadQuotation(page);
 
-  //  await page.waitForTimeout(3000);
+   await page.waitForTimeout(3000);
   await verifyQuotationInsideCustomer(page);
   // await deleteQuotation(page);
 }
@@ -41,13 +42,13 @@ export async function quotationInsideCustomer(page){
 
 
 
-async function createQuotation(page){
+async function   createQuotation(page){
   console.log('Enter in create quotation');
  //1st Quotation create
   await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Customers' }).click();
   await page.waitForTimeout(1000);
-  await page.getByText('Jony Rathor').first().click();
+  await page.getByText('Arjun Singh').first().click();
   await page.getByRole('tab', { name: 'Quotation' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
 
@@ -55,7 +56,7 @@ async function createQuotation(page){
   
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
   await page.getByRole('button', { name: 'Add Item' }).click();
@@ -84,11 +85,11 @@ async function createQuotation(page){
   await page.getByRole('combobox', { name: 'Address' }).click();
   
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('checkbox', { name: 'Notes' }).uncheck();
   await page.getByRole('checkbox', { name: 'Terms and Conditions' }).uncheck();
   await page.getByRole('combobox').first().click();
-  await page.getByRole('option', { name: 'Wifi charger' }).click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
    await page.waitForTimeout(1000);
 
@@ -100,20 +101,181 @@ async function createQuotation(page){
   await page.getByRole('combobox', { name: 'Address' }).click();
    
   await page.waitForTimeout(1000);
-   await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'EV charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
    await page.waitForTimeout(1000);
+  
 
 
    //4rth Quotation create
+   await page.getByRole('tab', { name: 'Quotation' }).click();
+  await page.getByRole('link', { name: 'Add Quotation' }).click();
+
+  await page.waitForTimeout(1000);
+  
+  await page.getByRole('combobox', { name: 'Address' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
+  await page.getByRole('combobox').first().click();
+  await page.getByRole('option', { name: 'Smart watch charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(1).click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(2).click();
+  await page.getByRole('combobox').nth(2).fill('fuse');
+  await page.locator('input[name="products.2.price"]').click();
+  await page.locator('input[name="products.2.price"]').fill('0100');
+  await page.locator('input[name="products.2.discount"]').click();
+  await page.locator('input[name="products.2.discount"]').fill('050');
+  await page.locator('textarea[name="products.2.description"]').click();
+  await page.locator('textarea[name="products.2.description"]').fill('NoDes');
+  await page.locator('textarea[name="products.2.hsnCode"]').click();
+  await page.locator('textarea[name="products.2.hsnCode"]').fill('1123');
+  await page.getByRole('textbox', { name: 'Note:' }).click();
+  await page.getByRole('button', { name: 'Save' }).click();
+   await page.waitForTimeout(1000);
+    await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+  await page.getByRole('menuitem', { name: 'Approve' }).click();
+
+
+  //  5th quotation
+  // await page.getByRole('tab', { name: 'Quotation' }).click();
+  await page.getByRole('link', { name: 'Add Quotation' }).click();
+
+  await page.waitForTimeout(1000);
+  
+  await page.getByRole('combobox', { name: 'Address' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
+  await page.getByRole('combobox').first().click();
+  await page.getByRole('option', { name: 'Smart watch charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(1).click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(2).click();
+  await page.getByRole('combobox').nth(2).fill('fuse');
+  await page.locator('input[name="products.2.price"]').click();
+  await page.locator('input[name="products.2.price"]').fill('0100');
+  await page.locator('input[name="products.2.discount"]').click();
+  await page.locator('input[name="products.2.discount"]').fill('050');
+  await page.locator('textarea[name="products.2.description"]').click();
+  await page.locator('textarea[name="products.2.description"]').fill('NoDes');
+  await page.locator('textarea[name="products.2.hsnCode"]').click();
+  await page.locator('textarea[name="products.2.hsnCode"]').fill('1123');
+  await page.getByRole('textbox', { name: 'Note:' }).click();
+  await page.getByRole('button', { name: 'Save' }).click();
+    await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+  await page.getByRole('menuitem', { name: 'Approve' }).click();
+  
+  // check in customer portal 
+     await loginCustomerPortal(page);
+     await page.getByRole('link', { name: 'Quotation' }).click();
+     if(await page.getByText('PENDING APPROVAL').first().isVisible()){
+      console.log("Internal Job in Engineer portal is visible");
+      await page.screenshot({ path: `./${screenshotPath}/checkCreateQuotationInCustomerPortal.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"checkCreateQuotationInCustomerPortal","true",`./${screenshotPath}/checkCreateQuotationInCustomerPortal.png`)
+   
+     }else{
+      console.log("Internal Job in Engineer portal is not visible");
+    
+      await page.screenshot({ path: `./${screenshotPath}/checkCreateQuotationInCustomerPortal.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"checkCreateQuotationInCustomerPortal","false",`./${screenshotPath}/checkCreateQuotationInCustomerPortal.png`)
+    }
+    await page.waitForTimeout(3000);
+    await page.getByRole('table').getByRole('button').filter({ hasText: /^$/ }).click();
+    await page.getByRole('button', { name: 'Accept' }).click();
+    if(await page.getByText('ACCEPTED').first().isVisible()){
+      console.log("Internal Job in Engineer portal is visible");
+      await page.screenshot({ path: `./${screenshotPath}/acceptQuotationInCustomerPortal.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"acceptQuotationInCustomerPortal","true",`./${screenshotPath}/acceptQuotationInCustomerPortal.png`)
+   
+     }else{
+      console.log("Internal Job in Engineer portal is not visible");
+    
+      await page.screenshot({ path: `./${screenshotPath}/acceptQuotationInCustomerPortal.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"acceptQuotationInCustomerPortal","false",`./${screenshotPath}/acceptQuotationInCustomerPortal.png`)
+    }
+     
+  await page.waitForTimeout(2000);
+   console.log("Going back to company portal...");
+  await page.goto("https://strgerpcmpwebinddev.z29.web.core.windows.net/");
+  console.log("Company portal login completed");
+
+  //  6th 
+   await page.getByRole('tab', { name: 'Quotation' }).click();
+  await page.getByRole('link', { name: 'Add Quotation' }).click();
+
+  await page.waitForTimeout(1000);
+  
+  await page.getByRole('combobox', { name: 'Address' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
+  await page.getByRole('combobox').first().click();
+  await page.getByRole('option', { name: 'Smart watch charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(1).click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(2).click();
+  await page.getByRole('combobox').nth(2).fill('fuse');
+  await page.locator('input[name="products.2.price"]').click();
+  await page.locator('input[name="products.2.price"]').fill('0100');
+  await page.locator('input[name="products.2.discount"]').click();
+  await page.locator('input[name="products.2.discount"]').fill('050');
+  await page.locator('textarea[name="products.2.description"]').click();
+  await page.locator('textarea[name="products.2.description"]').fill('NoDes');
+  await page.locator('textarea[name="products.2.hsnCode"]').click();
+  await page.locator('textarea[name="products.2.hsnCode"]').fill('1123');
+  await page.getByRole('textbox', { name: 'Note:' }).click();
+  await page.getByRole('button', { name: 'Save' }).click();
+   await page.waitForTimeout(1000);
+    await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+  await page.getByRole('menuitem', { name: 'Approve' }).click();
+   await page.locator('body tr:nth-of-type(3) td:nth-of-type(7) div button:last-of-type svg').click();
+  await page.getByRole('menuitem', { name: 'Accept' }).click();
+
+// 7th
+   await page.getByRole('tab', { name: 'Quotation' }).click();
+  await page.getByRole('link', { name: 'Add Quotation' }).click();
+
+  await page.waitForTimeout(1000);
+  
+  await page.getByRole('combobox', { name: 'Address' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
+  await page.getByRole('combobox').first().click();
+  await page.getByRole('option', { name: 'Smart watch charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(1).click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
+  await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(2).click();
+  await page.getByRole('combobox').nth(2).fill('fuse');
+  await page.locator('input[name="products.2.price"]').click();
+  await page.locator('input[name="products.2.price"]').fill('0100');
+  await page.locator('input[name="products.2.discount"]').click();
+  await page.locator('input[name="products.2.discount"]').fill('050');
+  await page.locator('textarea[name="products.2.description"]').click();
+  await page.locator('textarea[name="products.2.description"]').fill('NoDes');
+  await page.locator('textarea[name="products.2.hsnCode"]').click();
+  await page.locator('textarea[name="products.2.hsnCode"]').fill('1123');
+  await page.getByRole('textbox', { name: 'Note:' }).click();
+  await page.getByRole('button', { name: 'Save' }).click();
+   await page.waitForTimeout(1000);
+    await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+  await page.getByRole('menuitem', { name: 'Approve' }).click();
+
+// 8th
     await page.getByRole('tab', { name: 'Quotation' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
   await page.waitForTimeout(1000);
   await page.locator('div').filter({ hasText: /^Address$/ }).click();
     await page.waitForTimeout(500);
-   await page.getByRole('option', { name: 'Khamaria Market Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'EV charger' }).click();
   await page.locator('input[name="products.0.discount"]').click();

@@ -7,8 +7,8 @@ const db = await getDB();
 
 // const companyId="697e06823ff7f87c11b04575";
 // const company = new ObjectId("697e06823ff7f87c11b04575");
-const companyId="68dcfc116e4e85ccbf65b2f1";
-const company = new ObjectId("68dcfc116e4e85ccbf65b2f1");
+const companyId="697e06823ff7f87c11b04575";
+const company = new ObjectId("697e06823ff7f87c11b04575");
 const type = "agent";
 
 // const user = await db.collection("users").findOne({
@@ -68,12 +68,12 @@ const type = "agent";
 // );
 // console.log("queue",queue.matchedCount, queue.modifiedCount);
 
-const teams = await db.collection("teams").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set: { status: 3 } }
-);
-console.log("teams",teams.matchedCount, teams.modifiedCount);
+// const teams = await db.collection("teams").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set: { status: 3 } }
+// );
+// console.log("teams",teams.matchedCount, teams.modifiedCount);
 
 // const faq = await db.collection("faqs").updateMany(
 //   {  company:companyId,
@@ -99,21 +99,21 @@ console.log("teams",teams.matchedCount, teams.modifiedCount);
 // console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
 
 
-const quotation = await db.collection("quotations").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set:{ status: 3 } }
-);
-console.log("quotation",quotation.matchedCount, quotation.modifiedCount);
+// const quotation = await db.collection("quotations").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set:{ status: 3 } }
+// );
+// console.log("quotation",quotation.matchedCount, quotation.modifiedCount);
 
 
 
-const zone = await db.collection("zones").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set:{ status: 3 } }
-);
-console.log("zone",zone.matchedCount, zone.modifiedCount);
+// const zone = await db.collection("zones").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set:{ status: 3 } }
+// );
+// console.log("zone",zone.matchedCount, zone.modifiedCount);
 
 
 
@@ -135,3 +135,10 @@ console.log("zone",zone.matchedCount, zone.modifiedCount);
 
 
 // console.log("agent updated:", u4.matchedCount);
+
+
+const userVerification = await db.collection("users").updateMany(
+  {  company:company,
+  type:"customer" },
+  { $set:{ verified: true ,isDefaultPass:false} }
+);

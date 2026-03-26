@@ -62,7 +62,7 @@
   "./screenshot/parent/form/": {
     "addForm": {
       "path": "./screenshot/parent/form/addForm.png",
-      "note": "false"
+      "note": "true"
     },
     "editForm": {
       "path": "./screenshot/parent/form/editForm.png",
@@ -166,7 +166,7 @@
     },
     "editformCustomization2": {
       "path": "./screenshot/parent/formCustomization/editformCustomization2.png",
-      "note": "false"
+      "note": "true"
     },
     "editformCustomization3": {
       "path": "./screenshot/parent/formCustomization/editformCustomization3.png",
@@ -302,11 +302,11 @@
     },
     "rejectedByCustomerQuotation": {
       "path": "./screenshot/parent/quotation/rejectedByCustomerQuotation.png",
-      "note": "true"
+      "note": "false"
     },
     "sendQuotation": {
       "path": "./screenshot/parent/quotation/sendQuotation.png",
-      "note": "false"
+      "note": "true"
     },
     "editQuotationRejected": {
       "path": "./screenshot/parent/quotation/editQuotationRejected.png",
@@ -327,6 +327,10 @@
     "verifyQuotationInsideCustomer": {
       "path": "./screenshot/parent/quotation/verifyQuotationInsideCustomer.png",
       "note": "true"
+    },
+    "checkCreateQuotationInCustomerPortal": {
+      "path": "./screenshot/parent/quotation/checkCreateQuotationInCustomerPortal.png",
+      "note": "false"
     }
   },
   "./screenshot/parent/invoices/": {
@@ -348,13 +352,29 @@
     },
     "editInvoices": {
       "path": "./screenshot/parent/invoices/editInvoices.png",
-      "note": "false"
+      "note": "true"
+    },
+    "checkCreateInvoiceInCustomerPortal": {
+      "path": "./screenshot/parent/invoices/checkCreateInvoiceInCustomerPortal.png",
+      "note": "true"
+    },
+    "paidInvoiceInCustomerPortal": {
+      "path": "./screenshot/parent/invoices/paidInvoiceInCustomerPortal.png",
+      "note": "true"
     }
   },
   "./screenshot/parent/cs-agent/": {
     "emailVarifiedInCSAgent": {
       "path": "./screenshot/parent/cs-agent/emailVarifiedInCSAgent.png",
       "note": "false"
+    },
+    "addCSAgent": {
+      "path": "./screenshot/parent/cs-agent/addCSAgent.png",
+      "note": "true"
+    },
+    "addRoleInCSAgent": {
+      "path": "./screenshot/parent/cs-agent/addRoleInCSAgent.png",
+      "note": "true"
     }
   },
   "./screenshot/parent/team/": {
@@ -366,7 +386,7 @@
   "./screenshot/parent/customerinC_Service/": {
     "emailCustomerInC_Service": {
       "path": "./screenshot/parent/customerinC_Service/emailCustomerInC_Service.png",
-      "note": "false"
+      "note": "true"
     },
     "editCustomerInC_Service(Address)": {
       "path": "./screenshot/parent/customerinC_Service/editCustomerInC_Service(Address).png",
@@ -386,6 +406,38 @@
     },
     "exportExcelCustomerInC_ServiceNormal": {
       "path": "./screenshot/parent/customerinC_Service/exportExcelCustomerInC_ServiceNormal.png",
+      "note": "true"
+    },
+    "exportExelCustomerFilter1": {
+      "path": "./screenshot/parent/customerinC_Service/exportExelCustomerFilter1.png",
+      "note": "true"
+    },
+    "exportPdfCustomerFilter2": {
+      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter2.png",
+      "note": "false"
+    },
+    "exportExelCustomerFilter3": {
+      "path": "./screenshot/parent/customerinC_Service/exportExelCustomerFilter3.png",
+      "note": "false"
+    },
+    "exportPdfCustomerFilter4": {
+      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter4.png",
+      "note": "false"
+    },
+    "exportExelCustomerFilter5": {
+      "path": "./screenshot/parent/customerinC_Service/exportExelCustomerFilter5.png",
+      "note": "true"
+    },
+    "exportPdfCustomerFilter6": {
+      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter6.png",
+      "note": "true"
+    },
+    "exportExelCustomerFilter7": {
+      "path": "./screenshot/parent/customerinC_Service/exportExelCustomerFilter7.png",
+      "note": "true"
+    },
+    "exportPdfCustomerFilter8": {
+      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter8.png",
       "note": "true"
     }
   },
@@ -411,6 +463,26 @@
     "exportExcelInTicketsNormal": {
       "path": "./screenshot/parent/ticket/exportExcelInTicketsNormal.png",
       "note": "false"
+    },
+    "exportExcelInTicketFilter": {
+      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter.png",
+      "note": "false"
+    },
+    "exportExcelInTicketFilter1": {
+      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter1.png",
+      "note": "true"
+    },
+    "exportExcelInTicketFilter2": {
+      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter2.png",
+      "note": "false"
+    },
+    "exportExcelInTicketFilter3": {
+      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter3.png",
+      "note": "true"
+    },
+    "exportExcelInTicketFilter4": {
+      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter4.png",
+      "note": "true"
     }
   },
   "./screenshot/parent/jobType/": {
@@ -442,7 +514,7 @@
     },
     "addressCreateFsmCustomerIndividual": {
       "path": "./screenshot/parent/customerfsm/addressCreateFsmCustomerIndividual.png",
-      "note": "false"
+      "note": "true"
     },
     "cyclicJobCreateFsmCustomer": {
       "path": "./screenshot/parent/customerfsm/cyclicJobCreateFsmCustomer.png",
@@ -483,6 +555,16 @@
     "createInternalJob": {
       "path": "./screenshot/parent/internlJob/createInternalJob.png",
       "note": "true"
+    },
+    "exportInternalJObNormal": {
+      "path": "./screenshot/parent/internlJob/exportInternalJObNormal.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/setting/": {
+    "slaSetting": {
+      "path": "./screenshot/parent/setting/slaSetting.png",
+      "note": "false"
     }
   }
 }

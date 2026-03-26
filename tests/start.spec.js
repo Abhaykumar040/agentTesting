@@ -40,7 +40,7 @@ test.beforeAll(async () => {
   const rawData = await fs.readFile('./data.json', 'utf8');
   testData = JSON.parse(rawData);
 });
-test('basic test', async ({ page }) => {
+test('basic test', async ({ page }) => { 
 await loginRight(page);
 // await companySetup(page);
 // await formCustomization(page);
@@ -61,9 +61,9 @@ await loginRight(page);
 // await lead(page);
 // await customer(page);
 // await Quotation(page);
-// await quotationInsideCustomer(page);
+await quotationInsideCustomer(page);
 // await Invoices(page);
-// await invoicesInsideCustomer(page);
+await invoicesInsideCustomer(page);
 
 
 // await cs_agent(page);
@@ -78,7 +78,7 @@ await loginRight(page);
 // await jobType(page);
 // await customerfsm(page);
 // await AssetManagement(page);
-await internalJob(page);
+// await internalJob(page);
 // await cyclicJob(page);
 // await dashboard(page);
 

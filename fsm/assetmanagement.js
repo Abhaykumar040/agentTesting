@@ -18,9 +18,15 @@ export async function AssetManagement(page) {
   await page.waitForTimeout(3000);
   await createChildAssetManagement(page);
   await page.waitForTimeout(3000);
+  await createJobsInsideAssetManagement(page);
+  await page.waitForTimeout(3000);
   await editAssetManagement(page);
   await page.waitForTimeout(3000);
   await deleteAssetManagement(page);
+}
+
+async function createJobsInsideAssetManagement(page) {
+  
 }
 
 async function createAssetManagement(page) {
