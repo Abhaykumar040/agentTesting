@@ -342,11 +342,11 @@
     },
     "rejectedByCustomerQuotation": {
       "path": "./screenshot/parent/quotation/rejectedByCustomerQuotation.png",
-      "note": "true"
+      "note": "false"
     },
     "sendQuotation": {
       "path": "./screenshot/parent/quotation/sendQuotation.png",
-      "note": "false"
+      "note": "true"
     },
     "editQuotationRejected": {
       "path": "./screenshot/parent/quotation/editQuotationRejected.png",
@@ -370,46 +370,6 @@
     },
     "checkCreateQuotationInCustomerPortal": {
       "path": "./screenshot/parent/quotation/checkCreateQuotationInCustomerPortal.png",
-      "note": "false"
-    },
-    "exportExcelQuotationNormal": {
-      "path": "./screenshot/parent/quotation/exportExcelQuotationNormal.png",
-      "note": "false"
-    },
-    "exportPDFQuotationNormal": {
-      "path": "./screenshot/parent/quotation/exportPDFQuotationNormal.png",
-      "note": "false"
-    },
-    "exportExcelQuoationFilter1": {
-      "path": "./screenshot/parent/quotation/exportExcelQuoationFilter1.png",
-      "note": "true"
-    },
-    "exportPDFQuotationFilter1": {
-      "path": "./screenshot/parent/quotation/exportPDFQuotationFilter1.png",
-      "note": "true"
-    },
-    "exportExcelQuotationFilter2": {
-      "path": "./screenshot/parent/quotation/exportExcelQuotationFilter2.png",
-      "note": "true"
-    },
-    "exportPDFQuotationFilter2": {
-      "path": "./screenshot/parent/quotation/exportPDFQuotationFilter2.png",
-      "note": "true"
-    },
-    "exportExcelQuotationFilter3": {
-      "path": "./screenshot/parent/quotation/exportExcelQuotationFilter3.png",
-      "note": "false"
-    },
-    "exportPDFQuotationFilter3": {
-      "path": "./screenshot/parent/quotation/exportPDFQuotationFilter3.png",
-      "note": "false"
-    },
-    "exportExcelQuotationFilter4": {
-      "path": "./screenshot/parent/quotation/exportExcelQuotationFilter4.png",
-      "note": "false"
-    },
-    "exportPDFQuotationFilter4": {
-      "path": "./screenshot/parent/quotation/exportPDFQuotationFilter4.png",
       "note": "false"
     }
   },
@@ -441,30 +401,6 @@
     "paidInvoiceInCustomerPortal": {
       "path": "./screenshot/parent/invoices/paidInvoiceInCustomerPortal.png",
       "note": "true"
-    },
-    "exportExcelInvoiceFilter1": {
-      "path": "./screenshot/parent/invoices/exportExcelInvoiceFilter1.png",
-      "note": "false"
-    },
-    "exportPdfInvoiceFilter1": {
-      "path": "./screenshot/parent/invoices/exportPdfInvoiceFilter1.png",
-      "note": "false"
-    },
-    "exportExcelInvoiceFilter2": {
-      "path": "./screenshot/parent/invoices/exportExcelInvoiceFilter2.png",
-      "note": "false"
-    },
-    "exportPdfInvoiceFilter2": {
-      "path": "./screenshot/parent/invoices/exportPdfInvoiceFilter2.png",
-      "note": "false"
-    },
-    "exportExcelInvoiceFilter3": {
-      "path": "./screenshot/parent/invoices/exportExcelInvoiceFilter3.png",
-      "note": "false"
-    },
-    "exportPdfInvoiceFilter3": {
-      "path": "./screenshot/parent/invoices/exportPdfInvoiceFilter3.png",
-      "note": "false"
     }
   },
   "./screenshot/parent/cs-agent/": {
@@ -518,15 +454,15 @@
     },
     "exportPdfCustomerFilter2": {
       "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter2.png",
-      "note": "true"
+      "note": "false"
     },
     "exportExelCustomerFilter3": {
       "path": "./screenshot/parent/customerinC_Service/exportExelCustomerFilter3.png",
-      "note": "true"
+      "note": "false"
     },
     "exportPdfCustomerFilter4": {
       "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter4.png",
-      "note": "true"
+      "note": "false"
     },
     "exportExelCustomerFilter5": {
       "path": "./screenshot/parent/customerinC_Service/exportExelCustomerFilter5.png",
@@ -538,11 +474,11 @@
     },
     "exportExelCustomerFilter7": {
       "path": "./screenshot/parent/customerinC_Service/exportExelCustomerFilter7.png",
-      "note": "false"
+      "note": "true"
     },
     "exportPdfCustomerFilter8": {
       "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter8.png",
-      "note": "false"
+      "note": "true"
     }
   },
   "./screenshot/parent/Queues/": {
@@ -570,7 +506,7 @@
     },
     "exportExcelInTicketFilter": {
       "path": "./screenshot/parent/ticket/exportExcelInTicketFilter.png",
-      "note": "true"
+      "note": "false"
     },
     "exportExcelInTicketFilter1": {
       "path": "./screenshot/parent/ticket/exportExcelInTicketFilter1.png",
@@ -578,7 +514,7 @@
     },
     "exportExcelInTicketFilter2": {
       "path": "./screenshot/parent/ticket/exportExcelInTicketFilter2.png",
-      "note": "true"
+      "note": "false"
     },
     "exportExcelInTicketFilter3": {
       "path": "./screenshot/parent/ticket/exportExcelInTicketFilter3.png",
@@ -643,46 +579,6 @@
     "jobCreateFsmCustomerIndividual": {
       "path": "./screenshot/parent/customerfsm/jobCreateFsmCustomerIndividual.png",
       "note": "true"
-    },
-    "exportExelCustomerNormal": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerNormal.png",
-      "note": "true"
-    },
-    "exportPdfCustomerNormal": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerNormal.png",
-      "note": "true"
-    },
-    "exportExelCustomerFilter1": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter1.png",
-      "note": "true"
-    },
-    "exportPdfCustomerFilter2": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter2.png",
-      "note": "true"
-    },
-    "exportExelCustomerFilter3": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter3.png",
-      "note": "true"
-    },
-    "exportPdfCustomerFilter4": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter4.png",
-      "note": "true"
-    },
-    "exportExelCustomerFilter5": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter5.png",
-      "note": "true"
-    },
-    "exportPdfCustomerFilter6": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter6.png",
-      "note": "true"
-    },
-    "exportExelCustomerFilter7": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter7.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter8": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter8.png",
-      "note": "false"
     }
   },
   "./screenshot/parent/AssetManagement/": {
@@ -702,62 +598,12 @@
     },
     "exportInternalJObNormal": {
       "path": "./screenshot/parent/internlJob/exportInternalJObNormal.png",
-      "note": "false"
-    },
-    "exportExcelInternalJObFilter1": {
-      "path": "./screenshot/parent/internlJob/exportExcelInternalJObFilter1.png",
       "note": "true"
-    },
-    "exportPdfInternalJObFilter1": {
-      "path": "./screenshot/parent/internlJob/exportPdfInternalJObFilter1.png",
-      "note": "false"
-    },
-    "exportExcelInternalJObFilter2": {
-      "path": "./screenshot/parent/internlJob/exportExcelInternalJObFilter2.png",
-      "note": "true"
-    },
-    "exportPdfInternalJObFilter2": {
-      "path": "./screenshot/parent/internlJob/exportPdfInternalJObFilter2.png",
-      "note": "true"
-    },
-    "exportExcelInternalJObFilter3": {
-      "path": "./screenshot/parent/internlJob/exportExcelInternalJObFilter3.png",
-      "note": "false"
-    },
-    "exportPdfInternalJObFilter3": {
-      "path": "./screenshot/parent/internlJob/exportPdfInternalJObFilter3.png",
-      "note": "false"
     }
   },
   "./screenshot/parent/setting/": {
     "slaSetting": {
       "path": "./screenshot/parent/setting/slaSetting.png",
-      "note": "false"
-    }
-  },
-  "./screenshot/parent/lead/": {
-    "exportExcelInTicketsNormal": {
-      "path": "./screenshot/parent/lead/exportExcelInTicketsNormal.png",
-      "note": "true"
-    },
-    "exportExcelInTicketsNormal2": {
-      "path": "./screenshot/parent/lead/exportExcelInTicketsNormal2.png",
-      "note": "false"
-    },
-    "exportExcelInLeadFilterX": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterX.png",
-      "note": "true"
-    },
-    "exportExcelInLeadFilterP": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterP.png",
-      "note": "false"
-    },
-    "exportExcelInLeadFilterStatusX": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatusX.png",
-      "note": "true"
-    },
-    "exportExcelInLeadFilterStatusP": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatusP.png",
       "note": "false"
     }
   }

@@ -1006,6 +1006,7 @@ async function addressCreateFsmCustomerIndividual(page){
   await page.getByRole('link', { name: 'Customers' }).click();
   await page.waitForTimeout(3000);
    await page.getByText('Anil Rathor').first().click();
+   await page.getByText('Anil Rathor').first().click();
     await page.waitForTimeout(1000);
 
     //1st address individual
@@ -1097,6 +1098,7 @@ async function jobCreateFsmCustomerCommercial(page){
     await page.getByRole('button', { name: 'Address' }).click();
     await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Jamnagar' }).first().click();
+  await page.getByRole('option', { name: 'Jamnagar' }).first().click();
   // await page.getByRole('checkbox').check();
   await page.getByRole('button', { name: 'Job Type' }).click();
   await page.waitForTimeout(1000);
@@ -1106,6 +1108,7 @@ async function jobCreateFsmCustomerCommercial(page){
   await page.getByRole('textbox', { name: 'Job Description' }).fill('Installation');
   await page.getByRole('button', { name: 'Priority' }).click();
   await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Medium - Medium installation' }).click();
   await page.getByRole('option', { name: 'Medium - Medium installation' }).click();
   await page.getByRole('textbox', { name: 'Comments' }).click();
   await page.waitForTimeout(1000);
@@ -1122,7 +1125,9 @@ async function jobCreateFsmCustomerCommercial(page){
   await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
   await page.getByText('13:00').click();
    await page.getByRole('radio', { name: 'Engineer' }).check();
+   await page.getByRole('radio', { name: 'Engineer' }).check();
   await page.getByRole('button', { name: 'Engineer' }).click();
+  await page.getByRole('option', { name: 'suhani singh' }).click();
   await page.getByRole('option', { name: 'suhani singh' }).click();
   await page.getByRole('button', { name: '+ Add Skill' }).click();
   await page.getByRole('button', { name: 'Skill', exact: true }).click();
@@ -1144,6 +1149,28 @@ async function jobCreateFsmCustomerCommercial(page){
       await page.screenshot({ path: `./${screenshotPath}/jobCreateFsmCustomerCommercial.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"jobCreateFsmCustomerCommercial","false",`./${screenshotPath}/jobCreateFsmCustomerCommercial.png`)
     }
+
+    // check in engineer portal 
+       await loginEngineerPortal(page);
+       if(await page.getByText('Installation5').first().isVisible()){
+        console.log("Internal Job in Engineer portal is visible");
+        await page.screenshot({ path: `./${screenshotPath}/checkInternalJobInFsmCustomer.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkInternalJobInFsmCustomer","true",`./${screenshotPath}/checkInternalJobInFsmCustomer.png`)
+     
+       }else{
+        console.log("Internal Job in Engineer portal is not visible");
+      
+        await page.screenshot({ path: `./${screenshotPath}/checkInternalJobInFsmCustomer.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkInternalJobInFsmCustomer","false",`./${screenshotPath}/checkInternalJobInFsmCustomer.png`)
+      
+        
+       }
+       
+    await page.waitForTimeout(3000);
+     console.log("Going back to company portal...");
+    // await loginRight(page);
+    await page.goto("https://strgerpcmpwebinddev.z29.web.core.windows.net/");
+    console.log("Company portal login completed");
 
     // check in engineer portal 
        await loginEngineerPortal(page);
@@ -1206,7 +1233,9 @@ async function jobCreateFsmCustomerIndividual(page){
   await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
   await page.getByText('13:00').click();
    await page.getByRole('radio', { name: 'Engineer' }).check();
+   await page.getByRole('radio', { name: 'Engineer' }).check();
   await page.getByRole('button', { name: 'Engineer' }).click();
+  await page.getByRole('option', { name: 'suhani singh' }).click();
   await page.getByRole('option', { name: 'suhani singh' }).click();
   await page.getByRole('button', { name: '+ Add Skill' }).click();
   await page.getByRole('button', { name: 'Skill', exact: true }).click();
@@ -1251,6 +1280,29 @@ async function jobCreateFsmCustomerIndividual(page){
     await page.goto("https://strgerpcmpwebinddev.z29.web.core.windows.net/");
     console.log("Company portal login completed");
 
+
+    // check in engineer portal 
+       await loginEngineerPortal(page);
+       if(await page.getByText('Installation5').first().isVisible()){
+        console.log("Internal Job in Engineer portal is visible");
+        await page.screenshot({ path: `./${screenshotPath}/checkInternalJobIndividualInFsmCustomer.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkInternalJobIndividualInFsmCustomer","true",`./${screenshotPath}/checkInternalJobIndividualInFsmCustomer.png`)
+     
+       }else{
+        console.log("Internal Job in Engineer portal is not visible");
+      
+        await page.screenshot({ path: `./${screenshotPath}/checkInternalJobIndividualInFsmCustomer.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkInternalJobIndividualInFsmCustomer","false",`./${screenshotPath}/checkInternalJobIndividualInFsmCustomer.png`)
+      
+        
+       }
+       
+    await page.waitForTimeout(3000);
+     console.log("Going back to company portal...");
+    // await loginRight(page);
+    await page.goto("https://strgerpcmpwebinddev.z29.web.core.windows.net/");
+    console.log("Company portal login completed");
+
     await page.reload();
   console.log('job create fsm customer completed');
 }
@@ -1267,6 +1319,7 @@ async function cyclicJobCreateFsmCustomer(page){
   await page.getByRole('textbox', { name: 'Job Title' }).click();
   await page.getByRole('textbox', { name: 'Job Title' }).fill('Installation');
   await page.getByRole('button', { name: 'Address' }).click();
+  await page.getByRole('option', { name: 'Mukundpatti' }).first().click();
   await page.getByRole('option', { name: 'Mukundpatti' }).first().click();
   await page.getByRole('textbox', { name: 'Description' }).click();
   await page.getByRole('textbox', { name: 'Description' }).fill('Installation');
@@ -1362,6 +1415,8 @@ async function documentsUploadFsmCustomer(page){
   // await page.getByRole('button', { name: 'Cancel' }).click();
   console.log('documents Upload fsm customer');
 }
+
+
 
 
 

@@ -103,7 +103,7 @@ async function addNewTickets(page) {
     }
 
    // check in customer portal 
-          await page.goto(data.customerPortal);
+          await page.goto("https://erp-customer-web-b6dretg6gbercne0.z01.azurefd.net/");
           await page.getByRole('link', { name: 'Support Tickets' }).click();
           if(await page.getByText('Power cutoff issue').first().isVisible()){
            console.log("Internal Job in Engineer portal is visible");
@@ -155,8 +155,7 @@ async function editTicket(page){
     await page.reload();
     
     // check in customer portal 
-
-          // await page.goto("https://erp-customer-web-b6dretg6gbercne0.z01.azurefd.net/");
+          await page.goto("https://erp-customer-web-b6dretg6gbercne0.z01.azurefd.net/");
           await page.getByRole('link', { name: 'Support Tickets' }).click();
           if(await page.getByText('doneSupport2').first().isVisible()){
            console.log("Internal Job in Engineer portal is visible");
@@ -172,7 +171,7 @@ async function editTicket(page){
           
        await page.waitForTimeout(2000);
         console.log("Going back to company portal...");
-       await page.goto(data.url);
+       await page.goto("https://strgerpcmpwebinddev.z29.web.core.windows.net/");
        console.log("Company portal login completed");
 }
 

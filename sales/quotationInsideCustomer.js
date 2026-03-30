@@ -14,22 +14,22 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 export async function quotationInsideCustomer(page){
 
-  // await createQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await approveQuotation(page);
-  // await page.waitForTimeout(3000);
-  //   await acceptQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await rejectQuotation(page);
+  await createQuotation(page);
+  await page.waitForTimeout(3000);
+  await approveQuotation(page);
+  await page.waitForTimeout(3000);
+    await acceptQuotation(page);
+  await page.waitForTimeout(3000);
+  await rejectQuotation(page);
 
-  // await page.waitForTimeout(3000);
-  // await copyQuotation(page);
-  //   await page.waitForTimeout(3000);
-  // await rejectedByCustomerQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await sendQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await editQuotation(page);
+  await page.waitForTimeout(3000);
+  await copyQuotation(page);
+    await page.waitForTimeout(3000);
+  await rejectedByCustomerQuotation(page);
+  await page.waitForTimeout(3000);
+  await sendQuotation(page);
+  await page.waitForTimeout(3000);
+  await editQuotation(page);
 
 
   // await page.waitForTimeout(3000);
@@ -360,6 +360,7 @@ async function   createQuotation(page){
   await page.getByRole('link', { name: 'Customers' }).click();
   await page.waitForTimeout(1000);
   await page.getByText('Arjun Singh').first().click();
+  await page.getByText('Arjun Singh').first().click();
   await page.getByRole('tab', { name: 'Quotation' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
 
@@ -367,6 +368,7 @@ async function   createQuotation(page){
   
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
@@ -397,9 +399,11 @@ async function   createQuotation(page){
   
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('checkbox', { name: 'Notes' }).uncheck();
   await page.getByRole('checkbox', { name: 'Terms and Conditions' }).uncheck();
   await page.getByRole('combobox').first().click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
   await page.getByRole('option', { name: 'Tourch charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
    await page.waitForTimeout(1000);
@@ -413,10 +417,12 @@ async function   createQuotation(page){
    
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'EV charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
    await page.waitForTimeout(1000);
+  
   
 
 
@@ -586,6 +592,7 @@ async function   createQuotation(page){
   await page.waitForTimeout(1000);
   await page.locator('div').filter({ hasText: /^Address$/ }).click();
     await page.waitForTimeout(500);
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'EV charger' }).click();

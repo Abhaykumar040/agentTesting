@@ -19,6 +19,8 @@ export async function invoicesInsideCustomer(page){
   // await editInvoices(page);
   // // await page.waitForTimeout(3000);
   // await sendInvoices(page);
+  // // await page.waitForTimeout(3000);
+  // await sendInvoices(page);
   // await page.waitForTimeout(3000);
   await exportInvoiceNormal(page);
   await page.waitForTimeout(3000);
@@ -168,8 +170,11 @@ await page.waitForTimeout(1000);
     await page.locator('div').filter({ hasText: /^Address$/ }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'Khamaria Khamaria' }).click();
    await page.waitForTimeout(1000);
   await page.locator('.MuiInputBase-root.MuiOutlinedInput-root').first().click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
   await page.getByRole('option', { name: 'Tourch charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
@@ -226,6 +231,7 @@ async function sendInvoices(page) {
  
  
    await page.getByRole('button', { name: 'Back to list' }).click();
+   await page.getByRole('button', { name: 'Back to list' }).click();
   console.log('send invoice completed');
 }
 
@@ -233,9 +239,13 @@ async function sendInvoices(page) {
 async function editInvoices(page){
   console.log('Enter in edit invoice');
  await page.getByRole('tab', { name: 'Invoice' }).click();
+ await page.getByRole('tab', { name: 'Invoice' }).click();
     await page.locator('body tr:nth-of-type(1) td:nth-of-type(8) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Edit' }).click();
     await page.waitForTimeout(1000);
+   await page.getByRole('button', { name: 'Add Item' }).click();
+  await page.getByRole('combobox').nth(2).click();
+  await page.getByRole('option', { name: 'EV charger' }).click();
    await page.getByRole('button', { name: 'Add Item' }).click();
   await page.getByRole('combobox').nth(2).click();
   await page.getByRole('option', { name: 'EV charger' }).click();
@@ -248,6 +258,7 @@ async function editInvoices(page){
 
 
   await page.waitForTimeout(1000);
+  if (await page.getByRole('Invoice updated successfully').first().isVisible())  
   if (await page.getByRole('Invoice updated successfully').first().isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/editInvoices.png`, fullPage: true });

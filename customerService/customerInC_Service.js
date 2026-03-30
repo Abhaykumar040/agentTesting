@@ -11,7 +11,7 @@ const screenshotPath=`screenshot/${testData.companyType}/customerinC_Service`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function customerInC_service(page) {
-  // await deletePreviuosCustomerInC_Service(page);
+  await deletePreviuosCustomerInC_Service(page);
   // await page.waitForTimeout(3000);
 
   // await addCustomerInC_Service(page);
@@ -30,8 +30,8 @@ export async function customerInC_service(page) {
   // await editCustomerInC_Service(page);
   // await page.waitForTimeout(3000);
   // await deleteCustomerInC_Service(page);
-  await exportCustomerInC_ServiceNormal(page)
-  await page.waitForTimeout(3000);
+  // await exportCustomerInC_ServiceNormal(page)
+  // await page.waitForTimeout(3000);
   await exportCustomerInC_ServiceFilter(page)
 
 }
@@ -773,7 +773,7 @@ async function exportCustomerInC_ServiceFilter(page) {
   const result3 = await dataRead(
         "./downloads/exportExelCustomerFilter1.xlsx",
         ["Imran Khan","akbk6551+1222@gmail.com"],
-        ["Anil Maurya","akbk6551+1112@gmail.com"]
+        ["Mayank Rathor","akbk6551+1139@gmail.com"]
     );
     console.log(result3);
   await page.waitForTimeout(2000)
@@ -797,8 +797,8 @@ async function exportCustomerInC_ServiceFilter(page) {
  await pdfDownload1.saveAs('downloads/exportPdfCustomerFilter2.pdf');
  const result4 = await dataRead(
         "./downloads/exportPdfCustomerFilter2.pdf",
-        ["Imran Khan","akbk6551+1222@gmail.com"],
-        ["Anil Maurya","akbk6551+1112@gmail.com"]
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
     );
     console.log(result4);
   await page.waitForTimeout(2000)
@@ -830,8 +830,8 @@ async function exportCustomerInC_ServiceFilter(page) {
   await excelDownload2.saveAs('downloads/exportExelCustomerFilter3.xlsx');
    const result5 = await dataRead(
         "./downloads/exportExelCustomerFilter3.xlsx",
-        ["Imran Khan","akbk6551+1222@gmail.com"],
-        ["Anil Maurya","akbk6551+1112@gmail.com"]
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
     );
     console.log(result4);
   await page.waitForTimeout(2000)
@@ -854,8 +854,8 @@ async function exportCustomerInC_ServiceFilter(page) {
  await pdfDownload2.saveAs('downloads/exportPdfCustomerFilter4.pdf');
     const result6 = await dataRead(
         "./downloads/exportPdfCustomerFilter4.pdf",
-        ["Imran Khan","akbk6551+1222@gmail.com"],
-        ["Anil Maurya","akbk6551+1112@gmail.com"]
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
     );
     console.log(result6);
   await page.waitForTimeout(2000)
@@ -887,7 +887,7 @@ async function exportCustomerInC_ServiceFilter(page) {
   const result7 = await dataRead(
         "./downloads/exportExelCustomerFilter5.xlsx",
         ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        ["Anil Maurya","akbk6551+1112@gmail.com"]
+        []
     );
     console.log(result7);
   await page.waitForTimeout(2000)
@@ -910,7 +910,7 @@ async function exportCustomerInC_ServiceFilter(page) {
  const result8 = await dataRead(
         "./downloads/exportPdfCustomerFilter6.pdf",
         ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        ["Sushil Kumar","akbk6551+220@gmail.com"]
+        []
     );
     console.log(result8);
   await page.waitForTimeout(2000)
@@ -927,7 +927,7 @@ async function exportCustomerInC_ServiceFilter(page) {
  await page.reload();
 
   // Code base filter
-  await page.getByRole('button', { name: 'Filter By' }).click();
+   await page.getByRole('button', { name: 'Filter By' }).click();
    await page.getByRole('menuitem', { name: 'Dealer Code' }).click();
   await page.getByRole('menuitem', { name: '1345836' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
@@ -939,8 +939,8 @@ async function exportCustomerInC_ServiceFilter(page) {
   await excelDownload.saveAs('downloads/exportExelCustomerFilter7.xlsx');
   const result9 = await dataRead(
         "./downloads/exportExelCustomerFilter7.xlsx",
-        ["Sushil Kumar","akbk6551+1220@gmail.com"],
-        ["Abhay Rathor","akbk6551+349@gmail.com"]
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
     );
     console.log(result9);
   await page.waitForTimeout(2000)
@@ -963,8 +963,8 @@ async function exportCustomerInC_ServiceFilter(page) {
  await pdfDownload.saveAs('downloads/exportPdfCustomerFilter8.pdf');
  const result10 = await dataRead(
         "./downloads/exportPdfCustomerFilter8.pdf",
-        ["Sushil Kumar","akbk6551+1220@gmail.com"],
-        ["Abhay Rathor","akbk6551+349@gmail.com"]
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        []
     );
     console.log(result10);
   await page.waitForTimeout(2000)

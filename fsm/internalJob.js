@@ -6,6 +6,8 @@ import { test } from '@playwright/test';
 import { dataRead } from '../dataRead';
 import { loginEngineerPortal, loginRight } from '../tests/login';
 import { exit } from 'process';
+import { loginEngineerPortal, loginRight } from '../tests/login';
+import { exit } from 'process';
 
 
 const rawData = await fs.readFile('./data.json', 'utf8');
@@ -27,8 +29,8 @@ export async function internalJob(page){
  await exportInternalJObNormal(page);
  await page.waitForTimeout(3000);
  await exportInternalJObFilter(page);
-//  await page.waitForTimeout(3000);
-//  await createJobByAssetManagements(page);
+ await page.waitForTimeout(3000);
+ await createJobByAssetManagements(page);
  
 }
 async function deletePreviousinternalJob(page){
@@ -356,7 +358,7 @@ async function createInternalJob(page){
    
 await page.waitForTimeout(3000);
  console.log("Going back to company portal...");
-await page.goto(data.url);
+await page.goto("https://strgerpcmpwebinddev.z29.web.core.windows.net/");
 console.log("Company portal login completed");
   console.log("Creatre internal job completed");
 }
@@ -553,7 +555,7 @@ async function exportInternalJObFilter(page){
   await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'City' }).click();
+  await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   
