@@ -23,7 +23,7 @@ await addPriorit(page);
 }
 async function deletePreviuosPriority(page){
   console.log("Enter in delete previous priority.")
-  await page.getByRole('button', { name: 'Settings' }).click();
+  // await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Priority' }).click();
    await page.waitForTimeout(3000);
 

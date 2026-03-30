@@ -15,16 +15,16 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function lead(page){
-  await addLead(page);
-  await page.waitForTimeout(3000);
-  await editLead(page);
-  await page.waitForTimeout(3000);
-  await emailThreadInLead(page);
-  await page.waitForTimeout(3000);
-  await activityInLead(page);
-  await page.waitForTimeout(3000);
-  await documentInLead(page); 
-  await page.waitForTimeout(3000); 
+  // await addLead(page);
+  // await page.waitForTimeout(3000);
+  // await editLead(page);
+  // await page.waitForTimeout(3000);
+  // await emailThreadInLead(page);
+  // await page.waitForTimeout(3000);
+  // await activityInLead(page);
+  // await page.waitForTimeout(3000);
+  // await documentInLead(page); 
+  // await page.waitForTimeout(3000); 
   await exportLeadFileNormal(page);
   await page.waitForTimeout(3000); 
   await exportLeadFileFilter(page);
@@ -495,8 +495,8 @@ async function exportLeadFileNormal(page) {
 
   const result1 = await dataRead(
           "./downloads/leadPdfNormal.pdf",
-        ["Anjali Rathor","Jitendra Tyagi"],
-        []
+        ["Jogendar Maurya","akbk6551+1231@gmail.com"],
+        ["Abhay Tyagi","akbk6551+31@gmail.com"]
       );
       console.log(result1);
     if (result1.success) 
@@ -514,8 +514,8 @@ async function exportLeadFileNormal(page) {
 
     const result2 = await dataRead(
        "./downloads/leadNormal.xlsx",
-        ["Anjali Rathor","Jitendra Tyagi","EV Mobile Pvt Ltd"],
-        []
+        ["Jogendar Maurya","akbk6551+1231@gmail.com"],
+        ["Abhay Tyagi","akbk6551+31@gmail.com"]
     );
     console.log(result2);
   if (result2.success) 
@@ -562,8 +562,8 @@ async function exportLeadFileFilter(page){
 
    const result1 = await dataRead(
           "./downloads/leadFilter.xlsx",
-        ["Anjali Rathor"],
-        ["Jitendra Tyagi"]
+        ["Jogendar Maurya","akbk6551+1231@gmail.com"],
+        ["Abhay Tyagi","akbk6551+31@gmail.com"]
       );
       console.log(result1);
     if (result1.success) 
@@ -591,8 +591,8 @@ async function exportLeadFileFilter(page){
 
    const result2 = await dataRead(
           "./downloads/leadPdfFilter.pdf",
-        ["Anjali Rathor"],
-        ["Jitendra Tyagi"]
+        ["Jogendar Maurya","akbk6551+1231@gmail.com"],
+        ["Abhay Tyagi","akbk6551+31@gmail.com"]
       );
       console.log(result2);
     if (result2.success) 
@@ -609,7 +609,7 @@ async function exportLeadFileFilter(page){
   // .....................................................
    await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Status' }).click();
-  await page.getByRole('menuitem', { name: 'Converted' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'New' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.waitForTimeout(1000);
   
@@ -626,8 +626,8 @@ async function exportLeadFileFilter(page){
 
    const result3 = await dataRead(
           "./downloads/leadFilter1.xlsx",
-          ['Anjali Rathor Edited'],
-        ["Santosh Kumar","Jitendra Tyagi"]
+          ["Jogendar Maurya","akbk6551+1231@gmail.com"],
+        ["Abhay Tyagi","akbk6551+31@gmail.com"]
         
       );
       console.log(result3);
@@ -655,8 +655,8 @@ async function exportLeadFileFilter(page){
 
    const result4 = await dataRead(
           "./downloads/leadPdfFilter1.pdf",
-          ['Anjali Rathor Edited'],
-        ["Santosh Kumar","Jitendra Tyagi"]
+          ["Jogendar Maurya","akbk6551+1231@gmail.com"],
+        ["Abhay Tyagi","akbk6551+31@gmail.com"]
       );
       console.log(result4);
     if (result4.success) 

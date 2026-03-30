@@ -189,7 +189,7 @@ async function deleteRole(page) {
 
 async function deletePreviuosRole(page){
   console.log("Enter in delete previous role");
-  await page.getByRole('button', { name: 'Settings' }).click();
+  // await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Roles' }).click();
   await page.waitForTimeout(3000);
   while( true){

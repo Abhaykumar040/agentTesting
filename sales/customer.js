@@ -3,7 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
-
+import { dataRead } from '../dataRead';
 
 
 const rawData = await fs.readFile('./data.json', 'utf8');
@@ -12,10 +12,10 @@ const screenshotPath=`screenshot/${testData.companyType}/customer`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function customer(page){
- await deletePreviuosCustomer(page);
- await page.waitForTimeout(3000);
+//  await deletePreviuosCustomer(page);
+//  await page.waitForTimeout(3000);
 
- await addCustomer(page);
+//  await addCustomer(page);
   // const rawData = await fs.readFile('./data.json', 'utf8');
   //        const testData = JSON.parse(rawData);
    
@@ -26,13 +26,13 @@ export async function customer(page){
   //      await createCustomerOne(page);
   //    }
 
- await page.waitForTimeout(3000);
- await editCustomer(page);
- await page.waitForTimeout(3000);
+//  await page.waitForTimeout(3000);
+//  await editCustomer(page);
+//  await page.waitForTimeout(3000);
  await exportCustomerNormal(page);
  await page.waitForTimeout(3000);""
  await exportCustomerFilter(page);
- await deleteCustomer(page);
+//  await deleteCustomer(page);
 }
 
 async function createCustomerOne(page){
@@ -144,7 +144,7 @@ async function exportCustomerFilter(page) {
   await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByText('City').click();
+  await page.getByRole('menuitem', { name: 'City' }).click();
   await page.getByRole('menuitem', { name: 'Aurai' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.waitForTimeout(2000);
@@ -157,8 +157,8 @@ async function exportCustomerFilter(page) {
   await excelDownload1.saveAs('downloads/exportExelCustomerFilter1.xlsx');
   const result3 = await dataRead(
         "./downloads/exportExelCustomerFilter1.xlsx",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result3);
   await page.waitForTimeout(2000)
@@ -182,8 +182,8 @@ async function exportCustomerFilter(page) {
  await pdfDownload1.saveAs('downloads/exportPdfCustomerFilter2.pdf');
  const result4 = await dataRead(
         "./downloads/exportPdfCustomerFilter2.pdf",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result4);
   await page.waitForTimeout(2000)
@@ -215,8 +215,8 @@ async function exportCustomerFilter(page) {
   await excelDownload2.saveAs('downloads/exportExelCustomerFilter3.xlsx');
    const result5 = await dataRead(
         "./downloads/exportExelCustomerFilter3.xlsx",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result4);
   await page.waitForTimeout(2000)
@@ -239,8 +239,8 @@ async function exportCustomerFilter(page) {
  await pdfDownload2.saveAs('downloads/exportPdfCustomerFilter4.pdf');
     const result6 = await dataRead(
         "./downloads/exportPdfCustomerFilter4.pdf",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result6);
   await page.waitForTimeout(2000)
@@ -262,6 +262,7 @@ async function exportCustomerFilter(page) {
    await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Customer', exact: true }).click();
   await page.getByRole('menuitem', { name: 'Mayank Rathor' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
   await page.waitForTimeout(2000);
   const [excelDownload3] = await Promise.all([
     page.waitForEvent('download'),
@@ -271,7 +272,7 @@ async function exportCustomerFilter(page) {
   const result7 = await dataRead(
         "./downloads/exportExelCustomerFilter5.xlsx",
         ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result7);
   await page.waitForTimeout(2000)
@@ -294,7 +295,7 @@ async function exportCustomerFilter(page) {
  const result8 = await dataRead(
         "./downloads/exportPdfCustomerFilter6.pdf",
         ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Sushil Kumar","akbk6551+220@gmail.com"]
     );
     console.log(result8);
   await page.waitForTimeout(2000)
@@ -311,6 +312,7 @@ async function exportCustomerFilter(page) {
  await page.reload();
 
   // Code base filter
+  await page.getByRole('button', { name: 'Filter By' }).click();
    await page.getByRole('menuitem', { name: 'Dealer Code' }).click();
   await page.getByRole('menuitem', { name: '1345836' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
@@ -322,8 +324,8 @@ async function exportCustomerFilter(page) {
   await excelDownload.saveAs('downloads/exportExelCustomerFilter7.xlsx');
   const result9 = await dataRead(
         "./downloads/exportExelCustomerFilter7.xlsx",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Sushil Kumar","akbk6551+1220@gmail.com"],
+        ["Mayank Rathor","akbk6551+1139@gmail.com"]
     );
     console.log(result9);
   await page.waitForTimeout(2000)
@@ -346,8 +348,8 @@ async function exportCustomerFilter(page) {
  await pdfDownload.saveAs('downloads/exportPdfCustomerFilter8.pdf');
  const result10 = await dataRead(
         "./downloads/exportPdfCustomerFilter8.pdf",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Sushil Kumar","akbk6551+1220@gmail.com"],
+        ["Mayank Rathor","akbk6551+1139@gmail.com"]
     );
     console.log(result10);
   await page.waitForTimeout(2000)

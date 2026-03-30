@@ -60,7 +60,7 @@ async function slaSetting(page){
 
 async function caseCategoriesSetting(page){
   console.log('Enter in case category setting');
- await page.getByRole('button', { name: 'Customer Service' }).click();
+//  await page.getByRole('button', { name: 'Customer Service' }).click();
   await page.getByRole('link', { name: 'Settings' }).click();
   await page.getByRole('tab', { name: 'Case Categories' }).click();
   await page.getByRole('button', { name: 'Add Category' }).click();

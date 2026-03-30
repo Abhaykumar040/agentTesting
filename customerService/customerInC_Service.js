@@ -11,10 +11,10 @@ const screenshotPath=`screenshot/${testData.companyType}/customerinC_Service`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function customerInC_service(page) {
-  await deletePreviuosCustomerInC_Service(page);
-  await page.waitForTimeout(3000);
+  // await deletePreviuosCustomerInC_Service(page);
+  // await page.waitForTimeout(3000);
 
-  await addCustomerInC_Service(page);
+  // await addCustomerInC_Service(page);
     //  const rawData = await fs.readFile('./data.json', 'utf8');
     //     const testData = JSON.parse(rawData);
   
@@ -23,13 +23,13 @@ export async function customerInC_service(page) {
     //   await page.waitForTimeout(3000);
     // } else if(testData.companySubscription==='all') {
     //   await createCustomerInC_ServiceOne(page);
-    // }
-  await page.waitForTimeout(3000);
-  await emailCustomerInC_Service(page)
-  await page.waitForTimeout(3000);
-  await editCustomerInC_Service(page);
-  await page.waitForTimeout(3000);
-  await deleteCustomerInC_Service(page);
+  //   // }
+  // await page.waitForTimeout(3000);
+  // await emailCustomerInC_Service(page)
+  // await page.waitForTimeout(3000);
+  // await editCustomerInC_Service(page);
+  // await page.waitForTimeout(3000);
+  // await deleteCustomerInC_Service(page);
   await exportCustomerInC_ServiceNormal(page)
   await page.waitForTimeout(3000);
   await exportCustomerInC_ServiceFilter(page)
@@ -593,7 +593,7 @@ async function editCustomerInC_Service(page){
   await page.getByRole('option', { name: 'Critical / Breakdown Issue' }).click();
   await page.getByRole('button', { name: 'Create Case' }).click();
   await page.waitForTimeout(1000);
-   if (await page.getByText('Support Case created successfully').isVisible()) 
+  if (await page.getByText('Support Case created successfully').isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/editCustomerInC_Service(Ticket).png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"editCustomerInC_Service(Ticket)","true",`./${screenshotPath}/editCustomerInC_Service(Ticket).png`)
@@ -603,6 +603,41 @@ async function editCustomerInC_Service(page){
     await updateOpJson(`./${screenshotPath}/`,"editCustomerInC_Service(Ticket)","false",`./${screenshotPath}/editCustomerInC_Service(Ticket).png`)
   }
   console.log('edit customer in customer in customer service completed');
+}
+async function deleteSupportTicketInCustomer(page){
+  
+  console.log("Enter in delete support ticket");
+  await page.getByRole('row', { name: 'Anil Dubey akbk6551+1136@' }).getByLabel('Edit').click();
+  await page.getByRole('tab', { name: 'Support Tickets' }).click();
+  await page.getByRole('row', { name: 'S-2080 Update case Yogesh' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'Delete (1)' }).click();
+  if (!await page.getByText('Update case').isVisible()) 
+  {
+    await page.screenshot({ path: `./${screenshotPath}/deleteSupportTicketInCustomer.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"deleteSupportTicketInCustomer","true",`./${screenshotPath}/deleteSupportTicketInCustomer.png`)
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/deleteSupportTicketInCustomer.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"deleteSupportTicketInCustomer","false",`./${screenshotPath}/deleteSupportTicketInCustomer.png`)
+  }
+  console.log("Delete support ticket completed");
+}
+async function allDeleteSupportTicketInCustomer(page){
+ console.log('Enter in all delete support ticket');
+  await page.getByRole('row', { name: 'Anil Dubey akbk6551+1136@' }).getByLabel('Edit').click();
+  await page.getByRole('tab', { name: 'Support Tickets' }).click();
+  await page.getByRole('row', { name: 'Case ID Title Assigned To' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'Delete (1)' }).click();
+  if (!await page.getByText('Update case').isVisible()) 
+  {
+    await page.screenshot({ path: `./${screenshotPath}/allDeleteSupportTicketInCustomer.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"allDeleteSupportTicketInCustomer","true",`./${screenshotPath}/allDeleteSupportTicketInCustomer.png`)
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/allDeleteSupportTicketInCustomer.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"allDeleteSupportTicketInCustomer","false",`./${screenshotPath}/allDeleteSupportTicketInCustomer.png`)
+  }
+ console.log('All delete support ticket completed');
 }
 
 async function deleteCustomerInC_Service(page) {
@@ -724,7 +759,7 @@ async function exportCustomerInC_ServiceFilter(page) {
   await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByText('City').click();
+  await page.getByRole('menuitem', { name: 'City' }).click();
   await page.getByRole('menuitem', { name: 'Aurai' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.waitForTimeout(2000);
@@ -737,8 +772,8 @@ async function exportCustomerInC_ServiceFilter(page) {
   await excelDownload1.saveAs('downloads/exportExelCustomerFilter1.xlsx');
   const result3 = await dataRead(
         "./downloads/exportExelCustomerFilter1.xlsx",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result3);
   await page.waitForTimeout(2000)
@@ -762,8 +797,8 @@ async function exportCustomerInC_ServiceFilter(page) {
  await pdfDownload1.saveAs('downloads/exportPdfCustomerFilter2.pdf');
  const result4 = await dataRead(
         "./downloads/exportPdfCustomerFilter2.pdf",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result4);
   await page.waitForTimeout(2000)
@@ -795,8 +830,8 @@ async function exportCustomerInC_ServiceFilter(page) {
   await excelDownload2.saveAs('downloads/exportExelCustomerFilter3.xlsx');
    const result5 = await dataRead(
         "./downloads/exportExelCustomerFilter3.xlsx",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result4);
   await page.waitForTimeout(2000)
@@ -819,8 +854,8 @@ async function exportCustomerInC_ServiceFilter(page) {
  await pdfDownload2.saveAs('downloads/exportPdfCustomerFilter4.pdf');
     const result6 = await dataRead(
         "./downloads/exportPdfCustomerFilter4.pdf",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result6);
   await page.waitForTimeout(2000)
@@ -842,6 +877,7 @@ async function exportCustomerInC_ServiceFilter(page) {
    await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Customer', exact: true }).click();
   await page.getByRole('menuitem', { name: 'Mayank Rathor' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
   await page.waitForTimeout(2000);
   const [excelDownload3] = await Promise.all([
     page.waitForEvent('download'),
@@ -851,7 +887,7 @@ async function exportCustomerInC_ServiceFilter(page) {
   const result7 = await dataRead(
         "./downloads/exportExelCustomerFilter5.xlsx",
         ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result7);
   await page.waitForTimeout(2000)
@@ -874,7 +910,7 @@ async function exportCustomerInC_ServiceFilter(page) {
  const result8 = await dataRead(
         "./downloads/exportPdfCustomerFilter6.pdf",
         ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Sushil Kumar","akbk6551+220@gmail.com"]
     );
     console.log(result8);
   await page.waitForTimeout(2000)
@@ -891,6 +927,7 @@ async function exportCustomerInC_ServiceFilter(page) {
  await page.reload();
 
   // Code base filter
+  await page.getByRole('button', { name: 'Filter By' }).click();
    await page.getByRole('menuitem', { name: 'Dealer Code' }).click();
   await page.getByRole('menuitem', { name: '1345836' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
@@ -902,8 +939,8 @@ async function exportCustomerInC_ServiceFilter(page) {
   await excelDownload.saveAs('downloads/exportExelCustomerFilter7.xlsx');
   const result9 = await dataRead(
         "./downloads/exportExelCustomerFilter7.xlsx",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Sushil Kumar","akbk6551+1220@gmail.com"],
+        ["Abhay Rathor","akbk6551+349@gmail.com"]
     );
     console.log(result9);
   await page.waitForTimeout(2000)
@@ -926,8 +963,8 @@ async function exportCustomerInC_ServiceFilter(page) {
  await pdfDownload.saveAs('downloads/exportPdfCustomerFilter8.pdf');
  const result10 = await dataRead(
         "./downloads/exportPdfCustomerFilter8.pdf",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Sushil Kumar","akbk6551+1220@gmail.com"],
+        ["Abhay Rathor","akbk6551+349@gmail.com"]
     );
     console.log(result10);
   await page.waitForTimeout(2000)

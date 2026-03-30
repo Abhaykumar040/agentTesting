@@ -19,7 +19,7 @@ export async function zone(page){
 
 async function deletePreviuosZone(page) {
   console.log("Enter in delete previous zone");
-  await page.getByRole('button', { name: 'Master Data' }).click();
+  // await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Zone' }).click();
   await page.waitForTimeout(3000);
   while( true){

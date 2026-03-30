@@ -15,41 +15,41 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function customerfsm(page){
-   await deletePreviousCustomer(page);
-   await page.waitForTimeout(3000);
-    //  await customerDownload(page);
-       await page.waitForTimeout(3000);
- await createFsmCustomer(page);
-      const rawData = await fs.readFile('./data.json', 'utf8');
-      const testData = JSON.parse(rawData);
+//    await deletePreviousCustomer(page);
+//    await page.waitForTimeout(3000);
+//     //  await customerDownload(page);
+//        await page.waitForTimeout(3000);
+//  await createFsmCustomer(page);
+//       const rawData = await fs.readFile('./data.json', 'utf8');
+//       const testData = JSON.parse(rawData);
 
-  if (testData.companySubscription==='fsm') {
-    await createFsmCustomer(page);
+//   if (testData.companySubscription==='fsm') {
+//     await createFsmCustomer(page);
     
-    await page.waitForTimeout(3000);
-  } else if(testData.companySubscription==='all'){
+//     await page.waitForTimeout(3000);
+//   } else if(testData.companySubscription==='all'){
     
-    await createFsmCustomerOne(page);
-  }
-    await page.waitForTimeout(3000);
-    await editFsmCustomer(page);
-    await page.waitForTimeout(3000);
-    await deleteFsmCustomer(page);
-    await page.waitForTimeout(3000);
-    await addressCreateFsmCustomerCommercial(page);
-    await page.waitForTimeout(3000);
-    await addressCreateFsmCustomerIndividual(page);
-    await page.waitForTimeout(3000);
-    await jobCreateFsmCustomerCommercial(page);
-    await page.waitForTimeout(3000);
-    await jobCreateFsmCustomerIndividual(page);
-    await page.waitForTimeout(3000);
-    await cyclicJobCreateFsmCustomer(page);
-    await page.waitForTimeout(3000);
-    await contactDetailsFsmCustomer(page);
-    await page.waitForTimeout(3000);
-    await documentsUploadFsmCustomer(page);
-    await page.waitForTimeout(3000);
+//     await createFsmCustomerOne(page);
+//   }
+//     await page.waitForTimeout(3000);
+//     await editFsmCustomer(page);
+//     await page.waitForTimeout(3000);
+//     await deleteFsmCustomer(page);
+//     await page.waitForTimeout(3000);
+//     await addressCreateFsmCustomerCommercial(page);
+//     await page.waitForTimeout(3000);
+//     await addressCreateFsmCustomerIndividual(page);
+//     await page.waitForTimeout(3000);
+//     await jobCreateFsmCustomerCommercial(page);
+//     await page.waitForTimeout(3000);
+//     await jobCreateFsmCustomerIndividual(page);
+//     await page.waitForTimeout(3000);
+//     await cyclicJobCreateFsmCustomer(page);
+//     await page.waitForTimeout(3000);
+//     await contactDetailsFsmCustomer(page);
+//     await page.waitForTimeout(3000);
+//     await documentsUploadFsmCustomer(page);
+//     await page.waitForTimeout(3000);
     await exportCustomerFsmNormal(page);
     await page.waitForTimeout(3000);
     await exportCustomerFsmFilter(page);
@@ -67,7 +67,7 @@ async function exportCustomerFsmNormal(page) {
   const result1 = await dataRead(
         "./downloads/exportExelCustomerNormal.xlsx",
         ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result1);
   await page.waitForTimeout(2000);
@@ -91,7 +91,7 @@ async function exportCustomerFsmNormal(page) {
  const result2 = await dataRead(
         "./downloads/exportPdfCustomerNormal.pdf",
         ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result2);
   await page.waitForTimeout(2000);
@@ -118,7 +118,7 @@ async function exportCustomerFsmFilter(page) {
   await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByText('City').click();
+  await page.getByRole('menuitem', { name: 'City' }).click();
   await page.getByRole('menuitem', { name: 'Aurai' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.waitForTimeout(2000);
@@ -131,8 +131,8 @@ async function exportCustomerFsmFilter(page) {
   await excelDownload1.saveAs('downloads/exportExelCustomerFilter1.xlsx');
   const result3 = await dataRead(
         "./downloads/exportExelCustomerFilter1.xlsx",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result3);
   await page.waitForTimeout(2000)
@@ -156,8 +156,8 @@ async function exportCustomerFsmFilter(page) {
  await pdfDownload1.saveAs('downloads/exportPdfCustomerFilter2.pdf');
  const result4 = await dataRead(
         "./downloads/exportPdfCustomerFilter2.pdf",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result4);
   await page.waitForTimeout(2000)
@@ -189,8 +189,8 @@ async function exportCustomerFsmFilter(page) {
   await excelDownload2.saveAs('downloads/exportExelCustomerFilter3.xlsx');
    const result5 = await dataRead(
         "./downloads/exportExelCustomerFilter3.xlsx",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result4);
   await page.waitForTimeout(2000)
@@ -213,8 +213,8 @@ async function exportCustomerFsmFilter(page) {
  await pdfDownload2.saveAs('downloads/exportPdfCustomerFilter4.pdf');
     const result6 = await dataRead(
         "./downloads/exportPdfCustomerFilter4.pdf",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+       ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result6);
   await page.waitForTimeout(2000)
@@ -236,6 +236,7 @@ async function exportCustomerFsmFilter(page) {
    await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Customer', exact: true }).click();
   await page.getByRole('menuitem', { name: 'Mayank Rathor' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
   await page.waitForTimeout(2000);
   const [excelDownload3] = await Promise.all([
     page.waitForEvent('download'),
@@ -245,7 +246,7 @@ async function exportCustomerFsmFilter(page) {
   const result7 = await dataRead(
         "./downloads/exportExelCustomerFilter5.xlsx",
         ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
     );
     console.log(result7);
   await page.waitForTimeout(2000)
@@ -268,7 +269,7 @@ async function exportCustomerFsmFilter(page) {
  const result8 = await dataRead(
         "./downloads/exportPdfCustomerFilter6.pdf",
         ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Sushil Kumar","akbk6551+220@gmail.com"]
     );
     console.log(result8);
   await page.waitForTimeout(2000)
@@ -285,6 +286,7 @@ async function exportCustomerFsmFilter(page) {
  await page.reload();
 
   // Code base filter
+   await page.getByRole('button', { name: 'Filter By' }).click();
    await page.getByRole('menuitem', { name: 'Dealer Code' }).click();
   await page.getByRole('menuitem', { name: '1345836' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
@@ -296,8 +298,8 @@ async function exportCustomerFsmFilter(page) {
   await excelDownload.saveAs('downloads/exportExelCustomerFilter7.xlsx');
   const result9 = await dataRead(
         "./downloads/exportExelCustomerFilter7.xlsx",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Sushil Kumar","akbk6551+1220@gmail.com"],
+         ["Abhay Maurya","akbk6551+39@gmail.com"]
     );
     console.log(result9);
   await page.waitForTimeout(2000)
@@ -320,8 +322,8 @@ async function exportCustomerFsmFilter(page) {
  await pdfDownload.saveAs('downloads/exportPdfCustomerFilter8.pdf');
  const result10 = await dataRead(
         "./downloads/exportPdfCustomerFilter8.pdf",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        []
+        ["Sushil Kumar","akbk6551+1220@gmail.com"],
+        ["Abhay Maurya","akbk6551+39@gmail.com"]
     );
     console.log(result10);
   await page.waitForTimeout(2000)
@@ -1142,6 +1144,28 @@ async function jobCreateFsmCustomerCommercial(page){
       await page.screenshot({ path: `./${screenshotPath}/jobCreateFsmCustomerCommercial.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"jobCreateFsmCustomerCommercial","false",`./${screenshotPath}/jobCreateFsmCustomerCommercial.png`)
     }
+
+    // check in engineer portal 
+       await loginEngineerPortal(page);
+       if(await page.getByText('Installation5').first().isVisible()){
+        console.log("Internal Job in Engineer portal is visible");
+        await page.screenshot({ path: `./${screenshotPath}/checkInternalJobInFsmCustomer.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkInternalJobInFsmCustomer","true",`./${screenshotPath}/checkInternalJobInFsmCustomer.png`)
+     
+       }else{
+        console.log("Internal Job in Engineer portal is not visible");
+      
+        await page.screenshot({ path: `./${screenshotPath}/checkInternalJobInFsmCustomer.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkInternalJobInFsmCustomer","false",`./${screenshotPath}/checkInternalJobInFsmCustomer.png`)
+      
+        
+       }
+       
+    await page.waitForTimeout(3000);
+     console.log("Going back to company portal...");
+    // await loginRight(page);
+    await page.goto("https://strgerpcmpwebinddev.z29.web.core.windows.net/");
+    console.log("Company portal login completed");
     await page.reload();
   console.log('job create fsm customer completed');
 }
@@ -1204,6 +1228,29 @@ async function jobCreateFsmCustomerIndividual(page){
       await page.screenshot({ path: `./${screenshotPath}/jobCreateFsmCustomerIndividual.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"jobCreateFsmCustomerIndividual","false",`./${screenshotPath}/jobCreateFsmCustomerIndividual.png`)
     }
+
+    // check in engineer portal 
+       await loginEngineerPortal(page);
+       if(await page.getByText('Installation5').first().isVisible()){
+        console.log("Internal Job in Engineer portal is visible");
+        await page.screenshot({ path: `./${screenshotPath}/checkInternalJobIndividualInFsmCustomer.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkInternalJobIndividualInFsmCustomer","true",`./${screenshotPath}/checkInternalJobIndividualInFsmCustomer.png`)
+     
+       }else{
+        console.log("Internal Job in Engineer portal is not visible");
+      
+        await page.screenshot({ path: `./${screenshotPath}/checkInternalJobIndividualInFsmCustomer.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"checkInternalJobIndividualInFsmCustomer","false",`./${screenshotPath}/checkInternalJobIndividualInFsmCustomer.png`)
+      
+        
+       }
+       
+    await page.waitForTimeout(3000);
+     console.log("Going back to company portal...");
+    // await loginRight(page);
+    await page.goto("https://strgerpcmpwebinddev.z29.web.core.windows.net/");
+    console.log("Company portal login completed");
+
     await page.reload();
   console.log('job create fsm customer completed');
 }

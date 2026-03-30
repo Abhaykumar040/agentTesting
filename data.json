@@ -3,5 +3,7 @@
   "emailStart": "",
   "emailEnd": "",
   "companyType": "parent",
-  "companySubscription":"all"
+  "companySubscription":"all",
+  "customerPortal": "https://strgerpcuswebinddev.z29.web.core.windows.net/profile-detail/",
+  "engineerPoratl":"https://strgerpengwebinddev.z29.web.core.windows.net/"
 }

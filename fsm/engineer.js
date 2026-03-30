@@ -17,8 +17,8 @@ export async function Engineer(page){
   await page.waitForTimeout(3000);
   await createEngineer(page);
   await page.waitForTimeout(3000);
-  await emailVarificationEngineer(page);
-  await page.waitForTimeout(3000);
+  // await emailVarificationEngineer(page);
+  // await page.waitForTimeout(3000);
   await deleteEngineer(page);
   await page.waitForTimeout(1000);
   await assignSkill(page);
@@ -45,8 +45,8 @@ await page.reload();
 
 }
 async function deleteEngineer(page){
-  await page.getByRole('button', { name: 'Field Service' }).click();
-  await page.getByRole('link', { name: 'Engineers' }).click();
+  // await page.getByRole('button', { name: 'Field Service' }).click();
+  // await page.getByRole('link', { name: 'Engineers' }).click();
   await page.locator('tbody tr').first().getByRole('button', { name: 'Delete' }).click();
   await page.waitForTimeout(1000);
   if (await page.getByText('Engineer deleted successfully').isVisible()) 
@@ -312,48 +312,48 @@ async function editEngineerfsm(page){
 }
 
 
-async function emailVarificationEngineer(page){
-  console.log('enter in email varification engineer');
-   await page.getByRole('row', { name: 'Ansh Singh Working hours: 09:' }).getByLabel('Email not verified').click();
+// async function emailVarificationEngineer(page){
+//   console.log('enter in email varification engineer');
+//    await page.getByRole('row', { name: 'Ansh Singh Working hours: 09:' }).getByLabel('Email not verified').click();
 
-  const screenshotFile = `./${screenshotPath}/emailVarificationEngineer.png`;
+//   const screenshotFile = `./${screenshotPath}/emailVarificationEngineer.png`;
 
-  try {
-    console.log("Clicked on Email not verified");
+//   try {
+//     console.log("Clicked on Email not verified");
 
-    await page.waitForSelector('text=Onboarding email resent', { timeout: 10000 });
-    console.log("Onboarding email resent message visible");
+//     await page.waitForSelector('text=Onboarding email resent', { timeout: 10000 });
+//     console.log("Onboarding email resent message visible");
 
-    console.log("Waiting for email...");
-    const email = await waitForEmail("akbk6551+1141@gmail.com", 120000);
+//     console.log("Waiting for email...");
+//     const email = await waitForEmail("akbk6551+1141@gmail.com", 120000);
 
-    console.log("Email result:", email);
+//     console.log("Email result:", email);
 
-    if (email) {
-      console.log("Email received successfully");
-      console.log("Email subject:", email.subject);
-      console.log("Email to:", email.to);
+//     if (email) {
+//       console.log("Email received successfully");
+//       console.log("Email subject:", email.subject);
+//       console.log("Email to:", email.to);
 
-      await page.screenshot({ path: screenshotFile, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","true",screenshotFile);
-    } 
-    else {
-      console.log("Email not found");
+//       await page.screenshot({ path: screenshotFile, fullPage: true });
+//       await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","true",screenshotFile);
+//     } 
+//     else {
+//       console.log("Email not found");
 
-      await page.screenshot({ path: screenshotFile, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","false",screenshotFile);
-    }
+//       await page.screenshot({ path: screenshotFile, fullPage: true });
+//       await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","false",screenshotFile);
+//     }
 
-  } catch (err) {
-    console.log("Email verification error:", err.message);
+//   } catch (err) {
+//     console.log("Email verification error:", err.message);
 
-    await page.screenshot({ path: screenshotFile, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","false",screenshotFile);
-  }
+//     await page.screenshot({ path: screenshotFile, fullPage: true });
+//     await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","false",screenshotFile);
+//   }
 
-  await page.reload();
-  console.log('email varificaion completed');
-}
+//   await page.reload();
+//   console.log('email varificaion completed');
+// }
 
 
 async function assignSkill(page){

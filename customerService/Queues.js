@@ -10,16 +10,28 @@ const screenshotPath=`screenshot/${testData.companyType}/Queues`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Queue(page) {
+  // await allQueueDelete(page);
+  // await page.waitForTimeout(3000);
   await addQueues(page);
   await page.waitForTimeout(3000);
   await addTeamIntoQueue(page);
+  await page.waitForTimeout(3000);
+  await deleteQueue(page);
 
+}
+async function allQueueDelete(page){
+  console.log("Enter in all delete queue");
+  await page.getByRole('button', { name: 'Customer Service' }).click();
+  await page.getByRole('link', { name: 'Queues' }).click();
+  await page.getByRole('row', { name: 'Queue Name Description' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'Delete (3)' }).click();
+  console.log("All delete queue completed");
 }
 
 async function addQueues(page){
   console.log('Enter in add queue');
-   await page.getByRole('button', { name: 'Customer Service' }).click();
-  await page.getByRole('link', { name: 'Queues' }).click();
+  //  await page.getByRole('button', { name: 'Customer Service' }).click();
+  // await page.getByRole('link', { name: 'Queues' }).click();
   // await expect(page.getByText('Queue added successfully')).toBeVisible();
 
 
@@ -122,4 +134,16 @@ async function addTeamIntoQueue(page){
     
 }
 
+async function deleteQueue(page){
+  console.log("Enter in delete queue");
+  await page.getByRole('button', { name: 'New Queue' }).click();
+  await page.getByRole('textbox', { name: 'e.g. Technical Support' }).click();
+  await page.getByRole('textbox', { name: 'e.g. Technical Support' }).fill('Technical Queue1');
+  await page.getByRole('textbox', { name: 'Describe the purpose of this' }).click();
+  await page.getByRole('textbox', { name: 'Describe the purpose of this' }).fill('This is technical queue.');
+  await page.getByRole('button', { name: 'Create Queue' }).click();
+  await page.getByRole('row', { name: 'Technical Queue1 This is' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'Delete (1)' }).click();
+  console.log("Delete queue is compeleted");
+}
 

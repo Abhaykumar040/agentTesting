@@ -32,7 +32,7 @@ export async function skill(page){
 }
 async function addSkill(page) {
   console.log("Enter in Add Skill")
-    await page.getByRole('button', { name: 'Master Data' }).click();
+    // await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Skill' }).click();
   await page.getByRole('button', { name: 'Add Skill' }).click();
   await page.getByRole('textbox', { name: 'Skill Name *' }).click();

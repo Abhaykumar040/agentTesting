@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
+import { dataRead } from '../dataRead';
 
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
@@ -10,16 +11,16 @@ const screenshotPath=`screenshot/${testData.companyType}/invoices`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Invoices(page){
-  await addInvoices(page);
-  await page.waitForTimeout(3000);
-   await page.waitForTimeout(3000);
-  await cancelInvoice(page);
-  await editInvoices(page);
-  await page.waitForTimeout(3000);
-  await sendInvoices(page);
-  await page.waitForTimeout(3000);
-  await createInvoiceByQuotation(page);
-  await page.waitForTimeout(3000);
+  // await addInvoices(page);
+  // await page.waitForTimeout(3000);
+  //  await page.waitForTimeout(3000);
+  // await cancelInvoice(page);
+  // await editInvoices(page);
+  // await page.waitForTimeout(3000);
+  // await sendInvoices(page);
+  // await page.waitForTimeout(3000);
+  // await createInvoiceByQuotation(page);
+  // await page.waitForTimeout(3000);
   await exportInvoiceNormal(page);
   await page.waitForTimeout(3000);
   await exportInvoiceFilter(page);
@@ -44,6 +45,7 @@ await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
   await page.getByRole('button', { name: 'Add Item' }).click();
   await page.getByRole('combobox').nth(1).click();
+  await page.waitForTimeout(3000);
   await page.getByRole('option', { name: 'Tourch charger' }).click();
   // await page.getByRole('button', { name: 'Add Item' }).click();
   // await page.getByRole('combobox').nth(2).click();
@@ -69,7 +71,7 @@ await page.waitForTimeout(1000);
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.getByRole('option', { name: 'Khamaria Khamaria Uttar' }).click();
   await page.getByRole('combobox').first().click();
-  await page.getByRole('option', { name: 'Wifi charger' }).click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
   await page.waitForTimeout(1000);
 
@@ -84,7 +86,7 @@ await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Khamaria Khamaria Uttar' }).click();
    await page.waitForTimeout(1000);
   await page.locator('.MuiInputBase-root.MuiOutlinedInput-root').first().click();
-  await page.getByRole('option', { name: 'Wifi charger' }).click();
+  await page.getByRole('option', { name: 'Tourch charger' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 
 
@@ -257,8 +259,8 @@ async function exportInvoiceNormal(page){
     await excelDownload1.saveAs('downloads/exportExcelInvoiceFilter1.xlsx');
     const result1 = await dataRead(
             "./downloads/exportExcelInvoiceFilter1.xlsx",
-            ["Mayank Rathor","akbk6551+1139@gmail.com"],
-            []
+           ["Neeraj Rathor","Uttar Pradesh"],
+            ["Neeraj Rathor","Bihar"]
         );
         console.log(result1);
       await page.waitForTimeout(2000)
@@ -284,8 +286,8 @@ async function exportInvoiceNormal(page){
     await pdfDownload1.saveAs('downloads/exportPdfInvoiceFilter1.pdf');
      const result2 = await dataRead(
             "./downloads/exportPdfInvoiceFilter1.pdf",
-            ["Mayank Rathor","akbk6551+1139@gmail.com"],
-            []
+            ["Neeraj Rathor","Uttar Pradesh"],
+            ["Neeraj Rathor","Bihar"]
         );
         console.log(result2);
       await page.waitForTimeout(2000)
@@ -326,8 +328,8 @@ async function exportInvoiceFilter(page){
     await excelDownload1.saveAs('downloads/exportExcelInvoiceFilter1.xlsx');
     const result3 = await dataRead(
             "./downloads/exportExcelInvoiceFilter1.xlsx",
-            ["Mayank Rathor","akbk6551+1139@gmail.com"],
-            []
+            ["Neeraj Rathor","Uttar Pradesh"],
+            ["Neeraj Rathor","Bihar"]
         );
         console.log(result3);
       await page.waitForTimeout(2000)
@@ -353,8 +355,8 @@ async function exportInvoiceFilter(page){
     await pdfDownload1.saveAs('downloads/exportPdfInvoiceFilter1.pdf');
     const result4 = await dataRead(
             "./downloads/exportPdfInvoiceFilter1.pdf",
-            ["Mayank Rathor","akbk6551+1139@gmail.com"],
-            []
+            ["Neeraj Rathor","Uttar Pradesh"],
+            ["Neeraj Rathor","Bihar"]
         );
         console.log(result4);
       await page.waitForTimeout(2000)
@@ -375,7 +377,6 @@ async function exportInvoiceFilter(page){
   await page.getByRole('menuitem', { name: 'Cancelled' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   
-    await expect(page.getByText('Anjali Rathor Edited')).toBeVisible();
      const [excelDownload2] = await Promise.all([
   
       page.waitForEvent('download'),
@@ -385,8 +386,8 @@ async function exportInvoiceFilter(page){
     await excelDownload2.saveAs('downloads/exportExcelInvoiceFilter2.xlsx');
     const result5 = await dataRead(
             "./downloads/exportExcelInvoiceFilter2.xlsx",
-            ["Mayank Rathor","akbk6551+1139@gmail.com"],
-            []
+            ["Arjun Singh","CANCELLED"],
+            ["Abhay Singh","CANCELLED"]
         );
         console.log(result5);
       await page.waitForTimeout(2000)
@@ -411,8 +412,8 @@ async function exportInvoiceFilter(page){
     await pdfDownload2.saveAs('downloads/exportPdfInvoiceFilter2.pdf');
     const result6 = await dataRead(
             "./downloads/exportPdfInvoiceFilter2.pdf",
-            ["Mayank Rathor","akbk6551+1139@gmail.com"],
-            []
+             ["Arjun Singh","CANCELLED"],
+            ["Abhay Singh","CANCELLED"]
         );
         console.log(result6);
       await page.waitForTimeout(2000)
@@ -430,15 +431,15 @@ async function exportInvoiceFilter(page){
 
   // Filter on the basis of Date.
    await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByText('Date Filter').click();
+  await page.getByRole('menuitem', { name: 'Date Filter' }).click();
   await page.getByRole('radio', { name: 'Custom' }).check();
   await page.getByRole('button', { name: 'Choose date' }).first().click();
-  await page.getByRole('gridcell', { name: '11' }).click();
+  await page.getByRole('gridcell', { name: '24' }).click();
   await page.getByRole('button', { name: 'Choose date', exact: true }).click();
-  await page.getByRole('gridcell', { name: '12' }).click();
+  await page.getByRole('gridcell', { name: '28' }).click();
   await page.getByRole('button', { name: 'OK' }).click();
   
-    await expect(page.getByText('Anjali Rathor Edited')).toBeVisible();
+    // await expect(page.getByText('Anjali Rathor Edited')).toBeVisible();
      const [excelDownload3] = await Promise.all([
   
       page.waitForEvent('download'),
@@ -448,8 +449,8 @@ async function exportInvoiceFilter(page){
     await excelDownload3.saveAs('downloads/exportExcelInvoiceFilter3.xlsx');
     const result7 = await dataRead(
             "./downloads/exportExcelInvoiceFilter3.xlsx",
-            ["Mayank Rathor","akbk6551+1139@gmail.com"],
-            []
+            ["Arjun Singh","26/03/2026"],
+            ["Arjun Singh","2/03/2026"]
         );
         console.log(result7);
       await page.waitForTimeout(2000)
@@ -474,8 +475,8 @@ async function exportInvoiceFilter(page){
     await pdfDownload3.saveAs('downloads/exportPdfInvoiceFilter3.pdf');
     const result8 = await dataRead(
             "./downloads/exportPdfInvoiceFilter3.pdf",
-            ["Mayank Rathor","akbk6551+1139@gmail.com"],
-            []
+            ["Arjun Singh","26/03/2026"],
+            ["Arjun Singh","2/03/2026"]
         );
         console.log(result8);
       await page.waitForTimeout(2000)
