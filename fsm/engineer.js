@@ -17,8 +17,8 @@ export async function Engineer(page){
   await page.waitForTimeout(3000);
   await createEngineer(page);
   await page.waitForTimeout(3000);
-  // await emailVarificationEngineer(page);
-  // await page.waitForTimeout(3000);
+  await emailVarificationEngineer(page);
+  await page.waitForTimeout(3000);
   await deleteEngineer(page);
   await page.waitForTimeout(1000);
   await assignSkill(page);

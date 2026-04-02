@@ -6,8 +6,6 @@ import { test } from '@playwright/test';
 import { dataRead } from '../dataRead';
 import { loginEngineerPortal, loginRight } from '../tests/login';
 import { exit } from 'process';
-import { loginEngineerPortal, loginRight } from '../tests/login';
-import { exit } from 'process';
 
 
 const rawData = await fs.readFile('./data.json', 'utf8');

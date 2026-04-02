@@ -67,34 +67,3 @@ export async function loginEngineerPortal(page){
    
 }
 
-
-export async function loginCustomerPortal(page){
-  
-  await page.goto("https://strgerpcuswebinddev.z29.web.core.windows.net/profile-detail/");
-
-  await page.getByRole('textbox', { name: 'Email' }).click();
-  await page.getByRole('textbox', { name: 'Email' }).fill('akbk6551+1140@gmail.com');
-  await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill('India@123');
-  await page.getByRole('checkbox', { name: 'I accept the Terms and' }).check();
-  await page.getByRole('button', { name: 'Login' }).click();
-  await page.getByRole('link', { name: 'Profile' }).click();
-
-   
-}
-export async function loginEngineerPortal(page){
-  await page.goto(" https://strgerpengwebinddev.z29.web.core.windows.net/");
-
-  await page.getByRole('textbox', { name: 'Email' }).click();
-  await page.getByRole('textbox', { name: 'Email' }).fill('akbk6551+1133@gmail.com');
-
-  await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill('Anshil@123');
-
-  await page.getByRole('checkbox', { name: 'I accept the Terms and' }).check();
-  await page.waitForTimeout(2000);
-  
-  await page.getByRole('button', { name: 'Login' }).click();
-  await page.waitForTimeout(2000);
-  await page.getByRole('link', { name: 'Jobs' }).click();
-}

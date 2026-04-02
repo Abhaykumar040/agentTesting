@@ -5,7 +5,6 @@ import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
 import { dataRead } from '../dataRead';
 import { loginCustomerPortal } from '../tests/login';
-import { loginCustomerPortal } from '../tests/login';
 
 
 
@@ -15,31 +14,31 @@ const screenshotPath=`screenshot/${testData.companyType}/ticket`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Tickets(page){
-  // await allDeleteTickets(page);
-  // await page.waitForTimeout(3000);
-  // await addNewTickets(page);
-  // await page.waitForTimeout(3000);
-  // await editTicket(page);
-  // await page.waitForTimeout(2000);
-  // await sendTicket(page);
-  // await page.waitForTimeout(2000);
-  // await deleteTicket(page);
-  // await page.waitForTimeout(2000);
-  // await allDeleteTickets(page);
-  // await page.waitForTimeout(3000);
-  // await addNewTickets(page);
-  // await page.waitForTimeout(3000);
-  // await editTicket(page);
-  // await page.waitForTimeout(2000);
-  // await sendTicket(page);
-  // await page.waitForTimeout(2000);
-  // await deleteTicket(page);
-  // await page.waitForTimeout(2000);
+  await allDeleteTickets(page);
+  await page.waitForTimeout(3000);
+  await addNewTickets(page);
+  await page.waitForTimeout(3000);
+  await editTicket(page);
+  await page.waitForTimeout(2000);
+  await sendTicket(page);
+  await page.waitForTimeout(2000);
+  await deleteTicket(page);
+  await page.waitForTimeout(2000);
+  await allDeleteTickets(page);
+  await page.waitForTimeout(3000);
+  await addNewTickets(page);
+  await page.waitForTimeout(3000);
+  await editTicket(page);
+  await page.waitForTimeout(2000);
+  await sendTicket(page);
+  await page.waitForTimeout(2000);
+  await deleteTicket(page);
+  await page.waitForTimeout(2000);
   await exportExcelInTicketsNormal(page);
   await page.waitForTimeout(3000);
   await exportExcelInTicketFilter(page);
 
-  // await uploadFilesTicket(page);
+  await uploadFilesTicket(page);
 }
 async function allDeleteTickets(page){
   console.log('Enter in all delete tickets');
@@ -71,36 +70,36 @@ async function deleteTicket(page){
   await page.getByRole('button', { name: 'Delete' }).click();
   console.log('delete ticket completed');
 }
-async function allDeleteTickets(page){
-  console.log('Enter in all delete tickets');
-  await page.getByRole('link', { name: 'Tickets' }).click()
-  await page.waitForTimeout(3000);
-  while( true){
-    const text = await page.textContent('text=Showing');
-    const match = text.match(/of\s+(\d+)\s+entries/);
-    const total = match ? parseInt(match[1]) : 0;
+// async function allDeleteTickets(page){
+//   console.log('Enter in all delete tickets');
+//   await page.getByRole('link', { name: 'Tickets' }).click()
+//   await page.waitForTimeout(3000);
+//   while( true){
+//     const text = await page.textContent('text=Showing');
+//     const match = text.match(/of\s+(\d+)\s+entries/);
+//     const total = match ? parseInt(match[1]) : 0;
 
-    // // Stop loop if total <= 0
-    // if (total == 1) {
-    //    await page.waitForTimeout(3000);
-    // }
-    if (total <= 0) {
-      break;
-    }
-    await page.getByRole('row', { name: 'Case ID Title Assigned To' }).getByRole('checkbox').check();
-    await page.getByRole('button', { name: 'Delete' }).click();
-  }
-await page.reload();
+//     // // Stop loop if total <= 0
+//     // if (total == 1) {
+//     //    await page.waitForTimeout(3000);
+//     // }
+//     if (total <= 0) {
+//       break;
+//     }
+//     await page.getByRole('row', { name: 'Case ID Title Assigned To' }).getByRole('checkbox').check();
+//     await page.getByRole('button', { name: 'Delete' }).click();
+//   }
+// await page.reload();
  
-  console.log('All delete tickets completed');
-}
+//   console.log('All delete tickets completed');
+// }
 
-async function deleteTicket(page){
-  console.log('Enter in delete ticket');
-  await page.getByRole('row', { name: 'S-2079 technical problem' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'Delete' }).click();
-  console.log('delete ticket completed');
-}
+// async function deleteTicket(page){
+//   console.log('Enter in delete ticket');
+//   await page.getByRole('row', { name: 'S-2079 technical problem' }).getByRole('checkbox').check();
+//   await page.getByRole('button', { name: 'Delete' }).click();
+//   console.log('delete ticket completed');
+// }
 
 async function addNewTickets(page) {
   console.log('Enter in add new tickets');
@@ -469,22 +468,22 @@ await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('button', { name: 'Choose date', exact: true }).click();
   await page.getByRole('gridcell', { name: '26' }).click();
   await page.getByRole('button', { name: 'OK' }).click();
-  const [excelDownload4] = await Promise.all([
+  const [excelDownload5] = await Promise.all([
 
     page.waitForEvent('download'),
     page.getByRole('button', { name: 'Export To Excel' }).click()
 
   ]);
-  await excelDownload3.saveAs('downloads/exportExcelInTicketFilter4.xlsx');
+  await excelDownload5.saveAs('downloads/exportExcelInTicketFilter4.xlsx');
   await page.waitForTimeout(2000);
-  const result6 = await dataRead(
+  const result7 = await dataRead(
         "./downloads/exportExcelInTicketFilter4.xlsx",
         ["Open","akbk6551+1217@gmail.com"],
        ["Resolved","akbk6551+4136@gmail.com"]
          
     );
-    console.log(result6);
-  if (result6.success) 
+    console.log(result7);
+  if (result7.success) 
   {
     await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketFilter4.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketFilter4","true",`./${screenshotPath}/exportExcelInTicketFilter4.png`)
