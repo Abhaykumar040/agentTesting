@@ -17,14 +17,14 @@ const pathName=`outputData/status/${testData.companyType}`
 export async function lead(page){
   // await addLead(page);
   // await page.waitForTimeout(3000);
-  // await editLead(page);
-  // await page.waitForTimeout(3000);
-  // await emailThreadInLead(page);
-  // await page.waitForTimeout(3000);
-  // await activityInLead(page);
-  // await page.waitForTimeout(3000);
-  // await documentInLead(page); 
-  // await page.waitForTimeout(3000); 
+  await editLead(page);
+  await page.waitForTimeout(3000);
+  await emailThreadInLead(page);
+  await page.waitForTimeout(3000);
+  await activityInLead(page);
+  await page.waitForTimeout(3000);
+  await documentInLead(page); 
+  await page.waitForTimeout(3000); 
   await exportLeadFileNormal(page);
   await page.waitForTimeout(3000); 
   await exportLeadFileFilter(page);
@@ -304,6 +304,7 @@ async function editLead(page){
   try {
   await page.getByRole('option', { name: 'Website' }).click({ timeout: 2000 });
 } catch (e) {
+    await page.getByRole('combobox', { name: 'Search or add industry' }).fill('Website');
   await page.keyboard.press('Enter');
    await page.getByRole('option', { name: 'Website' }).click({ timeout: 2000 });
 }

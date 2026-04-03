@@ -129,6 +129,7 @@ async function addProductCategory(page){
   await page.getByRole('textbox', { name: 'Comment' }).click();
   await page.getByRole('textbox', { name: 'Comment' }).fill('cost effective');
   await page.getByRole('button', { name: 'Add' }).click();
+  await page.waitForTimeout(3000);
   await page.reload();
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Product Category' }).click();

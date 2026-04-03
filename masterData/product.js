@@ -39,7 +39,7 @@ async function deletePreviousProduct(page){
   if (total <= 0) {
     break;
   }
-    await page.locator('button').nth(3).click();
+     await page.locator('tbody tr').first().locator('td').nth(7).locator('button:has(svg)').last().click();
   await page.getByRole('menuitem', { name: 'Delete' }).first().click();
     await page.waitForTimeout(2000);
     await expect(page.getByText('Product deleted successfully').first()).toBeVisible();

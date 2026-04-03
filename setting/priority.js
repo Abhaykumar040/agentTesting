@@ -23,7 +23,7 @@ await addPriorit(page);
 }
 async function deletePreviuosPriority(page){
   console.log("Enter in delete previous priority.")
-  // await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Priority' }).click();
    await page.waitForTimeout(3000);
 
@@ -41,9 +41,9 @@ await page.getByRole('button', { name: 'Proceed' }).click();
     await expect(page.getByText('Priority deleted successfully').first()).toBeVisible();
      await page.waitForTimeout(1000);
     }
-   
+    await page.waitForTimeout(3000);
 await page.reload();
-  //  await page.waitForTimeout(3000);
+  
 //  await expect(page.getByText('Showing 1 to 10 of 13 entries')).toBeVisible();
 console.log("previous priority delete completed");
  

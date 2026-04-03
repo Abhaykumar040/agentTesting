@@ -15,22 +15,22 @@ export async function customer(page){
 //  await deletePreviuosCustomer(page);
 //  await page.waitForTimeout(3000);
 
-//  await addCustomer(page);
-  // const rawData = await fs.readFile('./data.json', 'utf8');
-  //        const testData = JSON.parse(rawData);
+
+//   const rawData = await fs.readFile('./data.json', 'utf8');
+//          const testData = JSON.parse(rawData);
    
-  //    if (testData.companySubscription==='sales'||testData.companySubscription==='all') {
-  //       await addCustomer(page);
-  //      await page.waitForTimeout(3000);
-  //    } else {
-  //      await createCustomerOne(page);
-  //    }
+//      if (testData.companySubscription==='sales'||testData.companySubscription==='all') {
+//         await addCustomer(page);
+//        await page.waitForTimeout(3000);
+//      } else {
+//        await createCustomerOne(page);
+//      }
 
 //  await page.waitForTimeout(3000);
 //  await editCustomer(page);
-//  await page.waitForTimeout(3000);
+ await page.waitForTimeout(3000);
  await exportCustomerNormal(page);
- await page.waitForTimeout(3000);""
+ await page.waitForTimeout(3000);
  await exportCustomerFilter(page);
 //  await deleteCustomer(page);
 }
@@ -92,7 +92,7 @@ async function exportCustomerNormal(page) {
   await excelDownload.saveAs('downloads/exportExelCustomerNormal.xlsx');
   const result1 = await dataRead(
         "./downloads/exportExelCustomerNormal.xlsx",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        ["Mayank Rathor","akbk6551+1139@gmail.com","Sushil Singh","akbk6551+1218@gmail.com"],
         []
     );
     console.log(result1);
@@ -116,7 +116,7 @@ async function exportCustomerNormal(page) {
  await pdfDownload.saveAs('downloads/exportPdfCustomerNormal.pdf');
  const result2 = await dataRead(
         "./downloads/exportPdfCustomerNormal.pdf",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+         ["Mayank Rathor","akbk6551+1139@gmail.com","Sushil Singh","akbk6551+1218@gmail.com"],
         []
     );
     console.log(result2);
@@ -386,6 +386,7 @@ async function deletePreviuosCustomer(page){
       break;
     }
      await page.getByRole('button', { name: 'Delete' }).first().click();
+     await page.getByRole('button', { name: 'Proceed' }).click();
      await page.waitForTimeout(2000);
     //  await expect(page.getByText('Customer deleted successfully')).toBeVisible();
   }

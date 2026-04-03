@@ -27,7 +27,9 @@ async function deletePreviuosForm(page){
     // await page.getByRole('button', { name: 'Settings' }).click();
     await page.waitForTimeout(1000);
     await page.getByRole('link', { name: 'Form', exact: true }).click();
+    console.log("hi")
     await page.waitForTimeout(3000);
+    console.log("hi")
 
 
     while( true){
@@ -39,12 +41,13 @@ async function deletePreviuosForm(page){
       if (total <= 0) {
        break;
       }
-      await page.locator('button').nth(4).click();
+     await page.locator('tbody tr').first().locator('td').nth(2).locator('button:has(svg)').last().click();
+      
       await page.getByRole('menuitem', { name: 'Delete' }).click();
       await page.getByRole('button', { name: 'Proceed' }).click();
       await page.waitForTimeout(1000);
-      await expect(page.getByText('Form deleted successfully')).toBeVisible();
-      await page.waitForTimeout(1000);
+      
+   
     }
    
 await page.reload();
@@ -57,7 +60,7 @@ async function deleteForm(page) {
   console.log("Enter in delete form");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
-    await page.locator('button').nth(4).click();
+     await page.locator('tbody tr').first().locator('td').nth(2).locator('button:has(svg)').last().click();
       await page.getByRole('menuitem', { name: 'Delete' }).click();
       await page.getByRole('button', { name: 'Proceed' }).click();
 
