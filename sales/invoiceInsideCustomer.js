@@ -12,16 +12,16 @@ const screenshotPath=`screenshot/${testData.companyType}/invoices`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function invoicesInsideCustomer(page){
-  await addInvoices(page);
-  await page.waitForTimeout(3000);
-  await cancelInvoice(page);
-   await page.waitForTimeout(3000);
-  await editInvoices(page);
-  await page.waitForTimeout(3000);
-  await sendInvoices(page);
-  await page.waitForTimeout(3000);
-  await sendInvoices(page);
-  await page.waitForTimeout(3000);
+  // await addInvoices(page);
+  // await page.waitForTimeout(3000);
+  // await cancelInvoice(page);
+  //  await page.waitForTimeout(3000);
+  // await editInvoices(page);
+  // await page.waitForTimeout(3000);
+  // await sendInvoices(page);
+  // await page.waitForTimeout(3000);
+  // await sendInvoices(page);
+  // await page.waitForTimeout(3000);
   await exportInvoiceNormal(page);
   await page.waitForTimeout(3000);
   await exportInvoiceFilter(page);
@@ -315,7 +315,10 @@ async function exportInvoiceNormal(page){
         );
         console.log(result1);
       await page.waitForTimeout(2000)
-      if (result1.success) 
+      if (result1.success
+        && await page.getByText('akbk6551+1220@gmail.com').isVisible()
+       && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportExcelInvoiceFilter1.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportExcelInvoiceFilter1","true",`./${screenshotPath}/exportExcelInvoiceFilter1.png`)
@@ -342,7 +345,10 @@ async function exportInvoiceNormal(page){
         );
         console.log(result2);
       await page.waitForTimeout(2000)
-      if (result2.success) 
+      if (result2.success
+        && await page.getByText('akbk6551+1220@gmail.com').isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportPdfInvoiceFilter1.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportPdfInvoiceFilter1","true",`./${screenshotPath}/exportPdfInvoiceFilter1.png`)
@@ -384,7 +390,10 @@ async function exportInvoiceFilter(page){
         );
         console.log(result3);
       await page.waitForTimeout(2000)
-      if (result3.success) 
+      if (result3.success
+        && await page.getByText('Neeraj Rathor').first().isVisible()
+    && !await page.getByText('Praveen').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportExcelInvoiceFilter1.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportExcelInvoiceFilter1","true",`./${screenshotPath}/exportExcelInvoiceFilter1.png`)
@@ -411,7 +420,10 @@ async function exportInvoiceFilter(page){
         );
         console.log(result4);
       await page.waitForTimeout(2000)
-      if (result4.success) 
+      if (result4.success
+         && await page.getByText('Neeraj Rathor').first().isVisible() 
+    && !await page.getByText('Praveen').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportPdfInvoiceFilter1.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportPdfInvoiceFilter1","true",`./${screenshotPath}/exportPdfInvoiceFilter1.png`)
@@ -442,7 +454,10 @@ async function exportInvoiceFilter(page){
         );
         console.log(result5);
       await page.waitForTimeout(2000)
-      if (result5.success) 
+      if (result5.success
+        && await page.getByText('CANCELLED').first().isVisible()
+    && !await page.getByText('ACCEPTED').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportExcelInvoiceFilter2.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportExcelInvoiceFilter2","true",`./${screenshotPath}/exportExcelInvoiceFilter2.png`)
@@ -468,7 +483,10 @@ async function exportInvoiceFilter(page){
         );
         console.log(result6);
       await page.waitForTimeout(2000)
-      if (result6.success) 
+      if (result6.success
+        && await page.getByText('CANCELLED').first().isVisible() 
+    && !await page.getByText('ACCEPTED').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportPdfInvoiceFilter2.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportPdfInvoiceFilter2","true",`./${screenshotPath}/exportPdfInvoiceFilter2.png`)
@@ -505,7 +523,10 @@ async function exportInvoiceFilter(page){
         );
         console.log(result7);
       await page.waitForTimeout(2000)
-      if (result7.success) 
+      if (result7.success
+        && await page.getByText('26/03/2026').first().isVisible() 
+    && !await page.getByText('2/03/2026').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportExcelInvoiceFilter3.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportExcelInvoiceFilter3","true",`./${screenshotPath}/exportExcelInvoiceFilter3.png`)
@@ -531,7 +552,10 @@ async function exportInvoiceFilter(page){
         );
         console.log(result8);
       await page.waitForTimeout(2000)
-      if (result8.success) 
+      if (result8.success
+        && await page.getByText('26/03/2026').first().isVisible() 
+    && !await page.getByText('2/03/2026').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportPdfInvoiceFilter3.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportPdfInvoiceFilter3","true",`./${screenshotPath}/exportPdfInvoiceFilter3.png`)

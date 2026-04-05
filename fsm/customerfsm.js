@@ -71,7 +71,10 @@ async function exportCustomerFsmNormal(page) {
     );
     console.log(result1);
   await page.waitForTimeout(2000);
-  if (result1.success) 
+  if (result1.success
+    && await page.getByText('akbk6551+1139@gmail.com').isVisible 
+    && !await page.getByText('akbk6551+1112@gmail.com').isVisible
+  ) 
   {
   await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerNormal.png`, fullPage: true });
   await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerNormal","true",`./${screenshotPath}/exportExelCustomerNormal.png`)
@@ -95,7 +98,10 @@ async function exportCustomerFsmNormal(page) {
     );
     console.log(result2);
   await page.waitForTimeout(2000);
-  if (result2.success) 
+  if (result2.success
+     && await page.getByText('akbk6551+1139@gmail.com').isVisible 
+    && !await page.getByText('akbk6551+1112@gmail.com').isVisible
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerNormal.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerNormal","true",`./${screenshotPath}/exportPdfCustomerNormal.png`)
@@ -119,7 +125,7 @@ async function exportCustomerFsmFilter(page) {
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'City' }).click();
-  await page.getByRole('menuitem', { name: 'Aurai' }).getByRole('checkbox').check();
+  await page.getByRole('menu').getByText('Aurai', { exact: true }).click();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.waitForTimeout(2000);
 
@@ -136,7 +142,10 @@ async function exportCustomerFsmFilter(page) {
     );
     console.log(result3);
   await page.waitForTimeout(2000)
-  if (result3.success) 
+  if (result3.success
+     && await page.getByText('akbk6551+1222@gmail.com').isVisible 
+    && !await page.getByText('akbk6551+1112@gmail.com').isVisible
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter1.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter1","true",`./${screenshotPath}/exportExelCustomerFilter1.png`)
@@ -161,7 +170,10 @@ async function exportCustomerFsmFilter(page) {
     );
     console.log(result4);
   await page.waitForTimeout(2000)
-  if (result4.success) 
+  if (result4.success
+     && await page.getByText('akbk6551+1222@gmail.com').isVisible
+    && !await page.getByText('akbk6551+1112@gmail.com').isVisible
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter2.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter2","true",`./${screenshotPath}/exportPdfCustomerFilter2.png`)
@@ -194,7 +206,10 @@ async function exportCustomerFsmFilter(page) {
     );
     console.log(result4);
   await page.waitForTimeout(2000)
-  if (result5.success) 
+  if (result5.success
+     && await page.getByText('akbk6551+1222@gmail.com').isVisible 
+    && !await page.getByText('akbk6551+1112@gmail.com').isVisible
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter3.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter3","true",`./${screenshotPath}/exportExelCustomerFilter3.png`)
@@ -218,7 +233,10 @@ async function exportCustomerFsmFilter(page) {
     );
     console.log(result6);
   await page.waitForTimeout(2000)
-  if (result6.success) 
+  if (result6.success
+     && await page.getByText('akbk6551+1222@gmail.com').isVisible 
+    && !await page.getByText('akbk6551+1112@gmail.com').isVisible
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter4.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter4","true",`./${screenshotPath}/exportPdfCustomerFilter4.png`)
@@ -250,7 +268,10 @@ async function exportCustomerFsmFilter(page) {
     );
     console.log(result7);
   await page.waitForTimeout(2000)
-  if (result7.success) 
+  if (result7.success
+     && await page.getByText('akbk6551+1139@gmail.com').isVisible 
+    && !await page.getByText('akbk6551+1112@gmail.com').isVisible
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter5.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter5","true",`./${screenshotPath}/exportExelCustomerFilter5.png`)
@@ -273,7 +294,10 @@ async function exportCustomerFsmFilter(page) {
     );
     console.log(result8);
   await page.waitForTimeout(2000)
-  if (result8.success) 
+  if (result8.success
+    && await page.getByText('akbk6551+1139@gmail.com').isVisible 
+    && !await page.getByText('akbk6551+1112@gmail.com').isVisible
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter6.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter6","true",`./${screenshotPath}/exportPdfCustomerFilter6.png`)
@@ -303,7 +327,10 @@ async function exportCustomerFsmFilter(page) {
     );
     console.log(result9);
   await page.waitForTimeout(2000)
-  if (result9.success) 
+  if (result9.success
+    && await page.getByText('akbk6551+1220@gmail.com').isVisible 
+    && !await page.getByText('akbk6551+39@gmail.com').isVisible
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter7.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter7","true",`./${screenshotPath}/exportExelCustomerFilter7.png`)
@@ -327,7 +354,10 @@ async function exportCustomerFsmFilter(page) {
     );
     console.log(result10);
   await page.waitForTimeout(2000)
-  if (result10.success) 
+  if (result10.success
+     && await page.getByText('akbk6551+1220@gmail.com').isVisible 
+    && !await page.getByText('akbk6551+39@gmail.com').isVisible
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter8.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter8","true",`./${screenshotPath}/exportPdfCustomerFilter8.png`)

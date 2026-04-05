@@ -239,7 +239,10 @@ async function exportCyclicJobNormal(page) {
           []
       );
       console.log(result1);
-      if (result1.success) 
+      if (result1.success
+          && await page.getByText("26/02/2026").isVisible 
+    && !await page.getByText('6/02/2026').isVisible
+      ) 
       {
         await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobNormal1.png`, fullPage: true });
         await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobNormal1","true",`./${screenshotPath}/exportCyclicJobNormal1.png`)
@@ -266,7 +269,10 @@ async function exportCyclicJobNormal(page) {
           []
       );
       console.log(result2);
-      if (result2.success) 
+      if (result2.success
+          && await page.getByText("26/02/2026").isVisible 
+    && !await page.getByText('6/02/2026').isVisible
+      ) 
       {
         await page.screenshot({ path: `./${screenshotPath}/exportCyclicJobNormal2.png`, fullPage: true });
         await updateOpJson(`./${screenshotPath}/`,"exportCyclicJobNormal2","true",`./${screenshotPath}/exportCyclicJobNormal2.png`)
@@ -303,7 +309,10 @@ async function exportCyclicJobFilter(page) {
           []
       );
       console.log(result3);
-      if (result3.success) 
+      if (result3.success
+          && await page.getByText("26/02/2026").isVisible 
+    && !await page.getByText('6/02/2026').isVisible
+      ) 
       {
         await page.screenshot({ path: `./${screenshotPath}/exportExcelCyclicJobFilter1.png`, fullPage: true });
         await updateOpJson(`./${screenshotPath}/`,"exportExcelCyclicJobFilter1","true",`./${screenshotPath}/exportExcelCyclicJobFilter1.png`)
@@ -329,7 +338,10 @@ async function exportCyclicJobFilter(page) {
           []
       );
       console.log(result4);
-      if (result4.success) 
+      if (result4.success
+          && await page.getByText("26/02/2026").isVisible 
+    && !await page.getByText('6/02/2026').isVisible
+      ) 
       {
         await page.screenshot({ path: `./${screenshotPath}/exportPdfCyclicJobFilter1.png`, fullPage: true });
         await updateOpJson(`./${screenshotPath}/`,"exportPdfCyclicJobFilter1","true",`./${screenshotPath}/exportPdfCyclicJobFilter1.png`)
@@ -360,7 +372,10 @@ async function exportCyclicJobFilter(page) {
           []
       );
       console.log(result5);
-        if (result5.success) 
+        if (result5.success
+            && await page.getByText("26/02/2026").isVisible 
+    && !await page.getByText('6/02/2026').isVisible
+        ) 
       {
         await page.screenshot({ path: `./${screenshotPath}/exportExcelCyclicJobFilter2.png`, fullPage: true });
         await updateOpJson(`./${screenshotPath}/`,"exportExcelCyclicJobFilter2","true",`./${screenshotPath}/exportExcelCyclicJobFilter2.png`)
@@ -386,7 +401,10 @@ async function exportCyclicJobFilter(page) {
           []
       );
       console.log(result6);
-      if (result6.success) 
+      if (result6.success
+          && await page.getByText("26/02/2026").isVisible 
+    && !await page.getByText('6/02/2026').isVisible
+      ) 
       {
         await page.screenshot({ path: `./${screenshotPath}/exportPdfCyclicJobFilter2.png`, fullPage: true });
         await updateOpJson(`./${screenshotPath}/`,"exportPdfCyclicJobFilter2","true",`./${screenshotPath}/exportPdfCyclicJobFilter2.png`)
@@ -417,7 +435,10 @@ async function exportCyclicJobFilter(page) {
           []
       );
       console.log(result7);
-      if (result7.success) 
+      if (result7.success
+          && await page.getByText("26/02/2026").isVisible 
+    && !await page.getByText('6/02/2026').isVisible
+      ) 
       {
         await page.screenshot({ path: `./${screenshotPath}/exportExcelCyclicJobFilter3.png`, fullPage: true });
         await updateOpJson(`./${screenshotPath}/`,"exportExcelCyclicJobFilter3","true",`./${screenshotPath}/exportExcelCyclicJobFilter3.png`)
@@ -443,7 +464,10 @@ async function exportCyclicJobFilter(page) {
           []
       );
       console.log(result8);
-      if (result8.success) 
+      if (result8.success
+          && await page.getByText("26/02/2026").isVisible 
+    && !await page.getByText('6/02/2026').isVisible
+      ) 
       {
         await page.screenshot({ path: `./${screenshotPath}/exportPdfCyclicJobFitler3.png`, fullPage: true });
         await updateOpJson(`./${screenshotPath}/`,"exportPdfCyclicJobFitler3","true",`./${screenshotPath}/exportPdfCyclicJobFitler3.png`)
@@ -474,7 +498,10 @@ async function exportCyclicJobFilter(page) {
           []
       );
       console.log(result9);
-       if (result9.success) 
+       if (result9.success
+          && await page.getByText("26/02/2026").isVisible 
+    && !await page.getByText('6/02/2026').isVisible
+       ) 
       {
         await page.screenshot({ path: `./${screenshotPath}/exportExcelCyclicJobFilter4.png`, fullPage: true });
         await updateOpJson(`./${screenshotPath}/`,"exportExcelCyclicJobFilter4","true",`./${screenshotPath}/exportExcelCyclicJobFilter4.png`)
@@ -500,7 +527,10 @@ async function exportCyclicJobFilter(page) {
           []
       );
       console.log(result10);
-      if (result10.success) 
+      if (result10.success
+          && await page.getByText("26/02/2026").isVisible 
+    && !await page.getByText('6/02/2026').isVisible
+      ) 
       {
         await page.screenshot({ path: `./${screenshotPath}/exportPdfCyclicJobFilter4.png`, fullPage: true });
         await updateOpJson(`./${screenshotPath}/`,"exportPdfCyclicJobFilter4","true",`./${screenshotPath}/exportPdfCyclicJobFilter4.png`)

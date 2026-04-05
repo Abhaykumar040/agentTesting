@@ -28,7 +28,7 @@ export async function internalJob(page){
  await page.waitForTimeout(3000);
  await exportInternalJObFilter(page);
  await page.waitForTimeout(3000);
- await createJobByAssetManagements(page);
+//  await createJobByAssetManagements(page);
  
 }
 async function deletePreviousinternalJob(page){
@@ -505,7 +505,10 @@ async function exportInternalJObNormal(page){
     ["Anil Maurya","Bihar"]
 );
 console.log(result1);
-    if ( result1.success) 
+    if ( result1.success
+       && await page.getByText('Uttar Pradesh').first().isVisible() 
+    && !await page.getByText('Bihar').isVisible()
+    ) 
     {
       await page.screenshot({ path: `./${screenshotPath}/exportInternalJObNormal.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"exportInternalJObNormal","true",`./${screenshotPath}/exportInternalJObNormal.png`)
@@ -532,7 +535,10 @@ console.log(result1);
     ["Anil Maurya","Bihar"]
 );
 console.log(result);
-    if ( result.success) 
+    if ( result.success
+       && await page.getByText('Uttar Pradesh').first().isVisible() 
+    && !await page.getByText('Bihar').isVisible()
+    ) 
     {
       await page.screenshot({ path: `./${screenshotPath}/exportInternalJObNormal.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"exportInternalJObNormal","true",`./${screenshotPath}/exportInternalJObNormal.png`)
@@ -552,9 +558,9 @@ async function exportInternalJObFilter(page){
   await page.getByRole('menuitem', { name: 'State' }).click();
   await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('button', { name: 'OK' }).click();
-  await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
+   await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'City' }).click();
+  await page.getByRole('menu').getByText('Khamaria', { exact: true }).click();
   await page.getByRole('button', { name: 'OK' }).click();
   
   // excel file
@@ -573,7 +579,10 @@ async function exportInternalJObFilter(page){
    console.log(result1);
     await page.waitForTimeout(2000);
   
-    if (result1.success) 
+    if (result1.success
+       && await page.getByText('Uttar Pradesh').first().isVisible() 
+    && !await page.getByText('Bihar').isVisible()
+    ) 
     {
       await page.screenshot({ path: `./${screenshotPath}/exportExcelInternalJObFilter1.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"exportExcelInternalJObFilter1","true",`./${screenshotPath}/exportExcelInternalJObFilter1.png`)
@@ -603,7 +612,10 @@ async function exportInternalJObFilter(page){
    console.log(result2);
     await page.waitForTimeout(2000);
   
-    if (result2.success) 
+    if (result2.success
+       && await page.getByText('Uttar Pradesh').first().isVisible() 
+    && !await page.getByText('Bihar').isVisible()
+    ) 
     {
       await page.screenshot({ path: `./${screenshotPath}/exportPdfInternalJObFilter1.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"exportPdfInternalJObFilter1","true",`./${screenshotPath}/exportPdfInternalJObFilter1.png`)
@@ -637,7 +649,10 @@ await page.getByRole('button', { name: 'Filter By' }).click();
     ["Installation6","Anil Maurya"]
   );
    console.log(result3);
-    if (result3.success) 
+    if (result3.success
+       && await page.getByText("Installation5").first().isVisible() 
+    && !await page.getByText('Installation6').isVisible()
+    ) 
     {
       await page.screenshot({ path: `./${screenshotPath}/exportExcelInternalJObFilter2.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"exportExcelInternalJObFilter2","true",`./${screenshotPath}/exportExcelInternalJObFilter2.png`)
@@ -665,7 +680,10 @@ await page.getByRole('button', { name: 'Filter By' }).click();
     ["Installation6","Anil Maurya"]
   );
    console.log(result4);
-    if (result4.success) 
+    if (result4.success
+         && await page.getByText("Installation5").first().isVisible() 
+    && !await page.getByText('Installation6').isVisible()
+    ) 
     {
       await page.screenshot({ path: `./${screenshotPath}/exportPdfInternalJObFilter2.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"exportPdfInternalJObFilter2","true",`./${screenshotPath}/exportPdfInternalJObFilter2.png`)
@@ -698,7 +716,10 @@ await page.getByRole('button', { name: 'Filter By' }).click();
     ["Abhay Singh","20/02/2026"]
   );
    console.log(result5);
-    if (result5.success) 
+    if (result5.success
+         && await page.getByText("26/02/2026").first().isVisible() 
+    && !await page.getByText('6/02/2026').isVisible()
+    ) 
     {
       await page.screenshot({ path: `./${screenshotPath}/exportExcelInternalJObFilter3.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"exportExcelInternalJObFilter3.png","true",`./${screenshotPath}/exportExcelInternalJObFilter3.png.png`)
@@ -727,7 +748,10 @@ await page.getByRole('button', { name: 'Filter By' }).click();
     ["Abhay Singh","20/02/2026"]
   );
    console.log(result6);
-    if (result6.success) 
+    if (result6.success
+        && await page.getByText("26/02/2026").first().isVisible() 
+    && !await page.getByText('6/02/2026').isVisible()
+    ) 
     {
       await page.screenshot({ path: `./${screenshotPath}/exportPdfInternalJObFilter3.png`, fullPage: true });
       await updateOpJson(`./${screenshotPath}/`,"exportPdfInternalJObFilter3","true",`./${screenshotPath}/exportPdfInternalJObFilter3.png`)

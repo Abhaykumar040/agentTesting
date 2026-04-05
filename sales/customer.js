@@ -28,10 +28,11 @@ export async function customer(page){
 
 //  await page.waitForTimeout(3000);
 //  await editCustomer(page);
- await page.waitForTimeout(3000);
+//  await page.waitForTimeout(3000);
  await exportCustomerNormal(page);
  await page.waitForTimeout(3000);
  await exportCustomerFilter(page);
+ await page.waitForTimeout(3000);
 //  await deleteCustomer(page);
 }
 
@@ -92,12 +93,15 @@ async function exportCustomerNormal(page) {
   await excelDownload.saveAs('downloads/exportExelCustomerNormal.xlsx');
   const result1 = await dataRead(
         "./downloads/exportExelCustomerNormal.xlsx",
-        ["Mayank Rathor","akbk6551+1139@gmail.com","Sushil Singh","akbk6551+1218@gmail.com"],
-        []
+        ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        ["Vijay Singh","akbk6551+1200@gmail.com"]
     );
     console.log(result1);
   await page.waitForTimeout(2000);
-  if (result1.success) 
+  if (result1.success
+    && await page.getByText('akbk6551+1222@gmail.com').isVisible 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible
+  ) 
   {
   await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerNormal.png`, fullPage: true });
   await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerNormal","true",`./${screenshotPath}/exportExelCustomerNormal.png`)
@@ -116,12 +120,15 @@ async function exportCustomerNormal(page) {
  await pdfDownload.saveAs('downloads/exportPdfCustomerNormal.pdf');
  const result2 = await dataRead(
         "./downloads/exportPdfCustomerNormal.pdf",
-         ["Mayank Rathor","akbk6551+1139@gmail.com","Sushil Singh","akbk6551+1218@gmail.com"],
-        []
+         ["Mayank Rathor","akbk6551+1139@gmail.com"],
+        ["Vijay dubey","akbk6551+1200@gmail.com"]
     );
     console.log(result2);
   await page.waitForTimeout(2000);
-  if (result2.success) 
+  if (result2.success
+    && await page.getByText('akbk6551+1222@gmail.com').isVisible 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerNormal.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerNormal","true",`./${screenshotPath}/exportPdfCustomerNormal.png`)
@@ -162,7 +169,9 @@ async function exportCustomerFilter(page) {
     );
     console.log(result3);
   await page.waitForTimeout(2000)
-  if (result3.success) 
+  if (result3.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
       {
           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter1.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter1","true",`./${screenshotPath}/exportExelCustomerFilter1.png`)
@@ -187,7 +196,10 @@ async function exportCustomerFilter(page) {
     );
     console.log(result4);
   await page.waitForTimeout(2000)
-  if (result4.success) 
+  if (result4.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter2.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter2","true",`./${screenshotPath}/exportPdfCustomerFilter2.png`)
@@ -220,7 +232,10 @@ async function exportCustomerFilter(page) {
     );
     console.log(result4);
   await page.waitForTimeout(2000)
-  if (result5.success) 
+  if (result5.success
+    && await page.getByText('akbk6551+000324@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter3.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter3","true",`./${screenshotPath}/exportExelCustomerFilter3.png`)
@@ -244,7 +259,10 @@ async function exportCustomerFilter(page) {
     );
     console.log(result6);
   await page.waitForTimeout(2000)
-  if (result6.success) 
+  if (result6.success
+    && await page.getByText('akbk6551+000324@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter4.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter4","true",`./${screenshotPath}/exportPdfCustomerFilter4.png`)
@@ -259,7 +277,7 @@ async function exportCustomerFilter(page) {
  await page.reload();
 
   // Customer name filter
-   await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Customer', exact: true }).click();
   await page.getByRole('menuitem', { name: 'Mayank Rathor' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
@@ -276,7 +294,10 @@ async function exportCustomerFilter(page) {
     );
     console.log(result7);
   await page.waitForTimeout(2000)
-  if (result7.success) 
+  if (result7.success
+    && await page.getByText('akbk6551+1139@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter5.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter5","true",`./${screenshotPath}/exportExelCustomerFilter5.png`)
@@ -299,7 +320,10 @@ async function exportCustomerFilter(page) {
     );
     console.log(result8);
   await page.waitForTimeout(2000)
-  if (result8.success) 
+  if (result8.success
+    && await page.getByText('akbk6551+1139@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter6.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter6","true",`./${screenshotPath}/exportPdfCustomerFilter6.png`)
@@ -329,7 +353,10 @@ async function exportCustomerFilter(page) {
     );
     console.log(result9);
   await page.waitForTimeout(2000)
-  if (result9.success) 
+  if (result9.success
+    && await page.getByText('akbk6551+1220@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter7.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter7","true",`./${screenshotPath}/exportExelCustomerFilter7.png`)
@@ -353,7 +380,10 @@ async function exportCustomerFilter(page) {
     );
     console.log(result10);
   await page.waitForTimeout(2000)
-  if (result10.success) 
+  if (result10.success
+    && await page.getByText('akbk6551+1220@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
       {
           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter8.png`, fullPage: true });
           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter8","true",`./${screenshotPath}/exportPdfCustomerFilter8.png`)

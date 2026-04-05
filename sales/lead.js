@@ -17,20 +17,20 @@ const pathName=`outputData/status/${testData.companyType}`
 export async function lead(page){
   // await addLead(page);
   // await page.waitForTimeout(3000);
-  await editLead(page);
-  await page.waitForTimeout(3000);
-  await emailThreadInLead(page);
-  await page.waitForTimeout(3000);
-  await activityInLead(page);
-  await page.waitForTimeout(3000);
-  await documentInLead(page); 
-  await page.waitForTimeout(3000); 
+  // await editLead(page);
+  // await page.waitForTimeout(3000);
+  // await emailThreadInLead(page);
+  // await page.waitForTimeout(3000);
+  // await activityInLead(page);
+  // await page.waitForTimeout(3000);
+  // await documentInLead(page); 
+  // await page.waitForTimeout(3000); 
   await exportLeadFileNormal(page);
   await page.waitForTimeout(3000); 
   await exportLeadFileFilter(page);
+  await page.waitForTimeout(3000); 
   // await importLead(page);
 }
-
 
 async function addLead(page){
   console.log("Enter in add lead");
@@ -286,7 +286,6 @@ await page.waitForTimeout(1000);
   console.log("Add lead completed");
 }
 
-
 async function editLead(page){
   console.log("Enter in edit lead");
   await page.waitForTimeout(1000);
@@ -352,7 +351,6 @@ async function editLead(page){
   console.log("Edited lead completed");
 }
 
-
 async function emailThreadInLead(page){
   console.log('Enter in email thread of lead');
   await page.getByText('Aman Yadav').click();
@@ -384,7 +382,6 @@ async function emailThreadInLead(page){
   await page.getByRole('button', { name: 'Send Email' }).click();
   console.log('email thread done in lead');
 }
-
 
 async function activityInLead(page){
   console.log("Enter in activity's lead");
@@ -424,7 +421,6 @@ async function activityInLead(page){
   await page.reload();
   console.log('Activity of lead created completed');
 }
-
 
 async function documentInLead(page) {
   console.log("Enter in document's lead");

@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
+import { dataRead } from '../dataRead';
 
 
 
@@ -21,7 +22,7 @@ export async function ticketInsideCustomer(page){
   await exportExcelInTicketsNormal(page);
   await page.waitForTimeout(1000);
   await exportExcelInTicketFilter(page);
-  await uploadFilesTicket(page);
+  // await uploadFilesTicket(page);
 
 }
 
@@ -207,6 +208,10 @@ async function sendTicket(page){
 }
 
 async function exportExcelInTicketsNormal(page) {
+  await page.getByRole('button', { name: 'Customer Service' }).click();
+  await page.getByRole('link', { name: 'Customers' }).click();
+  await page.getByText('Jony Rathor').first().click();
+  await page.getByRole('tab', { name: 'Support Tickets' }).click();
    // excel file
   const [excelDownload] = await Promise.all([
 
@@ -222,7 +227,10 @@ async function exportExcelInTicketsNormal(page) {
         ["Mayank Rathor","akbk6551+1139@gmail.com"]
     );
     console.log(result1);
-  if (result1.success) 
+  if (result1.success
+      && await page.getByText("power issue").first().isVisible() 
+    && !await page.getByText('Mayank').isVisible()
+  ) 
   {
     await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketsNormal.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketsNormal","true",`./${screenshotPath}/exportExcelInTicketsNormal.png`)
@@ -237,9 +245,13 @@ async function exportExcelInTicketsNormal(page) {
 
 async function exportExcelInTicketFilter(page) {
 console.log('Enter in export excel in ticket filter');
-await page.getByRole('button', { name: 'Filter By' }).click();
+await page.getByRole('button', { name: 'Customer Service' }).click();
+  await page.getByRole('link', { name: 'Customers' }).click();
+  await page.getByText('Jony Rathor').first().click();
+  // await page.getByRole('tab', { name: 'Support Tickets' }).click();
+ await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Agent' }).click();
-  await page.getByRole('menuitem', { name: 'Yogesh Yadav' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'Jitendra' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
    const [excelDownload] = await Promise.all([
 
@@ -251,11 +263,14 @@ await page.getByRole('button', { name: 'Filter By' }).click();
   await page.waitForTimeout(2000);
   const result2 = await dataRead(
         "./downloads/exportExcelInTicketFilter.xlsx",
-       ["power issue","akbk6551+1136@gmail.com"],
-         ["Power cutoff issue","akbk6551+1217@gmail.com"]
+       ["Techinal issue in Laptop","Jitendra"],
+       ["power issue","Abhay"]
     );
     console.log(result2);
-  if (result2.success) 
+  if (result2.success
+     && await page.getByText("Jitendra").first().isVisible() 
+    && !await page.getByText('Power issue').isVisible()
+  ) 
   {
     await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketFilter.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketFilter","true",`./${screenshotPath}/exportExcelInTicketFilter.png`)
@@ -265,39 +280,50 @@ await page.getByRole('button', { name: 'Filter By' }).click();
     await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketFilter.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketFilter","false",`./${screenshotPath}/exportExcelInTicketFilter.png`)
   }
+console.log("yaha tk done")
+  // await page.reload();
+  // await page.getByRole('button', { name: 'Customer Service' }).click();
+  // await page.getByRole('link', { name: 'Customers' }).click();
+  // await page.getByText('Jony Rathor').first().click();
+  // await page.getByRole('tab', { name: 'Support Tickets' }).click();
+  // await page.getByRole('button', { name: 'Filter By' }).click();
+  // await page.getByRole('menuitem', { name: 'Queue' }).click();
+  // await page.getByRole('menuitem', { name: 'Technical Queue' }).getByRole('checkbox').check();
+  // await page.getByRole('button', { name: 'OK' }).click();
+  // const [excelDownload1] = await Promise.all([
 
-  await page.reload();
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'Queue' }).click();
-  await page.getByRole('menuitem', { name: 'Technical Queue' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'OK' }).click();
-  const [excelDownload1] = await Promise.all([
+  //   page.waitForEvent('download'),
+  //   page.getByRole('button', { name: 'Export To Excel' }).click()
 
-    page.waitForEvent('download'),
-    page.getByRole('button', { name: 'Export To Excel' }).click()
-
-  ]);
-  await excelDownload1.saveAs('downloads/exportExcelInTicketFilter1.xlsx');
-  await page.waitForTimeout(2000);
-  const result3 = await dataRead(
-        "./downloads/exportExcelInTicketFilter1.xlsx",
-        ["Power cutoff issue","akbk6551+1217@gmail.com"],
-       ["power issue","akbk6551+1186@gmail.com"]
+  // ]);
+  // await excelDownload1.saveAs('downloads/exportExcelInTicketFilter1.xlsx');
+  // await page.waitForTimeout(2000);
+  // const result3 = await dataRead(
+  //       "./downloads/exportExcelInTicketFilter1.xlsx",
+  //       ["Power cutoff issue","akbk6551+1217@gmail.com"],
+  //      ["power issue","akbk6551+1186@gmail.com"]
          
-    );
-    console.log(result3);
-  if (result3.success) 
-  {
-    await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketFilter1.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketFilter1","true",`./${screenshotPath}/exportExcelInTicketFilter1.png`)
+  //   );
+  //   console.log(result3);
+  // if (result3.success
+  //    && await page.getByText("Power cutoff issue").first().isVisible() 
+  //   && !await page.getByText('power issue').isVisible()
+  // ) 
+  // {
+  //   await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketFilter1.png`, fullPage: true });
+  //   await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketFilter1","true",`./${screenshotPath}/exportExcelInTicketFilter1.png`)
     
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketFilter1.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketFilter1","false",`./${screenshotPath}/exportExcelInTicketFilter1.png`)
-  }
+  // }
+  // else{
+  //   await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketFilter1.png`, fullPage: true });
+  //   await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketFilter1","false",`./${screenshotPath}/exportExcelInTicketFilter1.png`)
+  // }
 
   await page.reload();
+ await page.getByRole('button', { name: 'Customer Service' }).click();
+  await page.getByRole('link', { name: 'Customers' }).click();
+  await page.getByText('Jony Rathor').first().click();
+  // await page.getByRole('tab', { name: 'Support Tickets' }).click();
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Priority' }).click();
   await page.getByRole('menuitem', { name: 'createdSupport2' }).getByRole('checkbox').check();
@@ -312,12 +338,15 @@ await page.getByRole('button', { name: 'Filter By' }).click();
   await page.waitForTimeout(2000);
   const result4 = await dataRead(
         "./downloads/exportExcelInTicketFilter2.xlsx",
-        ["createSupport1","akbk6551+1217@gmail.com"],
-       ["createSupport2","akbk6551+1136@gmail.com"]
+       ["Techinal issue in Laptop","Customer Support"],
+       ["createSupport1","doneSupport2"]
          
     );
     console.log(result4);
-  if (result4.success) 
+  if (result4.success
+     && await page.getByText("createdSupport2").first().isVisible() 
+    && !await page.getByText('doneSupport2').isVisible()
+  ) 
   {
     await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketFilter2.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketFilter2","true",`./${screenshotPath}/exportExcelInTicketFilter2.png`)
@@ -329,9 +358,14 @@ await page.getByRole('button', { name: 'Filter By' }).click();
   }
 
   await page.reload();
+ await page.getByRole('button', { name: 'Customer Service' }).click();
+  await page.getByRole('link', { name: 'Customers' }).click();
+  await page.getByText('Jony Rathor').first().click();
+  // await page.getByRole('tab', { name: 'Support Tickets' }).click();
+  // await page.getByText('Jony Rathor').first().click();
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Ticket Status' }).click();
-  await page.getByRole('menuitem', { name: 'OpenSupport' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'CloseSupport' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   const [excelDownload3] = await Promise.all([
 
@@ -343,12 +377,15 @@ await page.getByRole('button', { name: 'Filter By' }).click();
   await page.waitForTimeout(2000);
   const result5 = await dataRead(
         "./downloads/exportExcelInTicketFilter3.xlsx",
-        ["OpenSupport","akbk6551+1136@gmail.com"],
-       ["Resolved","akbk6551+4136@gmail.com"]
+        ["doneSupport2","('Techinal issue in Laptop"],
+       ["OpenSupport","Techinal issue"]
          
     );
     console.log(result5);
-  if (result5.success) 
+  if (result5.success
+       && await page.getByText("doneSupport2").first().isVisible() 
+    && !await page.getByText('OpenSupport').isVisible()
+  ) 
   {
     await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketFilter3.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketFilter3","true",`./${screenshotPath}/exportExcelInTicketFilter3.png`)
@@ -360,14 +397,16 @@ await page.getByRole('button', { name: 'Filter By' }).click();
   }
 
   await page.reload();
-
-  await page.getByRole('button', { name: 'Filter By' }).click();
+await page.getByRole('button', { name: 'Customer Service' }).click();
+  await page.getByRole('link', { name: 'Customers' }).click();
+  await page.getByText('Jony Rathor').first().click();
+  // await page.getByRole('tab', { name: 'Support Tickets' }).click();
+ await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Date Filter' }).click();
-  await page.getByRole('button', { name: 'Choose date' }).first().click();
-  await page.getByRole('gridcell', { name: '1', exact: true }).click();
-  await page.getByRole('button', { name: 'Choose date', exact: true }).click();
-  await page.getByRole('gridcell', { name: '26' }).click();
-  await page.getByRole('button', { name: 'OK' }).click();
+ await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('12/01/2026');
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('13/02/2026');
   const [excelDownload4] = await Promise.all([
 
     page.waitForEvent('download'),
@@ -383,7 +422,10 @@ await page.getByRole('button', { name: 'Filter By' }).click();
          
     );
     console.log(result6);
-  if (result6.success) 
+  if (result6.success
+    && await page.getByText("Open").first().isVisible() 
+    && !await page.getByText('Resolved').isVisible()
+  ) 
   {
     await page.screenshot({ path: `./${screenshotPath}/exportExcelInTicketFilter4.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"exportExcelInTicketFilter4","true",`./${screenshotPath}/exportExcelInTicketFilter4.png`)

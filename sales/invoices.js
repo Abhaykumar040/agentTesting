@@ -138,7 +138,6 @@ async function sendInvoices(page) {
   console.log('send invoice completed');
 }
 
-
 async function editInvoices(page){
   console.log('Enter in edit invoice');
     await page.locator('body tr:nth-of-type(1) td:nth-of-type(8) div button:last-of-type svg').click();
@@ -194,6 +193,7 @@ async function cancelInvoice(page){
 
   console.log('cancel invoice completed');
 }
+
 async function createInvoiceByQuotation(page) {
   console.log('Enter in create invoice by quotation');
   await page.getByRole('button', { name: 'Sales' }).click();
@@ -259,12 +259,15 @@ async function exportInvoiceNormal(page){
     await excelDownload1.saveAs('downloads/exportExcelInvoiceFilter1.xlsx');
     const result1 = await dataRead(
             "./downloads/exportExcelInvoiceFilter1.xlsx",
-           ["Neeraj Rathor","Uttar Pradesh"],
-            ["Neeraj Rathor","Bihar"]
+           ["Mayank Rathor","Uttar Pradesh"],
+            ["Shana Rathor","Bihar"]
         );
         console.log(result1);
       await page.waitForTimeout(2000)
-      if (result1.success) 
+      if (result1.success
+        && await page.getByText('Mayank Rathor').isVisible 
+    && !await page.getByText('Aman Singh').isVisible
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportExcelInvoiceFilter1.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportExcelInvoiceFilter1","true",`./${screenshotPath}/exportExcelInvoiceFilter1.png`)
@@ -286,12 +289,15 @@ async function exportInvoiceNormal(page){
     await pdfDownload1.saveAs('downloads/exportPdfInvoiceFilter1.pdf');
      const result2 = await dataRead(
             "./downloads/exportPdfInvoiceFilter1.pdf",
-            ["Neeraj Rathor","Uttar Pradesh"],
-            ["Neeraj Rathor","Bihar"]
+           ["Mayank Rathor","Uttar Pradesh"],
+            ["Shana Rathor","Bihar"]
         );
         console.log(result2);
       await page.waitForTimeout(2000)
-      if (result2.success) 
+      if (result2.success
+          && await page.getByText('Mayank Rathor').isVisible 
+    && !await page.getByText('Aman Singh').isVisible
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportPdfInvoiceFilter1.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportPdfInvoiceFilter1","true",`./${screenshotPath}/exportPdfInvoiceFilter1.png`)
@@ -303,6 +309,7 @@ async function exportInvoiceNormal(page){
             }
   console.log('eport invoice normal completed');
 }
+
 async function exportInvoiceFilter(page){
   console.log('Enter in export invoice filter');
   // fitlter using state, city, customer name.
@@ -329,11 +336,14 @@ async function exportInvoiceFilter(page){
     const result3 = await dataRead(
             "./downloads/exportExcelInvoiceFilter1.xlsx",
             ["Neeraj Rathor","Uttar Pradesh"],
-            ["Neeraj Rathor","Bihar"]
+            ["Anil Rathor","Bihar"]
         );
         console.log(result3);
       await page.waitForTimeout(2000)
-      if (result3.success) 
+      if (result3.success
+        && await page.getByText('Neeraj Rathor').first().isVisible()
+    && !await page.getByText('Anil Rathor').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportExcelInvoiceFilter1.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportExcelInvoiceFilter1","true",`./${screenshotPath}/exportExcelInvoiceFilter1.png`)
@@ -356,11 +366,14 @@ async function exportInvoiceFilter(page){
     const result4 = await dataRead(
             "./downloads/exportPdfInvoiceFilter1.pdf",
             ["Neeraj Rathor","Uttar Pradesh"],
-            ["Neeraj Rathor","Bihar"]
+            ["Anil Rathor","Bihar"]
         );
         console.log(result4);
       await page.waitForTimeout(2000)
-      if (result4.success) 
+      if (result4.success
+        && await page.getByText('Neeraj Rathor').first().isVisible() 
+    && !await page.getByText('Anil Rathor').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportPdfInvoiceFilter1.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportPdfInvoiceFilter1","true",`./${screenshotPath}/exportPdfInvoiceFilter1.png`)
@@ -387,11 +400,14 @@ async function exportInvoiceFilter(page){
     const result5 = await dataRead(
             "./downloads/exportExcelInvoiceFilter2.xlsx",
             ["Arjun Singh","CANCELLED"],
-            ["Abhay Singh","CANCELLED"]
+            ["Abhay Singh","PAID"]
         );
         console.log(result5);
       await page.waitForTimeout(2000)
-      if (result5.success) 
+      if (result5.success
+        && await page.getByText('Arjun Singh').first().isVisible() 
+    && !await page.getByText('Abhay Singh').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportExcelInvoiceFilter2.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportExcelInvoiceFilter2","true",`./${screenshotPath}/exportExcelInvoiceFilter2.png`)
@@ -417,7 +433,10 @@ async function exportInvoiceFilter(page){
         );
         console.log(result6);
       await page.waitForTimeout(2000)
-      if (result6.success) 
+      if (result6.success
+         && await page.getByText('Arjun Singh').first().isVisible() 
+         && !await page.getByText('Abhay Singh').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportPdfInvoiceFilter2.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportPdfInvoiceFilter2","true",`./${screenshotPath}/exportPdfInvoiceFilter2.png`)
@@ -450,11 +469,14 @@ async function exportInvoiceFilter(page){
     const result7 = await dataRead(
             "./downloads/exportExcelInvoiceFilter3.xlsx",
             ["Arjun Singh","26/03/2026"],
-            ["Arjun Singh","2/03/2026"]
+            ["Abhay Singh","2/03/2026"]
         );
         console.log(result7);
       await page.waitForTimeout(2000)
-      if (result7.success) 
+      if (result7.success
+        && await page.getByText('26/03/2026').first().isVisible() 
+         && !await page.getByText('2/03/2026').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportExcelInvoiceFilter3.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportExcelInvoiceFilter3","true",`./${screenshotPath}/exportExcelInvoiceFilter3.png`)
@@ -480,7 +502,10 @@ async function exportInvoiceFilter(page){
         );
         console.log(result8);
       await page.waitForTimeout(2000)
-      if (result8.success) 
+      if (result8.success
+         && await page.getByText('26/03/2026').first().isVisible() 
+         && !await page.getByText('2/03/2026').isVisible()
+      ) 
           {
               await page.screenshot({ path: `./${screenshotPath}/exportPdfInvoiceFilter3.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportPdfInvoiceFilter3","true",`./${screenshotPath}/exportPdfInvoiceFilter3.png`)
@@ -493,3 +518,4 @@ async function exportInvoiceFilter(page){
     await page.reload();
     console.log("Export invoice filter completed");
 }
+
