@@ -29,11 +29,17 @@ export async function customer(page){
 //  await page.waitForTimeout(3000);
 //  await editCustomer(page);
 //  await page.waitForTimeout(3000);
- await exportCustomerNormal(page);
+await filterInCustomer(page);
+await exportCustomerNormal(page);
  await page.waitForTimeout(3000);
  await exportCustomerFilter(page);
  await page.waitForTimeout(3000);
 //  await deleteCustomer(page);
+}
+
+async function filterInCustomer(page){
+  console.log("Enter in filter in customer");
+  console.log("filtering completed in side the customer");
 }
 
 async function createCustomerOne(page){
