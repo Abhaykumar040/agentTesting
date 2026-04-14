@@ -543,11 +543,14 @@ async function exportLeadFileNormal(page) {
 
 async function exportLeadFileFilter(page){
   console.log('Enter in export lead file filter ');
-  // excel file
+
+
    await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Agent' }).click();
   await page.getByRole('menuitem', { name: 'Mahesh Kumar' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
+
+   // excel file
   const [excelDownload] = await Promise.all([
 
     page.waitForEvent('download'),
@@ -560,24 +563,25 @@ async function exportLeadFileFilter(page){
    const result1 = await dataRead(
           "./downloads/leadFilter.xlsx",
         ["Jogendar Maurya","akbk6551+1231@gmail.com"],
-        ["Abhay Tyagi","akbk6551+31@gmail.com"]
+        ["simmi","akbk6551+31@gmail.com"]
       );
       console.log(result1);
     if (result1.success) 
     {
-      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterX.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterX","true",`./${screenshotPath}/exportExcelInLeadFilterX.png`)
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilter1.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilter1","true",`./${screenshotPath}/exportExcelInLeadFilter1.png`)
       
     }
     else{
-      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterX.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterX","false",`./${screenshotPath}/exportExcelInLeadFilterX.png`)
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilter1.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilter1","false",`./${screenshotPath}/exportExcelInLeadFilter1.png`)
     }
+
+    console.log("excel 1")
 
 
   // pdf file
  const [pdfDownload] = await Promise.all([
-
     page.waitForEvent('download'),
 
     page.getByRole('button', { name: 'Export To PDF' }).click()
@@ -588,21 +592,21 @@ async function exportLeadFileFilter(page){
 
    const result2 = await dataRead(
           "./downloads/leadPdfFilter.pdf",
-        ["Jogendar Maurya","akbk6551+1231@gmail.com"],
-        ["Abhay Tyagi","akbk6551+31@gmail.com"]
+        ["Anjali Rathor","akbk6551+1230"],
+        ["simmi","akbk6551+31@gmail.com"]
       );
       console.log(result2);
     if (result2.success) 
     {
-      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterP.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterP","true",`./${screenshotPath}/exportExcelInLeadFilterP.png`)
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilter2.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilter2","true",`./${screenshotPath}/exportExcelInLeadFilter2.png`)
       
     }
     else{
-      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterP.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterP","false",`./${screenshotPath}/exportExcelInLeadFilterP.png`)
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilter2.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilter2","false",`./${screenshotPath}/exportExcelInLeadFilter2.png`)
     }
-
+       console.log("pdf 1")
   // .....................................................
    await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Status' }).click();
@@ -611,33 +615,32 @@ async function exportLeadFileFilter(page){
   await page.waitForTimeout(1000);
   
  
+// excel file
 
-   const [excelDownload1] = await Promise.all([
-
+  const [excelDownload1] = await Promise.all([
     page.waitForEvent('download'),
     page.getByRole('button', { name: 'Export To Excel' }).click()
-
   ]);
   await excelDownload1.saveAs('downloads/leadFilter1.xlsx');
-
-
    const result3 = await dataRead(
           "./downloads/leadFilter1.xlsx",
           ["Jogendar Maurya","akbk6551+1231@gmail.com"],
-        ["Abhay Tyagi","akbk6551+31@gmail.com"]
+        ["simmi","akbk6551+31@gmail.com"]
         
       );
       console.log(result3);
     if (result3.success) 
     {
-      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatusX.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatusX","true",`./${screenshotPath}/exportExcelInLeadFilterStatusX.png`)
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus3.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus3","true",`./${screenshotPath}/exportExcelInLeadFilterStatus3.png`)
       
     }
     else{
-      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatusX.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatusX","false",`./${screenshotPath}/exportExcelInLeadFilterStatusX.png`)
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus3.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus3","false",`./${screenshotPath}/exportExcelInLeadFilterStatus3.png`)
     }
+    
+    console.log("excel 2")
 
   // pdf file
   const [pdfDownload1] = await Promise.all([
@@ -652,22 +655,300 @@ async function exportLeadFileFilter(page){
 
    const result4 = await dataRead(
           "./downloads/leadPdfFilter1.pdf",
-          ["Jogendar Maurya","akbk6551+1231@gmail.com"],
-        ["Abhay Tyagi","akbk6551+31@gmail.com"]
+          ["Anjali Rathor","akbk6551+1230"],
+        ["simmi","akbk6551+31@gmail.com"]
       );
       console.log(result4);
     if (result4.success) 
     {
-      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatusP.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatusP","true",`./${screenshotPath}/exportExcelInLeadFilterStatusP.png`)
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus4.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus4","true",`./${screenshotPath}/exportExcelInLeadFilterStatusP.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus4.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus4","false",`./${screenshotPath}/exportExcelInLeadFilterStatus4.png`)
+    }
+     console.log("pdf 2")
+
+  await page.reload();
+  
+  await page.getByText('Date Filter').click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('18/03/2026');
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('28/03/2026');
+  await page.getByRole('button', { name: 'OK' }).click();
+  
+  //excel file
+   const [excelDownload2] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload2.saveAs('downloads/leadFilter1.xlsx');
+   const result5 = await dataRead(
+          "./downloads/leadFilter1.xlsx",
+          ["Jogendar Maurya","akbk6551+1231@gmail.com"],
+        ["simmi","akbk6551+31@gmail.com"]
+        
+      );
+      console.log(result5);
+    if (result5.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus5.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus5","true",`./${screenshotPath}/exportExcelInLeadFilterStatus5.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus5.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus5","false",`./${screenshotPath}/exportExcelInLeadFilterStatus5.png`)
+    }
+     console.log("excel 3")
+
+    // pdf file
+
+     const [pdfDownload2] = await Promise.all([
+
+    page.waitForEvent('download'),
+
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+
+  ]);
+  await pdfDownload2.saveAs('downloads/leadPdfFilter1.pdf');
+  
+
+   const result6 = await dataRead(
+          "./downloads/leadPdfFilter1.pdf",
+          ["Anjali Rathor","akbk6551+1230"],
+        ["simmi","akbk6551+31@gmail.com"]
+      );
+      console.log(result4);
+    if (result6.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus6.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus6","true",`./${screenshotPath}/exportExcelInLeadFilterStatus6.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatusR.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus6","false",`./${screenshotPath}/exportExcelInLeadFilterStatus6.png`)
+    }
+     console.log("pdf 3")
+
+
+  
+
+  
+  await page.reload();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Agent' }).click();
+  await page.getByRole('menuitem', { name: 'Mahesh Kumar' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Status' }).click();
+  await page.getByRole('menuitem', { name: 'New' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+
+
+  // excel file
+
+     const [excelDownload3] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload3.saveAs('downloads/leadFilter1.xlsx');
+   const result7 = await dataRead(
+          "./downloads/leadFilter1.xlsx",
+          ["Jogendar Maurya","akbk6551+1231@gmail.com"],
+        ["simmi","akbk6551+50@gmail.com"]
+        
+      );
+      console.log(result7);
+    if (result7.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus7.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus7","true",`./${screenshotPath}/exportExcelInLeadFilterStatus7.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus7.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus7","false",`./${screenshotPath}/exportExcelInLeadFilterStatus7.png`)
+    }
+     console.log("excel 4")
+
+
+  // pdf file
+   const [pdfDownload4] = await Promise.all([
+
+    page.waitForEvent('download'),
+
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+
+  ]);
+  await pdfDownload4.saveAs('downloads/leadPdfFilter1.pdf');
+  
+
+
+   const result8 = await dataRead(
+          "./downloads/leadPdfFilter1.pdf",
+          ["Jogendar","akbk6551+1231"],
+        ["simmi","akbk6551+31@gmail.com"]
+      );
+      console.log(result8);
+    if (result8.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus8.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus8","true",`./${screenshotPath}/exportExcelInLeadFilterStatus8.png`)
       
     }
     else{
       await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatusP.png`, fullPage: true });
-      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatusP","false",`./${screenshotPath}/exportExcelInLeadFilterStatusP.png`)
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus8","false",`./${screenshotPath}/exportExcelInLeadFilterStatus8.png`)
     }
+     console.log("pdf 4")
 
-  await page.reload();
+
+   await page.reload();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Agent' }).click();
+  await page.getByRole('menuitem', { name: 'Santosh Kumar' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Date Filter' }).click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('18/03/2026');
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('28/03/2026');
+  await page.getByRole('button', { name: 'OK' }).click();
+
+  // excel file
+   
+    const [excelDownload4] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload4.saveAs('downloads/leadFilter1.xlsx');
+   const result9 = await dataRead(
+          "./downloads/leadFilter1.xlsx",
+          ["Jitendra Tyagi","akbk6551+1229@gmail.com"],
+        ["simmi","akbk6551+31@gmail.com"]
+        
+      );
+      console.log(result9);
+    if (result9.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus9.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus9","true",`./${screenshotPath}/exportExcelInLeadFilterStatus9.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus9.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus9","false",`./${screenshotPath}/exportExcelInLeadFilterStatus9.png`)
+    }
+    
+     console.log("excel 5")
+    // pdf file
+
+    const [pdfDownload5] = await Promise.all([
+
+    page.waitForEvent('download'),
+
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+
+  ]);
+  await pdfDownload5.saveAs('downloads/leadPdfFilter1.pdf');
+  
+
+
+   const result10 = await dataRead(
+          "./downloads/leadPdfFilter1.pdf",
+          ["Jitendra Tyagi","akbk6551+1229"],
+        ["simmi","akbk6551+31@gmail.com"]
+      );
+      console.log(result10);
+    if (result10.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus10.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus10","true",`./${screenshotPath}/exportExcelInLeadFilterStatus10.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatusP.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus10","false",`./${screenshotPath}/exportExcelInLeadFilterStatus10.png`)
+    }
+     console.log("pdf 5")
+
+   
+    await page.reload();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Status' }).click();
+  await page.getByRole('menuitem', { name: 'New' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByText('Date Filter').click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('18/03/2026');
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('30/03/2026');
+  await page.getByRole('button', { name: 'OK' }).click();
+
+  // excel file
+   const [excelDownload5] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload5.saveAs('downloads/leadFilter1.xlsx');
+   const result11 = await dataRead(
+          "./downloads/leadFilter1.xlsx",
+          ["Jogendar Maurya","akbk6551+1231@gmail.com"],
+        ["simmi","akbk6551+31@gmail.com"]
+        
+      );
+      console.log(result11);
+    if (result11.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus11.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus11","true",`./${screenshotPath}/exportExcelInLeadFilterStatus11.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus11.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus11","false",`./${screenshotPath}/exportExcelInLeadFilterStatus11.png`)
+    }
+     console.log("excel 6")
+
+
+    // pdf file
+      const [pdfDownload6] = await Promise.all([
+
+    page.waitForEvent('download'),
+
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+
+  ]);
+  await pdfDownload6.saveAs('downloads/leadPdfFilter1.pdf');
+  
+
+
+   const result12 = await dataRead(
+          "./downloads/leadPdfFilter1.pdf",
+          ["ABHAY KUMAR","akbk6551@gma"],
+        ["Abhay Tyagi","akbk6551+31@gmail.com"]
+      );
+      console.log(result12);
+    if (result12.success) 
+    {
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus12.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus12","true",`./${screenshotPath}/exportExcelInLeadFilterStatus12.png`)
+      
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/exportExcelInLeadFilterStatus12.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"exportExcelInLeadFilterStatus12","false",`./${screenshotPath}/exportExcelInLeadFilterStatus12.png`)
+    }
+    console.log("pdf 6")
+
+
   console.log('exported lead filter completed');
 
 }
