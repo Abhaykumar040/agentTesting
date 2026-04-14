@@ -15,41 +15,41 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function customerfsm(page){
-//    await deletePreviousCustomer(page);
-//    await page.waitForTimeout(3000);
-//     //  await customerDownload(page);
-//        await page.waitForTimeout(3000);
+   await deletePreviousCustomer(page);
+   await page.waitForTimeout(3000);
+    //  await customerDownload(page);
+       await page.waitForTimeout(3000);
 //  await createFsmCustomer(page);
-//       const rawData = await fs.readFile('./data.json', 'utf8');
-//       const testData = JSON.parse(rawData);
+      const rawData = await fs.readFile('./data.json', 'utf8');
+      const testData = JSON.parse(rawData);
 
-//   if (testData.companySubscription==='fsm') {
-//     await createFsmCustomer(page);
+  if (testData.companySubscription==='fsm') {
+    await createFsmCustomer(page);
     
-//     await page.waitForTimeout(3000);
-//   } else if(testData.companySubscription==='all'){
+    await page.waitForTimeout(3000);
+  } else if(testData.companySubscription==='all'){
     
-//     await createFsmCustomerOne(page);
-//   }
-//     await page.waitForTimeout(3000);
-//     await editFsmCustomer(page);
-//     await page.waitForTimeout(3000);
-//     await deleteFsmCustomer(page);
-//     await page.waitForTimeout(3000);
-//     await addressCreateFsmCustomerCommercial(page);
-//     await page.waitForTimeout(3000);
-//     await addressCreateFsmCustomerIndividual(page);
-//     await page.waitForTimeout(3000);
-//     await jobCreateFsmCustomerCommercial(page);
-//     await page.waitForTimeout(3000);
-//     await jobCreateFsmCustomerIndividual(page);
-//     await page.waitForTimeout(3000);
-//     await cyclicJobCreateFsmCustomer(page);
-//     await page.waitForTimeout(3000);
-//     await contactDetailsFsmCustomer(page);
-//     await page.waitForTimeout(3000);
-//     await documentsUploadFsmCustomer(page);
-//     await page.waitForTimeout(3000);
+    await createFsmCustomerOne(page);
+  }
+    await page.waitForTimeout(3000);
+    await editFsmCustomer(page);
+    await page.waitForTimeout(3000);
+    await deleteFsmCustomer(page);
+    await page.waitForTimeout(3000);
+    await addressCreateFsmCustomerCommercial(page);
+    await page.waitForTimeout(3000);
+    await addressCreateFsmCustomerIndividual(page);
+    await page.waitForTimeout(3000);
+    await jobCreateFsmCustomerCommercial(page);
+    await page.waitForTimeout(3000);
+    await jobCreateFsmCustomerIndividual(page);
+    await page.waitForTimeout(3000);
+    await cyclicJobCreateFsmCustomer(page);
+    await page.waitForTimeout(3000);
+    await contactDetailsFsmCustomer(page);
+    await page.waitForTimeout(3000);
+    await documentsUploadFsmCustomer(page);
+    await page.waitForTimeout(3000);
     await exportCustomerFsmNormal(page);
     await page.waitForTimeout(3000);
     await exportCustomerFsmFilter(page);
@@ -465,6 +465,7 @@ async function createFsmCustomer(page) {
   await page.getByRole('button', { name: 'Add Contact' }).click();
   // await page.getByText('CancelCreate Customer').click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('radio', { name: 'Commercial' }).check();
@@ -508,6 +509,7 @@ async function createFsmCustomer(page) {
   await page.getByRole('button', { name: 'Add Contact' }).click();
   // await page.getByText('CancelCreate Customer').click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
   
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('radio', { name: 'Commercial' }).check();
@@ -551,6 +553,7 @@ async function createFsmCustomer(page) {
   await page.getByRole('button', { name: 'Add Contact' }).click();
   // await page.getByText('CancelCreate Customer').click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
@@ -607,6 +610,7 @@ async function createFsmCustomer(page) {
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('button', { name: 'Select Title' }).click();
@@ -634,6 +638,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('button', { name: 'Select Title' }).click();
@@ -661,6 +666,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('button', { name: 'Select Title' }).click();
@@ -687,6 +693,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('button', { name: 'Select Title' }).click();
@@ -713,6 +720,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('button', { name: 'Select Title' }).click();
@@ -739,6 +747,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria Market');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
@@ -767,6 +776,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
   
    await page.getByRole('button', { name: 'Add New Customer' }).click();
     await page.getByRole('button', { name: 'Select Title' }).click();
@@ -793,6 +803,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
     await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria');
     await page.getByRole('button', { name: 'Next' }).click();
    await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
     
    await page.getByRole('button', { name: 'Add New Customer' }).click();
     await page.getByRole('button', { name: 'Select Title' }).click();
@@ -836,6 +847,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
               await updateOpJson(`./${screenshotPath}/`,"createFsmCustomer","false",`./${screenshotPath}/createFsmCustomer.png`)
             }
     
+  await page.waitForTimeout(2000);
     await page.reload();
    console.log('create fsm customer completed');
 }

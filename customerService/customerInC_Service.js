@@ -126,6 +126,8 @@ async function addCustomerInC_Service(page) {
   // await page.getByText('CancelCreate Customer').click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
 
+  await page.waitForTimeout(2000);
+
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('radio', { name: 'Commercial' }).check();
   await page.getByRole('button', { name: 'Select Title' }).click();
@@ -166,6 +168,7 @@ async function addCustomerInC_Service(page) {
   await page.getByRole('button', { name: 'Add Contact' }).click();
   // await page.getByText('CancelCreate Customer').click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
   
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('radio', { name: 'Commercial' }).check();
@@ -207,6 +210,7 @@ async function addCustomerInC_Service(page) {
   await page.getByRole('button', { name: 'Add Contact' }).click();
   // await page.getByText('CancelCreate Customer').click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
@@ -236,6 +240,7 @@ async function addCustomerInC_Service(page) {
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria Market');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('button', { name: 'Select Title' }).click();
@@ -263,6 +268,7 @@ async function addCustomerInC_Service(page) {
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('button', { name: 'Select Title' }).click();
@@ -290,6 +296,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('button', { name: 'Select Title' }).click();
@@ -317,6 +324,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('button', { name: 'Select Title' }).click();
@@ -343,6 +351,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('button', { name: 'Select Title' }).click();
@@ -369,6 +378,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('button', { name: 'Select Title' }).click();
@@ -395,6 +405,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria Market');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
 
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
@@ -423,6 +434,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
   
    await page.getByRole('button', { name: 'Add New Customer' }).click();
     await page.getByRole('button', { name: 'Select Title' }).click();
@@ -449,6 +461,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
     await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria');
     await page.getByRole('button', { name: 'Next' }).click();
    await page.getByRole('button', { name: 'Create Customer' }).click();
+  await page.waitForTimeout(2000);
     
    await page.getByRole('button', { name: 'Add New Customer' }).click();
     await page.getByRole('button', { name: 'Select Title' }).click();
@@ -476,6 +489,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
     await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria');
     await page.getByRole('button', { name: 'Next' }).click();
    await page.getByRole('button', { name: 'Create Customer' }).click(); 
+   
+  await page.waitForTimeout(2000);
     
   // await page.reload();
       await page.waitForTimeout(3000);
@@ -492,6 +507,7 @@ await page.getByRole('radio', { name: 'Email' }).check();
               await updateOpJson(`./${screenshotPath}/`,"addCustomerInC_Service","false",`./${screenshotPath}/addCustomerInC_Service.png`)
             }
     
+  await page.waitForTimeout(2000);
     await page.reload();
   console.log('Add customer in customer service');
 }
@@ -567,7 +583,8 @@ async function editCustomerInC_Service(page){
     await updateOpJson(`./${screenshotPath}/`,"editCustomerInC_Service(Address)","false",`./${screenshotPath}/editCustomerInC_Service(Address).png`)
   }
   // await page.reload();
-
+  
+  await page.waitForTimeout(2000);
   await page.getByRole('tab', { name: 'Support Tickets' }).click();
   await page.getByRole('button', { name: 'New Case' }).click();
   await page.getByRole('textbox', { name: 'Enter case title' }).click();
@@ -602,6 +619,8 @@ async function editCustomerInC_Service(page){
     await page.screenshot({ path: `./${screenshotPath}/editCustomerInC_Service(Ticket).png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"editCustomerInC_Service(Ticket)","false",`./${screenshotPath}/editCustomerInC_Service(Ticket).png`)
   }
+  
+  await page.waitForTimeout(1000);
   console.log('edit customer in customer in customer service completed');
 }
 async function deleteSupportTicketInCustomer(page){
@@ -620,6 +639,7 @@ async function deleteSupportTicketInCustomer(page){
     await page.screenshot({ path: `./${screenshotPath}/deleteSupportTicketInCustomer.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"deleteSupportTicketInCustomer","false",`./${screenshotPath}/deleteSupportTicketInCustomer.png`)
   }
+  
   console.log("Delete support ticket completed");
 }
 async function allDeleteSupportTicketInCustomer(page){
