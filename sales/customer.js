@@ -29,11 +29,1462 @@ export async function customer(page){
 //  await page.waitForTimeout(3000);
 //  await editCustomer(page);
 //  await page.waitForTimeout(3000);
- await exportCustomerNormal(page);
- await page.waitForTimeout(3000);
- await exportCustomerFilter(page);
- await page.waitForTimeout(3000);
+
+// await exportCustomerNormal(page);
+  await exportCustomerFilter(page)
+//  await page.waitForTimeout(3000);
+//  await exportCustomerFilter(page);
+//  await page.waitForTimeout(3000);
 //  await deleteCustomer(page);
+}
+
+async function exportCustomerFilter(page){
+  console.log("Enter in filter in customer");
+  await page.getByRole('button', { name: 'Sales' }).click();
+  await page.getByRole('link', { name: 'Customers' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'State' }).click();
+  await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.reload();
+
+
+  // excel code 
+     const [excelDownload] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload.saveAs('downloads/exportExelCustomerFilter1.xlsx');
+  const result = await dataRead(
+        "./downloads/exportExelCustomerFilter1.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result);
+  await page.waitForTimeout(2000)
+  if (result.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter1.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter1","true",`./${screenshotPath}/exportExelCustomerFilter1.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter1.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter1","false",`./${screenshotPath}/exportExelCustomerFilter1.png`)
+        }
+
+
+
+
+  // pdf code
+
+   const [pdfDownload] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload.saveAs('downloads/exportPdfCustomerFilter2.pdf');
+ const result1 = await dataRead(
+        "./downloads/exportPdfCustomerFilter2.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result1);
+  await page.waitForTimeout(2000)
+  if (result1.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter2.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter2","true",`./${screenshotPath}/exportPdfCustomerFilter2.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter2.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter2","false",`./${screenshotPath}/exportPdfCustomerFilter2.png`)
+        }
+
+
+
+  await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'City' }).click();
+  await page.getByRole('menuitem', { name: 'Prayagraj' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.reload();
+
+  // excel code 
+
+  const [excelDownload1] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload1.saveAs('downloads/exportExelCustomerFilter3.xlsx');
+  const result2 = await dataRead(
+        "./downloads/exportExelCustomerFilter3.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result2);
+  await page.waitForTimeout(2000)
+  if (result2.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter3.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter3","true",`./${screenshotPath}/exportExelCustomerFilter3.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter3.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter3","false",`./${screenshotPath}/exportExelCustomerFilter3.png`)
+        }
+
+    // pdf code    
+
+     const [pdfDownload1] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload1.saveAs('downloads/exportPdfCustomerFilter4.pdf');
+ const result3 = await dataRead(
+        "./downloads/exportPdfCustomerFilter4.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result3);
+  await page.waitForTimeout(2000)
+  if (result3.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter4.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter4","true",`./${screenshotPath}/exportPdfCustomerFilter4.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter4.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter4","false",`./${screenshotPath}/exportPdfCustomerFilter4.png`)
+        }
+
+
+
+
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer Type' }).getByRole('paragraph').click();
+  await page.getByRole('menuitem', { name: 'commercial' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+   // excel code 
+  const [excelDownload2] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload2.saveAs('downloads/exportExelCustomerFilter5.xlsx');
+  const result4 = await dataRead(
+        "./downloads/exportExelCustomerFilter5.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result4);
+  await page.waitForTimeout(2000)
+  if (result4.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter5.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter5","true",`./${screenshotPath}/exportExelCustomerFilter5.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter5.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter5","false",`./${screenshotPath}/exportExelCustomerFilter5.png`)
+        }
+
+
+
+
+
+   // pdf code
+
+
+       const [pdfDownload2] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload2.saveAs('downloads/exportPdfCustomerFilter6.pdf');
+ const result5 = await dataRead(
+        "./downloads/exportPdfCustomerFilter6.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result5);
+  await page.waitForTimeout(2000)
+  if (result5.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter6.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter6","true",`./${screenshotPath}/exportPdfCustomerFilter6.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter6.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter6","false",`./${screenshotPath}/exportPdfCustomerFilter6.png`)
+        }
+
+
+    
+
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer', exact: true }).click();
+  await page.getByRole('menuitem', { name: 'Kamlesh Maurya' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+
+
+    // excel code 
+
+    const [excelDownload3] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload3.saveAs('downloads/exportExelCustomerFilter7.xlsx');
+  const result6 = await dataRead(
+        "./downloads/exportExelCustomerFilter7.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result6);
+  await page.waitForTimeout(2000)
+  if (result6.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter7.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter7","true",`./${screenshotPath}/exportExelCustomerFilter7.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter7.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter7","false",`./${screenshotPath}/exportExelCustomerFilter7.png`)
+        }
+
+
+   // pdf code 
+      const [pdfDownload3] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload3.saveAs('downloads/exportPdfCustomerFilter6.pdf');
+ const result7 = await dataRead(
+        "./downloads/exportPdfCustomerFilter6.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result7);
+  await page.waitForTimeout(2000)
+  if (result7.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter8.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter8","true",`./${screenshotPath}/exportPdfCustomerFilter8.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter8.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter8","false",`./${screenshotPath}/exportPdfCustomerFilter8.png`)
+       }     
+
+
+
+  await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Dealer Code' }).click();
+  await page.getByRole('menuitem', { name: '1275836' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+  // excel code
+
+      const [excelDownload4] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload4.saveAs('downloads/exportExelCustomerFilter9.xlsx');
+  const result8 = await dataRead(
+        "./downloads/exportExelCustomerFilter9.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result8);
+  await page.waitForTimeout(2000)
+  if (result8.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter9.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter9","true",`./${screenshotPath}/exportExelCustomerFilter9.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter9.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter9","false",`./${screenshotPath}/exportExelCustomerFilter9.png`)
+        }
+
+
+  // pdf code   
+       const [pdfDownload5] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload5.saveAs('downloads/exportPdfCustomerFilter6.pdf');
+ const result9 = await dataRead(
+        "./downloads/exportPdfCustomerFilter6.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result9);
+  await page.waitForTimeout(2000)
+  if (result9.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter10.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter10","true",`./${screenshotPath}/exportPdfCustomerFilter10.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter10.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter10","false",`./${screenshotPath}/exportPdfCustomerFilter10.png`)
+       }  
+  
+
+  
+
+  await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByText('Date Filter').click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('09/04/2026');
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('20/04/2026');
+  await page.getByRole('button', { name: 'OK' }).click();
+
+  // excel code
+
+      const [excelDownload6] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload6.saveAs('downloads/exportExelCustomerFilter11.xlsx');
+  const result10 = await dataRead(
+        "./downloads/exportExelCustomerFilter11.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result10);
+  await page.waitForTimeout(2000)
+  if (result10.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter11.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter11","true",`./${screenshotPath}/exportExelCustomerFilter11.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter11.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter11","false",`./${screenshotPath}/exportExelCustomerFilter11.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload6] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload6.saveAs('downloads/exportPdfCustomerFilter12.pdf');
+ const result11 = await dataRead(
+        "./downloads/exportPdfCustomerFilter12.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result11);
+  await page.waitForTimeout(2000)
+  if (result11.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter12.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter12","true",`./${screenshotPath}/exportPdfCustomerFilter12.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter12.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter12","false",`./${screenshotPath}/exportPdfCustomerFilter12.png`)
+       } 
+    
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'State' }).click();
+  await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+     await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'City' }).click();
+  await page.getByRole('menuitem', { name: 'Prayagraj' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+
+  // excel code
+
+       const [excelDownload7] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload7.saveAs('downloads/exportExelCustomerFilter13.xlsx');
+  const result12 = await dataRead(
+        "./downloads/exportExelCustomerFilter13.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result12);
+  await page.waitForTimeout(2000)
+  if (result12.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter13.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter13","true",`./${screenshotPath}/exportExelCustomerFilter13.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter13.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter13","false",`./${screenshotPath}/exportExelCustomerFilter13.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload7] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload7.saveAs('downloads/exportPdfCustomerFilter14.pdf');
+ const result13 = await dataRead(
+        "./downloads/exportPdfCustomerFilter14.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result13);
+  await page.waitForTimeout(2000)
+  if (result13.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter14.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter14","true",`./${screenshotPath}/exportPdfCustomerFilter14.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter14.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter18","false",`./${screenshotPath}/exportPdfCustomerFilter14.png`)
+       } 
+
+
+
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'State' }).click();
+  await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+     await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer Type' }).getByRole('paragraph').click();
+  await page.getByRole('menuitem', { name: 'commercial' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+
+  // excel code 
+
+       const [excelDownload8] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload8.saveAs('downloads/exportExelCustomerFilter15.xlsx');
+  const result14 = await dataRead(
+        "./downloads/exportExelCustomerFilter15.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result14);
+  await page.waitForTimeout(2000)
+  if (result14.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter15.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter15","true",`./${screenshotPath}/exportExelCustomerFilter15.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter15.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter15","false",`./${screenshotPath}/exportExelCustomerFilter15.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload8] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload8.saveAs('downloads/exportPdfCustomerFilter16.pdf');
+ const result15 = await dataRead(
+        "./downloads/exportPdfCustomerFilter16.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result15);
+  await page.waitForTimeout(2000)
+  if (result15.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter16.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter16","true",`./${screenshotPath}/exportPdfCustomerFilter16.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter16.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter16","false",`./${screenshotPath}/exportPdfCustomerFilter16.png`)
+       } 
+
+ 
+   await page.waitForTimeout(2000);
+ await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'State' }).click();
+  await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+     await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer', exact: true }).getByRole('paragraph').click();
+  await page.getByRole('menuitem', { name: 'Kamlesh Maurya' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+
+    // excel code
+
+
+          const [excelDownload9] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload9.saveAs('downloads/exportExelCustomerFilter17.xlsx');
+  const result16 = await dataRead(
+        "./downloads/exportExelCustomerFilter17.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result16);
+  await page.waitForTimeout(2000)
+  if (result16.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter17.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter17","true",`./${screenshotPath}/exportExelCustomerFilter17.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter17.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter17","false",`./${screenshotPath}/exportExelCustomerFilter17.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload9] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload9.saveAs('downloads/exportPdfCustomerFilter18.pdf');
+ const result17 = await dataRead(
+        "./downloads/exportPdfCustomerFilter18.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result17);
+  await page.waitForTimeout(2000)
+  if (result17.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter18.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter18","true",`./${screenshotPath}/exportPdfCustomerFilter18.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter18.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter18","false",`./${screenshotPath}/exportPdfCustomerFilter18.png`)
+       }
+
+
+
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'State' }).click();
+  await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+     await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Dealer Code' }).click();
+  await page.getByRole('menuitem', { name: '1275836' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+
+    const [excelDownload10] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload10.saveAs('downloads/exportExelCustomerFilter19.xlsx');
+  const result18 = await dataRead(
+        "./downloads/exportExelCustomerFilter19.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result18);
+  await page.waitForTimeout(2000)
+  if (result18.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter19.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter19","true",`./${screenshotPath}/exportExelCustomerFilter19.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter19.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter19","false",`./${screenshotPath}/exportExelCustomerFilter19.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload10] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload10.saveAs('downloads/exportPdfCustomerFilter20.pdf');
+ const result19 = await dataRead(
+        "./downloads/exportPdfCustomerFilter20.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result19);
+  await page.waitForTimeout(2000)
+  if (result19.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter20.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter20","true",`./${screenshotPath}/exportPdfCustomerFilter20.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter20.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter20","false",`./${screenshotPath}/exportPdfCustomerFilter20.png`)
+       }
+  
+  
+  
+
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'State' }).click();
+  await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+     await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByText('Date Filter').click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('09/04/2026');
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('20/04/2026');
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+
+    const [excelDownload11] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload11.saveAs('downloads/exportExelCustomerFilter21.xlsx');
+  const result20 = await dataRead(
+        "./downloads/exportExelCustomerFilter21.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result20);
+  await page.waitForTimeout(2000)
+  if (result20.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter21.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter21","true",`./${screenshotPath}/exportExelCustomerFilter21.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter21.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter21","false",`./${screenshotPath}/exportExelCustomerFilter21.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload11] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload11.saveAs('downloads/exportPdfCustomerFilter22.pdf');
+ const result21 = await dataRead(
+        "./downloads/exportPdfCustomerFilter22.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result21);
+  await page.waitForTimeout(2000)
+  if (result21.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter22.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter22","true",`./${screenshotPath}/exportPdfCustomerFilter22.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter22.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter22","false",`./${screenshotPath}/exportPdfCustomerFilter22.png`)
+       }   
+
+  
+
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'City' }).click();
+  await page.getByRole('menuitem', { name: 'Prayagraj' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer Type' }).getByRole('paragraph').click();
+  await page.getByRole('menuitem', { name: 'commercial' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+
+    const [excelDownload12] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload12.saveAs('downloads/exportExelCustomerFilter23.xlsx');
+  const result22 = await dataRead(
+        "./downloads/exportExelCustomerFilter23.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result22);
+  await page.waitForTimeout(2000)
+  if (result22.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter23.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter23","true",`./${screenshotPath}/exportExelCustomerFilter23.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter23.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter23","false",`./${screenshotPath}/exportExelCustomerFilter23.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload12] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload12.saveAs('downloads/exportPdfCustomerFilter24.pdf');
+ const result23 = await dataRead(
+        "./downloads/exportPdfCustomerFilter24.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result23);
+  await page.waitForTimeout(2000)
+  if (result23.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter24.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter24","true",`./${screenshotPath}/exportPdfCustomerFilter24.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter24.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter24","false",`./${screenshotPath}/exportPdfCustomerFilter24.png`)
+       }   
+
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'City' }).click();
+  await page.getByRole('menuitem', { name: 'Prayagraj' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer', exact: true }).getByRole('paragraph').click();
+  await page.getByRole('menuitem', { name: 'Arjun Singh' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+     const [excelDownload13] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload13.saveAs('downloads/exportExelCustomerFilter25.xlsx');
+  const result24 = await dataRead(
+        "./downloads/exportExelCustomerFilter25.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result24);
+  await page.waitForTimeout(2000)
+  if (result23.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter25.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter25","true",`./${screenshotPath}/exportExelCustomerFilter25.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter25.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter25","false",`./${screenshotPath}/exportExelCustomerFilter25.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload13] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload13.saveAs('downloads/exportPdfCustomerFilter26.pdf');
+ const result25 = await dataRead(
+        "./downloads/exportPdfCustomerFilter26.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result25);
+  await page.waitForTimeout(2000)
+  if (result25.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter26.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter26","true",`./${screenshotPath}/exportPdfCustomerFilter26.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter26.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter26","false",`./${screenshotPath}/exportPdfCustomerFilter26.png`)
+       }  
+
+
+
+
+
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'City' }).click();
+  await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Dealer Code' }).click();
+  await page.getByRole('menuitem', { name: '1275836' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+  
+     const [excelDownload14] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload14.saveAs('downloads/exportExelCustomerFilter27.xlsx');
+  const result26 = await dataRead(
+        "./downloads/exportExelCustomerFilter27.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result26);
+  await page.waitForTimeout(2000)
+  if (result26.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter27.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter27","true",`./${screenshotPath}/exportExelCustomerFilter27.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter27.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter27","false",`./${screenshotPath}/exportExelCustomerFilter27.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload14] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload14.saveAs('downloads/exportPdfCustomerFilter28.pdf');
+ const result27 = await dataRead(
+        "./downloads/exportPdfCustomerFilter28.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result27);
+  await page.waitForTimeout(2000)
+  if (result27.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter28.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter28","true",`./${screenshotPath}/exportPdfCustomerFilter28.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter28.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter28","false",`./${screenshotPath}/exportPdfCustomerFilter28.png`)
+       }  
+
+
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'City' }).click();
+  await page.getByRole('menuitem', { name: 'Prayagraj' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+     await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByText('Date Filter').click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('09/04/2026');
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('15/04/2026');
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+     const [excelDownload15] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload15.saveAs('downloads/exportExelCustomerFilter29.xlsx');
+  const result28 = await dataRead(
+        "./downloads/exportExelCustomerFilter29.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result28);
+  await page.waitForTimeout(2000)
+  if (result28.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter29.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter29","true",`./${screenshotPath}/exportExelCustomerFilter29.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter29.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter29","false",`./${screenshotPath}/exportExelCustomerFilter29.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload15] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload15.saveAs('downloads/exportPdfCustomerFilter30.pdf');
+ const result29 = await dataRead(
+        "./downloads/exportPdfCustomerFilter30.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result29);
+  await page.waitForTimeout(2000)
+  if (result29.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter30.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter30","true",`./${screenshotPath}/exportPdfCustomerFilter30.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter30.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter30","false",`./${screenshotPath}/exportPdfCustomerFilter30.png`)
+       }  
+
+
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer Type' }).getByRole('paragraph').click();
+  await page.getByRole('menuitem', { name: 'commercial' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer', exact: true }).click();
+  await page.getByRole('menuitem', { name: 'Kamlesh Maurya' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+
+     const [excelDownload16] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload16.saveAs('downloads/exportExelCustomerFilter31.xlsx');
+  const result30 = await dataRead(
+        "./downloads/exportExelCustomerFilter31.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result30);
+  await page.waitForTimeout(2000)
+  if (result30.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter31.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter31","true",`./${screenshotPath}/exportExelCustomerFilter31.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter31.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter31","false",`./${screenshotPath}/exportExelCustomerFilter31.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload16] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload16.saveAs('downloads/exportPdfCustomerFilter32.pdf');
+ const result31 = await dataRead(
+        "./downloads/exportPdfCustomerFilter32.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result31);
+  await page.waitForTimeout(2000)
+  if (result22.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter32.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter32","true",`./${screenshotPath}/exportPdfCustomerFilter32.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter32.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter32","false",`./${screenshotPath}/exportPdfCustomerFilter32.png`)
+       }  
+
+
+
+   await page.waitForTimeout(2000); 
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer Type' }).getByRole('paragraph').click();
+  await page.getByRole('menuitem', { name: 'commercial' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Dealer Code' }).click();
+  await page.getByRole('menuitem', { name: '1275836' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+  
+       const [excelDownload17] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload17.saveAs('downloads/exportExelCustomerFilter34.xlsx');
+  const result33 = await dataRead(
+        "./downloads/exportExelCustomerFilter34.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result33);
+  await page.waitForTimeout(2000)
+  if (result33.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter34.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter34","true",`./${screenshotPath}/exportExelCustomerFilter34.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter34.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter34","false",`./${screenshotPath}/exportExelCustomerFilter34.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload17] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload17.saveAs('downloads/exportPdfCustomerFilter35.pdf');
+ const result34 = await dataRead(
+        "./downloads/exportPdfCustomerFilter35.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result34);
+  await page.waitForTimeout(2000)
+  if (result34.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter35.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter35","true",`./${screenshotPath}/exportPdfCustomerFilter35.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter35.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter35","false",`./${screenshotPath}/exportPdfCustomerFilter35.png`)
+       }  
+
+
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer Type' }).click();
+  await page.getByRole('menuitem', { name: 'commercial' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+     await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByText('Date Filter').click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('09/04/2026');
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('15/04/2026');
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+      const [excelDownload18] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload18.saveAs('downloads/exportExelCustomerFilter36.xlsx');
+  const result35 = await dataRead(
+        "./downloads/exportExelCustomerFilter36.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result35);
+  await page.waitForTimeout(2000)
+  if (result35.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter36.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter36","true",`./${screenshotPath}/exportExelCustomerFilter36.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter36.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter36","false",`./${screenshotPath}/exportExelCustomerFilter36.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload18] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload18.saveAs('downloads/exportPdfCustomerFilter37.pdf');
+ const result36 = await dataRead(
+        "./downloads/exportPdfCustomerFilter37.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result36);
+  await page.waitForTimeout(2000)
+  if (result36.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter37.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter37","true",`./${screenshotPath}/exportPdfCustomerFilter37.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter37.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter37","false",`./${screenshotPath}/exportPdfCustomerFilter24.png`)
+       }  
+
+
+
+
+  
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer', exact: true }).click();
+  await page.getByRole('menuitem', { name: 'Kamlesh Maurya' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Dealer Code' }).click();
+  await page.getByRole('menuitem', { name: '1275836' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+
+     const [excelDownload19] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload19.saveAs('downloads/exportExelCustomerFilter38.xlsx');
+  const result37 = await dataRead(
+        "./downloads/exportExelCustomerFilter38.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result37);
+  await page.waitForTimeout(2000)
+  if (result37.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter38.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter38","true",`./${screenshotPath}/exportExelCustomerFilter38.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter38.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter38","false",`./${screenshotPath}/exportExelCustomerFilter38.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload19] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload19.saveAs('downloads/exportPdfCustomerFilter39.pdf');
+ const result38 = await dataRead(
+        "./downloads/exportPdfCustomerFilter39.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result38);
+  await page.waitForTimeout(2000)
+  if (result38.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter39.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter39","true",`./${screenshotPath}/exportPdfCustomerFilter39.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter39.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter39","false",`./${screenshotPath}/exportPdfCustomerFilter39.png`)
+       }  
+
+
+
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Customer', exact: true }).getByRole('paragraph').click();
+  await page.getByRole('menuitem', { name: 'Kamlesh Maurya' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+     await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByText('Date Filter').click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('06/04/2026');
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('20/06/2026');
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+
+     const [excelDownload20] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload20.saveAs('downloads/exportExelCustomerFilter40.xlsx');
+  const result39 = await dataRead(
+        "./downloads/exportExelCustomerFilter40.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result39);
+  await page.waitForTimeout(2000)
+  if (result39.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter40.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter40","true",`./${screenshotPath}/exportExelCustomerFilter40.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter40.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter40","false",`./${screenshotPath}/exportExelCustomerFilter40.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload20] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload20.saveAs('downloads/exportPdfCustomerFilter41.pdf');
+ const result40 = await dataRead(
+        "./downloads/exportPdfCustomerFilter41.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result40);
+  await page.waitForTimeout(2000)
+  if (result40.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter41.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter41","true",`./${screenshotPath}/exportPdfCustomerFilter41.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter41.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter41","false",`./${screenshotPath}/exportPdfCustomerFilter41.png`)
+       }  
+
+
+   await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByText('Dealer Code').click();
+  await page.getByRole('menuitem', { name: '1275836' }).getByRole('checkbox').check();
+  await page.getByRole('button', { name: 'OK' }).click();
+  await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Filter By' }).click();
+  await page.getByRole('menuitem', { name: 'Date Filter' }).click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('04/04/2026');
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('09/04/2026');
+  await page.getByRole('button', { name: 'OK' }).click();
+    await page.reload();
+
+
+     const [excelDownload21] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To Excel' }).click()
+  ]);
+  await excelDownload21.saveAs('downloads/exportExelCustomerFilter42.xlsx');
+  const result41 = await dataRead(
+        "./downloads/exportExelCustomerFilter42.xlsx",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result41);
+  await page.waitForTimeout(2000)
+  if (result41.success 
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+      {
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter42.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter42","true",`./${screenshotPath}/exportExelCustomerFilter42.png`)
+          
+        }
+        else{
+          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter42.png`, fullPage: true });
+          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter42","false",`./${screenshotPath}/exportExelCustomerFilter42.png`)
+        }
+
+   // pdf code
+   
+      const [pdfDownload21] = await Promise.all([
+    page.waitForEvent('download'),
+    page.getByRole('button', { name: 'Export To PDF' }).click()
+  ]);
+ await pdfDownload21.saveAs('downloads/exportPdfCustomerFilter43.pdf');
+ const result42 = await dataRead(
+        "./downloads/exportPdfCustomerFilter43.pdf",
+        ["Imran Khan","akbk6551+1222@gmail.com"],
+        ["Anil Maurya","akbk6551+1112@gmail.com"]
+    );
+    console.log(result42);
+  await page.waitForTimeout(2000)
+  if (result42.success
+    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  ) 
+     {
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter43.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter43","true",`./${screenshotPath}/exportPdfCustomerFilter43.png`)
+          
+      }
+      else{
+        await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter43.png`, fullPage: true });
+        await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter43","false",`./${screenshotPath}/exportPdfCustomerFilter43.png`)
+       }  
+
+
+  console.log("filtering completed in side the customer");
+
 }
 
 async function createCustomerOne(page){
@@ -143,260 +1594,264 @@ async function exportCustomerNormal(page) {
   
 }
 
-async function exportCustomerFilter(page) {
-  console.log("Enter in export customer filter");
-  // Filter (State, City)
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'State' }).click();
-  await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'OK' }).click();
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'City' }).click();
-  await page.getByRole('menuitem', { name: 'Aurai' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'OK' }).click();
-  await page.waitForTimeout(2000);
+// async function exportCustomerFilter(page) {
+//   console.log("Enter in export customer filter");
+//   // Filter (State, City)
+//   await page.getByRole('button', { name: 'Filter By' }).click();
+//   await page.getByRole('menuitem', { name: 'State' }).click();
+//   await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
+//   await page.getByRole('button', { name: 'OK' }).click();
+//   await page.getByRole('button', { name: 'Filter By' }).click();
+//   await page.getByRole('menuitem', { name: 'City' }).click();
+//   await page.getByRole('menuitem', { name: 'Aurai' }).getByRole('checkbox').check();
+//   await page.getByRole('button', { name: 'OK' }).click();
+//   await page.waitForTimeout(2000);
 
-  // Exel
-  const [excelDownload1] = await Promise.all([
-    page.waitForEvent('download'),
-    page.getByRole('button', { name: 'Export To Excel' }).click()
-  ]);
-  await excelDownload1.saveAs('downloads/exportExelCustomerFilter1.xlsx');
-  const result3 = await dataRead(
-        "./downloads/exportExelCustomerFilter1.xlsx",
-        ["Imran Khan","akbk6551+1222@gmail.com"],
-        ["Anil Maurya","akbk6551+1112@gmail.com"]
-    );
-    console.log(result3);
-  await page.waitForTimeout(2000)
-  if (result3.success 
-    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-    && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
-      {
-          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter1.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter1","true",`./${screenshotPath}/exportExelCustomerFilter1.png`)
+//   // Exel
+//   const [excelDownload1] = await Promise.all([
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'Export To Excel' }).click()
+//   ]);
+//   await excelDownload1.saveAs('downloads/exportExelCustomerFilter1.xlsx');
+//   const result3 = await dataRead(
+//         "./downloads/exportExelCustomerFilter1.xlsx",
+//         ["Imran Khan","akbk6551+1222@gmail.com"],
+//         ["Anil Maurya","akbk6551+1112@gmail.com"]
+//     );
+//     console.log(result3);
+//   await page.waitForTimeout(2000)
+//   if (result3.success 
+//     && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+//     && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+//       {
+//           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter1.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter1","true",`./${screenshotPath}/exportExelCustomerFilter1.png`)
           
-        }
-        else{
-          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter1.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter1","false",`./${screenshotPath}/exportExelCustomerFilter1.png`)
-        }
+//         }
+//         else{
+//           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter1.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter1","false",`./${screenshotPath}/exportExelCustomerFilter1.png`)
+//         }
 
 
-  // PDF
-  const [pdfDownload1] = await Promise.all([
-    page.waitForEvent('download'),
-    page.getByRole('button', { name: 'Export To PDF' }).click()
-  ]);
- await pdfDownload1.saveAs('downloads/exportPdfCustomerFilter2.pdf');
- const result4 = await dataRead(
-        "./downloads/exportPdfCustomerFilter2.pdf",
-        ["Imran Khan","akbk6551+1222@gmail.com"],
-        ["Anil Maurya","akbk6551+1112@gmail.com"]
-    );
-    console.log(result4);
-  await page.waitForTimeout(2000)
-  if (result4.success
-    && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
-  ) 
-      {
-          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter2.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter2","true",`./${screenshotPath}/exportPdfCustomerFilter2.png`)
+//   // PDF
+//   const [pdfDownload1] = await Promise.all([
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'Export To PDF' }).click()
+//   ]);
+//  await pdfDownload1.saveAs('downloads/exportPdfCustomerFilter2.pdf');
+//  const result4 = await dataRead(
+//         "./downloads/exportPdfCustomerFilter2.pdf",
+//         ["Imran Khan","akbk6551+1222@gmail.com"],
+//         ["Anil Maurya","akbk6551+1112@gmail.com"]
+//     );
+//     console.log(result4);
+//   await page.waitForTimeout(2000)
+//   if (result4.success
+//     && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+//     && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+//   ) 
+//       {
+//           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter2.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter2","true",`./${screenshotPath}/exportPdfCustomerFilter2.png`)
           
-        }
-        else{
-          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter2.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter2","false",`./${screenshotPath}/exportPdfCustomerFilter2.png`)
-        }
+//         }
+//         else{
+//           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter2.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter2","false",`./${screenshotPath}/exportPdfCustomerFilter2.png`)
+//         }
 
 
- await page.reload();
+//  await page.reload();
 
-  // filter (Commercial or Individual)
-   await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'Customer Type' }).click();
-  await page.getByRole('menuitem', { name: 'commercial' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'OK' }).click();
-  await page.waitForTimeout(2000);
+//   // filter (Commercial or Individual)
+//    await page.getByRole('button', { name: 'Filter By' }).click();
+//   await page.getByRole('menuitem', { name: 'Customer Type' }).click();
+//   await page.getByRole('menuitem', { name: 'commercial' }).getByRole('checkbox').check();
+//   await page.getByRole('button', { name: 'OK' }).click();
+//   await page.waitForTimeout(2000);
 
-  const [excelDownload2] = await Promise.all([
-    page.waitForEvent('download'),
-    page.getByRole('button', { name: 'Export To Excel' }).click()
-  ]);
-  await excelDownload2.saveAs('downloads/exportExelCustomerFilter3.xlsx');
-   const result5 = await dataRead(
-        "./downloads/exportExelCustomerFilter3.xlsx",
-        ["Imran Khan","akbk6551+1222@gmail.com"],
-        ["Anil Maurya","akbk6551+1112@gmail.com"]
-    );
-    console.log(result4);
-  await page.waitForTimeout(2000)
-  if (result5.success
-    && await page.getByText('akbk6551+000324@gmail.com').first().isVisible() 
-    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
-  ) 
-      {
-          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter3.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter3","true",`./${screenshotPath}/exportExelCustomerFilter3.png`)
+//   const [excelDownload2] = await Promise.all([
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'Export To Excel' }).click()
+//   ]);
+//   await excelDownload2.saveAs('downloads/exportExelCustomerFilter3.xlsx');
+//    const result5 = await dataRead(
+//         "./downloads/exportExelCustomerFilter3.xlsx",
+//         ["Imran Khan","akbk6551+1222@gmail.com"],
+//         ["Anil Maurya","akbk6551+1112@gmail.com"]
+//     );
+//     console.log(result4);
+//   await page.waitForTimeout(2000)
+//   if (result5.success
+//     && await page.getByText('akbk6551+000324@gmail.com').first().isVisible() 
+//     && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+//   ) 
+//       {
+//           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter3.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter3","true",`./${screenshotPath}/exportExelCustomerFilter3.png`)
           
-        }
-        else{
-          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter3.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter3","false",`./${screenshotPath}/exportExelCustomerFilter3.png`)
-        }
+//         }
+//         else{
+//           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter3.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter3","false",`./${screenshotPath}/exportExelCustomerFilter3.png`)
+//         }
 
-  // PDF
-  const [pdfDownload2] = await Promise.all([
-    page.waitForEvent('download'),
-    page.getByRole('button', { name: 'Export To PDF' }).click()
-  ]);
- await pdfDownload2.saveAs('downloads/exportPdfCustomerFilter4.pdf');
-    const result6 = await dataRead(
-        "./downloads/exportPdfCustomerFilter4.pdf",
-        ["Imran Khan","akbk6551+1222@gmail.com"],
-        ["Anil Maurya","akbk6551+1112@gmail.com"]
-    );
-    console.log(result6);
-  await page.waitForTimeout(2000)
-  if (result6.success
-    && await page.getByText('akbk6551+000324@gmail.com').first().isVisible() 
-    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
-  ) 
-      {
-          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter4.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter4","true",`./${screenshotPath}/exportPdfCustomerFilter4.png`)
+//   // PDF
+//   const [pdfDownload2] = await Promise.all([
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'Export To PDF' }).click()
+//   ]);
+//  await pdfDownload2.saveAs('downloads/exportPdfCustomerFilter4.pdf');
+//     const result6 = await dataRead(
+//         "./downloads/exportPdfCustomerFilter4.pdf",
+//         ["Imran Khan","akbk6551+1222@gmail.com"],
+//         ["Anil Maurya","akbk6551+1112@gmail.com"]
+//     );
+//     console.log(result6);
+//   await page.waitForTimeout(2000)
+//   if (result6.success
+//     && await page.getByText('akbk6551+000324@gmail.com').first().isVisible() 
+//     && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+//   ) 
+//       {
+//           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter4.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter4","true",`./${screenshotPath}/exportPdfCustomerFilter4.png`)
           
-        }
-        else{
-          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter4.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter4","false",`./${screenshotPath}/exportPdfCustomerFilter4.png`)
-        }
+//         }
+//         else{
+//           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter4.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter4","false",`./${screenshotPath}/exportPdfCustomerFilter4.png`)
+//         }
 
 
- await page.reload();
+//  await page.reload();
 
-  // Customer name filter
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'Customer', exact: true }).click();
-  await page.getByRole('menuitem', { name: 'Mayank Rathor' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'OK' }).click();
-  await page.waitForTimeout(2000);
-  const [excelDownload3] = await Promise.all([
-    page.waitForEvent('download'),
-    page.getByRole('button', { name: 'Export To Excel' }).click()
-  ]);
-  await excelDownload3.saveAs('downloads/exportExelCustomerFilter5.xlsx');
-  const result7 = await dataRead(
-        "./downloads/exportExelCustomerFilter5.xlsx",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        ["Anil Maurya","akbk6551+1112@gmail.com"]
-    );
-    console.log(result7);
-  await page.waitForTimeout(2000)
-  if (result7.success
-    && await page.getByText('akbk6551+1139@gmail.com').first().isVisible() 
-    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
-  ) 
-      {
-          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter5.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter5","true",`./${screenshotPath}/exportExelCustomerFilter5.png`)
+//   // Customer name filter
+//   await page.getByRole('button', { name: 'Filter By' }).click();
+//   await page.getByRole('menuitem', { name: 'Customer', exact: true }).click();
+//   await page.getByRole('menuitem', { name: 'Mayank Rathor' }).getByRole('checkbox').check();
+//   await page.getByRole('button', { name: 'OK' }).click();
+//   await page.waitForTimeout(2000);
+
+
+//   const [excelDownload3] = await Promise.all([
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'Export To Excel' }).click()
+//   ]);
+//   await excelDownload3.saveAs('downloads/exportExelCustomerFilter5.xlsx');
+//   const result7 = await dataRead(
+//         "./downloads/exportExelCustomerFilter5.xlsx",
+//         ["Mayank Rathor","akbk6551+1139@gmail.com"],
+//         ["Anil Maurya","akbk6551+1112@gmail.com"]
+//     );
+//     console.log(result7);
+//   await page.waitForTimeout(2000)
+//   if (result7.success
+//     && await page.getByText('akbk6551+1139@gmail.com').first().isVisible() 
+//     && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+//   ) 
+//       {
+//           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter5.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter5","true",`./${screenshotPath}/exportExelCustomerFilter5.png`)
           
-        }
-        else{
-          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter5.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter5","false",`./${screenshotPath}/exportExelCustomerFilter5.png`)
-        }
-  // PDF
-  const [pdfDownload3] = await Promise.all([
-    page.waitForEvent('download'),
-    page.getByRole('button', { name: 'Export To PDF' }).click()
-  ]);
- await pdfDownload3.saveAs('downloads/exportPdfCustomerFilter6.pdf');
- const result8 = await dataRead(
-        "./downloads/exportPdfCustomerFilter6.pdf",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        ["Sushil Kumar","akbk6551+220@gmail.com"]
-    );
-    console.log(result8);
-  await page.waitForTimeout(2000)
-  if (result8.success
-    && await page.getByText('akbk6551+1139@gmail.com').first().isVisible() 
-    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
-  ) 
-      {
-          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter6.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter6","true",`./${screenshotPath}/exportPdfCustomerFilter6.png`)
+//         }
+//         else{
+//           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter5.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter5","false",`./${screenshotPath}/exportExelCustomerFilter5.png`)
+//         }
+//   // PDF
+//   const [pdfDownload3] = await Promise.all([
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'Export To PDF' }).click()
+//   ]);
+//  await pdfDownload3.saveAs('downloads/exportPdfCustomerFilter6.pdf');
+//  const result8 = await dataRead(
+//         "./downloads/exportPdfCustomerFilter6.pdf",
+//         ["Mayank Rathor","akbk6551+1139@gmail.com"],
+//         ["Sushil Kumar","akbk6551+220@gmail.com"]
+//     );
+//     console.log(result8);
+//   await page.waitForTimeout(2000)
+//   if (result8.success
+//     && await page.getByText('akbk6551+1139@gmail.com').first().isVisible() 
+//     && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+//   ) 
+//       {
+//           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter6.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter6","true",`./${screenshotPath}/exportPdfCustomerFilter6.png`)
           
-        }
-        else{
-          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter6.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter6","false",`./${screenshotPath}/exportPdfCustomerFilter6.png`)
-        }
- await page.reload();
+//         }
+//         else{
+//           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter6.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter6","false",`./${screenshotPath}/exportPdfCustomerFilter6.png`)
+//         }
+//  await page.reload();
 
-  // Code base filter
-  await page.getByRole('button', { name: 'Filter By' }).click();
-   await page.getByRole('menuitem', { name: 'Dealer Code' }).click();
-  await page.getByRole('menuitem', { name: '1345836' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'OK' }).click();
-  await page.waitForTimeout(2000);
-     const [excelDownload] = await Promise.all([
-    page.waitForEvent('download'),
-    page.getByRole('button', { name: 'Export To Excel' }).click()
-  ]);
-  await excelDownload.saveAs('downloads/exportExelCustomerFilter7.xlsx');
-  const result9 = await dataRead(
-        "./downloads/exportExelCustomerFilter7.xlsx",
-        ["Sushil Kumar","akbk6551+1220@gmail.com"],
-        ["Mayank Rathor","akbk6551+1139@gmail.com"]
-    );
-    console.log(result9);
-  await page.waitForTimeout(2000)
-  if (result9.success
-    && await page.getByText('akbk6551+1220@gmail.com').first().isVisible() 
-    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
-  ) 
-      {
-          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter7.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter7","true",`./${screenshotPath}/exportExelCustomerFilter7.png`)
+//   // Code base filter
+//   await page.getByRole('button', { name: 'Filter By' }).click();
+//    await page.getByRole('menuitem', { name: 'Dealer Code' }).click();
+//   await page.getByRole('menuitem', { name: '1345836' }).getByRole('checkbox').check();
+//   await page.getByRole('button', { name: 'OK' }).click();
+//   await page.waitForTimeout(2000);
+
+
+//      const [excelDownload] = await Promise.all([
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'Export To Excel' }).click()
+//   ]);
+//   await excelDownload.saveAs('downloads/exportExelCustomerFilter7.xlsx');
+//   const result9 = await dataRead(
+//         "./downloads/exportExelCustomerFilter7.xlsx",
+//         ["Sushil Kumar","akbk6551+1220@gmail.com"],
+//         ["Mayank Rathor","akbk6551+1139@gmail.com"]
+//     );
+//     console.log(result9);
+//   await page.waitForTimeout(2000)
+//   if (result9.success
+//     && await page.getByText('akbk6551+1220@gmail.com').first().isVisible() 
+//     && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+//   ) 
+//       {
+//           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter7.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter7","true",`./${screenshotPath}/exportExelCustomerFilter7.png`)
           
-        }
-        else{
-          await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter7.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter7","false",`./${screenshotPath}/exportExelCustomerFilter7.png`)
-        }
+//         }
+//         else{
+//           await page.screenshot({ path: `./${screenshotPath}/exportExelCustomerFilter7.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportExelCustomerFilter7","false",`./${screenshotPath}/exportExelCustomerFilter7.png`)
+//         }
 
-  // PDF
-  const [pdfDownload] = await Promise.all([
-    page.waitForEvent('download'),
-    page.getByRole('button', { name: 'Export To PDF' }).click()
-  ]);
- await pdfDownload.saveAs('downloads/exportPdfCustomerFilter8.pdf');
- const result10 = await dataRead(
-        "./downloads/exportPdfCustomerFilter8.pdf",
-        ["Sushil Kumar","akbk6551+1220@gmail.com"],
-        ["Mayank Rathor","akbk6551+1139@gmail.com"]
-    );
-    console.log(result10);
-  await page.waitForTimeout(2000)
-  if (result10.success
-    && await page.getByText('akbk6551+1220@gmail.com').first().isVisible() 
-    && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
-  ) 
-      {
-          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter8.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter8","true",`./${screenshotPath}/exportPdfCustomerFilter8.png`)
+//   // PDF
+//   const [pdfDownload] = await Promise.all([
+//     page.waitForEvent('download'),
+//     page.getByRole('button', { name: 'Export To PDF' }).click()
+//   ]);
+//  await pdfDownload.saveAs('downloads/exportPdfCustomerFilter8.pdf');
+//  const result10 = await dataRead(
+//         "./downloads/exportPdfCustomerFilter8.pdf",
+//         ["Sushil Kumar","akbk6551+1220@gmail.com"],
+//         ["Mayank Rathor","akbk6551+1139@gmail.com"]
+//     );
+//     console.log(result10);
+//   await page.waitForTimeout(2000)
+//   if (result10.success
+//     && await page.getByText('akbk6551+1220@gmail.com').first().isVisible() 
+//     && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+//   ) 
+//       {
+//           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter8.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter8","true",`./${screenshotPath}/exportPdfCustomerFilter8.png`)
           
-        }
-        else{
-          await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter8.png`, fullPage: true });
-          await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter8","false",`./${screenshotPath}/exportPdfCustomerFilter8.png`)
-        }
- await page.reload();
+//         }
+//         else{
+//           await page.screenshot({ path: `./${screenshotPath}/exportPdfCustomerFilter8.png`, fullPage: true });
+//           await updateOpJson(`./${screenshotPath}/`,"exportPdfCustomerFilter8","false",`./${screenshotPath}/exportPdfCustomerFilter8.png`)
+//         }
+//  await page.reload();
 
- console.log('export customer filter completed');
-}
+//  console.log('export customer filter completed');
+// }
 
 async function deletePreviuosCustomer(page){
   console.log("Enter in delete previou customer");
