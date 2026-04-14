@@ -14,18 +14,18 @@ export async function loginRight(page){
   await page.getByRole('textbox', { name: 'Email' }).click();
   await page.getByRole('textbox', { name: 'Email' }).fill('akbk6551+1111@gmail.com');
   console.log("Email filled");
-  console.log("Email filled");
+  // console.log("Email filled");
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill('Anshil@123');
-  console.log("Password filled");
+  // console.log("Password filled");
   console.log("Password filled");
   await page.getByRole('button', { name: 'Login' }).click();
-  console.log("Login button clicked")
+  // console.log("Login button clicked")
   console.log("Login button clicked")
   await page.waitForURL('**/dashboard/');
   console.log("click on dashboard");
-  await page.waitForLoadState('networkidle');
-  console.log('Company portal fully loaded')
+  // await page.waitForLoadState('networkidle');
+  // console.log('Company portal fully loaded')
 
    
 }
