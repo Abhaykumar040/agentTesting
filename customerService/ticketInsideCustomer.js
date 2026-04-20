@@ -13,16 +13,16 @@ const screenshotPath=`screenshot/${testData.companyType}/ticket`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function ticketInsideCustomer(page){
-  // await addNewTickets(page);
-  // await page.waitForTimeout(3000);
-  // await editTicket(page);
-  // await page.waitForTimeout(3000);
-  // await sendTicket(page);
-  // await page.waitForTimeout(1000);
+  await addNewTickets(page);
+  await page.waitForTimeout(3000);
+  await editTicket(page);
+  await page.waitForTimeout(3000);
+  await sendTicket(page);
+  await page.waitForTimeout(1000);
   // await exportExcelInTicketsNormal(page);
   // await page.waitForTimeout(1000);
-  await exportExcelInTicketInsideFilter(page);
-  // await uploadFilesTicket(page);
+  // await exportExcelInTicketInsideFilter(page);
+  await uploadFilesTicket(page);
 
 }
 

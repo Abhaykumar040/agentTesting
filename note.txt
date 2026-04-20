@@ -8,7 +8,7 @@ npx playwright codegen https://erp-company.zynkatech.com/settings/company-setup/
 npx playwright codegen https://cms.zynkatech.com/charger
 await page.screenshot({ path: 'screenshots/page.png' });
 
-npx playwright codegen https://erp-company.zynkatech.com/fsm/jobs/internal/
+npx playwright codegen https://uat-erp-company-web.zynkatech.com/dashboard/
 try {
   await priority(page);
 } catch (err) {

@@ -13,32 +13,32 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Quotation(page){
 // delete previuos Quotation by check.js
-  // await createQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await approveQuotation(page);
-  // await acceptQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await rejectQuotation(page);
-
-  // await page.waitForTimeout(3000);
-  // await copyQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await rejectedByCustomerQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await sendQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await editQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await reciptDownloadQuotation(page);
-  // await page.waitForTimeout(3000);
-
-  await exportQuotationNormal(page);
+  await createQuotation(page);
   await page.waitForTimeout(3000);
-  await exportQuotationFilter(page);
+  await approveQuotation(page);
+  await acceptQuotation(page);
+  await page.waitForTimeout(3000);
+  await rejectQuotation(page);
 
+  await page.waitForTimeout(3000);
+  await copyQuotation(page);
+  await page.waitForTimeout(3000);
+  await rejectedByCustomerQuotation(page);
+  await page.waitForTimeout(3000);
+  await sendQuotation(page);
+  await page.waitForTimeout(3000);
+  await editQuotation(page);
+  await page.waitForTimeout(3000);
+  await reciptDownloadQuotation(page);
   // await page.waitForTimeout(3000);
-  // await verifyQuotationInsideCustomer(page);
-  // await deleteQuotation(page);
+
+  // await exportQuotationNormal(page);
+  // await page.waitForTimeout(3000);
+  // await exportQuotationFilter(page);
+
+  await page.waitForTimeout(3000);
+  await verifyQuotationInsideCustomer(page);
+  await deleteQuotation(page);
 }
 
 async function exportQuotationNormal(page){
@@ -1730,6 +1730,8 @@ async function deleteQuotation(page) {
   console.log('Enter in deleted quotaion');
   await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Quotations' }).click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(4).click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(4).click();
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.getByRole('button', { name: 'Proceed' }).click();
   await page.reload();

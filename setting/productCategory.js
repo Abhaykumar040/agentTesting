@@ -150,8 +150,8 @@ async function addProductCategory(page){
 
 async function  editProductCategry(page) {
   console.log("Enter in edit product category")
-  await page.getByRole('button', { name: 'Settings' }).click();
-  await page.getByRole('link', { name: 'Product Category' }).click();
+  // await page.getByRole('button', { name: 'Settings' }).click();
+  // await page.getByRole('link', { name: 'Product Category' }).click();
     await page.getByText('PC2').first().click();
   await page.getByRole('textbox', { name: 'Title *' }).click();
   await page.getByRole('textbox', { name: 'Title *' }).fill('PC2X');

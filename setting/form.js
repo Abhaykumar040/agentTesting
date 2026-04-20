@@ -50,12 +50,13 @@ async function deletePreviuosForm(page){
    
     }
    
-await page.reload();
+   await page.reload();
   //  await page.waitForTimeout(3000);
-//  await expect(page.getByText('Showing 1 to 10 of 13 entries')).toBeVisible();
-console.log("Delete previous form completed");
+  //  await expect(page.getByText('Showing 1 to 10 of 13 entries')).toBeVisible();
+  console.log("Delete previous form completed");
 
 }
+
 async function deleteForm(page) {
   console.log("Enter in delete form");
   await page.getByRole('button', { name: 'Settings' }).click();
@@ -84,8 +85,8 @@ async function deleteForm(page) {
 
 async function addForm(page){
   console.log("Enter in add form ");
-  await page.getByRole('button', { name: 'Settings' }).click();
-  await page.getByRole('link', { name: 'Form', exact: true }).click();
+  // await page.getByRole('button', { name: 'Settings' }).click();
+  // await page.getByRole('link', { name: 'Form', exact: true }).click();
 
 
   //Form 1 created
@@ -267,7 +268,7 @@ async function addForm(page){
   await page.getByRole('textbox', { name: 'Name *' }).fill('FormC1Installation');
 
   await page.getByRole('checkbox', { name: 'Customer' }).check();
- await page.getByRole('checkbox', { name: 'Job' }).uncheck();
+  await page.getByRole('checkbox', { name: 'Job' }).uncheck();
 
   await page.getByRole('textbox', { name: 'Description *' }).click();
   await page.getByRole('textbox', { name: 'Description *' }).fill('FormC1InstallationD');
@@ -346,7 +347,7 @@ async function addForm(page){
 
 
   await page.getByRole('checkbox', { name: 'Asset Category' }).check();
-await page.getByRole('checkbox', { name: 'Job' }).uncheck();
+  await page.getByRole('checkbox', { name: 'Job' }).uncheck();
   await page.getByRole('textbox', { name: 'Description *' }).click();
   await page.getByRole('textbox', { name: 'Description *' }).fill('FormAInstallationD');
 
@@ -422,7 +423,7 @@ await page.getByRole('checkbox', { name: 'Job' }).uncheck();
   await page.getByRole('textbox', { name: 'Name *' }).fill('FormS');
 
 
-await page.getByRole('checkbox', { name: 'Job' }).uncheck();
+ await page.getByRole('checkbox', { name: 'Job' }).uncheck();
   await page.getByRole('checkbox', { name: 'Support Case' }).check();
   await page.getByRole('textbox', { name: 'Description *' }).click();
   await page.getByRole('textbox', { name: 'Description *' }).fill('FormS1InstallationD');
@@ -544,19 +545,165 @@ async function editForm(page) {
   await page.getByRole('textbox', { name: 'Name *' }).fill('FormS Edited Form');
   await page.getByRole('textbox', { name: 'Description *' }).click();
   await page.getByRole('textbox', { name: 'Description *' }).fill('FormS1InstallationD Edited');
+
+  
+  await page.locator('div').filter({ hasText: /^Dropdown$/ }).click();
+  //  const headerCard = page.getByRole('button', {
+  //   name: new RegExp("Placeholder Label")
+  // });
+  // await headerCard.hover();
+  // await headerCard.locator('svg').nth(0).click();
+  await formOnlyChangeHeaderLevel(page,'Placeholder Label');
+  await page.getByRole('textbox', { name: 'Field Label' }).click();
+  await page.getByRole('textbox', { name: 'Field Label' }).fill('Age Range');
+  await page.getByRole('textbox', { name: 'ColSpan' }).click();
+  await page.getByRole('textbox', { name: 'ColSpan' }).fill('12');
+  await page.locator('input[name="options.0.label"]').click();
+  await page.locator('input[name="options.0.label"]').fill('Belong 10-18');
+  await page.locator('input[name="options.1.label"]').click();
+  await page.locator('input[name="options.1.label"]').fill('Belong 18-25');
+  await page.getByRole('button', { name: 'Option', exact: true }).click();
+  await page.locator('input[name="options.2.label"]').fill('Belong 35-45');
+  // await page.getByRole('checkbox').nth(1).check();
+  await page.locator('div:has-text("Use visibility condition") .MuiSwitch-switchBase').click({ force: true });
+  await page.getByLabel('', { exact: true }).first().click();
+  await page.getByRole('option', { name: 'AgeS (NUMBERINPUT)' }).click();
+  await page.getByLabel('', { exact: true }).click();
+  await page.getByRole('option', { name: 'Is Not Empty', exact: true }).click();
+  await page.getByRole('button', { name: 'Update' }).click();
+  
+  
+  await page.locator('div').filter({ hasText: /^Dropdown$/ }).click();
+  //  const headerCard1 = page.getByRole('button', {
+  //   name: new RegExp("Placeholder Label")
+  // });
+  // await headerCard1.hover();
+  // await headerCard1.locator('svg').nth(0).click();
+  
+  await formOnlyChangeHeaderLevel(page,'Placeholder Label');
+   await page.getByRole('textbox', { name: 'Field Label' }).click();
+  await page.getByRole('textbox', { name: 'Field Label' }).fill('Religion');
+  await page.getByRole('checkbox', { name: 'Select Multiple Options' }).check();
+  await page.getByRole('textbox', { name: 'ColSpan' }).click();
+  await page.getByRole('textbox', { name: 'ColSpan' }).fill('12');
+  await page.locator('input[name="options.1.label"]').click();
+  await page.locator('input[name="options.0.label"]').fill('Hindu');
+  await page.locator('input[name="options.1.label"]').click();
+  await page.locator('input[name="options.1.label"]').fill('Shikh');
+  await page.getByRole('button', { name: 'Option', exact: true }).click();
+  await page.locator('input[name="options.2.label"]').fill('Christen');
+  await page.getByRole('button', { name: 'Option', exact: true }).click();
+  await page.locator('input[name="options.3.label"]').click();
+  await page.locator('input[name="options.3.label"]').fill('Muslim');
   await page.getByRole('button', { name: 'Update' }).click();
 
-   await page.getByRole('button', { name: 'Settings' }).click();
+  await page.locator('div').filter({ hasText: /^Dropdown$/ }).click();
+  //  const headerCard2 = page.getByRole('button', {
+  //   name: new RegExp("Placeholder Label")
+  // });
+  // await headerCard2.hover();
+  // await headerCard2.locator('svg').nth(0).click();
+  await formOnlyChangeHeaderLevel(page,'Placeholder Label');
+  await page.getByRole('textbox', { name: 'Field Label' }).click();
+  await page.getByRole('textbox', { name: 'Field Label' }).fill('Cast');
+  await page.getByRole('textbox', { name: 'ColSpan' }).click();
+  await page.getByRole('textbox', { name: 'ColSpan' }).fill('12');
+  await page.locator('input[name="options.0.label"]').click();
+  await page.locator('input[name="options.0.label"]').fill('General');
+  await page.locator('input[name="options.1.label"]').click();
+  await page.locator('input[name="options.1.label"]').fill('OBC');
+  await page.getByRole('button', { name: 'Option', exact: true }).click();
+  await page.locator('input[name="options.2.label"]').fill('SC');
+  await page.getByRole('button', { name: 'Option', exact: true }).click();
+  await page.locator('input[name="options.3.label"]').fill('ST');
+  await page.locator('div:has-text("Use visibility condition") .MuiSwitch-switchBase').click({ force: true });
+  await page.getByLabel('', { exact: true }).first().click();
+  await page.getByRole('option', { name: 'Religion (DROPDOWN)' }).click();
+  await page.getByLabel('', { exact: true }).click();
+  await page.getByRole('option', { name: 'Equal', exact: true }).click();
+  await page.getByRole('combobox', { name: 'Select values' }).click();
+  await page.getByRole('option', { name: 'HIndu' }).click();
+  await page.getByRole('button', { name: 'Update' }).click();
+  await page.getByRole('button', { name: 'Update' }).click();
+  
+
+  // 2nd form 
+  
+  await page.getByText('FormJ1', { exact: true }).click();
+  await page.locator('div').filter({ hasText: /^File Upload$/ }).click();
+  await formOnlyChangeHeaderLevel(page,'Placeholder Label');
+  await page.getByRole('textbox', { name: 'Field Label' }).click();
+  await page.getByRole('textbox', { name: 'Field Label' }).fill('Age certificate');
+  await page.getByRole('textbox', { name: 'ColSpan' }).click();
+  await page.getByRole('textbox', { name: 'ColSpan' }).fill('12');
+  await page.getByRole('checkbox', { name: 'PDF' }).check();
+  await page.getByRole('checkbox', { name: 'WORD' }).check();
+  await page.getByRole('checkbox', { name: 'XLSX' }).check();
+  await page.locator('.PrivateSwitchBase-input.MuiSwitch-input').check();
+  await page.getByLabel('', { exact: true }).first().click();
+  await page.getByRole('option', { name: 'AgeJ (NUMBERINPUT)' }).click();
+  await page.getByLabel('', { exact: true }).click();
+  await page.getByRole('option', { name: 'Equal', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Enter value...' }).click();
+  await page.getByRole('textbox', { name: 'Enter value...' }).fill('18');
+  await page.getByRole('button', { name: 'Update' }).click();
+  await page.getByRole('button', { name: 'Update' }).click();
+
+  // Customer form
+  await page.getByText('FormC1Installation', { exact: true }).click();
+  await formOnlyChangeHeaderLevel(page,'DOBC');
+   await page.getByRole('checkbox').nth(1).check();
+  await page.getByLabel('', { exact: true }).first().click();
+  await page.getByRole('option', { name: 'AgeC (NUMBERINPUT)' }).click();
+  await page.getByLabel('', { exact: true }).click();
+  await page.getByRole('option', { name: 'Is Not Empty' }).click();
+  await page.getByRole('button', { name: 'Update' }).click();
+  await page.getByRole('button', { name: 'Update' }).click();
+
+  // Asset form
+   await page.getByText('FormA', { exact: true }).click();
+   await page.locator('div').filter({ hasText: /^Checkbox$/ }).click();
+  await formOnlyChangeHeaderLevel(page,'Placeholder Label');
+  await page.getByRole('textbox', { name: 'Field Label' }).click();
+  await page.getByRole('textbox', { name: 'Field Label' }).fill('Check for dropdown');
+  await page.getByRole('textbox', { name: 'ColSpan' }).click();
+  await page.getByRole('textbox', { name: 'ColSpan' }).fill('12');
+  await page.getByRole('button', { name: 'Update' }).click();
+  await page.locator('div').filter({ hasText: /^Dropdown$/ }).click();
+  await formOnlyChangeHeaderLevel(page,'Placeholder Label');
+  await page.getByRole('textbox', { name: 'Field Label' }).click();
+  await page.getByRole('textbox', { name: 'Field Label' }).fill('this is dropdown');
+  await page.getByRole('checkbox', { name: 'Select Multiple Options' }).check();
+  await page.getByRole('textbox', { name: 'ColSpan' }).click();
+  await page.getByRole('textbox', { name: 'ColSpan' }).fill('12');
+  await page.locator('input[name="options.0.label"]').click();
+  await page.locator('input[name="options.0.label"]').fill('first');
+  await page.locator('input[name="options.1.label"]').click();
+  await page.locator('input[name="options.1.label"]').fill('second');
+  await page.getByRole('button', { name: 'Option', exact: true }).click();
+  await page.locator('input[name="options.2.label"]').click();
+  await page.locator('input[name="options.2.label"]').fill('Third');
+  await page.getByRole('checkbox').nth(2).check();
+  await page.getByLabel('', { exact: true }).first().click();
+  await page.getByText('Check for dropdown (CHECKBOX)').click();
+  await page.getByLabel('', { exact: true }).click();
+  await page.getByRole('option', { name: 'Equal', exact: true }).click();
+  await page.getByRole('button', { name: 'Select a value' }).click();
+  await page.getByRole('option', { name: 'Checked', exact: true }).click();
+  await page.getByRole('button', { name: 'Update' }).click();
+  await page.getByRole('button', { name: 'Update' }).click();
+
+
+  await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
   await page.reload();
-   await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
   await page.waitForTimeout(3000);
   if (await page.getByText('FormS1InstallationD Edited', {exact:true}).isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/editForm.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"editForm","true",`./${screenshotPath}/editForm.png`)
-
   }
   else{
     await page.screenshot({ path: `./${screenshotPath}/editForm.png`, fullPage: true });
@@ -574,7 +721,6 @@ async function formNameChange(page, headerLabel, newFieldLabel,updateorNot) {
 
   await headerCard.hover();
   await headerCard.locator('svg').nth(0).click(); // edit icon
-
   await page
     .getByRole('textbox', { name: 'Field Label' })
     .fill(newFieldLabel);
@@ -582,3 +728,15 @@ async function formNameChange(page, headerLabel, newFieldLabel,updateorNot) {
   await page.getByRole('button', { name: 'Update' }).click();
  console.log("form name change completed");
 }
+
+async function formOnlyChangeHeaderLevel(page,headerLabel){
+  
+  const headerCard = page.getByRole('button', {
+      name: new RegExp(headerLabel)
+    });
+  console.log('Hover on edit button');
+  await headerCard.hover();
+  await headerCard.locator('svg').nth(0).click();
+  console.log('Hover on edit button completed');
+}
+

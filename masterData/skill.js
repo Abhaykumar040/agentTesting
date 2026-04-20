@@ -205,7 +205,7 @@ async function deletePreviousSkill(page){
   await page.getByRole('menuitem', { name: 'Delete' }).click();
 
     await expect(page.getByText('Skill deleted successfully').first()).toBeVisible();
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(2000);
     }
    
 await page.reload();

@@ -133,7 +133,7 @@ async function emailVarificaionInSelesAgent(page) {
 async function addRoleForSalesAgent(page) {
   console.log("Enter in add role for sales agent");
   // Add Roles
-  await page.locator('button').nth(5).click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(4).click();
   await page.getByRole('menuitem', { name: 'Add Role' }).click();
   await page.getByRole('combobox', { name: 'Search role to add' }).click();
   await page.waitForTimeout(1000);
@@ -155,7 +155,7 @@ async function addRoleForSalesAgent(page) {
     await updateOpJson(`./${screenshotPath}/`,"AddRoleForSelesAgent","false",`./${screenshotPath}/AddRoleForSelesAgent.png`)
   }
 //  Revome Roles 
-   await page.locator('button').nth(5).click();
+   await page.getByRole('button').filter({ hasText: /^$/ }).nth(4).click();
   await page.getByRole('menuitem', { name: 'Add Role' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('row', { name: 'Master data handling' }).getByRole('button').click();

@@ -13,29 +13,29 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function cyclicJob(page){
-  // await createCyclicJob(page);
-  // await page.waitForTimeout(3000);
-  // await startCyclicJob(page);
-  // await page.waitForTimeout(3000);
-  // await cancleWholeSessionCyclicJob(page);
-  // await page.waitForTimeout(3000);
-  // await cancleCurrentSessionCyclicJob(page);
-  // await page.waitForTimeout(3000);
-  // await deleteCyclicJob(page);
-  // await page.waitForTimeout(3000);
-  // await deleteAllCyclicJob(page);
-  // await page.waitForTimeout(3000);
-  // await cyclicJobByInternalJob(page);
-  // await page.waitForTimeout(3000);
-  // await createCyclicJobByCustomer(page);
-  // await page.waitForTimeout(3000);
-  // await jobScheduleInInternalJobDelete(page)
-  // await page.waitForTimeout(3000);
-  // await jobScheduleInInternalJobEdit(page)
+  await createCyclicJob(page);
+  await page.waitForTimeout(3000);
+  await startCyclicJob(page);
+  await page.waitForTimeout(3000);
+  await cancleWholeSessionCyclicJob(page);
+  await page.waitForTimeout(3000);
+  await cancleCurrentSessionCyclicJob(page);
+  await page.waitForTimeout(3000);
+  await deleteCyclicJob(page);
+  await page.waitForTimeout(3000);
+  await deleteAllCyclicJob(page);
+  await page.waitForTimeout(3000);
+  await cyclicJobByInternalJob(page);
+  await page.waitForTimeout(3000);
+  await createCyclicJobByCustomer(page);
+  await page.waitForTimeout(3000);
+  await jobScheduleInInternalJobDelete(page)
+  await page.waitForTimeout(3000);
+  await jobScheduleInInternalJobEdit(page)
   // await page.waitForTimeout(3000);
   // await exportCyclicJobNormal(page);
   // await page.waitForTimeout(3000);
-  await exportCyclicJobFilter(page);
+  // await exportCyclicJobFilter(page);
 }
 
 

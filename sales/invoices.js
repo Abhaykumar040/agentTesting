@@ -11,19 +11,19 @@ const screenshotPath=`screenshot/${testData.companyType}/invoices`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Invoices(page){
-  // await addInvoices(page);
-  // await page.waitForTimeout(3000);
-  //  await page.waitForTimeout(3000);
-  // await cancelInvoice(page);
-  // await editInvoices(page);
-  // await page.waitForTimeout(3000);
-  // await sendInvoices(page);
-  // await page.waitForTimeout(3000);
-  // await createInvoiceByQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await exportInvoiceInCustomerNormal(page);
+  await addInvoices(page);
   await page.waitForTimeout(3000);
-  await exportInvoiceInCustomerFilter(page);
+   await page.waitForTimeout(3000);
+  await cancelInvoice(page);
+  await editInvoices(page);
+  await page.waitForTimeout(3000);
+  await sendInvoices(page);
+  await page.waitForTimeout(3000);
+  await createInvoiceByQuotation(page);
+  await page.waitForTimeout(3000);
+  // await exportInvoiceInCustomerNormal(page);
+  // await page.waitForTimeout(3000);
+  // await exportInvoiceInCustomerFilter(page);
   // await page.waitForTimeout(3000);
   // await exportInvoiceNormal(page);
   // await page.waitForTimeout(3000);

@@ -24,8 +24,8 @@ export async function assetsCategory(page){
 
 async function addAssets(page) {
   console.log("Enter in add assets");
-   await page.getByRole('button', { name: 'Master Data' }).click();
-  await page.getByRole('link', { name: 'Asset Category' }).click();
+  //  await page.getByRole('button', { name: 'Master Data' }).click();
+  // await page.getByRole('link', { name: 'Asset Category' }).click();
   await page.getByRole('button', { name: 'Add Asset Category' }).click();
   await page.getByRole('textbox', { name: 'Category Name' }).click();
   await page.getByRole('textbox', { name: 'Category Name' }).fill('Assets1');
@@ -93,8 +93,8 @@ async function addAssets(page) {
 
 async function editAssets(page){
   console.log("Enter in edit assets");
-  await page.getByRole('button', { name: 'Master Data' }).click();
-  await page.getByRole('link', { name: 'Asset Category' }).click();
+  // await page.getByRole('button', { name: 'Master Data' }).click();
+  // await page.getByRole('link', { name: 'Asset Category' }).click();
   await page.locator('tr:nth-child(1) > td:nth-child(5) > div > button:first-child svg').click();
   await page.getByRole('textbox', { name: 'Category Name' }).click();
   await page.getByRole('textbox', { name: 'Category Name' }).fill('Charger Cabal');
@@ -145,8 +145,8 @@ async function editAssets(page){
 
 async function deleteAssets(page){
   console.log("Enter in delete assets");
-  await page.getByRole('button', { name: 'Master Data' }).click();
-  await page.getByRole('link', { name: 'Asset Category' }).click();
+  // await page.getByRole('button', { name: 'Master Data' }).click();
+  // await page.getByRole('link', { name: 'Asset Category' }).click();
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(4).click();
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.getByRole('button', { name: 'Proceed' }).click();

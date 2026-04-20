@@ -14,31 +14,31 @@ const screenshotPath=`screenshot/${testData.companyType}/ticket`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Tickets(page){
-  // await allDeleteTickets(page);
-  // await page.waitForTimeout(3000);
-  // await addNewTickets(page);
-  // await page.waitForTimeout(3000);
-  // await editTicket(page);
-  // await page.waitForTimeout(2000);
-  // await sendTicket(page);
-  // await page.waitForTimeout(2000);
-  // await deleteTicket(page);
-  // await page.waitForTimeout(2000);
-  // await allDeleteTickets(page);
-  // await page.waitForTimeout(3000);
-  // await addNewTickets(page);
-  // await page.waitForTimeout(3000);
-  // await editTicket(page);
-  // await page.waitForTimeout(2000);
-  // await sendTicket(page);
-  // await page.waitForTimeout(2000);
-  // await deleteTicket(page);
-  // await page.waitForTimeout(2000);
+  await allDeleteTickets(page);
+  await page.waitForTimeout(3000);
+  await addNewTickets(page);
+  await page.waitForTimeout(3000);
+  await editTicket(page);
+  await page.waitForTimeout(2000);
+  await sendTicket(page);
+  await page.waitForTimeout(2000);
+  await deleteTicket(page);
+  await page.waitForTimeout(2000);
+  await allDeleteTickets(page);
+  await page.waitForTimeout(3000);
+  await addNewTickets(page);
+  await page.waitForTimeout(3000);
+  await editTicket(page);
+  await page.waitForTimeout(2000);
+  await sendTicket(page);
+  await page.waitForTimeout(2000);
+  await deleteTicket(page);
+  await page.waitForTimeout(2000);
   // await exportExcelInTicketsNormal(page);
   // await page.waitForTimeout(3000);
-  await exportExcelInTicketFilter(page);
+  // await exportExcelInTicketFilter(page);
 
-  // await uploadFilesTicket(page);
+  await uploadFilesTicket(page);
 }
 async function allDeleteTickets(page){
   console.log('Enter in all delete tickets');

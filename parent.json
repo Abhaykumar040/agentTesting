@@ -66,11 +66,11 @@
     },
     "editForm": {
       "path": "./screenshot/parent/form/editForm.png",
-      "note": "true"
+      "note": "false"
     },
     "deleteForm": {
       "path": "./screenshot/parent/form/deleteForm.png",
-      "note": "true"
+      "note": "false"
     }
   },
   "./screenshot/parent/skill/": {
@@ -122,11 +122,11 @@
   "./screenshot/parent/product/": {
     "addProduct": {
       "path": "./screenshot/parent/product/addProduct.png",
-      "note": "false"
+      "note": "true"
     },
     "editProduct": {
       "path": "./screenshot/parent/product/editProduct.png",
-      "note": "false"
+      "note": "true"
     },
     "referencedProduct": {
       "path": "./screenshot/parent/product/referencedProduct.png",
@@ -134,7 +134,7 @@
     },
     "deleteProduct": {
       "path": "./screenshot/parent/product/deleteProduct.png",
-      "note": "true"
+      "note": "false"
     }
   },
   "./screenshot/parent/sales-agents/": {
@@ -149,6 +149,10 @@
     "removeRoleForSelesAgent": {
       "path": "./screenshot/parent/sales-agents/removeRoleForSelesAgent.png",
       "note": "true"
+    },
+    "emailVarificaionInSelesAgent": {
+      "path": "./screenshot/parent/sales-agents/emailVarificaionInSelesAgent.png",
+      "note": "false"
     }
   },
   "./screenshot/parent/lead/": {
@@ -187,6 +191,22 @@
     "exportExcelInLeadFilter2": {
       "path": "./screenshot/parent/lead/exportExcelInLeadFilter2.png",
       "note": "true"
+    },
+    "editLeadFirst": {
+      "path": "./screenshot/parent/lead/editLeadFirst.png",
+      "note": "true"
+    },
+    "editLeadSecound": {
+      "path": "./screenshot/parent/lead/editLeadSecound.png",
+      "note": "true"
+    },
+    "activityInLead": {
+      "path": "./screenshot/parent/lead/activityInLead.png",
+      "note": "true"
+    },
+    "documentInLead": {
+      "path": "./screenshot/parent/lead/documentInLead.png",
+      "note": "true"
     }
   },
   "./screenshot/parent/customer/": {
@@ -196,7 +216,7 @@
     },
     "editCustomer": {
       "path": "./screenshot/parent/customer/editCustomer.png",
-      "note": "true"
+      "note": "false"
     },
     "exportExelCustomerNormal": {
       "path": "./screenshot/parent/customer/exportExelCustomerNormal.png",
@@ -369,6 +389,10 @@
     "exportPdfCustomerFilter43": {
       "path": "./screenshot/parent/customer/exportPdfCustomerFilter43.png",
       "note": "false"
+    },
+    "deleteCustomer": {
+      "path": "./screenshot/parent/customer/deleteCustomer.png",
+      "note": "true"
     }
   },
   "./screenshot/parent/quotation/": {
@@ -547,6 +571,58 @@
     "exportQuotationInsideFilter4": {
       "path": "./screenshot/parent/quotation/exportQuotationInsideFilter4.png",
       "note": "false"
+    },
+    "createQuotation": {
+      "path": "./screenshot/parent/quotation/createQuotation.png",
+      "note": "true"
+    },
+    "approveQuotation": {
+      "path": "./screenshot/parent/quotation/approveQuotation.png",
+      "note": "true"
+    },
+    "acceptQuotation": {
+      "path": "./screenshot/parent/quotation/acceptQuotation.png",
+      "note": "true"
+    },
+    "rejectQuotation": {
+      "path": "./screenshot/parent/quotation/rejectQuotation.png",
+      "note": "true"
+    },
+    "copyQuotation": {
+      "path": "./screenshot/parent/quotation/copyQuotation.png",
+      "note": "true"
+    },
+    "rejectedByCustomerQuotation": {
+      "path": "./screenshot/parent/quotation/rejectedByCustomerQuotation.png",
+      "note": "true"
+    },
+    "sendQuotation": {
+      "path": "./screenshot/parent/quotation/sendQuotation.png",
+      "note": "false"
+    },
+    "editQuotationRejected": {
+      "path": "./screenshot/parent/quotation/editQuotationRejected.png",
+      "note": "true"
+    },
+    "editQuotationAccepted": {
+      "path": "./screenshot/parent/quotation/editQuotationAccepted.png",
+      "note": "true"
+    },
+    "editQuotationManagerApproved": {
+      "path": "./screenshot/parent/quotation/editQuotationManagerApproved.png",
+      "note": "false"
+    },
+    "verifyRealQuotationInsideCustomer": {
+      "path": "./screenshot/parent/quotation/verifyRealQuotationInsideCustomer.png",
+      "note": "true"
+    },
+    "verifyQuotationInsideCustomer": {
+      "path": "./screenshot/parent/quotation/verifyQuotationInsideCustomer.png",
+      "note": "true"
+    },
+    "deleteQuotation": {
+      "path": "./screenshot/parent/quotation/deleteQuotation.png",
+      "note": "true"
     }
   },
   "./screenshot/parent/invoices/": {

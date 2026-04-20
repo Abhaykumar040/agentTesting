@@ -14,25 +14,25 @@ export async function customerInC_service(page) {
   // await deletePreviuosCustomerInC_Service(page);
   // await page.waitForTimeout(3000);
 
-  // await addCustomerInC_Service(page);
-    //  const rawData = await fs.readFile('./data.json', 'utf8');
-    //     const testData = JSON.parse(rawData);
+  await addCustomerInC_Service(page);
+     const rawData = await fs.readFile('./data.json', 'utf8');
+        const testData = JSON.parse(rawData);
   
-    // if (testData.companySubscription==='crm') {
-    //    await addCustomerInC_Service(page);
-    //   await page.waitForTimeout(3000);
-    // } else if(testData.companySubscription==='all') {
-    //   await createCustomerInC_ServiceOne(page);
-  //   // }
-  // await page.waitForTimeout(3000);
-  // await emailCustomerInC_Service(page)
-  // await page.waitForTimeout(3000);
-  // await editCustomerInC_Service(page);
-  // await page.waitForTimeout(3000);
-  // await deleteCustomerInC_Service(page);
+    if (testData.companySubscription==='crm') {
+       await addCustomerInC_Service(page);
+      await page.waitForTimeout(3000);
+    } else if(testData.companySubscription==='all') {
+      await createCustomerInC_ServiceOne(page);
+    }
+  await page.waitForTimeout(3000);
+  await emailCustomerInC_Service(page)
+  await page.waitForTimeout(3000);
+  await editCustomerInC_Service(page);
+  await page.waitForTimeout(3000);
+  await deleteCustomerInC_Service(page);
   // await exportCustomerInC_ServiceNormal(page)
   // await page.waitForTimeout(3000);
-  await exportCustomerInC_ServiceFilter(page)
+  // await exportCustomerInC_ServiceFilter(page);
 
 }
 
@@ -57,6 +57,8 @@ async function createCustomerInC_ServiceOne(page){
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1245336');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).fill('9863574122');
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -103,6 +105,8 @@ async function addCustomerInC_Service(page) {
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1245836');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).fill('9863574112');
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -146,6 +150,8 @@ async function addCustomerInC_Service(page) {
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1345836');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).fill('9863574192');
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -188,6 +194,8 @@ async function addCustomerInC_Service(page) {
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1275836');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).fill('9863576112');
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -231,6 +239,8 @@ async function addCustomerInC_Service(page) {
     
   await page.getByRole('radio', { name: 'Email' }).check();
   // await page.getByRole('option', { name: 'Email' }).click();
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -259,6 +269,8 @@ async function addCustomerInC_Service(page) {
     // await page.waitForTimeout(1000);
   
   await page.getByRole('radio', { name: 'Email' }).check();
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -315,6 +327,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
     // await page.waitForTimeout(1000);
   
 await page.getByRole('radio', { name: 'Email' }).check();
+await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -342,6 +356,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
   // await page.getByRole('button', { name: 'Select Access Method' }).click();
     // await page.waitForTimeout(1000);
 await page.getByRole('radio', { name: 'Email' }).check();
+await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -369,6 +385,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
   // await page.getByRole('button', { name: 'Select Access Method' }).click();
     // await page.waitForTimeout(1000);
 await page.getByRole('radio', { name: 'Email' }).check();
+await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -396,6 +414,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
   // await page.getByRole('button', { name: 'Select Access Method' }).click();
     // await page.waitForTimeout(1000);
 await page.getByRole('radio', { name: 'Email' }).check();
+await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -425,6 +445,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
   // await page.getByRole('button', { name: 'Select Access Method' }).click();
     // await page.waitForTimeout(1000);
 await page.getByRole('radio', { name: 'Email' }).check();
+await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
     await page.waitForTimeout(1000);
@@ -452,6 +474,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
     // await page.getByRole('button', { name: 'Select Access Method' }).click();
       // await page.waitForTimeout(1000);
   await page.getByRole('radio', { name: 'Email' }).check();
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
     await page.getByRole('button', { name: 'Next' }).click();
     await page.getByRole('textbox', { name: 'Search for a location' }).click();
       await page.waitForTimeout(1000);
@@ -480,6 +504,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
     // await page.getByRole('button', { name: 'Select Access Method' }).click();
       // await page.waitForTimeout(1000);
   await page.getByRole('radio', { name: 'Email' }).check();
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
     await page.getByRole('button', { name: 'Next' }).click();
     await page.getByRole('textbox', { name: 'Search for a location' }).click();
       await page.waitForTimeout(1000);
@@ -543,6 +569,8 @@ async function editCustomerInC_Service(page){
   await page.getByRole('textbox', { name: 'First Name *' }).fill('Anil');
   await page.getByRole('textbox', { name: 'Last Name *' }).click();
   await page.getByRole('textbox', { name: 'Last Name *' }).fill('Dubey');
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'FormC1Installation' }).click()
   await page.getByRole('button', { name: 'Address' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('khamaria Market');

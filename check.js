@@ -11,26 +11,26 @@ const companyId="697e06823ff7f87c11b04575";
 const company = new ObjectId("697e06823ff7f87c11b04575");
 const type = "agent";
 
-// const user = await db.collection("users").findOne({
+const user = await db.collection("users").findOne({
  
-//   company,
-//   type,status:1
-// });
-// const userDetails = await db.collection("userdetails").findOne({
+  company,
+  type,status:1
+});
+const userDetails = await db.collection("userdetails").findOne({
 
-//   company,
-//   type,status:1
-// });
-// const invoicesss = await db.collection("invoices").findOne({
+  company,
+  type,status:1
+});
+const invoicesss = await db.collection("invoices").findOne({
 
-//   company,
-//  status:1
-// });
+  company,
+ status:1
+});
 
-// if (!user) {
-//   console.log("User not found with given conditions");
-//   process.exit(0);
-// }
+if (!user) {
+  console.log("User not found with given conditions");
+  process.exit(0);
+}
 
 // const userId = user._id;
 // const userDetailsId=userDetails._id;
@@ -108,12 +108,12 @@ console.log("quotation",quotation.matchedCount, quotation.modifiedCount);
 
 
 
-const zone = await db.collection("zones").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set:{ status: 3 } }
-);
-console.log("zone",zone.matchedCount, zone.modifiedCount);
+// const zone = await db.collection("zones").updateMany(
+//   {  company:companyId,
+//   status:1 },
+//   { $set:{ status: 3 } }
+// );
+// console.log("zone",zone.matchedCount, zone.modifiedCount);
 
 
 
@@ -137,8 +137,8 @@ console.log("zone",zone.matchedCount, zone.modifiedCount);
 // console.log("agent updated:", u4.matchedCount);
 
 
-const userVerification = await db.collection("users").updateMany(
-  {  company:company,
-  type:"customer" },
-  { $set:{ verified: true ,isDefaultPass:false} }
-);
+// const userVerification = await db.collection("users").updateMany(
+//   {  company:company,
+//   type:"customer" },
+//   { $set:{ verified: true ,isDefaultPass:false} }
+// );

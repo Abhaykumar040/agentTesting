@@ -19,23 +19,23 @@ export async function lead(page){
   // await page.waitForTimeout(3000);
   // await editLead(page);
   // await page.waitForTimeout(3000);
-  // await emailThreadInLead(page);
-  // await page.waitForTimeout(3000);
+  // // await emailThreadInLead(page);
+  // // await page.waitForTimeout(3000);
   // await activityInLead(page);
   // await page.waitForTimeout(3000);
   // await documentInLead(page); 
   // await page.waitForTimeout(3000); 
-  await exportLeadFileNormal(page);
-  await page.waitForTimeout(3000); 
-  await exportLeadFileFilter(page);
-  await page.waitForTimeout(3000); 
-  // await importLead(page);
+  // // await exportLeadFileNormal(page);
+  // // await page.waitForTimeout(3000); 
+  // // await exportLeadFileFilter(page);
+  // // await page.waitForTimeout(3000); 
+  await importLead(page);
 }
 
 async function addLead(page){
   console.log("Enter in add lead");
   await page.waitForTimeout(1000);
-  await page.getByRole('button', { name: 'Sales' }).click();
+  // await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Lead Management' }).first().click();
   await page.getByRole('button', { name: 'Quick Create' }).click();
   await page.getByRole('textbox', { name: 'First Name *' }).click();
@@ -55,7 +55,7 @@ async function addLead(page){
   await page.getByRole('button', { name: 'Lead Rating' }).click();
   await page.getByRole('option', { name: 'Warm' }).click();
   await page.getByRole('button', { name: 'Sales Agent' }).click();
-  await page.getByRole('option', { name: 'Mahesh Kumar' }).click();
+  await page.getByRole('option', { name: 'Mahesh Kumar' }).first().click();
   await page.getByRole('textbox', { name: 'Referral' }).click();
   await page.getByRole('textbox', { name: 'Referral' }).fill('Jay Rathor');
   await page.getByRole('textbox', { name: 'Description' }).click();
@@ -93,7 +93,7 @@ async function addLead(page){
   await page.getByRole('button', { name: 'Lead Rating' }).click();
   await page.getByRole('option', { name: 'Warm' }).click();
   await page.getByRole('button', { name: 'Sales Agent' }).click();
-  await page.getByRole('option', { name: 'Mahesh Kumar' }).click();
+  await page.getByRole('option', { name: 'Mahesh Kumar' }).first().click();
   await page.getByRole('textbox', { name: 'Referral' }).click();
   await page.getByRole('textbox', { name: 'Referral' }).fill('Jay Rathor');
   await page.getByRole('textbox', { name: 'Description' }).click();
@@ -132,7 +132,7 @@ async function addLead(page){
   await page.getByRole('button', { name: 'Lead Rating' }).click();
   await page.getByRole('option', { name: 'Warm' }).click();
   await page.getByRole('button', { name: 'Sales Agent' }).click();
-  await page.getByRole('option', { name: 'Mahesh Kumar' }).click();
+  await page.getByRole('option', { name: 'Mahesh Kumar' }).first().click();
   await page.getByRole('textbox', { name: 'Referral' }).click();
   await page.getByRole('textbox', { name: 'Referral' }).fill('Jay Rathor');
   await page.getByRole('textbox', { name: 'Description' }).click();
@@ -171,7 +171,7 @@ async function addLead(page){
   await page.getByRole('button', { name: 'Lead Rating' }).click();
   await page.getByRole('option', { name: 'Warm' }).click();
   await page.getByRole('button', { name: 'Sales Agent' }).click();
-  await page.getByRole('option', { name: 'Santosh Kumar' }).click();
+  await page.getByRole('option', { name: 'Santosh Kumar' }).first().click();
   await page.getByRole('textbox', { name: 'Referral' }).click();
   await page.getByRole('textbox', { name: 'Referral' }).fill('Mahesh');
   await page.getByRole('textbox', { name: 'Description' }).click();
@@ -210,7 +210,7 @@ async function addLead(page){
   await page.getByRole('button', { name: 'Lead Rating' }).click();
   await page.getByRole('option', { name: 'Warm' }).click();
   await page.getByRole('button', { name: 'Sales Agent' }).click();
-  await page.getByRole('option', { name: 'Mahesh Kumar' }).click();
+  await page.getByRole('option', { name: 'Mahesh Kumar' }).first().click();
   await page.getByRole('textbox', { name: 'Referral' }).click();
   await page.getByRole('textbox', { name: 'Referral' }).fill('Mahesh');
   await page.getByRole('textbox', { name: 'Description' }).click();
@@ -249,7 +249,7 @@ await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Lead Rating' }).click();
   await page.getByRole('option', { name: 'Warm' }).click();
   await page.getByRole('button', { name: 'Sales Agent' }).click();
-  await page.getByRole('option', { name: 'Mahesh Kumar' }).click();
+  await page.getByRole('option', { name: 'Mahesh Kumar' }).first().click();
   await page.getByRole('textbox', { name: 'Referral' }).click();
   await page.getByRole('textbox', { name: 'Referral' }).fill('Jay Rathor');
   await page.getByRole('textbox', { name: 'Description' }).click();
@@ -307,10 +307,11 @@ async function editLead(page){
   await page.keyboard.press('Enter');
    await page.getByRole('option', { name: 'Website' }).click({ timeout: 2000 });
 }
-
-    await page.getByRole('button', { name: 'Warm' }).click();
+  await page.getByLabel('').nth(5).click();
+    // await page.getByRole('button', { name: 'Warm' }).click();
   await page.getByRole('option', { name: 'Hot' }).click();
-   await page.getByRole('button', { name: 'New' }).click();
+  await page.getByLabel('', { exact: true }).nth(1).click();
+  //  await page.getByRole('button', { name: 'New' }).click();
   await page.getByRole('option', { name: 'Converted' }).click();
   await page.getByRole('spinbutton').click();
   await page.getByRole('spinbutton').fill('02');
@@ -434,7 +435,7 @@ async function documentInLead(page) {
 
  
   await page.locator('input[type="file"]').setInputFiles('./download1/leads.xlsx');
-  await page.pause();
+  // await page.pause();
   
   // await chooser.setFiles('downloads/leads.xlsx');
   await page.getByRole('button', { name: 'Upload Files' }).click();
@@ -961,6 +962,6 @@ async function importLead(page) {
     page.getByRole('button', { name: 'Import Lead' }).click()
 
   ]);
-  await chooser.setFiles('downloads/leads.xlsx');
+  await chooser.setFiles('./download1/leads.xlsx');
   console.log("Import lead completed");
 }

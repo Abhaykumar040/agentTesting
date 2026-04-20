@@ -50,9 +50,9 @@ export async function customerfsm(page){
     await page.waitForTimeout(3000);
     await documentsUploadFsmCustomer(page);
     await page.waitForTimeout(3000);
-    await exportCustomerFsmNormal(page);
-    await page.waitForTimeout(3000);
-    await exportCustomerFsmFilter(page);
+    // await exportCustomerFsmNormal(page);
+    // await page.waitForTimeout(3000);
+    // await exportCustomerFsmFilter(page);
     
 }
 
@@ -1843,6 +1843,8 @@ async function createFsmCustomerOne(page){
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1245845');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).fill('9863576112');
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -1892,6 +1894,8 @@ async function createFsmCustomer(page) {
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1245836');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).fill('9863574112');
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -1936,6 +1940,8 @@ async function createFsmCustomer(page) {
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1345836');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).fill('9863574192');
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -1980,6 +1986,8 @@ async function createFsmCustomer(page) {
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1275836');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).fill('9863576112');
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -2025,6 +2033,8 @@ async function createFsmCustomer(page) {
     
   await page.getByRole('radio', { name: 'Email' }).check();
   // await page.getByRole('option', { name: 'Email' }).click();
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -2052,6 +2062,8 @@ async function createFsmCustomer(page) {
     // await page.waitForTimeout(1000);
   
   await page.getByRole('radio', { name: 'Email' }).check();
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -2080,6 +2092,8 @@ async function createFsmCustomer(page) {
     // await page.waitForTimeout(1000);
   
 await page.getByRole('radio', { name: 'Email' }).check();
+await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -2108,6 +2122,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
     // await page.waitForTimeout(1000);
   
 await page.getByRole('radio', { name: 'Email' }).check();
+await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -2135,6 +2151,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
   // await page.getByRole('button', { name: 'Select Access Method' }).click();
     // await page.waitForTimeout(1000);
 await page.getByRole('radio', { name: 'Email' }).check();
+await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -2162,6 +2180,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
   // await page.getByRole('button', { name: 'Select Access Method' }).click();
     // await page.waitForTimeout(1000);
 await page.getByRole('radio', { name: 'Email' }).check();
+await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -2189,6 +2209,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
   // await page.getByRole('button', { name: 'Select Access Method' }).click();
     // await page.waitForTimeout(1000);
 await page.getByRole('radio', { name: 'Email' }).check();
+await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -2218,6 +2240,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
   // await page.getByRole('button', { name: 'Select Access Method' }).click();
     // await page.waitForTimeout(1000);
 await page.getByRole('radio', { name: 'Email' }).check();
+await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
     await page.waitForTimeout(1000);
@@ -2245,6 +2269,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
     // await page.getByRole('button', { name: 'Select Access Method' }).click();
       // await page.waitForTimeout(1000);
   await page.getByRole('radio', { name: 'Email' }).check();
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
     await page.getByRole('button', { name: 'Next' }).click();
     await page.getByRole('textbox', { name: 'Search for a location' }).click();
       await page.waitForTimeout(1000);
@@ -2273,6 +2299,8 @@ await page.getByRole('radio', { name: 'Email' }).check();
     // await page.getByRole('button', { name: 'Select Access Method' }).click();
       // await page.waitForTimeout(1000);
   await page.getByRole('radio', { name: 'Email' }).check();
+  await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'testing form' }).click();
     await page.getByRole('button', { name: 'Next' }).click();
     await page.getByRole('textbox', { name: 'Search for a location' }).click();
       await page.waitForTimeout(1000);
@@ -2310,6 +2338,10 @@ async function editFsmCustomer(page){
   // await page.getByRole('combobox', { name: 'Select Customer Type' }).click();
   // await page.getByRole('option', { name: 'commercial' }).click();
    await page.getByRole('row', { name: 'Sushil Singh akbk6551+1218@' }).getByLabel('Edit').click();
+   await page.getByRole('textbox', { name: 'Person In Charge *' }).click();
+  await page.getByRole('textbox', { name: 'Person In Charge *' }).fill('Sushil SinghX');
+   await page.getByRole('button', { name: 'Open' }).click();
+  await page.getByRole('option', { name: 'FormC1Installation' }).click()
   await page.getByRole('button', { name: 'Dealer Information' }).click();
   await page.getByRole('textbox', { name: 'Trade Name' }).click();
   await page.getByRole('textbox', { name: 'Trade Name' }).fill('inTES');
