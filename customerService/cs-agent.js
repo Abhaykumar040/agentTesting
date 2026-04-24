@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
+import { waitForEmail } from '../gmail';
 
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
@@ -119,8 +120,12 @@ async function emailVarifiedInCSAgent(page){
   await page.getByRole('combobox', { name: 'Select roles' }).click();
   await page.getByRole('option', { name: 'Customer Service' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click()
+  const targetEmail = "akbk6551+1268@gmail.com";
   await page.getByRole('row', { name: 'Shivam akbk6551+1268@gmail.com' }).getByLabel('Email not verified').click();
   await page.waitForTimeout(2000);
+
+   
+  await waitForEmail(targetEmail,3000);
       
     if (await page.getByText('Onboarding email resent').isVisible()) 
       {

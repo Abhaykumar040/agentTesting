@@ -34,9 +34,9 @@ export async function Tickets(page){
   await page.waitForTimeout(2000);
   await deleteTicket(page);
   await page.waitForTimeout(2000);
-  // await exportExcelInTicketsNormal(page);
-  // await page.waitForTimeout(3000);
-  // await exportExcelInTicketFilter(page);
+  await exportExcelInTicketsNormal(page);
+  await page.waitForTimeout(3000);
+  await exportExcelInTicketFilter(page);
 
   await uploadFilesTicket(page);
 }
@@ -104,8 +104,8 @@ async function deleteTicket(page){
 async function addNewTickets(page) {
   console.log('Enter in add new tickets');
   // await page.getByRole('button', { name: 'Customer Service' }).click();
-  // await page.getByRole('button', { name: 'Customer Service' }).click();
-  await page.getByRole('link', { name: 'Tickets' }).click();
+  await page.getByRole('button', { name: 'Customer Service' }).click();
+  await page.getByRole('link', { name: 'Tickets' }).click()
   await page.getByRole('button', { name: 'New Case' }).click();
   await page.getByRole('textbox', { name: 'Enter case title' }).click();
   await page.waitForTimeout(2000);
@@ -144,7 +144,7 @@ async function addNewTickets(page) {
   await page.waitForTimeout(1000);
    await page.getByRole('option', { name: 'Neeraj Rathor (akbk6551+1217@' }).click();
   await page.getByRole('button', { name: 'Select Case Issue' }).click();
-  await page.getByRole('option', { name: 'Product Not Workings6' }).click();
+  await page.getByRole('option', { name: 'Product Not Workings' }).click();
   await page.getByRole('button', { name: 'Select Priority' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'createdSupport2' }).click();

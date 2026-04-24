@@ -32,10 +32,10 @@ export async function cyclicJob(page){
   await jobScheduleInInternalJobDelete(page)
   await page.waitForTimeout(3000);
   await jobScheduleInInternalJobEdit(page)
-  // await page.waitForTimeout(3000);
-  // await exportCyclicJobNormal(page);
-  // await page.waitForTimeout(3000);
-  // await exportCyclicJobFilter(page);
+  await page.waitForTimeout(3000);
+  await exportCyclicJobNormal(page);
+  await page.waitForTimeout(3000);
+  await exportCyclicJobFilter(page);
 }
 
 

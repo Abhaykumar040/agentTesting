@@ -59,7 +59,7 @@ async function deletePreviuosForm(page){
 
 async function deleteForm(page) {
   console.log("Enter in delete form");
-  await page.getByRole('button', { name: 'Settings' }).click();
+  // await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();
      await page.locator('tbody tr').first().locator('td').nth(2).locator('button:has(svg)').last().click();
       await page.getByRole('menuitem', { name: 'Delete' }).click();

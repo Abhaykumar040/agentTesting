@@ -1481,7 +1481,7 @@ async function   createQuotation(page){
   await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Customers' }).click();
   await page.waitForTimeout(1000);
-await page.getByRole('row', { name: 'C-312 Kolpit Rathor akbk6551+' }).getByLabel('Edit').click();  // await page.getByText('Arjun Singh').first().click();
+  await page.getByRole('row', { name: 'C-351 Kolpit Rathor akbk6551+' }).getByLabel('Edit').click();
   await page.getByRole('tab', { name: 'Quotation' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
 

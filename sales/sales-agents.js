@@ -111,11 +111,13 @@ async function emailVarificaionInSelesAgent(page) {
   console.log("Enter in email varification in sales agent");
   await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Sales-Agents' }).click();
+  const targetEmail = "akbk6551+1126@gmail.com";
+
   await page.getByRole('row', { name: 'Santosh Kumar akbk6551+1126@' }).getByLabel('Email not verified').click();
   // await expect(page.getByText('Onboarding email resent')).toBeVisible();
   // await page.reload();
-  await page.waitForTimeout(1000);
   
+  await waitForEmail(targetEmail,3000);
   if (await page.getByText('Onboarding email resent').isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/emailVarificaionInSelesAgent.png`, fullPage: true });

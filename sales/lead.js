@@ -19,16 +19,16 @@ export async function lead(page){
   // await page.waitForTimeout(3000);
   // await editLead(page);
   // await page.waitForTimeout(3000);
-  // // await emailThreadInLead(page);
-  // // await page.waitForTimeout(3000);
+  // await emailThreadInLead(page);
+  // await page.waitForTimeout(3000);
   // await activityInLead(page);
   // await page.waitForTimeout(3000);
-  // await documentInLead(page); 
-  // await page.waitForTimeout(3000); 
-  // // await exportLeadFileNormal(page);
-  // // await page.waitForTimeout(3000); 
-  // // await exportLeadFileFilter(page);
-  // // await page.waitForTimeout(3000); 
+  await documentInLead(page); 
+  await page.waitForTimeout(3000); 
+  await exportLeadFileNormal(page);
+  await page.waitForTimeout(3000); 
+  await exportLeadFileFilter(page);
+  await page.waitForTimeout(3000); 
   await importLead(page);
 }
 
@@ -62,7 +62,7 @@ async function addLead(page){
   await page.getByRole('textbox', { name: 'Description' }).fill('Wants to streamline charger delivery');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  await page.waitForTimeout(1000);
+  // await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('khamaria');
   await page.waitForTimeout(1000);
   await page.getByText('Khamaria, Madhya Pradesh,').click();
@@ -448,7 +448,7 @@ async function documentInLead(page) {
   await page.getByRole('link', { name: 'Lead Management' }).first().click();
   await page.getByText('Jitendra Tyagi').click();
   await page.waitForTimeout(2000);
-  await page.getByRole('button', { name: 'Documents' }).first().click();
+  await page.getByRole('button', { name: 'Documents' }).click();
    if (await page.getByText('leads.xlsx',{exact:true}).isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/documentInLead.png`, fullPage: true });
@@ -674,6 +674,8 @@ async function exportLeadFileFilter(page){
 
   await page.reload();
   
+  
+   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByText('Date Filter').click();
   await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
   await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('18/03/2026');

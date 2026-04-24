@@ -31,6 +31,8 @@ export async function customerfsm(page){
     
     await createFsmCustomerOne(page);
   }
+    await page.waitForEmail(3000);
+    await emailVarificationINCustomerFsm(page);
     await page.waitForTimeout(3000);
     await editFsmCustomer(page);
     await page.waitForTimeout(3000);
@@ -50,13 +52,38 @@ export async function customerfsm(page){
     await page.waitForTimeout(3000);
     await documentsUploadFsmCustomer(page);
     await page.waitForTimeout(3000);
-    // await exportCustomerFsmNormal(page);
-    // await page.waitForTimeout(3000);
-    // await exportCustomerFsmFilter(page);
+    await exportCustomerFsmNormal(page);
+    await page.waitForTimeout(3000);
+    await exportCustomerFsmFilter(page);
     
 }
 
-async function exportCustomerFsmFilter(page){
+async function emailVarificationINCustomerFsm(page){
+  console.log('Enter in email customer in customer service');
+  
+  const targetEmail = "akbk6551+1136@gmail.com";
+  await page.getByRole('row', { name: 'Anil Rathor akbk6551+1136@' }).getByLabel('Email not verified').click();
+  await page.waitForTimeout(1000);
+  
+  await waitForEmail(targetEmail,3000);
+
+  if (await page.getByText('Onboarding email resent').isVisible())
+  {
+    await page.screenshot({ path: `./${screenshotPath}/emailVarificationINCustomerFsm.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"emailVarificationINCustomerFsm","true",`./${screenshotPath}/emailVarificationINCustomerFsm.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/emailVarificationINCustomerFsm.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"emailVarificationINCustomerFsm","false",`./${screenshotPath}/emailVarificationINCustomerFsm.png`)
+  }
+    
+  await page.reload();
+  console.log('Email customer in customer service');
+}
+
+
+async function  exportCustomerFsmFilter(page){
   console.log("Enter in filter in customer");
   // await page.getByRole('button', { name: 'Sales' }).click();
   // await page.getByRole('link', { name: 'Customers' }).click();

@@ -4,7 +4,7 @@ const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
 import { dataRead } from '../dataRead';
-
+import { waitForEmail } from '../gmail';
 
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
@@ -25,20 +25,45 @@ export async function customer(page){
      } else {
        await createCustomerOne(page);
      }
-
+ await page.waitForTimeout(3000);    
+ await emailVarificationInCustomerSales(page);
  await page.waitForTimeout(3000);
  await editCustomer(page);
  await page.waitForTimeout(3000);
  await addMoreAddressInCustomer(page);
  await page.waitForTimeout(3000);
 
-// await exportCustomerNormal(page);
-  // await exportCustomerFilter(page)
-//  await page.waitForTimeout(3000);
-//  await exportCustomerFilter(page);
- await page.waitForTimeout(3000);
- await deleteCustomer(page);
+  await exportCustomerNormal(page);
+  await page.waitForTimeout(3000);
+  await exportCustomerFilter(page)
+  await page.waitForTimeout(3000);
+  await deleteCustomer(page);
 }
+
+async function emailVarificationInCustomerSales(page){
+  console.log('Enter in email customer in customer service');
+  
+  const targetEmail = "akbk6551+1136@gmail.com";
+  await page.getByRole('row', { name: 'Anil Rathor akbk6551+1136@' }).getByLabel('Email not verified').click();
+  await page.waitForTimeout(1000);
+  
+  await waitForEmail(targetEmail,3000);
+
+  if (await page.getByText('Onboarding email resent').isVisible())
+  {
+    await page.screenshot({ path: `./${screenshotPath}/emailVarificationInCustomerSales.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"emailVarificationInCustomerSales","true",`./${screenshotPath}/emailVarificationInCustomerSales.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/emailVarificationInCustomerSales.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"emailVarificationInCustomerSales","false",`./${screenshotPath}/emailVarificationInCustomerSales.png`)
+  }
+    
+  await page.reload();
+  console.log('Email customer in customer service');
+}
+
 async function addMoreAddressInCustomer(page){
   console.log("Enter in add more address in customer ");
   
@@ -47,8 +72,8 @@ async function addMoreAddressInCustomer(page){
 
 async function exportCustomerFilter(page){
   console.log("Enter in filter in customer");
-  await page.getByRole('button', { name: 'Sales' }).click();
-  await page.getByRole('link', { name: 'Customers' }).click();
+  // await page.getByRole('button', { name: 'Sales' }).click();
+  // await page.getByRole('link', { name: 'Customers' }).click();
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'State' }).click();
   await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
@@ -118,7 +143,7 @@ async function exportCustomerFilter(page){
   await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'City' }).click();
-  await page.getByRole('menuitem', { name: 'Prayagraj' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.reload();
 
@@ -254,7 +279,7 @@ async function exportCustomerFilter(page){
    await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Customer', exact: true }).click();
-  await page.getByRole('menuitem', { name: 'Kamlesh Maurya' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'Kolpit Rathor' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
     await page.reload();
 
@@ -455,7 +480,7 @@ async function exportCustomerFilter(page){
      await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'City' }).click();
-  await page.getByRole('menuitem', { name: 'Prayagraj' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
     await page.reload();
 
@@ -595,7 +620,7 @@ async function exportCustomerFilter(page){
      await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Customer', exact: true }).getByRole('paragraph').click();
-  await page.getByRole('menuitem', { name: 'Kamlesh Maurya' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'Kolpit Rathor' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
     await page.reload();
 
@@ -804,7 +829,7 @@ async function exportCustomerFilter(page){
    await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'City' }).click();
-  await page.getByRole('menuitem', { name: 'Prayagraj' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Customer Type' }).getByRole('paragraph').click();
@@ -870,11 +895,11 @@ async function exportCustomerFilter(page){
    await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'City' }).click();
-  await page.getByRole('menuitem', { name: 'Prayagraj' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Customer', exact: true }).getByRole('paragraph').click();
-  await page.getByRole('menuitem', { name: 'Arjun Singh' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'Kolpit Rathor' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
     await page.reload();
 
@@ -1009,7 +1034,7 @@ async function exportCustomerFilter(page){
    await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'City' }).click();
-  await page.getByRole('menuitem', { name: 'Prayagraj' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
      await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Filter By' }).click();
@@ -1915,8 +1940,9 @@ async function addCustomer(page){
   await page.getByRole('option', { name: 'FormC1Installation' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Aurai');
+  
+  await page.waitForTimeout(1000);
   await page.getByText('Aurai, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Ghosia');

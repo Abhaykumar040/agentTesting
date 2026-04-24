@@ -5,7 +5,6 @@ import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
 import {waitForEmail} from '../gmail'
 
-
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
 const screenshotPath=`screenshot/${testData.companyType}/engineer`;
@@ -13,15 +12,15 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function Engineer(page){
-  await deletePreviousEngineer(page);
-  await page.waitForTimeout(3000);
-  await createEngineer(page);
-  await page.waitForTimeout(3000);
+  // await deletePreviousEngineer(page);
+  // await page.waitForTimeout(3000);
+  // await createEngineer(page);
+  // await page.waitForTimeout(3000);
   await emailVarificationEngineer(page);
-  await page.waitForTimeout(3000);
-  await deleteEngineer(page);
-  await page.waitForTimeout(1000);
-  await assignSkill(page);
+  // await page.waitForTimeout(3000);
+  // await deleteEngineer(page);
+  // await page.waitForTimeout(1000);
+  // await assignSkill(page);
 
 }
 async function deletePreviousEngineer(page){
@@ -312,48 +311,32 @@ async function editEngineerfsm(page){
 }
 
 
-// async function emailVarificationEngineer(page){
-//   console.log('enter in email varification engineer');
-//    await page.getByRole('row', { name: 'Ansh Singh Working hours: 09:' }).getByLabel('Email not verified').click();
+async function emailVarificationEngineer(page){
+  console.log('enter in email varification engineer');
+   await page.getByRole('row', { name: 'suhani singh Working hours: 09:00 - 17:00 7896354125 Expert Engineer skilled' }).getByLabel('Email not verified').click();
+   const targetEmail = "akbk6551+11313@gmail.com";
 
-//   const screenshotFile = `./${screenshotPath}/emailVarificationEngineer.png`;
+   let isVerified = false;
+   await page.waitForTimeout(2000);
 
-//   try {
-//     console.log("Clicked on Email not verified");
+  await waitForEmail(targetEmail,5000);
+  
+  if (await page.getByText('Onboarding email resent').isVisible())
+    {
+      await page.screenshot({ path: `./${screenshotPath}/emailVarificationEngineer.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","true",`./${screenshotPath}/emailVarificationEngineer.png`)
+  
+    }
+    else{
+      await page.screenshot({ path: `./${screenshotPath}/emailVarificationEngineer.png`, fullPage: true });
+      await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","false",`./${screenshotPath}/emailVarificationEngineer.png`)
+    }
+      
+    await page.reload();
 
-//     await page.waitForSelector('text=Onboarding email resent', { timeout: 10000 });
-//     console.log("Onboarding email resent message visible");
-
-//     console.log("Waiting for email...");
-//     const email = await waitForEmail("akbk6551+1141@gmail.com", 120000);
-
-//     console.log("Email result:", email);
-
-//     if (email) {
-//       console.log("Email received successfully");
-//       console.log("Email subject:", email.subject);
-//       console.log("Email to:", email.to);
-
-//       await page.screenshot({ path: screenshotFile, fullPage: true });
-//       await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","true",screenshotFile);
-//     } 
-//     else {
-//       console.log("Email not found");
-
-//       await page.screenshot({ path: screenshotFile, fullPage: true });
-//       await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","false",screenshotFile);
-//     }
-
-//   } catch (err) {
-//     console.log("Email verification error:", err.message);
-
-//     await page.screenshot({ path: screenshotFile, fullPage: true });
-//     await updateOpJson(`./${screenshotPath}/`,"emailVarificationEngineer","false",screenshotFile);
-//   }
-
-//   await page.reload();
-//   console.log('email varificaion completed');
-// }
+  await page.reload();
+  console.log('email varificaion completed');
+}
 
 
 async function assignSkill(page){

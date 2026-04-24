@@ -4,6 +4,7 @@ const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
 import { dataRead } from '../dataRead';
+import { waitForEmail } from '../gmail';
 
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
@@ -14,7 +15,6 @@ export async function customerInC_service(page) {
   // await deletePreviuosCustomerInC_Service(page);
   // await page.waitForTimeout(3000);
 
-  await addCustomerInC_Service(page);
      const rawData = await fs.readFile('./data.json', 'utf8');
         const testData = JSON.parse(rawData);
   
@@ -26,13 +26,13 @@ export async function customerInC_service(page) {
     }
   await page.waitForTimeout(3000);
   await emailCustomerInC_Service(page)
-  await page.waitForTimeout(3000);
+  // await page.waitForTimeout(3000);
   await editCustomerInC_Service(page);
   await page.waitForTimeout(3000);
   await deleteCustomerInC_Service(page);
-  // await exportCustomerInC_ServiceNormal(page)
-  // await page.waitForTimeout(3000);
-  // await exportCustomerInC_ServiceFilter(page);
+  await exportCustomerInC_ServiceNormal(page)
+  await page.waitForTimeout(3000);
+  await exportCustomerInC_ServiceFilter(page);
 
 }
 
@@ -54,11 +54,11 @@ async function createCustomerInC_ServiceOne(page){
   await page.getByRole('textbox', { name: 'Dealer/Company Name' }).click();
   await page.getByRole('textbox', { name: 'Dealer/Company Name' }).fill('Mayank Dubey');
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).click();
-  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1245336');
+  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('105336');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).fill('9863574122');
   await page.getByRole('button', { name: 'Open' }).click();
-  await page.getByRole('option', { name: 'testing form' }).click();
+  await page.getByRole('option', { name: 'FormC1Installation' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -102,7 +102,7 @@ async function addCustomerInC_Service(page) {
   await page.getByRole('textbox', { name: 'Dealer/Company Name' }).click();
   await page.getByRole('textbox', { name: 'Dealer/Company Name' }).fill('Mayank Singh');
   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).click();
-  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1245836');
+  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('12458361');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).fill('9863574112');
   await page.getByRole('button', { name: 'Open' }).click();
@@ -542,9 +542,14 @@ await page.getByRole('button', { name: 'Open' }).click();
 async function emailCustomerInC_Service(page){
   console.log('Enter in email customer in customer service');
   // await page.getByRole('button', { name: 'Customer Service' }).click();
-  await page.getByRole('link', { name: 'Customers' }).click()
+  // await page.getByRole('link', { name: 'Customers' }).click()
+  
+  const targetEmail = "akbk6551+1136@gmail.com";
   await page.getByRole('row', { name: 'Anil Rathor akbk6551+1136@' }).getByLabel('Email not verified').click();
   await page.waitForTimeout(1000);
+  
+  await waitForEmail(targetEmail,3000);
+
   if (await page.getByText('Onboarding email resent').isVisible())
   {
     await page.screenshot({ path: `./${screenshotPath}/emailCustomerInC_Service.png`, fullPage: true });
@@ -564,7 +569,7 @@ async function editCustomerInC_Service(page){
   console.log('Enter in edit customer in customer in service');
   // await page.getByRole('button', { name: 'Customer Service' }).click();
   // await page.getByRole('link', { name: 'Customers' }).click()
- await page.getByRole('row', { name: 'Anil Rathor akbk6551+1136@' }).getByLabel('Edit').click();
+  await page.getByRole('row', { name: 'Anil Rathor' }).getByLabel('Edit').click();
   await page.getByRole('textbox', { name: 'First Name *' }).click();
   await page.getByRole('textbox', { name: 'First Name *' }).fill('Anil');
   await page.getByRole('textbox', { name: 'Last Name *' }).click();

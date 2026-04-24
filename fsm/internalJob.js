@@ -23,10 +23,10 @@ export async function internalJob(page){
  await editInternalJob(page);
  await page.waitForTimeout(3000);
  await deleteInternalJob(page);
-//  await page.waitForTimeout(3000);
-//  await exportInternalJObNormal(page);
-//  await page.waitForTimeout(3000);
-//  await exportInternalJObFilter(page);
+ await page.waitForTimeout(3000);
+ await exportInternalJObNormal(page);
+ await page.waitForTimeout(3000);
+ await exportInternalJObFilter(page);
  await page.waitForTimeout(3000);
  await createJobByAssetManagements(page);
  
@@ -374,6 +374,20 @@ async function editInternalJob(page){
   await page.getByText('15:15').click();
   await page.getByRole('button', { name: 'Skill Embedded Systems' }).click();
   await page.getByRole('option', { name: 'Soldering & Rework' }).click();
+  await page.getByRole('button', { name: 'Generate Report' }).click();
+  await page.waitforTimeout(2000);
+  if (await page.getByText('Generate Job Report').isVisible())
+  {
+    await page.screenshot({ path: `./${screenshotPath}/generalJobReport.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"generalJobReport","true",`./${screenshotPath}/generalJobReport.png`)
+
+  }
+  else{
+    await page.screenshot({ path: `./${screenshotPath}/generalJobReport.png`, fullPage: true });
+    await updateOpJson(`./${screenshotPath}/`,"generalJobReport","false",`./${screenshotPath}/generalJobReport.png`)
+  }
+  await page.getByRole('button', { name: 'Download PDF' }).click();
+  await page.waitforTimeout(2000);
   await page.getByRole('button', { name: 'Save' }).click();
   // await page.getByRole('button', { name: 'Skill Soldering & Rework' }).click();
   // await page.getByRole('option', { name: 'Soldering & Rework' }).click();

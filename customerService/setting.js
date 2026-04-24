@@ -20,7 +20,7 @@ export async function setting(page) {
 
 async function slaSetting(page){
   console.log('Enter in SLA setting');
-   await page.getByRole('button', { name: 'Customer Service' }).click();
+  //  await page.getByRole('button', { name: 'Customer Service' }).click();
   await page.getByRole('link', { name: 'Settings' }).click();
   await page.getByRole('tab', { name: 'SLA Settings' }).click();
   await page.getByRole('button', { name: 'Add SLA' }).click();

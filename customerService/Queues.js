@@ -10,8 +10,8 @@ const screenshotPath=`screenshot/${testData.companyType}/Queues`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Queue(page) {
-  await allQueueDelete(page);
-  await page.waitForTimeout(3000);
+  // await allQueueDelete(page);
+  // await page.waitForTimeout(3000);
   await addQueues(page);
   await page.waitForTimeout(3000);
   await addTeamIntoQueue(page);
@@ -24,7 +24,7 @@ async function allQueueDelete(page){
   await page.getByRole('button', { name: 'Customer Service' }).click();
   await page.getByRole('link', { name: 'Queues' }).click();
   await page.getByRole('row', { name: 'Queue Name Description' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'Delete (3)' }).click();
+  await page.getByRole('button', { name: 'Delete' }).click();
   console.log("All delete queue completed");
 }
 

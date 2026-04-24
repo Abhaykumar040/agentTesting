@@ -126,7 +126,7 @@
     },
     "editProduct": {
       "path": "./screenshot/parent/product/editProduct.png",
-      "note": "true"
+      "note": "false"
     },
     "referencedProduct": {
       "path": "./screenshot/parent/product/referencedProduct.png",
@@ -134,7 +134,7 @@
     },
     "deleteProduct": {
       "path": "./screenshot/parent/product/deleteProduct.png",
-      "note": "false"
+      "note": "true"
     }
   },
   "./screenshot/parent/sales-agents/": {
@@ -156,32 +156,32 @@
     }
   },
   "./screenshot/parent/lead/": {
+    "addLead": {
+      "path": "./screenshot/parent/lead/addLead.png",
+      "note": "false"
+    },
+    "editLeadFirst": {
+      "path": "./screenshot/parent/lead/editLeadFirst.png",
+      "note": "true"
+    },
+    "editLeadSecound": {
+      "path": "./screenshot/parent/lead/editLeadSecound.png",
+      "note": "false"
+    },
+    "activityInLead": {
+      "path": "./screenshot/parent/lead/activityInLead.png",
+      "note": "true"
+    },
+    "documentInLead": {
+      "path": "./screenshot/parent/lead/documentInLead.png",
+      "note": "true"
+    },
     "exportExcelInTicketsNormal": {
       "path": "./screenshot/parent/lead/exportExcelInTicketsNormal.png",
       "note": "false"
     },
     "exportExcelInTicketsNormal2": {
       "path": "./screenshot/parent/lead/exportExcelInTicketsNormal2.png",
-      "note": "true"
-    },
-    "addLead": {
-      "path": "./screenshot/parent/lead/addLead.png",
-      "note": "true"
-    },
-    "exportExcelInLeadFilterX": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterX.png",
-      "note": "true"
-    },
-    "exportExcelInLeadFilterP": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterP.png",
-      "note": "true"
-    },
-    "exportExcelInLeadFilterStatusX": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatusX.png",
-      "note": "true"
-    },
-    "exportExcelInLeadFilterStatusP": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatusP.png",
       "note": "true"
     },
     "exportExcelInLeadFilter1": {
@@ -192,21 +192,45 @@
       "path": "./screenshot/parent/lead/exportExcelInLeadFilter2.png",
       "note": "true"
     },
-    "editLeadFirst": {
-      "path": "./screenshot/parent/lead/editLeadFirst.png",
+    "exportExcelInLeadFilterStatus3": {
+      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus3.png",
       "note": "true"
     },
-    "editLeadSecound": {
-      "path": "./screenshot/parent/lead/editLeadSecound.png",
+    "exportExcelInLeadFilterStatus4": {
+      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus4.png",
+      "note": "false"
+    },
+    "exportExcelInLeadFilterStatus5": {
+      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus5.png",
+      "note": "false"
+    },
+    "exportExcelInLeadFilterStatus6": {
+      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus6.png",
+      "note": "false"
+    },
+    "exportExcelInLeadFilterStatus7": {
+      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus7.png",
       "note": "true"
     },
-    "activityInLead": {
-      "path": "./screenshot/parent/lead/activityInLead.png",
+    "exportExcelInLeadFilterStatus8": {
+      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus8.png",
       "note": "true"
     },
-    "documentInLead": {
-      "path": "./screenshot/parent/lead/documentInLead.png",
-      "note": "true"
+    "exportExcelInLeadFilterStatus9": {
+      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus9.png",
+      "note": "false"
+    },
+    "exportExcelInLeadFilterStatus10": {
+      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus10.png",
+      "note": "false"
+    },
+    "exportExcelInLeadFilterStatus11": {
+      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus11.png",
+      "note": "false"
+    },
+    "exportExcelInLeadFilterStatus12": {
+      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus12.png",
+      "note": "false"
     }
   },
   "./screenshot/parent/customer/": {
@@ -217,6 +241,10 @@
     "editCustomer": {
       "path": "./screenshot/parent/customer/editCustomer.png",
       "note": "false"
+    },
+    "deleteCustomer": {
+      "path": "./screenshot/parent/customer/deleteCustomer.png",
+      "note": "true"
     },
     "exportExelCustomerNormal": {
       "path": "./screenshot/parent/customer/exportExelCustomerNormal.png",
@@ -317,261 +345,9 @@
     "exportPdfCustomerFilter24": {
       "path": "./screenshot/parent/customer/exportPdfCustomerFilter24.png",
       "note": "false"
-    },
-    "exportExelCustomerFilter25": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter25.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter26": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter26.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter27": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter27.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter28": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter28.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter29": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter29.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter30": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter30.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter31": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter31.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter32": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter32.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter34": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter34.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter35": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter35.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter36": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter36.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter37": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter24.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter38": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter38.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter39": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter39.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter40": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter40.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter41": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter41.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter42": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter42.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter43": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter43.png",
-      "note": "false"
-    },
-    "deleteCustomer": {
-      "path": "./screenshot/parent/customer/deleteCustomer.png",
-      "note": "true"
     }
   },
   "./screenshot/parent/quotation/": {
-    "exportExcelQuotationNormal": {
-      "path": "./screenshot/parent/quotation/exportExcelQuotationNormal.png",
-      "note": "true"
-    },
-    "exportPDFQuotationNormal": {
-      "path": "./screenshot/parent/quotation/exportPDFQuotationNormal.png",
-      "note": "true"
-    },
-    "exportExcelQuoationFilter1": {
-      "path": "./screenshot/parent/quotation/exportExcelQuoationFilter1.png",
-      "note": "false"
-    },
-    "exportPDFQuotationFilter1": {
-      "path": "./screenshot/parent/quotation/exportPDFQuotationFilter1.png",
-      "note": "false"
-    },
-    "exportExcelQuotationFilter2": {
-      "path": "./screenshot/parent/quotation/exportExcelQuotationFilter2.png",
-      "note": "true"
-    },
-    "exportPDFQuotationFilter2": {
-      "path": "./screenshot/parent/quotation/exportPDFQuotationFilter2.png",
-      "note": "true"
-    },
-    "exportExcelQuotationFilter3": {
-      "path": "./screenshot/parent/quotation/exportExcelQuotationFilter3.png",
-      "note": "false"
-    },
-    "exportPDFQuotationFilter3": {
-      "path": "./screenshot/parent/quotation/exportPDFQuotationFilter3.png",
-      "note": "false"
-    },
-    "exportExcelQuotationFilter4": {
-      "path": "./screenshot/parent/quotation/exportExcelQuotationFilter4.png",
-      "note": "false"
-    },
-    "exportPDFQuotationFilter4": {
-      "path": "./screenshot/parent/quotation/exportPDFQuotationFilter4.png",
-      "note": "false"
-    },
-    "exportQuotationFilter1": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter1.png",
-      "note": "false"
-    },
-    "exportQuotationFilter2": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter2.png",
-      "note": "false"
-    },
-    "exportQuotationFilter3": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter3.png",
-      "note": "false"
-    },
-    "exportQuotationFilter4": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter4.png",
-      "note": "false"
-    },
-    "exportQuotationFilter5": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter5.png",
-      "note": "false"
-    },
-    "exportQuotationFilter6": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter6.png",
-      "note": "false"
-    },
-    "exportQuotationFilter7": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter7.png",
-      "note": "false"
-    },
-    "exportQuotationFilter8": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter8.png",
-      "note": "false"
-    },
-    "exportQuotationFilter11": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter11.png",
-      "note": "false"
-    },
-    "exportQuotationFilter12": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter12.png",
-      "note": "false"
-    },
-    "exportQuotationFilter13": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter13.png",
-      "note": "false"
-    },
-    "exportQuotationFilter14": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter14.png",
-      "note": "false"
-    },
-    "exportQuotationFilter15": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter15.png",
-      "note": "false"
-    },
-    "exportQuotationFilter16": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter16.png",
-      "note": "false"
-    },
-    "exportQuotationFilter17": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter17.png",
-      "note": "false"
-    },
-    "exportQuotationFilter18": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter18.png",
-      "note": "false"
-    },
-    "exportQuotationFilter19": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter19.png",
-      "note": "false"
-    },
-    "exportQuotationFilter20": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter20.png",
-      "note": "false"
-    },
-    "exportQuotationFilter21": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter21.png",
-      "note": "false"
-    },
-    "exportQuotationFilter22": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter22.png",
-      "note": "false"
-    },
-    "exportQuotationFilter23": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter23.png",
-      "note": "false"
-    },
-    "exportQuotationFilter24": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter24.png",
-      "note": "false"
-    },
-    "exportQuotationFilter25": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter25.png",
-      "note": "false"
-    },
-    "exportQuotationFilter26": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter26.png",
-      "note": "false"
-    },
-    "exportQuotationFilter27": {
-      "path": "./screenshot/parent/quotation/exportInvoiceInCustomerFilter27.png",
-      "note": "false"
-    },
-    "exportQuotationFilter28": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter28.png",
-      "note": "false"
-    },
-    "exportQuotationFilter29": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter29.png",
-      "note": "false"
-    },
-    "exportQuotationFilter30": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter30.png",
-      "note": "false"
-    },
-    "exportQuotationFilter31": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter31.png",
-      "note": "false"
-    },
-    "exportQuotationFilter32": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter32.png",
-      "note": "false"
-    },
-    "exportQuotationInsideFilter1": {
-      "path": "./screenshot/parent/quotation/exportQuotationInsideFilter1.png",
-      "note": "false"
-    },
-    "exportQuotationInsideFilter2": {
-      "path": "./screenshot/parent/quotation/exportQuotationInsideFilter2.png",
-      "note": "false"
-    },
-    "exportQuotationInsideFilter3": {
-      "path": "./screenshot/parent/quotation/exportQuotationInsideFilter3.png",
-      "note": "false"
-    },
-    "exportQuotationInsideFilter4": {
-      "path": "./screenshot/parent/quotation/exportQuotationInsideFilter4.png",
-      "note": "false"
-    },
     "createQuotation": {
       "path": "./screenshot/parent/quotation/createQuotation.png",
       "note": "true"
@@ -586,7 +362,7 @@
     },
     "rejectQuotation": {
       "path": "./screenshot/parent/quotation/rejectQuotation.png",
-      "note": "true"
+      "note": "false"
     },
     "copyQuotation": {
       "path": "./screenshot/parent/quotation/copyQuotation.png",
@@ -598,7 +374,7 @@
     },
     "sendQuotation": {
       "path": "./screenshot/parent/quotation/sendQuotation.png",
-      "note": "false"
+      "note": "true"
     },
     "editQuotationRejected": {
       "path": "./screenshot/parent/quotation/editQuotationRejected.png",
@@ -612,614 +388,100 @@
       "path": "./screenshot/parent/quotation/editQuotationManagerApproved.png",
       "note": "false"
     },
-    "verifyRealQuotationInsideCustomer": {
-      "path": "./screenshot/parent/quotation/verifyRealQuotationInsideCustomer.png",
+    "exportExcelQuotationNormal": {
+      "path": "./screenshot/parent/quotation/exportExcelQuotationNormal.png",
       "note": "true"
     },
-    "verifyQuotationInsideCustomer": {
-      "path": "./screenshot/parent/quotation/verifyQuotationInsideCustomer.png",
+    "exportPDFQuotationNormal": {
+      "path": "./screenshot/parent/quotation/exportPDFQuotationNormal.png",
       "note": "true"
     },
-    "deleteQuotation": {
-      "path": "./screenshot/parent/quotation/deleteQuotation.png",
+    "exportQuotationFilter1": {
+      "path": "./screenshot/parent/quotation/exportQuotationFilter1.png",
+      "note": "true"
+    },
+    "exportQuotationFilter2": {
+      "path": "./screenshot/parent/quotation/exportQuotationFilter2.png",
       "note": "true"
     }
   },
   "./screenshot/parent/invoices/": {
-    "exportExcelInvoiceFilter1": {
-      "path": "./screenshot/parent/invoices/exportExcelInvoiceFilter1.png",
+    "addInvoices": {
+      "path": "./screenshot/parent/invoices/addInvoices.png",
+      "note": "true"
+    },
+    "cancelInvoice": {
+      "path": "./screenshot/parent/invoices/cancelInvoice.png",
+      "note": "true"
+    },
+    "editInvoices": {
+      "path": "./screenshot/parent/invoices/editInvoices.png",
+      "note": "true"
+    },
+    "sendInvoice": {
+      "path": "./screenshot/parent/invoices/sendInvoice.png",
       "note": "false"
     },
-    "exportPdfInvoiceFilter1": {
-      "path": "./screenshot/parent/invoices/exportPdfInvoiceFilter1.png",
+    "createInvoiceByQuotation": {
+      "path": "./screenshot/parent/invoices/createInvoiceByQuotation.png",
+      "note": "true"
+    }
+  },
+  "./screenshot/parent/cs-agent/": {
+    "addCSAgent": {
+      "path": "./screenshot/parent/cs-agent/addCSAgent.png",
       "note": "false"
     },
-    "exportExcelInvoiceFilter2": {
-      "path": "./screenshot/parent/invoices/exportExcelInvoiceFilter2.png",
-      "note": "false"
+    "addRoleInCSAgent": {
+      "path": "./screenshot/parent/cs-agent/addRoleInCSAgent.png",
+      "note": "true"
     },
-    "exportPdfInvoiceFilter2": {
-      "path": "./screenshot/parent/invoices/exportPdfInvoiceFilter2.png",
-      "note": "false"
-    },
-    "exportExcelInvoiceFilter3": {
-      "path": "./screenshot/parent/invoices/exportExcelInvoiceFilter3.png",
-      "note": "false"
-    },
-    "exportPdfInvoiceFilter3": {
-      "path": "./screenshot/parent/invoices/exportPdfInvoiceFilter3.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter1": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter1.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter2": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter2.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter3": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter3.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter4": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter4.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter5": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter5.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter6": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter6.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter7": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter7.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter8": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter8.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter9": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter9.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter10": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter10.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter11": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter11.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter12": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter12.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter13": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter13.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter14": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter14.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter15": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter15.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter16": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter16.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter17": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter17.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter18": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter18.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter19": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter19.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter20": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter20.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter21": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter21.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter22": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter22.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter23": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter23.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter24": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter24.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter25": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter25.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter26": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter26.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter27": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter27.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter28": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter28.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter29": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter29.png",
-      "note": "false"
-    },
-    "exportInvoiceInCustomerFilter30": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter30.png",
+    "emailVarifiedInCSAgent": {
+      "path": "./screenshot/parent/cs-agent/emailVarifiedInCSAgent.png",
       "note": "false"
     }
   },
-  "./screenshot/parent/customerinC_Service/": {
-    "exportExelCustomerNormal": {
-      "path": "./screenshot/parent/customerinC_Service/exportExelCustomerNormal.png",
-      "note": "false"
+  "./screenshot/parent/team/": {
+    "addTeam": {
+      "path": "./screenshot/parent/team/addTeam.png",
+      "note": "true"
     },
-    "exportPdfCustomerNormal": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerNormal.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter1": {
-      "path": "./screenshot/parent/customerinC_Service/exportExelCustomerFilter1.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter2": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter2.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter3": {
-      "path": "./screenshot/parent/customerinC_Service/exportExelCustomerFilter3.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter4": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter4.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter5": {
-      "path": "./screenshot/parent/customerinC_Service/exportExelCustomerFilter5.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter6": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter6.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter7": {
-      "path": "./screenshot/parent/customerinC_Service/exportExelCustomerFilter7.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter8": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter8.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter1": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter1.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter3": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter3.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter5": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter5.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter7": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter7.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter9": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter9.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter10": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter10.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter11": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter11.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter12": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter12.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter13": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter13.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter18": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter18.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter15": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter15.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter16": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter16.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter17": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter17.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter19": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter19.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter20": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter20.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter21": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter21.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter22": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter22.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter23": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter23.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter24": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter24.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter25": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter25.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter26": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter26.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter27": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter27.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter28": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter28.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter29": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter29.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter30": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter30.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter31": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter31.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter32": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter32.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter34": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter34.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter35": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter35.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter36": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter36.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter37": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter24.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter38": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter38.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter39": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter39.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter40": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter40.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter41": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter41.png",
-      "note": "false"
-    },
-    "exportCustomerInC_ServiceFilter42": {
-      "path": "./screenshot/parent/customerinC_Service/exportCustomerInC_ServiceFilter42.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter43": {
-      "path": "./screenshot/parent/customerinC_Service/exportPdfCustomerFilter43.png",
-      "note": "false"
+    "editTeam": {
+      "path": "./screenshot/parent/team/editTeam.png",
+      "note": "true"
     }
   },
-  "./screenshot/parent/ticket/": {
-    "exportExcelInTicketsNormal": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketsNormal.png",
-      "note": "false"
-    },
-    "exportExcelInTicketFilter": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter.png",
-      "note": "false"
-    },
-    "exportExcelInTicketFilter1": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter1.png",
-      "note": "false"
-    },
-    "exportExcelInTicketFilter2": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter2.png",
+  "./screenshot/parent/setting/": {
+    "slaSetting": {
+      "path": "./screenshot/parent/setting/slaSetting.png",
       "note": "true"
     },
-    "exportExcelInTicketFilter3": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter3.png",
+    "caseCategoriesSetting": {
+      "path": "./screenshot/parent/setting/caseCategoriesSetting.png",
       "note": "true"
     },
-    "exportExcelInTicketFilter4": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter4.png",
-      "note": "false"
-    },
-    "exportExcelInTicketFilter5": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter5.png",
-      "note": "false"
-    },
-    "exportExcelInTicketFilter6": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter6.png",
-      "note": "false"
-    },
-    "exportExcelInTicketFilter7": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter7.png",
+    "editcaseCategoriesSetting": {
+      "path": "./screenshot/parent/setting/editcaseCategoriesSetting.png",
       "note": "true"
-    },
-    "exportExcelInTicketFilter8": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketFilter8.png",
-      "note": "false"
-    },
-    "exportExcelInTicketInsideFilter": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketInsideFilter.png",
-      "note": "false"
-    },
-    "exportExcelInTicketInsideFilter2": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketInsideFilter2.png",
-      "note": "false"
-    },
-    "exportExcelInTicketInsideFilter3": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketInsideFilter3.png",
-      "note": "false"
-    },
-    "exportExcelInTicketInsideFilter4": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketInsideFilter4.png",
-      "note": "false"
     }
   },
-  "./screenshot/parent/customerfsm/": {
-    "exportExelCustomerNormal": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerNormal.png",
-      "note": "false"
+  "./screenshot/parent/Queues/": {
+    "addQueues": {
+      "path": "./screenshot/parent/Queues/addQueues.png",
+      "note": "true"
     },
-    "exportPdfCustomerNormal": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerNormal.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter1": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter1.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter2": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter2.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter3": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter3.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter4": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter4.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter5": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter5.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter6": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter6.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter7": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter7.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter8": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter8.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter9": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter9.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter10": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter10.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter11": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter11.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter12": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter12.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter13": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter13.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter18": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter18.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter15": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter15.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter16": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter16.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter17": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter17.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter19": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter19.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter20": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter20.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter21": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter21.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter22": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter22.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter23": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter23.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter24": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter24.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter25": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter25.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter26": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter26.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter27": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter27.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter28": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter28.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter29": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter29.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter30": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter30.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter31": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter31.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter32": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter32.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter34": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter34.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter35": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter35.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter36": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter36.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter37": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter24.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter38": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter38.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter39": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter39.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter40": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter40.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter41": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter41.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter42": {
-      "path": "./screenshot/parent/customerfsm/exportExelCustomerFilter42.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter43": {
-      "path": "./screenshot/parent/customerfsm/exportPdfCustomerFilter43.png",
-      "note": "false"
+    "assignTeamToQueue": {
+      "path": "./screenshot/parent/Queues/assignTeamToQueue.png",
+      "note": "true"
     }
   },
-  "./screenshot/parent/internlJob/": {
-    "exportInternalJObNormal": {
-      "path": "./screenshot/parent/internlJob/exportInternalJObNormal.png",
-      "note": "false"
-    },
-    "exportExcelInternalJObFilter1": {
-      "path": "./screenshot/parent/internlJob/exportExcelInternalJObFilter1.png",
+  "./screenshot/parent/engineer/": {
+    "createEngineer": {
+      "path": "./screenshot/parent/engineer/createEngineer.png",
       "note": "true"
     },
-    "exportPdfInternalJObFilter1": {
-      "path": "./screenshot/parent/internlJob/exportPdfInternalJObFilter1.png",
-      "note": "false"
-    },
-    "exportExcelInternalJObFilter2": {
-      "path": "./screenshot/parent/internlJob/exportExcelInternalJObFilter2.png",
-      "note": "true"
-    },
-    "exportPdfInternalJObFilter2": {
-      "path": "./screenshot/parent/internlJob/exportPdfInternalJObFilter2.png",
-      "note": "true"
-    },
-    "exportExcelInternalJObFilter3": {
-      "path": "./screenshot/parent/internlJob/exportExcelInternalJObFilter3.png",
-      "note": "false"
-    },
-    "exportPdfInternalJObFilter3": {
-      "path": "./screenshot/parent/internlJob/exportPdfInternalJObFilter3.png",
+    "deleteEngineer": {
+      "path": "./screenshot/parent/engineer/deleteEngineer.png",
       "note": "false"
     }
   }
