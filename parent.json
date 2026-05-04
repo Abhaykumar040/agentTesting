@@ -20,11 +20,13 @@
   "./screenshot/parent/roles/": {
     "deletePreviuosRole": {
       "path": "./screenshot/parent/roles/deletePreviuosRole.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "addRole": {
       "path": "./screenshot/parent/roles/addRole.png",
-      "note": "true"
+      "note": "true",
+      "message": "6 roles are created"
     },
     "deleteRole": {
       "path": "./screenshot/parent/roles/deleteRole.png",
@@ -34,35 +36,42 @@
   "./screenshot/parent/status/": {
     "addStatus": {
       "path": "./screenshot/parent/status/addStatus.png",
-      "note": "false"
+      "note": "false",
+      "message": ""
     },
     "editStatus": {
       "path": "./screenshot/parent/status/editStatus.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "deleteStatus": {
       "path": "./screenshot/parent/status/deleteStatus.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     }
   },
   "./screenshot/parent/productCategory/": {
     "addProductCategory": {
       "path": "./screenshot/parent/productCategory/addProductCategory.png",
-      "note": "true"
+      "note": "true",
+      "message": "Total 9 PC are added"
     },
     "editProductCategry": {
       "path": "./screenshot/parent/productCategory/editProductCategry.png",
-      "note": "false"
+      "note": "false",
+      "message": "Edit is From PC2 to PC2X"
     },
     "deleteProductCategory": {
       "path": "./screenshot/parent/productCategory/deleteProductCategory.png",
-      "note": "false"
+      "note": "true",
+      "message": ""
     }
   },
   "./screenshot/parent/form/": {
     "addForm": {
       "path": "./screenshot/parent/form/addForm.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "editForm": {
       "path": "./screenshot/parent/form/editForm.png",
@@ -76,23 +85,33 @@
   "./screenshot/parent/skill/": {
     "addProficiency": {
       "path": "./screenshot/parent/skill/addProficiency.png",
-      "note": "true"
+      "note": "true",
+      "message": "4 Proficiency are added may be deleted any after delete function"
     },
     "addskill": {
       "path": "./screenshot/parent/skill/addskill.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "editProficiency": {
       "path": "./screenshot/parent/skill/editProficiency.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "editSkill": {
       "path": "./screenshot/parent/skill/editSkill.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "deleteSkill": {
       "path": "./screenshot/parent/skill/deleteSkill.png",
-      "note": "false"
+      "note": "false",
+      "message": ""
+    },
+    "deletePreviousProficiency": {
+      "path": "./screenshot/parent/skill/deletePreviousProficiency.png",
+      "note": "true",
+      "message": ""
     }
   },
   "./screenshot/parent/zone/": {
@@ -108,11 +127,13 @@
   "./screenshot/parent/assets-category/": {
     "addAssets": {
       "path": "./screenshot/parent/assets-category/addAssets.png",
-      "note": "true"
+      "note": "true",
+      "message": "5 asset are added"
     },
     "editAssets": {
       "path": "./screenshot/parent/assets-category/editAssets.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "deleteAssets": {
       "path": "./screenshot/parent/assets-category/deleteAssets.png",
@@ -122,11 +143,13 @@
   "./screenshot/parent/product/": {
     "addProduct": {
       "path": "./screenshot/parent/product/addProduct.png",
-      "note": "true"
+      "note": "true",
+      "message": "6 products are added"
     },
     "editProduct": {
       "path": "./screenshot/parent/product/editProduct.png",
-      "note": "false"
+      "note": "true",
+      "message": "Mobile charger to Fiber Optics cable"
     },
     "referencedProduct": {
       "path": "./screenshot/parent/product/referencedProduct.png",
@@ -134,7 +157,8 @@
     },
     "deleteProduct": {
       "path": "./screenshot/parent/product/deleteProduct.png",
-      "note": "true"
+      "note": "true",
+      "message": "Product is deleted 'Deleted Product'"
     }
   },
   "./screenshot/parent/sales-agents/": {
@@ -158,7 +182,8 @@
   "./screenshot/parent/lead/": {
     "addLead": {
       "path": "./screenshot/parent/lead/addLead.png",
-      "note": "false"
+      "note": "true",
+      "message": ""
     },
     "editLeadFirst": {
       "path": "./screenshot/parent/lead/editLeadFirst.png",
@@ -236,7 +261,8 @@
   "./screenshot/parent/customer/": {
     "addCustomer": {
       "path": "./screenshot/parent/customer/addCustomer.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "editCustomer": {
       "path": "./screenshot/parent/customer/editCustomer.png",
@@ -350,87 +376,117 @@
   "./screenshot/parent/quotation/": {
     "createQuotation": {
       "path": "./screenshot/parent/quotation/createQuotation.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "approveQuotation": {
       "path": "./screenshot/parent/quotation/approveQuotation.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "acceptQuotation": {
       "path": "./screenshot/parent/quotation/acceptQuotation.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "rejectQuotation": {
       "path": "./screenshot/parent/quotation/rejectQuotation.png",
-      "note": "false"
+      "note": "true",
+      "message": ""
     },
     "copyQuotation": {
       "path": "./screenshot/parent/quotation/copyQuotation.png",
-      "note": "true"
+      "note": "false",
+      "message": ""
     },
     "rejectedByCustomerQuotation": {
       "path": "./screenshot/parent/quotation/rejectedByCustomerQuotation.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "sendQuotation": {
       "path": "./screenshot/parent/quotation/sendQuotation.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "editQuotationRejected": {
       "path": "./screenshot/parent/quotation/editQuotationRejected.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "editQuotationAccepted": {
       "path": "./screenshot/parent/quotation/editQuotationAccepted.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "editQuotationManagerApproved": {
       "path": "./screenshot/parent/quotation/editQuotationManagerApproved.png",
-      "note": "false"
+      "note": "false",
+      "message": ""
     },
     "exportExcelQuotationNormal": {
       "path": "./screenshot/parent/quotation/exportExcelQuotationNormal.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "exportPDFQuotationNormal": {
       "path": "./screenshot/parent/quotation/exportPDFQuotationNormal.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "exportQuotationFilter1": {
       "path": "./screenshot/parent/quotation/exportQuotationFilter1.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "exportQuotationFilter2": {
       "path": "./screenshot/parent/quotation/exportQuotationFilter2.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     }
   },
   "./screenshot/parent/invoices/": {
     "addInvoices": {
       "path": "./screenshot/parent/invoices/addInvoices.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "cancelInvoice": {
       "path": "./screenshot/parent/invoices/cancelInvoice.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "editInvoices": {
       "path": "./screenshot/parent/invoices/editInvoices.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "sendInvoice": {
       "path": "./screenshot/parent/invoices/sendInvoice.png",
-      "note": "false"
+      "note": "true",
+      "message": ""
     },
     "createInvoiceByQuotation": {
       "path": "./screenshot/parent/invoices/createInvoiceByQuotation.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
+    },
+    "exportInvoiceInCustomerFilter1": {
+      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter1.png",
+      "note": "false",
+      "message": ""
+    },
+    "exportInvoiceInCustomerFilter2": {
+      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter2.png",
+      "note": "false",
+      "message": ""
     }
   },
   "./screenshot/parent/cs-agent/": {
     "addCSAgent": {
       "path": "./screenshot/parent/cs-agent/addCSAgent.png",
-      "note": "false"
+      "note": "false",
+      "message": ""
     },
     "addRoleInCSAgent": {
       "path": "./screenshot/parent/cs-agent/addRoleInCSAgent.png",
@@ -444,7 +500,8 @@
   "./screenshot/parent/team/": {
     "addTeam": {
       "path": "./screenshot/parent/team/addTeam.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "editTeam": {
       "path": "./screenshot/parent/team/editTeam.png",
@@ -454,25 +511,30 @@
   "./screenshot/parent/setting/": {
     "slaSetting": {
       "path": "./screenshot/parent/setting/slaSetting.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "caseCategoriesSetting": {
       "path": "./screenshot/parent/setting/caseCategoriesSetting.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "editcaseCategoriesSetting": {
       "path": "./screenshot/parent/setting/editcaseCategoriesSetting.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     }
   },
   "./screenshot/parent/Queues/": {
     "addQueues": {
       "path": "./screenshot/parent/Queues/addQueues.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "assignTeamToQueue": {
       "path": "./screenshot/parent/Queues/assignTeamToQueue.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     }
   },
   "./screenshot/parent/engineer/": {
@@ -483,6 +545,18 @@
     "deleteEngineer": {
       "path": "./screenshot/parent/engineer/deleteEngineer.png",
       "note": "false"
+    }
+  },
+  "./screenshot/parent/ticket/": {
+    "addNewTickets": {
+      "path": "./screenshot/parent/ticket/addNewTickets.png",
+      "note": "true",
+      "message": ""
+    },
+    "exportExcelInTicketsNormal": {
+      "path": "./screenshot/parent/ticket/exportExcelInTicketsNormal.png",
+      "note": "false",
+      "message": ""
     }
   }
 }

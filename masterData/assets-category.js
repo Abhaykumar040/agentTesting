@@ -71,19 +71,19 @@ async function addAssets(page) {
   await page.getByRole('option', { name: 'FormA' }).click();
   await page.getByRole('button', { name: 'Add Category' }).click();
   // await expect(page.getByRole('cell', { name: 'Asset Management' }).first()).toBeVisible();
-
+ await page.waitForTimeout(3000);
    await page.reload();
     await page.waitForTimeout(3000);
     
      if (await page.getByText('Assets5').isVisible()) 
        {
             await page.screenshot({ path: `./${screenshotPath}/addAssets.png`, fullPage: true });
-            await updateOpJson(`./${screenshotPath}/`,"addAssets","true",`./${screenshotPath}/addAssets.png`)
+            await updateOpJson(`./${screenshotPath}/`,"addAssets","true",`./${screenshotPath}/addAssets.png`,"5 asset are added")
             
           }
           else{
             await page.screenshot({ path: `./${screenshotPath}/addAssets.png`, fullPage: true });
-            await updateOpJson(`./${screenshotPath}/`,"addAssets","false",`./${screenshotPath}/addAssets.png`)
+            await updateOpJson(`./${screenshotPath}/`,"addAssets","false",`./${screenshotPath}/addAssets.png`,"5 asset are added")
           }
 
   await page.reload();
@@ -147,7 +147,7 @@ async function deleteAssets(page){
   console.log("Enter in delete assets");
   // await page.getByRole('button', { name: 'Master Data' }).click();
   // await page.getByRole('link', { name: 'Asset Category' }).click();
-  await page.getByRole('button').filter({ hasText: /^$/ }).nth(4).click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(3).click();
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.getByRole('button', { name: 'Proceed' }).click();
     await page.waitForTimeout(3000);
@@ -186,7 +186,7 @@ async function deletePreviuosAssets(page){
       break;
     }
     // console.log("Before delete line 185")
-   await page.locator('button').nth(4).click();
+     await page.locator('button').nth(3).click();
     await page.getByRole('menuitem', { name: 'Delete' }).click();
     await page.getByRole('button', { name: 'Proceed' }).click();
     await page.waitForTimeout(2000);
@@ -194,6 +194,7 @@ async function deletePreviuosAssets(page){
    
   }
   await page.reload();
+  await page.waitForTimeout(3000);
  
   console.log("delete previous assets completed");
 }

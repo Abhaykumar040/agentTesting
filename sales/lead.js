@@ -15,14 +15,14 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function lead(page){
-  // await addLead(page);
-  // await page.waitForTimeout(3000);
-  // await editLead(page);
-  // await page.waitForTimeout(3000);
-  // await emailThreadInLead(page);
-  // await page.waitForTimeout(3000);
-  // await activityInLead(page);
-  // await page.waitForTimeout(3000);
+  await addLead(page);
+  await page.waitForTimeout(3000);
+  await editLead(page);
+  await page.waitForTimeout(3000);
+  await emailThreadInLead(page);
+  await page.waitForTimeout(3000);
+  await activityInLead(page);
+  await page.waitForTimeout(3000);
   await documentInLead(page); 
   await page.waitForTimeout(3000); 
   await exportLeadFileNormal(page);
@@ -62,7 +62,7 @@ async function addLead(page){
   await page.getByRole('textbox', { name: 'Description' }).fill('Wants to streamline charger delivery');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  // await page.waitForTimeout(1000);
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('khamaria');
   await page.waitForTimeout(1000);
   await page.getByText('Khamaria, Madhya Pradesh,').click();
@@ -112,7 +112,7 @@ async function addLead(page){
   await page.getByRole('button', { name: 'Create Lead' }).click();
   // await expect(page.getByText('Lead created successfully')).toBeVisible()
 
-  await page.waitForTimeout(1000)
+  await page.waitForTimeout(3000)
   await page.getByRole('button', { name: 'Quick Create' }).click();
   await page.getByRole('tab', { name: 'Details' }).click();
   await page.getByRole('textbox', { name: 'First Name *' }).click();

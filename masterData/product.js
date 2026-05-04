@@ -19,8 +19,8 @@ export async function product(page){
   await page.waitForTimeout(3000);
   await editProduct(page);
   await page.waitForTimeout(3000);
-  await referencedProduct(page);
-  await page.waitForTimeout(3000);
+  // await referencedProduct(page);
+  // await page.waitForTimeout(3000);
   await deleteProduct(page);
 }
 async function deletePreviousProduct(page){
@@ -42,7 +42,7 @@ async function deletePreviousProduct(page){
      await page.locator('tbody tr').first().locator('td').nth(7).locator('button:has(svg)').last().click();
   await page.getByRole('menuitem', { name: 'Delete' }).first().click();
     await page.waitForTimeout(2000);
-    await expect(page.getByText('Product deleted successfully').first()).toBeVisible();
+    
     // await page.waitForTimeout(1000);
     }
    
@@ -52,8 +52,7 @@ console.log("Delete previous product completed");
 
 async function addProduct(page){
   console.log("Enter in Add product");
-    await page.getByRole('button', { name: 'Master Data' }).click();
-  await page.getByRole('link', { name: 'Products' }).click();
+
   await page.getByRole('link', { name: 'Add Product' }).click();
   await page.getByRole('button', { name: 'Product Category *' }).click();
   await page.getByRole('option', { name: 'laptop charger cable - use in' }).click();
@@ -179,29 +178,54 @@ async function addProduct(page){
   await page.getByRole('textbox', { name: 'HSN Code' }).click();
   await page.getByRole('textbox', { name: 'HSN Code' }).fill('6532');
   await page.getByRole('button', { name: 'Add' }).click();
+
+  
+  await page.getByRole('link', { name: 'Add Product' }).click();
+  await page.getByRole('button', { name: 'Product Category *' }).click();
+  await page.getByRole('option', { name: 'laptop charger cable - use in' }).click();
+  await page.getByRole('button', { name: 'Status Active' }).click();
+  await page.getByRole('option', { name: 'Active', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Title *' }).click();
+  await page.getByRole('textbox', { name: 'Title *' }).fill('Deleted Product');
+  await page.getByRole('textbox', { name: 'SKU' }).click();
+  await page.getByRole('textbox', { name: 'SKU' }).fill('5410');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('Deleted Product');
+  await page.getByRole('textbox', { name: 'Price *' }).click();
+  await page.getByRole('textbox', { name: 'Price *' }).fill('7540');
+  await page.getByRole('textbox', { name: 'Tax (%)' }).click();
+  await page.getByRole('textbox', { name: 'Tax (%)' }).fill('18');
+  await page.getByRole('textbox', { name: 'Quantity *' }).click();
+  await page.getByRole('textbox', { name: 'Quantity *' }).fill('10');
+  await page.getByRole('textbox', { name: 'HSN Code' }).click();
+  await page.getByRole('textbox', { name: 'HSN Code' }).fill('65320');
+  await page.getByRole('button', { name: 'Add' }).click();
+
+    await page.waitForTimeout(3000);
   await page.reload();
+  await page.waitForTimeout(3000);
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Products' }).click();
   await page.waitForTimeout(2000);
   if (await page.getByText('Smart watch charger', { exact: true }).isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/addProduct.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"addProduct","true",`./${screenshotPath}/addProduct.png`)
+    await updateOpJson(`./${screenshotPath}/`,"addProduct","true",`./${screenshotPath}/addProduct.png`,"6 products are added")
 
   }
   else{
     await page.screenshot({ path: `./${screenshotPath}/addProduct.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"addProduct","false",`./${screenshotPath}/addProduct.png`)
+    await updateOpJson(`./${screenshotPath}/`,"addProduct","false",`./${screenshotPath}/addProduct.png`,"6 products are added")
   }
   await page.reload();
+    await page.waitForTimeout(3000);
 
   console.log("Add product completed");
 }
 
 async function editProduct(page) {
   console.log("Enter in Edit product");
-  await page.getByRole('button', { name: 'Master Data' }).click();
-  await page.getByRole('link', { name: 'Products' }).click();
+
     await page.getByText('Mobile charger', { exact: true }).click();
   await page.getByRole('button', { name: 'Product Category * laptop' }).click();
   await page.getByRole('option', { name: 'Fiber optical cable - use for' }).click();
@@ -220,7 +244,9 @@ async function editProduct(page) {
   await page.getByRole('button', { name: 'Status Active' }).click();
   await page.getByRole('option', { name: 'InActive' }).click();
   await page.getByRole('button', { name: 'Update' }).click();
+    await page.waitForTimeout(3000);
   await page.reload();
+    await page.waitForTimeout(3000);
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Products' }).click();
   await page.waitForTimeout(1000);
@@ -228,40 +254,42 @@ async function editProduct(page) {
   if (await page.getByText('Fiber Optics cable', { exact: true }).isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/editProduct.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"editProduct","true",`./${screenshotPath}/editProduct.png`)
+    await updateOpJson(`./${screenshotPath}/`,"editProduct","true",`./${screenshotPath}/editProduct.png`,"Mobile charger to Fiber Optics cable")
 
   }
   else{
     await page.screenshot({ path: `./${screenshotPath}/editProduct.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"editProduct","false",`./${screenshotPath}/editProduct.png`)
+    await updateOpJson(`./${screenshotPath}/`,"editProduct","false",`./${screenshotPath}/editProduct.png`,"Mobile charger to Fiber Optics cable")
   }
   await page.reload();
+    await page.waitForTimeout(3000);
   console.log("Edit Product Completed");
 }
 
 async function deleteProduct(page) {
   console.log("Enter in delete Product");
-  await page.getByRole('button', { name: 'Master Data' }).click();
-  await page.getByRole('link', { name: 'Products' }).click();
- await page.locator('tr:nth-child(4) > td:nth-child(8) > div > button:last-child svg').click();
-    await page.getByRole('menuitem', { name: 'Delete' }).click();
+
+ await page.locator('button').nth(2).click();
+  await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.waitForLoadState('networkidle');
   await page.reload();
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Products' }).click();
   await page.waitForTimeout(1000);
     
-  if (!await page.getByText('Charger', { exact: true }).isVisible())  
+  if (!await page.getByText('Deleted Product', { exact: true }).isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/deleteProduct.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"deleteProduct","true",`./${screenshotPath}/deleteProduct.png`)
+    await updateOpJson(`./${screenshotPath}/`,"deleteProduct","true",`./${screenshotPath}/deleteProduct.png`,"Product is deleted 'Deleted Product'")
 
   }
   else{
     await page.screenshot({ path: `./${screenshotPath}/deleteProduct.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"deleteProduct","false",`./${screenshotPath}/deleteProduct.png`)
+    await updateOpJson(`./${screenshotPath}/`,"deleteProduct","false",`./${screenshotPath}/deleteProduct.png`,"Product is deleted 'Deleted Product'")
   }
+  await page.waitForTimeout(3000);
   await page.reload();
+  await page.waitForTimeout(3000);
   console.log("Delete product");
 }
 

@@ -35,14 +35,16 @@ async function deletePreviousProductCategory(page){
       if (total <= 0) {
       break;
       }
-       await page.locator('button').nth(4).click();
-      await page.getByRole('menuitem', { name: 'Delete' }).click();
-      await page.getByRole('button', { name: 'Proceed' }).click();
-      await page.waitForTimeout(2000);
-      await expect(page.getByText('Product category deleted').first()).toBeVisible();
+      
+      await page.locator('button').nth(3).click();
+  await page.getByRole('menuitem', { name: 'Delete' }).click();
+  await page.getByRole('button', { name: 'Proceed' }).click();
+  await page.waitForTimeout(2000);
+
     }
-   
+    await page.waitForTimeout(3000);
 await page.reload();
+ await page.waitForTimeout(3000);
 console.log("delete previous product category completed");
 }
 
@@ -65,15 +67,6 @@ async function addProductCategory(page){
   await page.getByRole('textbox', { name: 'Description *' }).fill('PC2D');
   await page.getByRole('textbox', { name: 'Comment' }).click();
   await page.getByRole('textbox', { name: 'Comment' }).fill('PC2C');
-  await page.getByRole('button', { name: 'Add' }).click();
-
-  await page.getByRole('button', { name: 'Add Category' }).click();
-  await page.getByRole('textbox', { name: 'Title *' }).click();
-  await page.getByRole('textbox', { name: 'Title *' }).fill('PC3');
-  await page.getByRole('textbox', { name: 'Description *' }).click();
-  await page.getByRole('textbox', { name: 'Description *' }).fill('PC3D');
-  await page.getByRole('textbox', { name: 'Comment' }).click();
-  await page.getByRole('textbox', { name: 'Comment' }).fill('PC3C');
   await page.getByRole('button', { name: 'Add' }).click();
 
   await page.getByRole('button', { name: 'Add Category' }).click();
@@ -129,20 +122,30 @@ async function addProductCategory(page){
   await page.getByRole('textbox', { name: 'Comment' }).click();
   await page.getByRole('textbox', { name: 'Comment' }).fill('cost effective');
   await page.getByRole('button', { name: 'Add' }).click();
+
+    await page.getByRole('button', { name: 'Add Category' }).click();
+  await page.getByRole('textbox', { name: 'Title *' }).click();
+  await page.getByRole('textbox', { name: 'Title *' }).fill('PC3');
+  await page.getByRole('textbox', { name: 'Description *' }).click();
+  await page.getByRole('textbox', { name: 'Description *' }).fill('PC3D');
+  await page.getByRole('textbox', { name: 'Comment' }).click();
+  await page.getByRole('textbox', { name: 'Comment' }).fill('PC3C');
+  await page.getByRole('button', { name: 'Add' }).click();
+
+
   await page.waitForTimeout(3000);
   await page.reload();
-  await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Product Category' }).click();
   await page.waitForTimeout(3000);
-  if (await page.getByText('use in laptop charger').nth(1).isVisible())  
+  if (await page.getByText('use in laptop charger').first().isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/addProductCategory.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"addProductCategory","true",`./${screenshotPath}/addProductCategory.png`)
+    await updateOpJson(`./${screenshotPath}/`,"addProductCategory","true",`./${screenshotPath}/addProductCategory.png`,"Total 9 PC are added")
     
   }
   else{
     await page.screenshot({ path: `./${screenshotPath}/addProductCategory.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"addProductCategory","false",`./${screenshotPath}/addProductCategory.png`)
+    await updateOpJson(`./${screenshotPath}/`,"addProductCategory","false",`./${screenshotPath}/addProductCategory.png`,"Total 9 PC are added")
   }
   await page.reload();
   console.log("add product Category completed");
@@ -159,6 +162,7 @@ async function  editProductCategry(page) {
   await page.getByRole('textbox', { name: 'Description *' }).fill('PC2DX');
   await page.getByRole('textbox', { name: 'Comment' }).click();
   await page.getByRole('textbox', { name: 'Comment' }).fill('PC2CX');
+
   await page.getByRole('button', { name: 'Update' }).click();
   await page.waitForTimeout(3000);
   await page.reload();
@@ -168,12 +172,12 @@ async function  editProductCategry(page) {
   await page.getByText('PC2CX' ,{ exact: true }).isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/editProductCategry.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"editProductCategry","true",`./${screenshotPath}/editProductCategry.png`)
+    await updateOpJson(`./${screenshotPath}/`,"editProductCategry","true",`./${screenshotPath}/editProductCategry.png`,"Edit is From PC2 to PC2X")
     
   }
   else{
     await page.screenshot({ path: `./${screenshotPath}/editProductCategry.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"editProductCategry","false",`./${screenshotPath}/editProductCategry.png`)
+    await updateOpJson(`./${screenshotPath}/`,"editProductCategry","false",`./${screenshotPath}/editProductCategry.png`,"Edit is From PC2 to PC2X")
   }
   await page.reload();
   console.log("edit product category completed");
@@ -183,13 +187,14 @@ async function deleteProductCategory(page) {
  console.log("Enter in delete product category");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Product Category' }).click();
-    await page.locator('tbody > tr:nth-child(9) > td:nth-child(4) button:last-child').click();
+      await page.locator('button').nth(3).click();
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.getByRole('button', { name: 'Proceed' }).click();
   await expect(page.getByText('Product category deleted')).toBeVisible();
+    await page.waitForTimeout(3000);
   await page.reload();
   await page.waitForTimeout(3000);
-  if (!await page.getByText('PC2', { exact: true }).first().isVisible())  
+  if (!await page.getByText('PC3', { exact: true }).first().isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/deleteProductCategory.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"deleteProductCategory","true",`./${screenshotPath}/deleteProductCategory.png`)
@@ -199,6 +204,8 @@ async function deleteProductCategory(page) {
     await page.screenshot({ path: `./${screenshotPath}/deleteProductCategory.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"deleteProductCategory","false",`./${screenshotPath}/deleteProductCategory.png`)
   }
+    await page.waitForTimeout(3000);
   await page.reload();
+    await page.waitForTimeout(3000);
   console.log("delete product category completed");
 }

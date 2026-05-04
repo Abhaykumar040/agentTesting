@@ -13,6 +13,8 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function form(page){
+  // await addVisibleForm(page);
+  //  await page.waitForTimeout(3000);
   await deletePreviuosForm(page);
   await page.waitForTimeout(3000);
   await addForm(page);
@@ -87,7 +89,6 @@ async function addForm(page){
   console.log("Enter in add form ");
   // await page.getByRole('button', { name: 'Settings' }).click();
   // await page.getByRole('link', { name: 'Form', exact: true }).click();
-
 
   //Form 1 created
   await page.getByRole('link', { name: 'Add Form' }).click();
@@ -533,7 +534,142 @@ async function addForm(page){
   console.log("Add form completed");
 
 }
+async function addVisibleForm(page){
 
+//Form 0 created for Visibility check
+ await page.getByRole('link', { name: 'Add Form' }).click();
+  await page.getByRole('textbox', { name: 'Name *' }).click();
+  await page.getByRole('textbox', { name: 'Name *' }).fill('Form');
+
+  await page.getByRole('textbox', { name: 'Name *' }).fill('VisibilityCheck');
+
+  await page.getByRole('checkbox', { name: 'Customer' }).check();
+  await page.getByRole('checkbox', { name: 'Asset Category' }).check();
+  await page.getByRole('checkbox', { name: 'Support Case' }).check();
+  await page.getByRole('textbox', { name: 'Description *' }).click();
+  await page.getByRole('textbox', { name: 'Description *' }).fill('VisibilityCheck');
+
+  await page.locator('div').filter({ hasText: /^Heading$/ }).click();
+  await formNameChange(page,'Placeholder Label','Fill the Details for JCAS',true);
+
+  await page.locator('div').filter({ hasText: /^Text Input$/ }).click();
+  await formNameChange(page,'Placeholder Label','Name',true);
+ 
+ 
+
+  await page.locator('div').filter({ hasText: /^Text Area$/ }).click();
+  await formNameChange(page,'Placeholder Label','Address',true);
+  await visiblityOption(page,"Address","Name","Equal","2233",true);
+
+
+  await page.locator('div').filter({ hasText: /^Number Input$/ }).click();
+   await formNameChange(page,'Placeholder Label','Age',true);
+    await visiblityOption(page,"Age","Name","Not Equal","2233",true);
+
+  await page.locator('div').filter({ hasText: /^Date Picker$/ }).click();
+   await formNameChange(page,'Placeholder Label','DOB',true);
+    await visiblityOption(page,"DOB","Name","Contains","2233",true);
+
+  await page.locator('div').filter({ hasText: /^Date Time Picker$/ }).click();
+   await formNameChange(page,'Placeholder Label','Current Time',true);
+    await visiblityOption(page,"Current Time","Name","Is Empty",0,true);
+
+  await page.locator('div').filter({ hasText: /^Dropdown$/ }).click();
+   await formNameChange(page,'Placeholder Label','DropDownSelectOption',false);
+  await page.locator('input[name="options.0.label"]').click();
+  await page.locator('input[name="options.0.label"]').fill('Yes');
+  await page.locator('input[name="options.1.label"]').click();
+  await page.locator('input[name="options.1.label"]').press('ControlOrMeta+a');
+  await page.locator('input[name="options.1.label"]').fill('No');
+  await page.getByRole('button', { name: 'Option', exact: true }).click();
+  await page.locator('input[name="options.2.label"]').fill('Unable go giive answer');
+  await page.getByRole('button', { name: 'Update' }).click();
+ await visiblityOption(page,"DropDownSelectOption","Name","Is Not Empty",0,true,true);
+
+  // await page.locator('div').filter({ hasText: /^Dropdown$/ }).click();
+  //  await formNameChange(page,'Placeholder Label','DropDownSelectPproductName',false);
+  // await page.getByRole('textbox', { name: 'ColSpan' }).click();
+  // await page.getByRole('button', { name: 'Options reference None' }).click();
+  // await page.getByRole('option', { name: 'Product', exact: true }).click();
+  // await page.getByRole('button', { name: 'Update' }).click();
+  //  await visiblityOption(page,"DropDownSelectPproductName","Name","Not Equal","2233",true);
+
+  // await page.locator('div').filter({ hasText: /^Dropdown$/ }).click();
+  //  await formNameChange(page,'Placeholder Label','DropDownSelectSKU',false);
+  // await page.getByRole('textbox', { name: 'ColSpan' }).click();
+  // await page.getByRole('button', { name: 'Options reference None' }).click();
+  // await page.getByRole('option', { name: 'Product', exact: true }).click();
+  // await page.getByRole('button', { name: 'Referenced Field Product Name' }).click();
+  // await page.getByRole('option', { name: 'SKU' }).click();
+  // await page.getByRole('button', { name: 'Update' }).click();
+
+  // await page.locator('div').filter({ hasText: /^Dropdown$/ }).click();
+  //  await formNameChange(page,'Placeholder Label','DropDownSelectPC',false);
+  // await page.getByRole('textbox', { name: 'ColSpan' }).click();
+  // await page.getByRole('button', { name: 'Options reference None' }).click();
+
+  // await page.getByRole('option', { name: 'Product Category' }).click();
+  
+  // await page.getByRole('button', { name: 'Update' }).click();
+
+ 
+
+  await page.locator('div').filter({ hasText: /^Checkbox$/ }).click();
+   await formNameChange(page,'Placeholder Label','I accept terms',true);
+
+  await page.locator('div').filter({ hasText: /^Table$/ }).click();
+   await formNameChange(page,'Placeholder Label','Table',true);
+
+  await page.locator('div').filter({ hasText: /^File Upload$/ }).click();
+   await formNameChange(page,'Placeholder Label','FileUploadAll',false);
+   
+  await page.getByRole('textbox', { name: 'Field Label' }).click();
+  await page.getByRole('textbox', { name: 'ColSpan' }).click();
+  await page.getByRole('checkbox', { name: 'IMG' }).uncheck();
+  await page.getByRole('checkbox', { name: 'IMG' }).check();
+  await page.getByRole('checkbox', { name: 'PDF' }).check();
+  await page.getByRole('checkbox', { name: 'PDF' }).check();
+  await page.getByRole('checkbox', { name: 'XLSX' }).check();
+  await page.getByRole('checkbox', { name: 'WORD' }).check();
+  await page.getByRole('checkbox', { name: 'TXT' }).check();
+  await page.getByRole('button', { name: 'Update' }).click();
+
+
+
+
+  
+  await page.locator('div').filter({ hasText: /^File Upload$/ }).click();
+   await formNameChange(page,'Placeholder Label','imgFile',false);
+   
+  await page.getByRole('textbox', { name: 'Field Label' }).click();
+  await page.getByRole('textbox', { name: 'ColSpan' }).click();
+  await page.getByRole('checkbox', { name: 'IMG' }).uncheck();
+  await page.getByRole('checkbox', { name: 'IMG' }).check();
+
+  await page.getByRole('button', { name: 'Update' }).click();
+
+
+
+
+  
+  await page.locator('div').filter({ hasText: /^File Upload$/ }).click();
+   await formNameChange(page,'Placeholder Label','pdfFileUpload',false);
+   
+  await page.getByRole('textbox', { name: 'Field Label' }).click();
+  await page.getByRole('textbox', { name: 'ColSpan' }).click();
+  await page.getByRole('checkbox', { name: 'IMG' }).uncheck();
+  await page.getByRole('checkbox', { name: 'PDF' }).check();
+
+  await page.getByRole('button', { name: 'Update' }).click();
+
+  await page.getByRole('button', { name: 'Save' }).click();
+
+
+
+
+
+
+}
 async function editForm(page) {
   console.log("Enter in edit form");
   await page.getByRole('button', { name: 'Settings' }).click();
@@ -728,7 +864,31 @@ async function formNameChange(page, headerLabel, newFieldLabel,updateorNot) {
   await page.getByRole('button', { name: 'Update' }).click();
  console.log("form name change completed");
 }
+async function visiblityOption(page,headerLabel,sourceField,Operator,value,updateorNot,isDropdown){
+  console.log("Enter in form Name change.");
+  const headerCard = page.getByRole('button', {
+    name: new RegExp(headerLabel)
+  });
 
+  await headerCard.hover();
+  await headerCard.locator('svg').nth(0).click(); // edit icon
+  if(!isDropdown)
+   await page.getByRole('checkbox').nth(1).check();
+  if(isDropdown) await page.getByRole('checkbox').nth(2).check();
+
+    await page.getByLabel('', { exact: true }).first().click();
+await page.getByRole('option', { name: sourceField }).click();
+ await page.getByLabel('', { exact: true }).click();
+  await page.getByRole('option', { name: Operator, exact: true }).click();
+  if(value!=0){
+      await page.getByRole('textbox', { name: 'Enter value...' }).click();
+  await page.getByRole('textbox', { name: 'Enter value...' }).fill(value);
+  }
+
+  if(updateorNot)
+  await page.getByRole('button', { name: 'Update' }).click();
+ console.log("form name change completed");
+}
 async function formOnlyChangeHeaderLevel(page,headerLabel){
   
   const headerCard = page.getByRole('button', {

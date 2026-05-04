@@ -1,0 +1,11 @@
+inside the roles 'Field Service Manager' is deleted ,if (!await page.getByText('Field Service Manager').isVisible())  
+
+total 9 product Category are created
+,"Edit is From PC2 to PC2X" for Product Category
+
+Product Edit  -Mobile charger to Fiber Optics charger
+'Deleted Product' is deleted
+
+
+skill is deleted -JavaDeleted or 'New skill'
+proficiency deleted 'Delete1D'

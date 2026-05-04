@@ -7,8 +7,8 @@ const db = await getDB();
 
 // const companyId="697e06823ff7f87c11b04575";
 // const company = new ObjectId("697e06823ff7f87c11b04575");
-const companyId="697e06823ff7f87c11b04575";
-const company = new ObjectId("697e06823ff7f87c11b04575");
+const companyId="69e5b741b3be353fb3de1e74";
+const company = new ObjectId("69e5b741b3be353fb3de1e74");
 const type = "agent";
 
 const user = await db.collection("users").findOne({
@@ -47,12 +47,12 @@ const userDetails = await db.collection("userdetails").findOne({
 // );
 // console.log("userDetails",u11.matchedCount, u11.modifiedCount);
 
-// const leads = await db.collection("leads").updateMany(
-//   {  company,
-//   status:1 },
-//   { $set: { status: 3 } }
-// );
-// console.log("leads",leads.matchedCount, leads.modifiedCount);
+const leads = await db.collection("leads").updateMany(
+  {  company,
+  status:1 },
+  { $set: { status: 3 } }
+);
+console.log("leads",leads.matchedCount, leads.modifiedCount);
 
 // const tickets = await db.collection("supportcases").updateMany(
 //   {  company:companyId,
@@ -99,12 +99,12 @@ const userDetails = await db.collection("userdetails").findOne({
 // console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
 
 
-// const quotation = await db.collection("quotations").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set:{ status: 3 } }
-// );
-// console.log("quotation",quotation.matchedCount, quotation.modifiedCount);
+const quotation = await db.collection("quotations").updateMany(
+  {  company:companyId,
+  status:1 },
+  { $set:{ status: 3 } }
+);
+console.log("quotation",quotation.matchedCount, quotation.modifiedCount);
 
 
 

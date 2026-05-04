@@ -49,14 +49,15 @@ await loginRight(page);
 // await priority(page);//doneA
 
 
-// await roles(page);
-// await status(page);
-// await productCategory(page);
+// await roles(page); //doneA
+// await status(page); 
+// await productCategory(page); //doneA
+// await product(page); // referenced product is not done
 // await form(page);
 // await skill(page);
 // await zone(page);
 // await assetsCategory(page);
-// await product(page);
+
 // await salesAgents(page);
 // await lead(page);
 // await customer(page);
@@ -71,9 +72,9 @@ await loginRight(page);
 // await setting(page);
 // await customerInC_service(page); 
 // await Queue(page);
-// await Tickets(page);
-// await ticketInsideCustomer(page);
-// await FAQs(page);
+await Tickets(page);
+await ticketInsideCustomer(page);
+await FAQs(page);
 await Engineer(page);
 // await jobType(page);
 // await customerfsm(page);

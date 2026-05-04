@@ -14,24 +14,14 @@ const screenshotPath=`screenshot/${testData.companyType}/ticket`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Tickets(page){
-  await allDeleteTickets(page);
-  await page.waitForTimeout(3000);
-  await addNewTickets(page);
-  await page.waitForTimeout(3000);
-  await editTicket(page);
-  await page.waitForTimeout(2000);
-  await sendTicket(page);
-  await page.waitForTimeout(2000);
-  await deleteTicket(page);
-  await page.waitForTimeout(2000);
-  await allDeleteTickets(page);
-  await page.waitForTimeout(3000);
-  await addNewTickets(page);
-  await page.waitForTimeout(3000);
-  await editTicket(page);
-  await page.waitForTimeout(2000);
-  await sendTicket(page);
-  await page.waitForTimeout(2000);
+  // await allDeleteTickets(page);
+  // await page.waitForTimeout(3000);
+  // await addNewTickets(page);
+  // await page.waitForTimeout(3000);
+  // await editTicket(page);
+  // await page.waitForTimeout(2000);
+  // await sendTicket(page);
+  // await page.waitForTimeout(2000);
   await deleteTicket(page);
   await page.waitForTimeout(2000);
   await exportExcelInTicketsNormal(page);
@@ -42,8 +32,10 @@ export async function Tickets(page){
 }
 async function allDeleteTickets(page){
   console.log('Enter in all delete tickets');
+    await page.getByRole('button', { name: 'Customer Service' }).click();
   await page.getByRole('link', { name: 'Tickets' }).click()
   await page.waitForTimeout(3000);
+
   while( true){
     const text = await page.textContent('text=Showing');
     const match = text.match(/of\s+(\d+)\s+entries/);
@@ -56,63 +48,40 @@ async function allDeleteTickets(page){
     if (total <= 0) {
       break;
     }
-    await page.getByRole('row', { name: 'Case ID Title Assigned To' }).getByRole('checkbox').check();
+  await page.getByRole('row', { name: 'Case ID Title Assigned To' }).getByRole('checkbox').check();
     await page.getByRole('button', { name: 'Delete' }).click();
+     await page.waitForTimeout(2000);
+    //  await expect(page.getByText('Customer deleted successfully')).toBeVisible();
   }
-await page.reload();
- 
-  console.log('All delete tickets completed');
-}
+
+  
+
+    await page.reload();
+  }
 
 async function deleteTicket(page){
   console.log('Enter in delete ticket');
-  await page.getByRole('row', { name: 'S-2079 technical problem' }).getByRole('checkbox').check();
+  await page.locator('tbody tr').nth(2).locator('input[type="checkbox"]').click();
   await page.getByRole('button', { name: 'Delete' }).click();
   console.log('delete ticket completed');
 }
-// async function allDeleteTickets(page){
-//   console.log('Enter in all delete tickets');
-//   await page.getByRole('link', { name: 'Tickets' }).click()
-//   await page.waitForTimeout(3000);
-//   while( true){
-//     const text = await page.textContent('text=Showing');
-//     const match = text.match(/of\s+(\d+)\s+entries/);
-//     const total = match ? parseInt(match[1]) : 0;
 
-//     // // Stop loop if total <= 0
-//     // if (total == 1) {
-//     //    await page.waitForTimeout(3000);
-//     // }
-//     if (total <= 0) {
-//       break;
-//     }
-//     await page.getByRole('row', { name: 'Case ID Title Assigned To' }).getByRole('checkbox').check();
-//     await page.getByRole('button', { name: 'Delete' }).click();
-//   }
-// await page.reload();
- 
-//   console.log('All delete tickets completed');
-// }
-
-// async function deleteTicket(page){
-//   console.log('Enter in delete ticket');
-//   await page.getByRole('row', { name: 'S-2079 technical problem' }).getByRole('checkbox').check();
-//   await page.getByRole('button', { name: 'Delete' }).click();
-//   console.log('delete ticket completed');
-// }
 
 async function addNewTickets(page) {
   console.log('Enter in add new tickets');
   // await page.getByRole('button', { name: 'Customer Service' }).click();
-  await page.getByRole('button', { name: 'Customer Service' }).click();
+
   await page.getByRole('link', { name: 'Tickets' }).click()
+
+  
+  
   await page.getByRole('button', { name: 'New Case' }).click();
   await page.getByRole('textbox', { name: 'Enter case title' }).click();
   await page.waitForTimeout(2000);
-  await page.getByRole('textbox', { name: 'Enter case title' }).fill('Power cutoff issue');
+  await page.getByRole('textbox', { name: 'Enter case title' }).fill('DeleteTicket');
   await page.getByRole('combobox', { name: 'Search or type customer email' }).click();
   await page.waitForTimeout(1000);
-   await page.getByRole('option', { name: 'Anil Dubey (akbk6551+1136@' }).click();
+    await page.getByRole('option', { name: 'Anil Rathor (akbk6551+1136@' }).click();
   // await page.getByRole('button', { name: 'Select Case Issue' }).click();
   await page.getByRole('button', { name: 'Select Case Issue' }).click();
   await page.getByRole('option', { name: 'Product Not Working' }).first().click();
@@ -132,7 +101,38 @@ async function addNewTickets(page) {
   await page.locator('.MuiBackdrop-root').click();
   await page.getByRole('button', { name: 'Next: SLA' }).click();
   await page.getByRole('button', { name: 'Select SLA' }).click();
-  await page.getByRole('option', { name: 'Critical / Breakdown Issue 3' }).click();
+  await page.getByRole('option', { name: 'Critical / Breakdown Issue 3' }).first().click();
+  await page.getByRole('button', { name: 'Create Case' }).click();
+  await expect(page.getByText('Support Case created')).toBeVisible();
+
+
+  await page.getByRole('button', { name: 'New Case' }).click();
+  await page.getByRole('textbox', { name: 'Enter case title' }).click();
+  await page.waitForTimeout(2000);
+  await page.getByRole('textbox', { name: 'Enter case title' }).fill('Power cutoff issue');
+  await page.getByRole('combobox', { name: 'Search or type customer email' }).click();
+  await page.waitForTimeout(1000);
+    await page.getByRole('option', { name: 'Anil Rathor (akbk6551+1136@' }).click();
+  // await page.getByRole('button', { name: 'Select Case Issue' }).click();
+  await page.getByRole('button', { name: 'Select Case Issue' }).click();
+  await page.getByRole('option', { name: 'Product Not Working' }).first().click();
+  await page.getByRole('button', { name: 'Select Priority' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('option', { name: 'createdSupport2' }).click();
+  await page.getByRole('button', { name: 'Select Status Profile' }).click();
+  await page.getByRole('option', { name: 'Open' }).click();
+  await page.getByRole('button', { name: 'Portal' }).click();
+  await page.getByRole('option', { name: 'Email' }).click();
+  await page.getByRole('textbox', { name: 'Describe the case in detail...' }).click();
+  await page.getByRole('textbox', { name: 'Describe the case in detail...' }).fill('There is a power cutoff issue in device ');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: 'Select a Queue' }).click();
+  await page.getByRole('option', { name: 'Technical Queue' }).click();
+  await page.getByRole('button', { name: 'Select an Agent' }).click();
+  await page.locator('.MuiBackdrop-root').click();
+  await page.getByRole('button', { name: 'Next: SLA' }).click();
+  await page.getByRole('button', { name: 'Select SLA' }).click();
+  await page.getByRole('option', { name: 'Critical / Breakdown Issue 3' }).first().click();
   await page.getByRole('button', { name: 'Create Case' }).click();
   await expect(page.getByText('Support Case created')).toBeVisible();
 
@@ -142,9 +142,9 @@ async function addNewTickets(page) {
   await page.getByRole('textbox', { name: 'Enter case title' }).fill('Power cutoff issue');
   await page.getByRole('combobox', { name: 'Search or type customer email' }).click();
   await page.waitForTimeout(1000);
-   await page.getByRole('option', { name: 'Neeraj Rathor (akbk6551+1217@' }).click();
+    await page.getByRole('option', { name: 'Sushil Singh (akbk6551+1218@' }).click();
   await page.getByRole('button', { name: 'Select Case Issue' }).click();
-  await page.getByRole('option', { name: 'Product Not Workings' }).click();
+  await page.getByRole('option', { name: 'Product Not Working' }).first().click();
   await page.getByRole('button', { name: 'Select Priority' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'createdSupport2' }).click();
@@ -163,7 +163,8 @@ async function addNewTickets(page) {
   await page.getByRole('button', { name: 'Select SLA' }).click();
   await page.getByRole('option', { name: 'AMC / Maintenance 3' }).click();
   await page.getByRole('button', { name: 'Create Case' }).click();
-  await expect(page.getByText('Support Case created')).toBeVisible();
+ 
+
 
   await page.waitForTimeout(2000);
   
@@ -181,24 +182,24 @@ async function addNewTickets(page) {
 
     // check in customer portal 
             
-              await loginCustomerPortal(page);
-              await page.getByRole('link', { name: 'Support Tickets' }).click();
-              if(await page.getByText('Power cutoff issue').first().isVisible()){
-               console.log("Internal Job in Engineer portal is visible");
+          //     await loginCustomerPortal(page);
+          //     await page.getByRole('link', { name: 'Support Tickets' }).click();
+          //     if(await page.getByText('Power cutoff issue').first().isVisible()){
+          //      console.log("Internal Job in Engineer portal is visible");
        
-               await page.screenshot({ path: `./${screenshotPath}/checkTicketInCustomerPortal.png`, fullPage: true });
-               await updateOpJson(`./${screenshotPath}/`,"checkTicketInCustomerPortal","true",`./${screenshotPath}/checkTicketInCustomerPortal.png`)
-              }else{
-               console.log("Internal Job in Engineer portal is not visible");
+          //      await page.screenshot({ path: `./${screenshotPath}/checkTicketInCustomerPortal.png`, fullPage: true });
+          //      await updateOpJson(`./${screenshotPath}/`,"checkTicketInCustomerPortal","true",`./${screenshotPath}/checkTicketInCustomerPortal.png`)
+          //     }else{
+          //      console.log("Internal Job in Engineer portal is not visible");
              
-               await page.screenshot({ path: `./${screenshotPath}/checkTicketInCustomerPortal.png`, fullPage: true });
-               await updateOpJson(`./${screenshotPath}/`,"checkTicketInCustomerPortal","false",`./${screenshotPath}/checkTicketInCustomerPortal.png`)
-             }
+          //      await page.screenshot({ path: `./${screenshotPath}/checkTicketInCustomerPortal.png`, fullPage: true });
+          //      await updateOpJson(`./${screenshotPath}/`,"checkTicketInCustomerPortal","false",`./${screenshotPath}/checkTicketInCustomerPortal.png`)
+          //    }
               
-           await page.waitForTimeout(2000);
-            console.log("Going back to company portal...");
-           await page.goto(data.url);
-           console.log("Company portal login completed");
+          //  await page.waitForTimeout(2000);
+          //   console.log("Going back to company portal...");
+          //  await page.goto(data.url);
+          //  console.log("Company portal login completed");
   console.log('add new tickets completed');
 }
 

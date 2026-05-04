@@ -1547,6 +1547,7 @@ async function createCustomerOne(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Aurai');
+  await page.waitForTimeout(1000);
   await page.getByText('Aurai, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Ghosia');
@@ -1915,8 +1916,8 @@ console.log("delete previous customer completed");
 
 async function addCustomer(page){
   console.log("Enter in add customer");
-  await page.getByRole('button', { name: 'Sales' }).click();
-  await page.getByRole('link', { name: 'Customers' }).click();
+  // await page.getByRole('button', { name: 'Sales' }).click();
+  // await page.getByRole('link', { name: 'Customers' }).click();
   
   await page.getByRole('button', { name: 'Add New Customer' }).click();
   await page.getByRole('radio', { name: 'Commercial' }).check();
@@ -1939,13 +1940,15 @@ async function addCustomer(page){
   await page.getByRole('button', { name: 'Open' }).click();
   await page.getByRole('option', { name: 'FormC1Installation' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).fill('Aurai');
+    await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  
   
   await page.waitForTimeout(1000);
-  await page.getByText('Aurai, Uttar Pradesh, India', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Ghosia');
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('Hyderabad');
+  
+  await page.waitForTimeout(1000);
+ await page.getByText('Hyderabad Decan Railway').click();
+  await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('tab', { name: 'Contact Details' }).click();
   await page.getByRole('button', { name: 'Primary Contact' }).click();
@@ -1986,6 +1989,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Aurai');
+  await page.waitForTimeout(1000);
   await page.getByText('Aurai, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Ghosia');
@@ -2029,6 +2033,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Aurai');
+  await page.waitForTimeout(1000);
   await page.getByText('Aurai, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Ghosia');
@@ -2071,6 +2076,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+  await page.waitForTimeout(1000);
   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria Market');
@@ -2099,6 +2105,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+  await page.waitForTimeout(1000);
   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
@@ -2127,6 +2134,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+  await page.waitForTimeout(1000);
   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
@@ -2155,6 +2163,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+  await page.waitForTimeout(1000);
   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
@@ -2183,6 +2192,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+  await page.waitForTimeout(1000);
   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
@@ -2211,6 +2221,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+  await page.waitForTimeout(1000);
   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
@@ -2239,6 +2250,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+  await page.waitForTimeout(1000);
   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria Market');
@@ -2269,6 +2281,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
     await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+  await page.waitForTimeout(1000);
   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria');
@@ -2297,6 +2310,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
     await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+  await page.waitForTimeout(1000);
   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria');
@@ -2326,6 +2340,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
     await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+  await page.waitForTimeout(1000);
   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria');
@@ -2354,6 +2369,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
     await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+  await page.waitForTimeout(1000);
   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria');
@@ -2393,6 +2409,7 @@ async function editCustomer(page){
   await page.getByRole('option', { name: 'FormC1Installation' }).click()
   await page.getByRole('button', { name: 'Address' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria E-hill company');
   await page.getByRole('button', { name: 'Tax Information' }).click();
@@ -2406,7 +2423,9 @@ async function editCustomer(page){
   await page.getByRole('button', { name: 'Add new address' }).click();
   await page.getByText('Billing AddressBilling').click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Search for a location' }).fill('khamaria');
+  await page.waitForTimeout(1000);
   await page.getByRole('listitem').filter({ hasText: /^Khamaria, Uttar Pradesh, India$/ }).click();
   await page.getByRole('textbox', { name: 'Address Line 1' }).click();
     await page.waitForTimeout(1000);

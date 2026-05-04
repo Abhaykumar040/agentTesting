@@ -35,9 +35,9 @@ export async function quotationInsideCustomer(page){
   await page.waitForTimeout(3000);
   await reciptDownloadQuotation(page);
 
-  // await exportQuotationNormal(page);
-  // await page.waitForTimeout(3000);
-  // await exportInsideQuotationFilter(page);
+  await exportQuotationNormal(page);
+  await page.waitForTimeout(3000);
+  await exportInsideQuotationFilter(page);
 
    await page.waitForTimeout(3000);
   await verifyQuotationInsideCustomer(page);

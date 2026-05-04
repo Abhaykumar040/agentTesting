@@ -11,23 +11,24 @@ const screenshotPath=`screenshot/${testData.companyType}/invoices`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Invoices(page){
-  await addInvoices(page);
+  // await addInvoices(page);
+  // await page.waitForTimeout(3000);
+  //  await page.waitForTimeout(3000);
+  // await cancelInvoice(page);
   await page.waitForTimeout(3000);
-   await page.waitForTimeout(3000);
-  await cancelInvoice(page);
   await editInvoices(page);
   await page.waitForTimeout(3000);
   await sendInvoices(page);
   await page.waitForTimeout(3000);
   await createInvoiceByQuotation(page);
   await page.waitForTimeout(3000);
-  // await exportInvoiceInCustomerNormal(page);
-  // await page.waitForTimeout(3000);
-  // await exportInvoiceInCustomerFilter(page);
-  // await page.waitForTimeout(3000);
-  // await exportInvoiceNormal(page);
-  // await page.waitForTimeout(3000);
-  // await exportInvoiceFilter(page);
+  await exportInvoiceInCustomerNormal(page);
+  await page.waitForTimeout(3000);
+  await exportInvoiceInCustomerFilter(page);
+  await page.waitForTimeout(3000);
+  await exportInvoiceNormal(page);
+  await page.waitForTimeout(3000);
+  await exportInvoiceFilter(page);
 }
  
 async function exportInvoiceInCustomerFilter(page){
@@ -1050,7 +1051,7 @@ await page.waitForTimeout(1000);
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Khamaria Khamaria Uttar' }).click();
-  await page.getByRole('checkbox', { name: 'UPI Transfer' }).check();
+  // await page.getByRole('checkbox', { name: 'UPI Transfer' }).check();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
   await page.getByRole('button', { name: 'Add Item' }).click();

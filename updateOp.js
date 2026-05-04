@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-export async function updateOpJson(categoryKey, subCategoryKey,  noteValue,screenshotPath,resultStatus) {
+export async function updateOpJson(categoryKey, subCategoryKey,  noteValue,screenshotPath,message ="") {
     const filePath = path.join(__dirname, 'parent.json');
 
     let jsonData = {};
@@ -32,7 +32,8 @@ export async function updateOpJson(categoryKey, subCategoryKey,  noteValue,scree
 
     jsonData[categoryKey][subCategoryKey] = {
         path: screenshotPath,
-        note: noteValue
+        note: noteValue,
+        message:message
     };
 
     await fs.writeFile(filePath, JSON.stringify(jsonData, null, 2));
