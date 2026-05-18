@@ -13,10 +13,10 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function status(page){
-  await deletePreviuosStatus(page);
-  await page.waitForTimeout(3000);
-  await addStatus(page);
-  await page.waitForTimeout(3000);
+  // await deletePreviuosStatus(page);
+  // await page.waitForTimeout(3000);
+  // await addStatus(page);
+  // await page.waitForTimeout(3000);
   await editStatus(page);
   await page.waitForTimeout(3000);
   await deleteStatus(page);
@@ -50,58 +50,75 @@ async function deletePreviuosStatus(page){
 
 async function addStatus(page){
   console.log("Enter in add status");
-
-
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Status Profile' }).click();
-  
-   await page.getByRole('button', { name: 'Add New Status' }).click();
+  await page.getByRole('button', { name: 'Add New Status' }).click();
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).click();
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).fill('AssetsStatus');
   await page.getByRole('button', { name: 'Select Business Object' }).click();
   await page.getByRole('option', { name: 'Asset' }).click();
-  
   await page.getByRole('button', { name: 'Status' }).click();
+   await page.waitForTimeout(3000);
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).first().click();
   await page.getByRole('textbox', { name: 'Status *' }).click();
   await page.getByRole('textbox', { name: 'Status *' }).fill('AssignedAsset');
   await page.getByRole('textbox', { name: 'Status Description *' }).click();
   await page.getByRole('textbox', { name: 'Status Description *' }).fill('AssignedDAsset');
   await page.getByRole('spinbutton', { name: 'Position *' }).click();
-  await page.getByRole('spinbutton', { name: 'Position *' }).fill('1');
-  await page.getByRole('button', { name: 'Create' }).click();
-   await page.waitForTimeout(3000);
-
-  await page.getByRole('button', { name: 'Status' }).click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').fill('In UseAsset');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').fill('InUseDAsset');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').fill('2');
-  await page.getByRole('button', { name: 'Create' }).click();
-   await page.waitForTimeout(3000);
-
-  await page.getByRole('button', { name: 'Status' }).click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').fill('AvailableAsset');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').fill('AvailbleDAsset');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').fill('3');
-  await page.getByRole('button', { name: 'Create' }).click();
-   await page.waitForTimeout(3000);
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('2');
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
 
 
   await page.getByRole('button', { name: 'Status' }).click();
   await page.getByRole('textbox', { name: 'Status *' }).first().click();
-  await page.getByRole('textbox', { name: 'Status *' }).first().fill('Under RepairAsset');
-  await page.getByText('Status *Status Description *').first().click();
-  await page.getByRole('textbox', { name: 'Status Description *' }).first().fill('ReapirAsset');
-  await page.getByRole('spinbutton', { name: 'Position *' }).first().click();
-  await page.getByRole('spinbutton', { name: 'Position *' }).first().fill('4');
-  await page.getByRole('button', { name: 'Create' }).first().click();
-  await page.getByRole('button').filter({ hasText: /^$/ }).nth(3).click();
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('In UseAsset');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('InUseDAsset');
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('3');
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
+
+
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).first().click();
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('AvailableAsset');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('AvailbleDAsset');
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('4');
+  await page.getByText('In UseAsset').click();
+  await page.getByText('AssignedAsset').click();
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).first().click();
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('Under RepairAsset');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('ReapirAsset');
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('6');
+  await page.getByText('Completed').click();
+  await page.getByText('AvailableAsset').click();
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
+
+
+  await page.getByRole('textbox', { name: 'Status *' }).nth(4).click();
+   await page.waitForTimeout(1000);
+  await page.getByRole('checkbox', { name: 'Completed' }).uncheck();
+  await page.getByRole('checkbox', { name: 'In UseAsset' }).check();
+  await page.getByRole('checkbox', { name: 'AvailableAsset' }).check();
+   await page.waitForTimeout(1000);
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Back to List' }).click();
+   await page.waitForTimeout(1000);
 
 
 //2nd asset status
@@ -110,178 +127,206 @@ async function addStatus(page){
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).fill('AssetsStatusforDelete');
   await page.getByRole('button', { name: 'Select Business Object' }).click();
   await page.getByRole('option', { name: 'Asset' }).click();
-  
   await page.getByRole('button', { name: 'Status' }).click();
+   await page.waitForTimeout(3000);
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).first().click();
   await page.getByRole('textbox', { name: 'Status *' }).click();
   await page.getByRole('textbox', { name: 'Status *' }).fill('AssetsStatusforDelete23');
   await page.getByRole('textbox', { name: 'Status Description *' }).click();
   await page.getByRole('textbox', { name: 'Status Description *' }).fill('AssetsStatusforDelete23D');
   await page.getByRole('spinbutton', { name: 'Position *' }).click();
-  await page.getByRole('spinbutton', { name: 'Position *' }).fill('1');
-  await page.getByRole('button', { name: 'Create' }).click();
-   await page.waitForTimeout(3000);
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('2');
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Back to List' }).click();
 
-  await page.getByRole('button', { name: 'Add New Status' }).click();
+
+  //1st statusFor Support
+   await page.getByRole('button', { name: 'Add New Status' }).click();
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).click();
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).fill('Status Support Case');
   await page.getByRole('button', { name: 'Select Business Object' }).click();
   await page.getByRole('option', { name: 'Support Case' }).click();
-  
   await page.getByRole('button', { name: 'Status' }).click();
+   await page.waitForTimeout(3000);
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).first().click();
   await page.getByRole('textbox', { name: 'Status *' }).click();
   await page.getByRole('textbox', { name: 'Status *' }).fill('OpenSupport');
   await page.getByRole('textbox', { name: 'Status Description *' }).click();
   await page.getByRole('textbox', { name: 'Status Description *' }).fill('OpenDSupport');
   await page.getByRole('spinbutton', { name: 'Position *' }).click();
-  await page.getByRole('spinbutton', { name: 'Position *' }).fill('1');
-  await page.getByRole('button', { name: 'Create' }).click();
-   await page.waitForTimeout(3000);
-
-  await page.getByRole('button', { name: 'Status' }).click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').fill('In progressSupport');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').fill('In ProgressDSupport');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').fill('2');
-  await page.getByRole('button', { name: 'Create' }).click();
-   await page.waitForTimeout(3000);
-
-  await page.getByRole('button', { name: 'Status' }).click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').fill('ResolvedSupport');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').fill('resolveDSupport');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').fill('3');
-  await page.getByRole('button', { name: 'Create' }).click();
-   await page.waitForTimeout(3000);
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('2');
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
 
 
   await page.getByRole('button', { name: 'Status' }).click();
   await page.getByRole('textbox', { name: 'Status *' }).first().click();
-  await page.getByRole('textbox', { name: 'Status *' }).first().fill('CloseSupport');
-  await page.getByText('Status *Status Description *').first().click();
-  await page.getByRole('textbox', { name: 'Status Description *' }).first().fill('Support case close');
-  await page.getByRole('spinbutton', { name: 'Position *' }).first().click();
-  await page.getByRole('spinbutton', { name: 'Position *' }).first().fill('4');
-  await page.getByRole('button', { name: 'Create' }).first().click();
-  await page.getByRole('button').filter({ hasText: /^$/ }).nth(3).click();
-  await page.getByRole('button', { name: 'Back to List' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('In progressSupport');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('In ProgressDSupport');
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('3');
+  await page.getByRole('button', { name: 'Update' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('textbox', { name: 'Status *' }).first().click();
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('ResolvedSupport');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('resolveDSupport');
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('4');
+  await page.getByRole('button', { name: 'Update' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).first().click();
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('CloseSupport');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('Support case close');
+  await page.getByRole('checkbox', { name: 'Completed' }).check();
+  await page.getByRole('button', { name: 'Update' }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('6');
+  await page.getByRole('button', { name: 'Update' }).click();
+  await page.waitForTimeout(1000);
+   await page.getByRole('button', { name: 'Back to List' }).click();
+    await page.waitForTimeout(1000);
 
 
 //2nd status for support
 
-await page.getByRole('button', { name: 'Add New Status' }).click();
+
+  
+ await page.getByRole('button', { name: 'Add New Status' }).click();
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).click();
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).fill('supportStatusDelete');
   await page.getByRole('button', { name: 'Select Business Object' }).click();
   await page.getByRole('option', { name: 'Support Case' }).click();
-  
+   await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Status' }).click();
+   await page.waitForTimeout(3000);
+  await page.getByRole('button', { name: 'Status' }).click();
+   await page.waitForTimeout(1000);
+  await page.getByRole('textbox', { name: 'Status *' }).first().click();
+   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Status *' }).click();
-  await page.getByRole('textbox', { name: 'Status *' }).fill('supportStatusDeleteD');
+  await page.getByRole('textbox', { name: 'Status *' }).fill('supportStatusDelete');
   await page.getByRole('textbox', { name: 'Status Description *' }).click();
   await page.getByRole('textbox', { name: 'Status Description *' }).fill('supportStatusDeleteD');
   await page.getByRole('spinbutton', { name: 'Position *' }).click();
-  await page.getByRole('spinbutton', { name: 'Position *' }).fill('1');
-  await page.getByRole('button', { name: 'Create' }).click();
-  await page.waitForTimeout(1000);
-   await page.getByRole('button', { name: 'Back to List' }).click();
-   await page.waitForTimeout(3000);
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('2');
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
+  await page.getByRole('button', { name: 'Back to List' }).click();
+   await page.waitForTimeout(1000);
 
-//1st status for job
-
-  await page.getByRole('button', { name: 'Add New Status' }).click();
+// 1st status for job
+await page.getByRole('button', { name: 'Add New Status' }).click();
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).click();
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).fill('installationStatusJob');
   await page.getByRole('button', { name: 'Select Business Object' }).click();
   await page.getByRole('option', { name: 'Job' }).click();
   await page.getByRole('button', { name: 'Status' }).click();
+   await page.waitForTimeout(3000);
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).first().click();
   await page.getByRole('textbox', { name: 'Status *' }).click();
   await page.getByRole('textbox', { name: 'Status *' }).fill('createdJob');
   await page.getByRole('textbox', { name: 'Status Description *' }).click();
   await page.getByRole('textbox', { name: 'Status Description *' }).fill('createdDJob');
   await page.getByRole('spinbutton', { name: 'Position *' }).click();
-  await page.getByRole('spinbutton', { name: 'Position *' }).fill('1');
-  await page.getByRole('button', { name: 'Create' }).click();
-   await page.waitForTimeout(3000);
-
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('2');
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Status' }).click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').fill('In progressJob');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').fill('In progressDJob');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').fill('2');
-  await page.getByRole('button', { name: 'Create' }).click();
    await page.waitForTimeout(3000);
-
   await page.getByRole('button', { name: 'Status' }).click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').fill('doneJob');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').fill('doneJob');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').fill('doneJob');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').fill('3');
-  await page.getByRole('button', { name: 'Create' }).click();
-   await page.waitForTimeout(3000);
-
-
-  await page.getByRole('button', { name: 'Status' }).click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Status').fill('deleteInternalJobStatus');
-  await page.getByText('Status *Status Description *Position *Create').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Description').fill('deleteInternalJobStatus');
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').click();
-  await page.locator('form').filter({ hasText: 'Status *Status Description *Position *Create' }).getByPlaceholder('Enter Position').fill('4');
-  await page.getByRole('button', { name: 'Create' }).click();
-   await page.waitForTimeout(3000);
-
-
-  await page.getByRole('button', { name: 'Status' }).click();
-
+  await page.locator('button').nth(5).click();
+  await page.getByRole('button', { name: 'Proceed' }).click();
   await page.getByRole('textbox', { name: 'Status *' }).first().click();
-  await page.getByRole('textbox', { name: 'Status *' }).first().fill('deleteExternalStatusJob');
-  await page.getByText('Status *Status Description *').first().click();
-  await page.getByRole('textbox', { name: 'Status Description *' }).first().fill('deleteExternalStatusJob');
-  await page.getByRole('spinbutton', { name: 'Position *' }).first().click();
-  await page.getByRole('spinbutton', { name: 'Position *' }).first().fill('5');
-  await page.getByRole('button', { name: 'Create' }).first().click();
-  await page.waitForTimeout(3000);
-
-//2nd job status
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('In progressJob');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('In progressDJob');
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('3');
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Status' }).click();
   await page.getByRole('textbox', { name: 'Status *' }).first().click();
-  await page.getByRole('textbox', { name: 'Status *' }).first().fill('deleteEditStatusJob');
-  await page.getByText('Status *Status Description *').first().click();
-  await page.getByRole('textbox', { name: 'Status Description *' }).first().fill('deleteEditStatusJob');
-  await page.getByRole('spinbutton', { name: 'Position *' }).first().click();
-  await page.getByRole('spinbutton', { name: 'Position *' }).first().fill('6');
-  await page.getByRole('button', { name: 'Create' }).first().click();
-  await page.getByRole('button').filter({ hasText: /^$/ }).nth(3).click();
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('doneJob');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('doneJob');
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('4');
+  await page.getByRole('checkbox', { name: 'Completed' }).check();
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.locator('div').filter({ hasText: /^Status \*$/ }).nth(1).click();
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('deleteInternalJobStatus');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('deleteInternalJobStatus');
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('6');
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).first().click();
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('deleteExternalStatusJob');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('deleteExternalStatusJob');
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('7');
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
+  await page.getByRole('button', { name: 'Status' }).click();
+  await page.getByText('Edit Status ConfigurationStatus Profile Type: *Business Object: *Select').click();
+  await page.getByRole('textbox', { name: 'Status *' }).first().click();
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('deleteEditStatusJob');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('deleteEditStatusJob');
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('8');
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Back to List' }).click();
+   await page.waitForTimeout(1000);
+
+  //2nd job status
 
    await page.getByRole('button', { name: 'Add New Status' }).click();
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).click();
   await page.getByRole('textbox', { name: 'Enter Status Profile Type' }).fill('jobDeleteStatus');
   await page.getByRole('button', { name: 'Select Business Object' }).click();
   await page.getByRole('option', { name: 'Job' }).click();
+
   await page.getByRole('button', { name: 'Status' }).click();
+   await page.waitForTimeout(3000);
+    await page.getByRole('textbox', { name: 'Status *' }).first().click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Status *' }).click();
   await page.getByRole('textbox', { name: 'Status *' }).fill('jobDeleteStatus12');
   await page.getByRole('textbox', { name: 'Status Description *' }).click();
   await page.getByRole('textbox', { name: 'Status Description *' }).fill('jobDeleteStatusD12');
   await page.getByRole('spinbutton', { name: 'Position *' }).click();
-  await page.getByRole('spinbutton', { name: 'Position *' }).fill('1');
-  await page.getByRole('button', { name: 'Create' }).click();
-   await page.getByRole('button', { name: 'Back to List' }).click();
-   await page.waitForTimeout(3000);
-
- 
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('2');
+  await page.getByRole('button', { name: 'Update' }).click();
+   await page.waitForTimeout(1000);
+  await page.getByRole('button', { name: 'Back to List' }).click();
+ await page.waitForTimeout(3000);
   await page.reload();
   await page.waitForTimeout(3000);
 

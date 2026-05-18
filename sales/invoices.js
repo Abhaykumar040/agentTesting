@@ -11,10 +11,10 @@ const screenshotPath=`screenshot/${testData.companyType}/invoices`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Invoices(page){
-  // await addInvoices(page);
-  // await page.waitForTimeout(3000);
-  //  await page.waitForTimeout(3000);
-  // await cancelInvoice(page);
+  await addInvoices(page);
+  await page.waitForTimeout(3000);
+   await page.waitForTimeout(3000);
+  await cancelInvoice(page);
   await page.waitForTimeout(3000);
   await editInvoices(page);
   await page.waitForTimeout(3000);
@@ -40,7 +40,7 @@ await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('menuitem', { name: 'State' }).click();
   await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
-  await page.reload();
+
   await page.waitForTimeout(2000);
 
    
@@ -104,7 +104,7 @@ await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('menuitem', { name: 'City' }).click();
   await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
-  await page.reload();
+
   await page.waitForTimeout(2000);
 
 
@@ -168,7 +168,6 @@ await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByText('Customer', { exact: true }).click();
   await page.getByRole('menuitem', { name: 'Jony Rathor' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
-  await page.reload();
   await page.waitForTimeout(2000);
 
 
@@ -233,7 +232,6 @@ await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByText('Invoice Status').click();
   await page.getByRole('menuitem', { name: 'Pending Payment' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
-  await page.reload();
   await page.waitForTimeout(2000);
 
 
@@ -300,7 +298,7 @@ await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
   await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('11/04/2026');
   await page.getByRole('button', { name: 'OK' }).click();
-   await page.reload();
+  
   await page.waitForTimeout(2000);
 
   const [excelDownload5] = await Promise.all([
@@ -365,7 +363,6 @@ await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('menuitem', { name: 'City' }).click();
   await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
-  await page.reload();
   await page.waitForTimeout(2000);
 
   const [excelDownload6] = await Promise.all([
@@ -430,7 +427,7 @@ await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('menuitem', { name: 'Customer' }).click();
   await page.getByRole('menuitem', { name: 'Neeraj Rathor' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
-  await page.reload();
+
   await page.waitForTimeout(2000);
 
   const [excelDownload7] = await Promise.all([

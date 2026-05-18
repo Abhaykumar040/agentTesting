@@ -84,12 +84,12 @@ console.log("leads",leads.matchedCount, leads.modifiedCount);
 
 
 
-// const crmSetting = await db.collection("crmsettings").updateOne(
-//   {  company,
-//   status:1 },
-//   { $set: { sla: [],caseCategories:[] } }
-// );
-// console.log("crmSettings",crmSetting.matchedCount, crmSetting.modifiedCount);
+const crmSetting = await db.collection("crmsettings").updateOne(
+  {  company,
+  status:1 },
+  { $set: { sla: [],caseCategories:[] } }
+);
+console.log("crmSettings",crmSetting.matchedCount, crmSetting.modifiedCount);
 
 // const invoice = await db.collection("invoices").updateMany(
 //   {  company:companyId,
@@ -137,8 +137,8 @@ console.log("zone",zone.matchedCount, zone.modifiedCount);
 // console.log("agent updated:", u4.matchedCount);
 
 
-// const userVerification = await db.collection("users").updateMany(
-//   {  company:company,
-//   type:"customer" },
-//   { $set:{ verified: true ,isDefaultPass:false} }
-// );
+const userVerification = await db.collection("users").updateMany(
+  {  company:company,
+  type:"customer" },
+  { $set:{ verified: true ,isDefaultPass:false} }
+);

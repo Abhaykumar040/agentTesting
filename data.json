@@ -5,5 +5,6 @@
   "companyType": "parent",
   "companySubscription":"all",
   "customerPortal": "https://strgerpcuswebinddev.z29.web.core.windows.net/profile-detail/",
-  "engineerPoratl":"https://strgerpengwebinddev.z29.web.core.windows.net/"
+  "engineerPoratl":"https://strgerpengwebinddev.z29.web.core.windows.net/",
+  "currentDate":"30/04/3026"
 }

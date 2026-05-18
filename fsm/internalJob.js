@@ -6,6 +6,9 @@ import { test } from '@playwright/test';
 import { dataRead } from '../dataRead';
 import { loginEngineerPortal, loginRight } from '../tests/login';
 import { exit } from 'process';
+import getDateText from '../getDate';
+
+
 
 
 const rawData = await fs.readFile('./data.json', 'utf8');
@@ -55,7 +58,7 @@ while (true) {
     .locator('button:has(path[d^="M4 7h16"])') // delete icon
     .click();
 
-  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'Proceed' }).click();
 
   await page.waitForTimeout(2000);
 }
@@ -120,10 +123,10 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Status Profile' }).click();
   await page.getByRole('option', { name: 'In progressX - In progressDX' }).click();
   await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, March 22nd,' }).click();
+  await page.getByRole('option', { name: await getDateText(-1) }).click();
   await page.getByText('15:00').click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
+  await page.getByRole('option', { name: await getDateText(0) }).click();
   await page.getByText('15:15').click();
   await page.waitForTimeout(3000);
    await page.getByRole('radio', { name: 'Engineer' }).check();
@@ -142,7 +145,7 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Commercial' }).first().click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-   await page.getByRole('option', { name: 'Mayank Singh (1245836)' }).click();
+   await page.getByRole('option', { name: 'Mayank Singh (124580)' }).click();
   await page.getByRole('button', { name: 'Address' }).click();
    await page.getByRole('option', { name: 'Mukundpatti' }).first().click();
   await page.getByRole('button', { name: 'Job Type' }).click();
@@ -156,10 +159,10 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Status Profile' }).click();
   await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
    await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, March 22nd,' }).click();
+  await page.getByRole('option', { name:  await getDateText(-2) }).click();
   await page.getByText('15:00').click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
+  await page.getByRole('option', { name:  await getDateText(-1)}).click();
   await page.getByText('15:15').click();
   await page.waitForTimeout(3000);
    await page.getByRole('radio', { name: 'Engineer' }).check();
@@ -180,7 +183,7 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Commercial' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Singh (1245836)' }).click();
+  await page.getByRole('option', { name: 'Mayank Singh (124580)' }).click();
   await page.getByRole('button', { name: 'Address' }).click();
   await page.getByRole('option', { name: 'Jamnagar' }).first().click();
   await page.getByRole('button', { name: 'Job Type' }).click();
@@ -196,10 +199,10 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Status Profile' }).click();
   await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
    await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, March 22nd,' }).click();
+  await page.getByRole('option', { name:  await getDateText(-9) }).click();
   await page.getByText('15:00').click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
+  await page.getByRole('option', { name: await getDateText(-8)}).click();
   await page.getByText('15:15').click();
   await page.waitForTimeout(3000);
    await page.getByRole('radio', { name: 'Engineer' }).check();
@@ -218,7 +221,7 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Commercial' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Singh (1245836)' }).click();
+  await page.getByRole('option', { name: 'Mayank Singh (124580)' }).click();
   await page.getByRole('button', { name: 'Address' }).click();
   await page.getByRole('option', { name: 'Jamnagar' }).first().click();
   await page.getByRole('button', { name: 'Job Type' }).click();
@@ -234,10 +237,10 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Status Profile' }).click();
   await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
     await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, March 22nd,' }).click();
+  await page.getByRole('option', { name:  await getDateText(-8) }).click();
   await page.getByText('15:00').click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
+  await page.getByRole('option', { name:  await getDateText(-7) }).click();
   await page.getByText('15:15').click();
   await page.waitForTimeout(3000);
   await page.getByRole('radio', { name: 'Engineer' }).check();
@@ -255,7 +258,7 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Commercial' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Singh (1245836)' }).click();
+  await page.getByRole('option', { name: 'Mayank Singh (124580)' }).click();
   await page.getByRole('button', { name: 'Address' }).click();
   await page.getByRole('option', { name: 'Jamnagar' }).first().click();
   await page.getByRole('button', { name: 'Job Type' }).click();
@@ -272,10 +275,10 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Status Profile' }).click();
   await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
     await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, March 22nd,' }).click();
+  await page.getByRole('option', { name:  await getDateText(0) }).click();
   await page.getByText('15:00').click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
+  await page.getByRole('option', { name:  await getDateText(1) }).click();
   await page.getByText('15:15').click();
   await page.waitForTimeout(3000);
    await page.getByRole('radio', { name: 'Engineer' }).check();
@@ -293,7 +296,7 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Commercial' }).first().click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-  await page.getByRole('option', { name: 'Mayank Singh (1245836)' }).click();
+  await page.getByRole('option', { name: 'Mayank Singh (124580)' }).click();
   await page.getByRole('button', { name: 'Address' }).click();
   await page.getByRole('option', { name: 'Jamnagar' }).first().click();
   await page.getByRole('button', { name: 'Job Type' }).click();
@@ -309,10 +312,10 @@ async function createInternalJob(page){
   await page.getByRole('button', { name: 'Status Profile' }).click();
   await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
    await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Sunday, March 22nd,' }).click();
+  await page.getByRole('option', { name:  await getDateText(0) }).click();
   await page.getByText('15:00').click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Saturday, March 28th,' }).click();
+  await page.getByRole('option', { name:  await getDateText(2) }).click();
   await page.getByText('15:15').click();
   await page.waitForTimeout(3000);
    await page.getByRole('radio', { name: 'Engineer' }).check();
@@ -799,10 +802,10 @@ async function createJobByAssetManagements(page){
   await page.getByRole('button', { name: 'Status Profile' }).click();
   await page.getByRole('option', { name: 'deleteExternalStatusJob -' }).click();
   await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Saturday, February 21st,' }).click();
+  await page.getByRole('option', { name:  await getDateText(3) }).click();
   await page.getByText('21:30').click();
   await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: 'Choose Monday, February 23rd,' }).click();
+  await page.getByRole('option', { name:  await getDateText(4)}).click();
   await page.getByText('22:00').click();
    await page.getByRole('radio', { name: 'Engineer' }).check();
   await page.getByRole('button', { name: 'Engineer' }).click();

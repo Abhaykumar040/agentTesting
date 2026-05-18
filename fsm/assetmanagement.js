@@ -59,7 +59,7 @@ async function createAssetManagement(page) {
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
   await page.waitForTimeout(2000);
-  await page.getByText('Jony Rathor (akbk6551+1109@').click();
+  await page.getByText('Anil Rathor (akbk6551+1136@').click();
   await page.locator('.MuiSelect-select').click();
   await page.getByRole('option', { name: '+ Add New Address' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
@@ -104,7 +104,7 @@ async function createAssetManagement(page) {
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
   await page.waitForTimeout(2000);
-  await page.getByText('Neeraj Rathor (akbk6551+1217@').click();
+ await page.getByText('Anil Rathor (akbk6551+1136@').click();
   await page.locator('.MuiSelect-select').click();
   await page.getByRole('option', { name: '+ Add New Address' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
@@ -150,7 +150,7 @@ async function createAssetManagement(page) {
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
   await page.waitForTimeout(2000);
-  await page.getByText('Neeraj Rathor (akbk6551+1217@').click();
+  await page.getByText('Sushil Singh (akbk6551+1218@').click();
   await page.locator('.MuiSelect-select').click();
   await page.getByRole('option', { name: '+ Add New Address' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();

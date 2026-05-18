@@ -396,17 +396,17 @@
     },
     "copyQuotation": {
       "path": "./screenshot/parent/quotation/copyQuotation.png",
-      "note": "false",
+      "note": "true",
       "message": ""
     },
     "rejectedByCustomerQuotation": {
       "path": "./screenshot/parent/quotation/rejectedByCustomerQuotation.png",
-      "note": "true",
+      "note": "false",
       "message": ""
     },
     "sendQuotation": {
       "path": "./screenshot/parent/quotation/sendQuotation.png",
-      "note": "true",
+      "note": "false",
       "message": ""
     },
     "editQuotationRejected": {
@@ -442,6 +442,56 @@
     "exportQuotationFilter2": {
       "path": "./screenshot/parent/quotation/exportQuotationFilter2.png",
       "note": "true",
+      "message": ""
+    },
+    "editQuotationManagerApprovedCheck": {
+      "path": "./screenshot/parent/quotation/editQuotationManagerApprovedCheck.png",
+      "note": "true",
+      "message": ""
+    },
+    "exportQuotationFilterStateXlsOut": {
+      "path": "./screenshot/parent/quotation/exportQuotationFilterStateXlsOut.png",
+      "note": "true",
+      "message": "Export Xlx file out side , State"
+    },
+    "exportQuotationFilterStatePdfOut": {
+      "path": "./screenshot/parent/quotation/exportQuotationFilterStatePdfOut.png",
+      "note": "true",
+      "message": "Export pdf file out side , State"
+    },
+    "exportQuotationFilterCityXlxOut": {
+      "path": "./screenshot/parent/quotation/exportQuotationFilterCityXlxOut.png",
+      "note": "true",
+      "message": "Filter by city Khamaraia"
+    },
+    "exportQuotationFilterCityPdfOut": {
+      "path": "./screenshot/parent/quotation/exportQuotationFilterCityPdfOut.png",
+      "note": "true",
+      "message": "Filter by city KhamaraiaPdf"
+    },
+    "exportQuotationFilterCustomerXlx": {
+      "path": "./screenshot/parent/quotation/exportQuotexportQuotationFilterCustomerXlxationFilter5.png",
+      "note": "true",
+      "message": ""
+    },
+    "exportQuotationFilterCustomerPdf": {
+      "path": "./screenshot/parent/quotation/exportQuotationFilterCustomerPdf.png",
+      "note": "true",
+      "message": ""
+    },
+    "exportQuotationFilterStatusXlx": {
+      "path": "./screenshot/parent/quotation/exportQuotationFilterStatusXlx.png",
+      "note": "false",
+      "message": ""
+    },
+    "exportQuotationFilterStatusPdf": {
+      "path": "./screenshot/parent/quotation/exportQuotationFilterStatusPdf.png",
+      "note": "false",
+      "message": ""
+    },
+    "exportQuotationFilterStateCityXlx": {
+      "path": "./screenshot/parent/quotation/exportQuotationFilterStateCityXlx.png",
+      "note": "false",
       "message": ""
     }
   },
@@ -540,11 +590,18 @@
   "./screenshot/parent/engineer/": {
     "createEngineer": {
       "path": "./screenshot/parent/engineer/createEngineer.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "deleteEngineer": {
       "path": "./screenshot/parent/engineer/deleteEngineer.png",
-      "note": "false"
+      "note": "true",
+      "message": ""
+    },
+    "emailVarificationEngineer": {
+      "path": "./screenshot/parent/engineer/emailVarificationEngineer.png",
+      "note": "false",
+      "message": ""
     }
   },
   "./screenshot/parent/ticket/": {
@@ -556,6 +613,57 @@
     "exportExcelInTicketsNormal": {
       "path": "./screenshot/parent/ticket/exportExcelInTicketsNormal.png",
       "note": "false",
+      "message": ""
+    }
+  },
+  "./screenshot/parent/jobType/": {
+    "createJobType": {
+      "path": "./screenshot/parent/jobType/createJobType.png",
+      "note": "true",
+      "message": ""
+    },
+    "editJobType": {
+      "path": "./screenshot/parent/jobType/editJobType.png",
+      "note": "true",
+      "message": ""
+    },
+    "deleteJobType": {
+      "path": "./screenshot/parent/jobType/deleteJobType.png",
+      "note": "true",
+      "message": ""
+    }
+  },
+  "./screenshot/parent/AssetManagement/": {
+    "createAssetManagement": {
+      "path": "./screenshot/parent/AssetManagement/createAssetManagement.png",
+      "note": "true",
+      "message": ""
+    },
+    "createChildAssetManagement": {
+      "path": "./screenshot/parent/AssetManagement/createChildAssetManagement.png",
+      "note": "true",
+      "message": ""
+    },
+    "editAssetManagement": {
+      "path": "./screenshot/parent/AssetManagement/editAssetManagement.png",
+      "note": "true",
+      "message": ""
+    },
+    "deleteAssetManagement": {
+      "path": "./screenshot/parent/AssetManagement/deleteAssetManagement.png",
+      "note": "true",
+      "message": ""
+    }
+  },
+  "./screenshot/parent/cyclicJob/": {
+    "createCyclicJob": {
+      "path": "./screenshot/parent/cyclicJob/createCyclicJob.png",
+      "note": "true",
+      "message": ""
+    },
+    "startCyclicJob": {
+      "path": "./screenshot/parent/cyclicJob/startCyclicJob.png",
+      "note": "true",
       "message": ""
     }
   }

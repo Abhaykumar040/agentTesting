@@ -117,7 +117,6 @@ async function exportQuotationFilter(page){
   await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
 
-
 //filter by state
    const [excelDownload1] = await Promise.all([
         page.waitForEvent('download'),
@@ -172,9 +171,10 @@ async function exportQuotationFilter(page){
               await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStatePdfOut","false",`./${screenshotPath}/exportQuotationFilterStatePdfOut.png`,"Export pdf file out side , State")
             }
 
- await page.reload();
-    await page.waitForTimeout(3000)
 
+
+    await page.reload();
+    await page.waitForTimeout(3000)
 
     //filter by City
   await page.getByRole('button', { name: 'Filter By' }).click();
@@ -301,7 +301,8 @@ async function exportQuotationFilter(page){
 
 
 
-    await page.waitForTimeout(2000);
+     await page.reload();
+    await page.waitForTimeout(3000)
 
     //filter by status
  await page.getByRole('button', { name: 'Filter By' }).click();
@@ -368,6 +369,8 @@ async function exportQuotationFilter(page){
 
  await page.reload();
     await page.waitForTimeout(2000);
+
+
     //filter by Date
 
 
@@ -448,7 +451,7 @@ async function exportQuotationFilter(page){
   await page.getByRole('menuitem', { name: 'City' }).click();
    await page.getByText('Hyderabad').click();
   await page.getByRole('button', { name: 'OK' }).click();
-  await page.reload();
+
 
   const [excelDownload7] = await Promise.all([
         page.waitForEvent('download'),
@@ -516,7 +519,7 @@ async function exportQuotationFilter(page){
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Customer' }).click();
-  await page.getByRole('menuitem', { name: 'Mayank Singh' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'Anil Rathor' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
 
   const [excelDownload50] = await Promise.all([
@@ -532,8 +535,8 @@ async function exportQuotationFilter(page){
         console.log(result50);
       await page.waitForTimeout(2000)
       if (result50.success 
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+        && await page.getByText('Anil Rathor').first().isVisible() 
+        && !await page.getByText('Mayank Singh').isVisible() )
           {
               await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterStateCustomerXlx.png`, fullPage: true });
               await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStateCustomerXlx","true",`./${screenshotPath}/exportQuotationFilterStateCustomerXlx.png`)
@@ -573,73 +576,74 @@ async function exportQuotationFilter(page){
             }
 
           //Filter by State Customer 2
+//  await page.reload();
+//     await page.waitForTimeout(3000);
+//   await page.getByRole('button', { name: 'Filter By' }).click();
+//   await page.getByRole('menuitem', { name: 'State' }).click();
+//   await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
+//   await page.getByRole('button', { name: 'OK' }).click();
+//   await page.getByRole('button', { name: 'Filter By' }).click();
+//   await page.getByRole('menuitem', { name: 'Customer' }).click();
+//   await page.getByRole('menuitem', { name: 'Mayank Singh' }).getByRole('checkbox').check();
+//   await page.getByRole('button', { name: 'OK' }).click();
+
+//   const [excelDownload8] = await Promise.all([
+//         page.waitForEvent('download'),
+//         page.getByRole('button', { name: 'Export To Excel' }).click()
+//       ]);
+//       await excelDownload8.saveAs('downloads/exportQuotationFilterStateCustomerXlx2.xlsx');
+//       const result15 = await dataRead(
+//             "./downloads/exportQuotationFilter15.xlsx",
+//             ["Imran Khan","akbk6551+1222@gmail.com"],
+//             ["Anil Maurya","akbk6551+1112@gmail.com"]
+//         );
+//         console.log(result15);
+//       await page.waitForTimeout(2000)
+//       if (result15.success 
+//         && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+//         && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+//           {
+//               await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterStateCustomerXlx2.png`, fullPage: true });
+//               await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStateCustomerXlx2","true",`./${screenshotPath}/exportQuotationFilterStateCustomerXlx2.png`)
+              
+//             }
+//             else{
+//               await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterStateCustomerXlx2.png`, fullPage: true });
+//               await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStateCustomerXlx2","false",`./${screenshotPath}/exportQuotationFilterStateCustomerXlx2.png`)
+//             }
+    
+//         // pdf code    
+    
+//          const [pdfDownload8] = await Promise.all([
+//         page.waitForEvent('download'),
+//         page.getByRole('button', { name: 'Export To PDF' }).click()
+//       ]);
+//      await pdfDownload8.saveAs('downloads/exportQuotationFilterStateCustomerPdf2.pdf');
+//      const result16 = await dataRead(
+//             "./downloads/exportInvoiceInCustomerFilter16.pdf",
+//             ["Imran Khan","akbk6551+1222@gmail.com"],
+//             ["Anil Maurya","akbk6551+1112@gmail.com"]
+//         );
+//         console.log(result16);
+//       await page.waitForTimeout(2000)
+//       if (result16.success
+//         && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+//         && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+//       ) 
+//           {
+//               await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterStateCustomerPdf2.png`, fullPage: true });
+//               await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStateCustomerPdf2","true",`./${screenshotPath}/exportQuotationFilterStateCustomerPdf2.png`)
+              
+//             }
+//             else{
+//               await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterStateCustomerPdf2.png`, fullPage: true });
+//               await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStateCustomerPdf2","false",`./${screenshotPath}/exportQuotationFilterStateCustomerPdf2.png`)
+//             }
+
+
+//filter by state and status
  await page.reload();
     await page.waitForTimeout(3000);
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'State' }).click();
-  await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'OK' }).click();
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'Customer' }).click();
-  await page.getByRole('menuitem', { name: 'Mayank Singh' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'OK' }).click();
-
-  const [excelDownload8] = await Promise.all([
-        page.waitForEvent('download'),
-        page.getByRole('button', { name: 'Export To Excel' }).click()
-      ]);
-      await excelDownload8.saveAs('downloads/exportQuotationFilterStateCustomerXlx2.xlsx');
-      const result15 = await dataRead(
-            "./downloads/exportQuotationFilter15.xlsx",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
-        );
-        console.log(result15);
-      await page.waitForTimeout(2000)
-      if (result15.success 
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
-          {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterStateCustomerXlx2.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStateCustomerXlx2","true",`./${screenshotPath}/exportQuotationFilterStateCustomerXlx2.png`)
-              
-            }
-            else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterStateCustomerXlx2.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStateCustomerXlx2","false",`./${screenshotPath}/exportQuotationFilterStateCustomerXlx2.png`)
-            }
-    
-        // pdf code    
-    
-         const [pdfDownload8] = await Promise.all([
-        page.waitForEvent('download'),
-        page.getByRole('button', { name: 'Export To PDF' }).click()
-      ]);
-     await pdfDownload8.saveAs('downloads/exportQuotationFilterStateCustomerPdf2.pdf');
-     const result16 = await dataRead(
-            "./downloads/exportInvoiceInCustomerFilter16.pdf",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
-        );
-        console.log(result16);
-      await page.waitForTimeout(2000)
-      if (result16.success
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
-      ) 
-          {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterStateCustomerPdf2.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStateCustomerPdf2","true",`./${screenshotPath}/exportQuotationFilterStateCustomerPdf2.png`)
-              
-            }
-            else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterStateCustomerPdf2.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStateCustomerPdf2","false",`./${screenshotPath}/exportQuotationFilterStateCustomerPdf2.png`)
-            }
-
-
-
-    await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'State' }).click();
   await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
@@ -654,7 +658,7 @@ async function exportQuotationFilter(page){
         page.waitForEvent('download'),
         page.getByRole('button', { name: 'Export To Excel' }).click()
       ]);
-      await excelDownload9.saveAs('downloads/exportQuotationFilter17.xlsx');
+      await excelDownload9.saveAs('downloads/exportQuotationFilterStateStatusXlx.xlsx');
       const result17 = await dataRead(
             "./downloads/exportQuotationFilter17.xlsx",
             ["Imran Khan","akbk6551+1222@gmail.com"],
@@ -666,13 +670,13 @@ async function exportQuotationFilter(page){
         && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
         && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
           {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter17.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter17","true",`./${screenshotPath}/exportQuotationFilter17.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterStateStatusXlx.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStateStatusXlx","true",`./${screenshotPath}/exportQuotationFilterStateStatusXlx.png`)
               
             }
             else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter17.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter17","false",`./${screenshotPath}/exportQuotationFilter17.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterStateStatusXlx.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStateStatusXlx","false",`./${screenshotPath}/exportQuotationFilterStateStatusXlx.png`)
             }
     
         // pdf code    
@@ -681,7 +685,7 @@ async function exportQuotationFilter(page){
         page.waitForEvent('download'),
         page.getByRole('button', { name: 'Export To PDF' }).click()
       ]);
-     await pdfDownload9.saveAs('downloads/exportQuotationFilter18.pdf');
+     await pdfDownload9.saveAs('downloads/exportQuotationFilterStateStatusPdf.pdf');
      const result18 = await dataRead(
             "./downloads/exportQuotationFilter18.pdf",
             ["Imran Khan","akbk6551+1222@gmail.com"],
@@ -694,86 +698,88 @@ async function exportQuotationFilter(page){
         && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
       ) 
           {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter18.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter18","true",`./${screenshotPath}/exportQuotationFilter18.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterStateStatusPdf.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStateStatusPdf","true",`./${screenshotPath}/exportQuotationFilterStateStatusPdf.png`)
               
             }
             else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter18.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter18","false",`./${screenshotPath}/exportQuotationFilter18.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterStateStatusPdf.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterStateStatusPdf","false",`./${screenshotPath}/exportQuotationFilterStateStatusPdf.png`)
             }
-
-    await page.waitForTimeout(2000);
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'State' }).click();
-  await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'OK' }).click();
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'Date Filter' }).click();
-  await page.getByRole('radio', { name: 'Custom' }).check();
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('17/03/2026');
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('30/03/2026');
-  await page.getByRole('button', { name: 'OK' }).click();
-    await page.reload();
+ await page.reload();
+    await page.waitForTimeout(3000);
 
 
-  const [excelDownload10] = await Promise.all([
-        page.waitForEvent('download'),
-        page.getByRole('button', { name: 'Export To Excel' }).click()
-      ]);
-      await excelDownload10.saveAs('downloads/exportQuotationFilter19.xlsx');
-      const result19 = await dataRead(
-            "./downloads/exportQuotationFilter19.xlsx",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
-        );
-        console.log(result19);
-      await page.waitForTimeout(2000)
-      if (result19.success 
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
-          {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter19.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter19","true",`./${screenshotPath}/exportQuotationFilter19.png`)
+  // await page.getByRole('button', { name: 'Filter By' }).click();
+  // await page.getByRole('menuitem', { name: 'State' }).click();
+  // await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
+  // await page.getByRole('button', { name: 'OK' }).click();
+  // await page.getByRole('button', { name: 'Filter By' }).click();
+  // await page.getByRole('menuitem', { name: 'Date Filter' }).click();
+  // await page.getByRole('radio', { name: 'Custom' }).check();
+  // await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+  // await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('17/03/2026');
+  // await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+  // await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('30/03/2026');
+  // await page.getByRole('button', { name: 'OK' }).click();
+  //   await page.reload();
+
+
+  // const [excelDownload10] = await Promise.all([
+  //       page.waitForEvent('download'),
+  //       page.getByRole('button', { name: 'Export To Excel' }).click()
+  //     ]);
+  //     await excelDownload10.saveAs('downloads/exportQuotationFilter19.xlsx');
+  //     const result19 = await dataRead(
+  //           "./downloads/exportQuotationFilter19.xlsx",
+  //           ["Imran Khan","akbk6551+1222@gmail.com"],
+  //           ["Anil Maurya","akbk6551+1112@gmail.com"]
+  //       );
+  //       console.log(result19);
+  //     await page.waitForTimeout(2000)
+  //     if (result19.success 
+  //       && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+  //       && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+  //         {
+  //             await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter19.png`, fullPage: true });
+  //             await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter19","true",`./${screenshotPath}/exportQuotationFilter19.png`)
               
-            }
-            else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter19.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter19","false",`./${screenshotPath}/exportQuotationFilter19.png`)
-            }
+  //           }
+  //           else{
+  //             await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter19.png`, fullPage: true });
+  //             await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter19","false",`./${screenshotPath}/exportQuotationFilter19.png`)
+  //           }
     
-        // pdf code    
+  //       // pdf code    
     
-         const [pdfDownload10] = await Promise.all([
-        page.waitForEvent('download'),
-        page.getByRole('button', { name: 'Export To PDF' }).click()
-      ]);
-     await pdfDownload10.saveAs('downloads/exportQuotationFilter20.pdf');
-     const result20 = await dataRead(
-            "./downloads/exportQuotationFilter20.pdf",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
-        );
-        console.log(result20);
-      await page.waitForTimeout(2000)
-      if (result20.success
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
-      ) 
-          {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter20.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter20","true",`./${screenshotPath}/exportQuotationFilter20.png`)
+  //        const [pdfDownload10] = await Promise.all([
+  //       page.waitForEvent('download'),
+  //       page.getByRole('button', { name: 'Export To PDF' }).click()
+  //     ]);
+  //    await pdfDownload10.saveAs('downloads/exportQuotationFilter20.pdf');
+  //    const result20 = await dataRead(
+  //           "./downloads/exportQuotationFilter20.pdf",
+  //           ["Imran Khan","akbk6551+1222@gmail.com"],
+  //           ["Anil Maurya","akbk6551+1112@gmail.com"]
+  //       );
+  //       console.log(result20);
+  //     await page.waitForTimeout(2000)
+  //     if (result20.success
+  //       && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+  //       && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  //     ) 
+  //         {
+  //             await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter20.png`, fullPage: true });
+  //             await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter20","true",`./${screenshotPath}/exportQuotationFilter20.png`)
               
-            }
-            else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter20.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter20","false",`./${screenshotPath}/exportQuotationFilter20.png`)
-            }
+  //           }
+  //           else{
+  //             await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter20.png`, fullPage: true });
+  //             await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter20","false",`./${screenshotPath}/exportQuotationFilter20.png`)
+  //           }
   
 
-
+// filter by City Customer
     await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'City' }).click();
@@ -781,33 +787,34 @@ async function exportQuotationFilter(page){
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Customer' }).click();
-  await page.getByRole('menuitem', { name: 'Jony Rathor' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'Anil Rathor' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
-    await page.reload();
+
 
     const [excelDownload11] = await Promise.all([
         page.waitForEvent('download'),
         page.getByRole('button', { name: 'Export To Excel' }).click()
       ]);
-      await excelDownload11.saveAs('downloads/exportQuotationFilter21.xlsx');
+      await excelDownload11.saveAs('downloads/exportQuotationFilterCityCustomerXlx.xlsx');
       const result21 = await dataRead(
-            "./downloads/exportQuotationFilter21.xlsx",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
+            "./downloads/exportQuotationFilterCityCustomerXlx.xlsx",
+            ["Anil Rathor"],
+            ["Shyam Sundara","Mayank Singh"]
         );
         console.log(result21);
       await page.waitForTimeout(2000)
       if (result21.success 
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+        && await page.getByText('Anil Rathor').first().isVisible() 
+        && !await page.getByText('Shyam Sundar').isVisible()
+       )
           {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter21.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter21","true",`./${screenshotPath}/exportQuotationFilter21.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterCityCustomerXlx.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterCityCustomerXlx","true",`./${screenshotPath}/exportQuotationFilterCityCustomerXlx.png`)
               
             }
             else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter21.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter21","false",`./${screenshotPath}/exportQuotationFilter21.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterCityCustomerXlx.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterCityCustomerXlx","false",`./${screenshotPath}/exportQuotationFilterCityCustomerXlx.png`)
             }
     
         // pdf code    
@@ -816,31 +823,31 @@ async function exportQuotationFilter(page){
         page.waitForEvent('download'),
         page.getByRole('button', { name: 'Export To PDF' }).click()
       ]);
-     await pdfDownload11.saveAs('downloads/exportQuotationFilter22.pdf');
+     await pdfDownload11.saveAs('downloads/exportQuotationFilterCityCustomerPdf.pdf');
      const result22 = await dataRead(
-            "./downloads/exportQuotationFilter22.pdf",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
+            "./downloads/exportQuotationFilterCityCustomerPdf.pdf",
+              ["Anil Rathor"],
+            ["Shyam Sundara","Mayank Singh"]
         );
         console.log(result22);
       await page.waitForTimeout(2000)
       if (result22.success
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+         && await page.getByText('Anil Rathor').first().isVisible() 
+        && !await page.getByText('Shyam Sundar').isVisible()
       ) 
           {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter22.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter22","true",`./${screenshotPath}/exportQuotationFilter22.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterCityCustomerPdf.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotatiexportQuotationFilterCityCustomerPdfonFilter22","true",`./${screenshotPath}/exportQuotationFilterCityCustomerPdf.png`)
               
             }
             else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter22.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter22","false",`./${screenshotPath}/exportQuotationFilter22.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterCityCustomerPdf.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterCityCustomerPdf","false",`./${screenshotPath}/exportQuotationFilterCityCustomerPdf.png`)
             }
   
-
-
-    await page.waitForTimeout(2000);
+// filter by City Status
+ await page.reload();
+    await page.waitForTimeout(3000);
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'City' }).click();
   await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
@@ -849,32 +856,35 @@ async function exportQuotationFilter(page){
   await page.getByText('Quotation Status').click();
   await page.getByRole('menuitem', { name: 'Created' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
-    await page.reload();
+  
 
 
    const [excelDownload12] = await Promise.all([
         page.waitForEvent('download'),
         page.getByRole('button', { name: 'Export To Excel' }).click()
       ]);
-      await excelDownload12.saveAs('downloads/exportQuotationFilter23.xlsx');
+      await excelDownload12.saveAs('downloads/exportQuotationFilterCityStatusXlx.xlsx');
       const result23 = await dataRead(
-            "./downloads/exportQuotationFilter23.xlsx",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
+            "./downloads/exportQuotationFilterCityStatusXlx.xlsx",
+            ["Shyam Sundar","Anil Rathor"],
+            ["Mayank Singh","REJECTED","ACCEPTED"]
         );
         console.log(result23);
       await page.waitForTimeout(2000)
       if (result23.success 
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+        && await page.getByText('Shyam Sundar').first().isVisible() 
+        && !await page.getByText('REJECTED').isVisible()
+        && !await page.getByText('ACCEPTED').isVisible()
+        && !await page.getByText('Mayank Sing').isVisible()
+       )
           {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter23.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter23","true",`./${screenshotPath}/exportQuotationFilter23.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterCityStatusXlx.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterCityStatusXlx","true",`./${screenshotPath}/exportQuotationFilterCityStatusXlx.png`)
               
             }
             else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter23.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter23","false",`./${screenshotPath}/exportQuotationFilter23.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterCityStatusXlx.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterCityStatusXlx","false",`./${screenshotPath}/exportQuotationFilterCityStatusXlx.png`)
             }
     
         // pdf code    
@@ -883,106 +893,110 @@ async function exportQuotationFilter(page){
         page.waitForEvent('download'),
         page.getByRole('button', { name: 'Export To PDF' }).click()
       ]);
-     await pdfDownload12.saveAs('downloads/exportQuotationFilter24.pdf');
+     await pdfDownload12.saveAs('downloads/exportQuotationFilterCityStatusPdf.pdf');
      const result24 = await dataRead(
-            "./downloads/exportQuotationFilter24.pdf",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
+            "./downloads/exportQuotationFilterCityStatusPdf.pdf",
+            ["Shyam Sundar","Anil Rathor"],
+            ["Mayank Singh","REJECTED","ACCEPTED"]
         );
         console.log(result24);
       await page.waitForTimeout(2000)
       if (result24.success
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+         && await page.getByText('Shyam Sundar').first().isVisible() 
+        && !await page.getByText('REJECTED').isVisible()
+        && !await page.getByText('ACCEPTED').isVisible()
+        && !await page.getByText('Mayank Sing').isVisible()
       ) 
           {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter24.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter24","true",`./${screenshotPath}/exportQuotationFilter24.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterCityStatusPdf.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterCityStatusPdf","true",`./${screenshotPath}/exportQuotationFilterCityStatusPdf.png`)
               
             }
             else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter24.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter24","false",`./${screenshotPath}/exportQuotationFilter24.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterCityStatusPdf.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterCityStatusPdf","false",`./${screenshotPath}/exportQuotationFilterCityStatusPdf.png`)
             }
   
 
 
-
-    await page.waitForTimeout(2000);
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'City' }).click();
-  await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'OK' }).click();
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'Date Filter' }).click();
-  await page.getByRole('radio', { name: 'Custom' }).check();
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('17/03/2026');
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('30/03/2026');
-  await page.getByRole('button', { name: 'OK' }).click();
-    await page.reload();
+//  await page.reload();
+//     await page.waitForTimeout(2000);
 
 
-   const [excelDownload13] = await Promise.all([
-        page.waitForEvent('download'),
-        page.getByRole('button', { name: 'Export To Excel' }).click()
-      ]);
-      await excelDownload13.saveAs('downloads/exportQuotationFilter25.xlsx');
-      const result25 = await dataRead(
-            "./downloads/exportQuotationFilter25.xlsx",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
-        );
-        console.log(result25);
-      await page.waitForTimeout(2000)
-      if (result25.success 
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
-          {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter25.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter25","true",`./${screenshotPath}/exportQuotationFilter25.png`)
-              
-            }
-            else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter25.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter25","false",`./${screenshotPath}/exportQuotationFilter25.png`)
-            }
-    
-        // pdf code    
-    
-         const [pdfDownload13] = await Promise.all([
-        page.waitForEvent('download'),
-        page.getByRole('button', { name: 'Export To PDF' }).click()
-      ]);
-     await pdfDownload13.saveAs('downloads/exportQuotationFilter26.pdf');
-     const result26 = await dataRead(
-            "./downloads/exportQuotationFilter26.pdf",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
-        );
-        console.log(result26);
-      await page.waitForTimeout(2000)
-      if (result26.success
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
-      ) 
-          {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter26.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter26","true",`./${screenshotPath}/exportQuotationFilter26.png`)
-              
-            }
-            else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter26.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter26","false",`./${screenshotPath}/exportQuotationFilter26.png`)
-            }
+  // await page.getByRole('button', { name: 'Filter By' }).click();
+  // await page.getByRole('menuitem', { name: 'City' }).click();
+  // await page.getByRole('menuitem', { name: 'Khamaria' }).getByRole('checkbox').check();
+  // await page.getByRole('button', { name: 'OK' }).click();
+  // await page.getByRole('button', { name: 'Filter By' }).click();
+  // await page.getByRole('menuitem', { name: 'Date Filter' }).click();
+  // await page.getByRole('radio', { name: 'Custom' }).check();
+  // await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+  // await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('17/03/2026');
+  // await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+  // await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('30/03/2026');
+  // await page.getByRole('button', { name: 'OK' }).click();
   
 
 
-    await page.waitForTimeout(2000);
+  //  const [excelDownload13] = await Promise.all([
+  //       page.waitForEvent('download'),
+  //       page.getByRole('button', { name: 'Export To Excel' }).click()
+  //     ]);
+  //     await excelDownload13.saveAs('downloads/exportQuotationFilter25.xlsx');
+  //     const result25 = await dataRead(
+  //           "./downloads/exportQuotationFilter25.xlsx",
+  //           ["Imran Khan","akbk6551+1222@gmail.com"],
+  //           ["Anil Maurya","akbk6551+1112@gmail.com"]
+  //       );
+  //       console.log(result25);
+  //     await page.waitForTimeout(2000)
+  //     if (result25.success 
+  //       && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+  //       && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+  //         {
+  //             await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter25.png`, fullPage: true });
+  //             await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter25","true",`./${screenshotPath}/exportQuotationFilter25.png`)
+              
+  //           }
+  //           else{
+  //             await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter25.png`, fullPage: true });
+  //             await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter25","false",`./${screenshotPath}/exportQuotationFilter25.png`)
+  //           }
+    
+  //       // pdf code    
+    
+  //        const [pdfDownload13] = await Promise.all([
+  //       page.waitForEvent('download'),
+  //       page.getByRole('button', { name: 'Export To PDF' }).click()
+  //     ]);
+  //    await pdfDownload13.saveAs('downloads/exportQuotationFilter26.pdf');
+  //    const result26 = await dataRead(
+  //           "./downloads/exportQuotationFilter26.pdf",
+  //           ["Imran Khan","akbk6551+1222@gmail.com"],
+  //           ["Anil Maurya","akbk6551+1112@gmail.com"]
+  //       );
+  //       console.log(result26);
+  //     await page.waitForTimeout(2000)
+  //     if (result26.success
+  //       && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+  //       && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  //     ) 
+  //         {
+  //             await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter26.png`, fullPage: true });
+  //             await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter26","true",`./${screenshotPath}/exportQuotationFilter26.png`)
+              
+  //           }
+  //           else{
+  //             await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter26.png`, fullPage: true });
+  //             await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter26","false",`./${screenshotPath}/exportQuotationFilter26.png`)
+  //           }
+  
+
+await page.reload();
+    await page.waitForTimeout(3000);
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Customer' }).click();
-  await page.getByRole('menuitem', { name: 'Jony Rathor' }).getByRole('checkbox').check();
+  await page.getByRole('menuitem', { name: 'Anil Rathor' }).getByRole('checkbox').check();
   await page.getByRole('button', { name: 'OK' }).click();
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'Quotation Status' }).click();
@@ -995,25 +1009,29 @@ async function exportQuotationFilter(page){
         page.waitForEvent('download'),
         page.getByRole('button', { name: 'Export To Excel' }).click()
       ]);
-      await excelDownload14.saveAs('downloads/exportQuotationFilter27.xlsx');
+      await excelDownload14.saveAs('downloads/exportQuotationFilterCustomerStatusXlx.xlsx');
       const result27 = await dataRead(
-            "./downloads/exportQuotationFilter27.xlsx",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
+            "./downloads/exportQuotationFilterCustomerStatusXlx.xlsx",
+            ["Anil Rathor","CREATED"],
+            ["Mayank Sing","REJECTED","Shyam Sundar"]
         );
         console.log(result27);
       await page.waitForTimeout(2000)
       if (result27.success 
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+        && await page.getByText('CREATED').first().isVisible() 
+        && !await page.getByText('REJECTED').isVisible()
+         && !await page.getByText('Mayank Sing').isVisible()
+          && !await page.getByText('ACCEPTED').isVisible()
+           && !await page.getByText('Shyam Sundar').isVisible()
+      )
           {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter27.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter27","true",`./${screenshotPath}/exportQuotationFilter27.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterCustomerStatusXlx.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterCustomerStatusXlx","true",`./${screenshotPath}/exportQuotationFilterCustomerStatusXlx.png`)
               
             }
             else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter27.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter27","false",`./${screenshotPath}/exportInvoiceInCustomerFilter27.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterCustomerStatusXlx.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterCustomerStatusXlx","false",`./${screenshotPath}/exportQuotationFilterCustomerStatusXlx.png`)
             }
     
         // pdf code    
@@ -1022,169 +1040,173 @@ async function exportQuotationFilter(page){
         page.waitForEvent('download'),
         page.getByRole('button', { name: 'Export To PDF' }).click()
       ]);
-     await pdfDownload14.saveAs('downloads/exportQuotationFilter28.pdf');
+     await pdfDownload14.saveAs('downloads/exportQuotationFilterCustomerStatusPdf.pdf');
      const result28 = await dataRead(
-            "./downloads/exportQuotationFilter28.pdf",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
+            "./downloads/exportQuotationFilterCustomerStatusPdf.pdf",
+          ["Anil Rathor","CREATED"],
+            ["Mayank Sing","REJECTED","Shyam Sundar"]
         );
         console.log(result28);
       await page.waitForTimeout(2000)
       if (result28.success
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+        && await page.getByText('CREATED').first().isVisible() 
+        && !await page.getByText('REJECTED').isVisible()
+         && !await page.getByText('Mayank Sing').isVisible()
+          && !await page.getByText('ACCEPTED').isVisible()
+           && !await page.getByText('Shyam Sundar').isVisible()
       ) 
           {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter28.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter28","true",`./${screenshotPath}/exportQuotationFilter28.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterCustomerStatusPdf.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterCustomerStatusPdf","true",`./${screenshotPath}/exportQuotationFilterCustomerStatusPdf.png`)
               
             }
             else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter28.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter28","false",`./${screenshotPath}/exportQuotationFilter28.png`)
+              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilterCustomerStatusPdf.png`, fullPage: true });
+              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilterCustomerStatusPdf","false",`./${screenshotPath}/exportQuotationFilterCustomerStatusPdf.png`)
          
 
+              //Filter by Customer date
+// await page.reload();
+//     await page.waitForTimeout(2000);
+//   await page.getByRole('button', { name: 'Filter By' }).click();
+//   await page.getByRole('menuitem', { name: 'Customer' }).click();
+//   await page.getByRole('menuitem', { name: 'Jony Rathor' }).getByRole('checkbox').check();
+//   await page.getByRole('button', { name: 'OK' }).click();
+//   await page.getByRole('button', { name: 'Filter By' }).click();
+//   await page.getByRole('menuitem', { name: 'Date Filter' }).click();
+//   await page.getByRole('radio', { name: 'Custom' }).check();
+//   await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+//   await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('17/03/2026');
+//   await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+//   await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('30/02/2026');
+//   await page.getByRole('button', { name: 'OK' }).click();
+//     await page.reload();
 
-    await page.waitForTimeout(2000);
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'Customer' }).click();
-  await page.getByRole('menuitem', { name: 'Jony Rathor' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'OK' }).click();
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'Date Filter' }).click();
-  await page.getByRole('radio', { name: 'Custom' }).check();
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('17/03/2026');
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('30/02/2026');
-  await page.getByRole('button', { name: 'OK' }).click();
-    await page.reload();
 
-
- const [excelDownload15] = await Promise.all([
-        page.waitForEvent('download'),
-        page.getByRole('button', { name: 'Export To Excel' }).click()
-      ]);
-      await excelDownload15.saveAs('downloads/exportQuotationFilter29.xlsx');
-      const result29 = await dataRead(
-            "./downloads/exportQuotationFilter29.xlsx",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
-        );
-        console.log(result29);
-      await page.waitForTimeout(2000)
-      if (result29.success 
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
-          {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter29.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter29","true",`./${screenshotPath}/exportQuotationFilter29.png`)
+//  const [excelDownload15] = await Promise.all([
+//         page.waitForEvent('download'),
+//         page.getByRole('button', { name: 'Export To Excel' }).click()
+//       ]);
+//       await excelDownload15.saveAs('downloads/exportQuotationFilter29.xlsx');
+//       const result29 = await dataRead(
+//             "./downloads/exportQuotationFilter29.xlsx",
+//             ["Imran Khan","akbk6551+1222@gmail.com"],
+//             ["Anil Maurya","akbk6551+1112@gmail.com"]
+//         );
+//         console.log(result29);
+//       await page.waitForTimeout(2000)
+//       if (result29.success 
+//         && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+//         && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+//           {
+//               await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter29.png`, fullPage: true });
+//               await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter29","true",`./${screenshotPath}/exportQuotationFilter29.png`)
               
-            }
-            else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter29.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter29","false",`./${screenshotPath}/exportQuotationFilter29.png`)
-            }
+//             }
+//             else{
+//               await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter29.png`, fullPage: true });
+//               await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter29","false",`./${screenshotPath}/exportQuotationFilter29.png`)
+//             }
     
-        // pdf code    
+//         // pdf code    
     
-         const [pdfDownload15] = await Promise.all([
-        page.waitForEvent('download'),
-        page.getByRole('button', { name: 'Export To PDF' }).click()
-      ]);
-     await pdfDownload15.saveAs('downloads/exportQuotationFilter30.pdf');
-     const result30 = await dataRead(
-            "./downloads/exportQuotationFilter30.pdf",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
-        );
-        console.log(result30);
-      await page.waitForTimeout(2000)
-      if (result30.success
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
-      ) 
-          {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter30.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter30","true",`./${screenshotPath}/exportQuotationFilter30.png`)
+//          const [pdfDownload15] = await Promise.all([
+//         page.waitForEvent('download'),
+//         page.getByRole('button', { name: 'Export To PDF' }).click()
+//       ]);
+//      await pdfDownload15.saveAs('downloads/exportQuotationFilter30.pdf');
+//      const result30 = await dataRead(
+//             "./downloads/exportQuotationFilter30.pdf",
+//             ["Imran Khan","akbk6551+1222@gmail.com"],
+//             ["Anil Maurya","akbk6551+1112@gmail.com"]
+//         );
+//         console.log(result30);
+//       await page.waitForTimeout(2000)
+//       if (result30.success
+//         && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+//         && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+//       ) 
+//           {
+//               await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter30.png`, fullPage: true });
+//               await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter30","true",`./${screenshotPath}/exportQuotationFilter30.png`)
               
-            }
-            else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter30.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter30","false",`./${screenshotPath}/exportQuotationFilter30.png`)
-            }
+//             }
+//             else{
+//               await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter30.png`, fullPage: true });
+//               await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter30","false",`./${screenshotPath}/exportQuotationFilter30.png`)
+//             }
 
 
- 
-    await page.waitForTimeout(2000);
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'Quotation Status' }).click();
-  await page.getByRole('menuitem', { name: 'Created' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'OK' }).click();
-  await page.getByRole('button', { name: 'Filter By' }).click();
-  await page.getByRole('menuitem', { name: 'Date Filter' }).click();
-  await page.getByRole('radio', { name: 'Custom' }).check();
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('17/03/2026');
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
-  await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('30/03/3026');
-  await page.getByRole('button', { name: 'OK' }).click();
-    await page.reload();
+//  await page.reload();
+//     await page.waitForTimeout(3000);
+//   await page.getByRole('button', { name: 'Filter By' }).click();
+//   await page.getByRole('menuitem', { name: 'Quotation Status' }).click();
+//   await page.getByRole('menuitem', { name: 'Created' }).getByRole('checkbox').check();
+//   await page.getByRole('button', { name: 'OK' }).click();
+//   await page.getByRole('button', { name: 'Filter By' }).click();
+//   await page.getByRole('menuitem', { name: 'Date Filter' }).click();
+//   await page.getByRole('radio', { name: 'Custom' }).check();
+//   await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().click();
+//   await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).first().fill('17/03/2026');
+//   await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).click();
+//   await page.getByRole('textbox', { name: 'dd/mm/yyyy' }).nth(1).fill('30/03/3026');
+//   await page.getByRole('button', { name: 'OK' }).click();
 
 
 
-   const [excelDownload16] = await Promise.all([
-        page.waitForEvent('download'),
-        page.getByRole('button', { name: 'Export To Excel' }).click()
-      ]);
-      await excelDownload16.saveAs('downloads/exportQuotationFilter31.xlsx');
-      const result31 = await dataRead(
-            "./downloads/exportQuotationFilter31.xlsx",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
-        );
-        console.log(result31);
-      await page.waitForTimeout(2000)
-      if (result31.success 
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
-          {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter31.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter31","true",`./${screenshotPath}/exportQuotationFilter31.png`)
+
+  //  const [excelDownload16] = await Promise.all([
+  //       page.waitForEvent('download'),
+  //       page.getByRole('button', { name: 'Export To Excel' }).click()
+  //     ]);
+  //     await excelDownload16.saveAs('downloads/exportQuotationFilter31.xlsx');
+  //     const result31 = await dataRead(
+  //           "./downloads/exportQuotationFilter31.xlsx",
+  //           ["Imran Khan","akbk6551+1222@gmail.com"],
+  //           ["Anil Maurya","akbk6551+1112@gmail.com"]
+  //       );
+  //       console.log(result31);
+  //     await page.waitForTimeout(2000)
+  //     if (result31.success 
+  //       && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+  //       && !await page.getByText('akbk6551+1217@gmail.com').isVisible() )
+  //         {
+  //             await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter31.png`, fullPage: true });
+  //             await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter31","true",`./${screenshotPath}/exportQuotationFilter31.png`)
               
-            }
-            else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter31.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter31","false",`./${screenshotPath}/exportQuotationFilter31.png`)
-            }
+  //           }
+  //           else{
+  //             await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter31.png`, fullPage: true });
+  //             await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter31","false",`./${screenshotPath}/exportQuotationFilter31.png`)
+  //           }
     
-        // pdf code    
+  //       // pdf code    
     
-         const [pdfDownload16] = await Promise.all([
-        page.waitForEvent('download'),
-        page.getByRole('button', { name: 'Export To PDF' }).click()
-      ]);
-     await pdfDownload16.saveAs('downloads/exportQuotationFilter30.pdf');
-     const result32 = await dataRead(
-            "./downloads/exportQuotationFilter30.pdf",
-            ["Imran Khan","akbk6551+1222@gmail.com"],
-            ["Anil Maurya","akbk6551+1112@gmail.com"]
-        );
-        console.log(result32);
-      await page.waitForTimeout(2000)
-      if (result32.success
-        && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
-        && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
-      ) 
-          {
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter32.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter32","true",`./${screenshotPath}/exportQuotationFilter32.png`)
+  //        const [pdfDownload16] = await Promise.all([
+  //       page.waitForEvent('download'),
+  //       page.getByRole('button', { name: 'Export To PDF' }).click()
+  //     ]);
+  //    await pdfDownload16.saveAs('downloads/exportQuotationFilter30.pdf');
+  //    const result32 = await dataRead(
+  //           "./downloads/exportQuotationFilter30.pdf",
+  //           ["Imran Khan","akbk6551+1222@gmail.com"],
+  //           ["Anil Maurya","akbk6551+1112@gmail.com"]
+  //       );
+  //       console.log(result32);
+  //     await page.waitForTimeout(2000)
+  //     if (result32.success
+  //       && await page.getByText('akbk6551+1222@gmail.com').first().isVisible() 
+  //       && !await page.getByText('akbk6551+1217@gmail.com').isVisible()
+  //     ) 
+  //         {
+  //             await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter32.png`, fullPage: true });
+  //             await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter32","true",`./${screenshotPath}/exportQuotationFilter32.png`)
               
-            }
-            else{
-              await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter32.png`, fullPage: true });
-              await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter32","false",`./${screenshotPath}/exportQuotationFilter32.png`)
-            }
+  //           }
+  //           else{
+  //             await page.screenshot({ path: `./${screenshotPath}/exportQuotationFilter32.png`, fullPage: true });
+  //             await updateOpJson(`./${screenshotPath}/`,"exportQuotationFilter32","false",`./${screenshotPath}/exportQuotationFilter32.png`)
+  //           }
           }
   
 }

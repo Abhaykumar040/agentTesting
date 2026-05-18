@@ -34,6 +34,7 @@ import { quotationInsideCustomer } from '../sales/quotationInsideCustomer';
 import { invoicesInsideCustomer } from '../sales/invoiceInsideCustomer';
 import { ticketInsideCustomer } from '../customerService/ticketInsideCustomer';
 import { dashboard } from '../dashboard/dashboard';
+import { dispatcher } from '../fsm/dispatcher';
 let testData; 
 
 test.beforeAll(async () => {
@@ -50,7 +51,7 @@ await loginRight(page);
 
 
 // await roles(page); //doneA
-// await status(page); 
+await status(page); 
 // await productCategory(page); //doneA
 // await product(page); // referenced product is not done
 // await form(page);
@@ -63,7 +64,7 @@ await loginRight(page);
 // await customer(page);
 // await Quotation(page);
 // await quotationInsideCustomer(page);
-// await Invoices(page);
+await Invoices(page);
 // await invoicesInsideCustomer(page);
 
 
@@ -72,15 +73,16 @@ await loginRight(page);
 // await setting(page);
 // await customerInC_service(page); 
 // await Queue(page);
-await Tickets(page);
-await ticketInsideCustomer(page);
-await FAQs(page);
-await Engineer(page);
+// await Tickets(page);
+// await ticketInsideCustomer(page);
+// await FAQs(page);
+// await Engineer(page);
 // await jobType(page);
 // await customerfsm(page);
 // await AssetManagement(page);
+// await dispatcher(page);
 // await internalJob(page);
-// await cyclicJob(page);
+await cyclicJob(page);
 // await dashboard(page);
 
 // await page.waitForTimeout(30000);
