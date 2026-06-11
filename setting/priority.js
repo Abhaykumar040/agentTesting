@@ -22,7 +22,7 @@ await addPriorit(page);
   await deletePriority(page);
 }
 async function deletePreviuosPriority(page){
-  console.log("Enter in delete previous priority.")
+  console.log("Enter in delete previous priority.");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Priority' }).click();
    await page.waitForTimeout(3000);
@@ -36,8 +36,17 @@ async function deletePreviuosPriority(page){
   if (total <= 0) {
     break;
   }
- await page.locator('table tbody tr').first().getByLabel('Delete').click();
+ await page.locator('table tbody tr').first().click();
+ await page.waitForTimeout(1000);
+ while(true){
+let priorityCount=await page.getByLabel('Delete').count();
+if(priorityCount==0)break;
+await page.locator('table tbody tr').nth(1).getByLabel('Delete').click();
 await page.getByRole('button', { name: 'Proceed' }).click();
+await page.waitForTimeout(1000);
+ }
+
+
     await expect(page.getByText('Priority deleted successfully').first()).toBeVisible();
      await page.waitForTimeout(1000);
     }
@@ -69,7 +78,7 @@ await page.getByRole('button', { name: 'Add New Priority' }).click();
   await page.getByRole('textbox', { name: 'Position' }).click();
   await page.getByRole('textbox', { name: 'Position' }).fill('1');
   await page.getByRole('checkbox', { name: 'Default' }).check();
-  await page.getByRole('button', { name: 'Create' }).click();
+  await page.getByRole('button', { name: 'Update' }).click();
   await page.waitForTimeout(3000);
 
 
@@ -114,7 +123,7 @@ await page.getByRole('button', { name: 'Add New Priority' }).click();
   await page.getByRole('textbox', { name: 'Position' }).click();
   await page.getByRole('textbox', { name: 'Position' }).fill('1');
   await page.getByRole('checkbox', { name: 'Default' }).check();
-  await page.getByRole('button', { name: 'Create' }).click();
+   await page.getByRole('button', { name: 'Update' }).click();
   await page.waitForTimeout(3000);
 
 
@@ -207,7 +216,7 @@ await page.waitForTimeout(3000);
   await page.getByRole('textbox', { name: 'Priority Description *' }).fill('createSupport1d');
   await page.getByRole('textbox', { name: 'Position' }).click();
   await page.getByRole('textbox', { name: 'Position' }).fill('1');
-  await page.getByRole('button', { name: 'Create' }).click();
+    await page.getByRole('button', { name: 'Update' }).click();
     await page.waitForTimeout(3000);
 
 
@@ -249,7 +258,7 @@ await page.waitForTimeout(3000);
   await page.getByRole('textbox', { name: 'Priority Description *' }).fill('createdSupport2d');
   await page.getByRole('textbox', { name: 'Position' }).click();
   await page.getByRole('textbox', { name: 'Position' }).fill('1');
-  await page.getByRole('button', { name: 'Create' }).click();
+  await page.getByRole('button', { name: 'Update' }).click();
     await page.waitForTimeout(3000);
 
 
@@ -283,7 +292,7 @@ await page.getByText('InstallationPriorityJob').nth(4).isVisible()
 async function editPriority(page){
   console.log("Enter in Edit priority");
   await page.getByText('InstallationPriorityJob').first().click();
-
+  await page.getByText('InstallationPriorityJob').nth(1).click();
   await page.getByRole('textbox', { name: 'Priority *' }).nth(3).click();
   await page.getByRole('textbox', { name: 'Priority *' }).nth(3).fill('XLowX');
   await page.getByRole('textbox', { name: 'Priority Description *' }).nth(3).click();
@@ -328,6 +337,7 @@ await page.getByText('CreateDuringEdit').first().isVisible())  {
 
 async function deletePriority(page){
   console.log("Enter in delete priority");
+   await page.getByText('InstallationPriorityJob').first().click();
     await page.getByRole('row', { name: 'InstallationPriorityJob DeleteExternalPriority DeleteExternalPriority 5 Hour' }).getByLabel('Delete').click();
   
 
@@ -346,6 +356,6 @@ await page.getByText('Medium installation').isVisible())  {
         await page.screenshot({ path: `./${screenshotPath}/deletePriority.png`, fullPage: true });
         await updateOpJson(`./${screenshotPath}/`,"deletePriority","false",`./${screenshotPath}/deletePriority.png`)
       }
-  console.log("delete priority");    
+  console.log("delete priority done");    
   await page.reload();
 }
