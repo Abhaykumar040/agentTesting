@@ -2,19 +2,23 @@
   "./screenshot/parent/priority/": {
     "priorityWitoutPosition": {
       "path": "./screenshot/parent/priority/priorityWitoutPosition.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "PriorityCreateAndDeleteDuringCreation": {
       "path": "./screenshot/parent/priority/PriorityCreateAndDeleteDuringCreation.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "editPriority": {
       "path": "./screenshot/parent/priority/editPriority.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "deletePriority": {
       "path": "./screenshot/parent/priority/deletePriority.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     }
   },
   "./screenshot/parent/roles/": {
@@ -30,7 +34,8 @@
     },
     "deleteRole": {
       "path": "./screenshot/parent/roles/deleteRole.png",
-      "note": "true"
+      "note": "true",
+      "message": "Role is Deleted 'Field Service Manager'"
     }
   },
   "./screenshot/parent/status/": {
@@ -75,11 +80,13 @@
     },
     "editForm": {
       "path": "./screenshot/parent/form/editForm.png",
-      "note": "false"
+      "note": "true",
+      "message": ""
     },
     "deleteForm": {
       "path": "./screenshot/parent/form/deleteForm.png",
-      "note": "false"
+      "note": "true",
+      "message": ""
     }
   },
   "./screenshot/parent/skill/": {

@@ -11,10 +11,10 @@ const screenshotPath=`screenshot/${testData.companyType}/zone`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function zone(page){
-
- await addZone(page);
- await page.waitForTimeout(3000);
- await deleteZone(page);
+await addNewZone(page);
+//  await addZone(page);
+//  await page.waitForTimeout(3000);
+//  await deleteZone(page);
 }
 
 async function deletePreviuosZone(page) {
@@ -234,7 +234,67 @@ async function addZone(page) {
 
   console.log("Add zone completed");
 }
+async function addNewZone(page){
+   await page.getByRole('button', { name: 'Add New Zone' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).fill('NI');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('North India');
+  await page.getByRole('button').nth(2).click();
+  await page.getByRole('button', { name: 'Uttar-Pradesh' }).click();
+  await page.getByText('Uttar-Pradesh-Chandauli').click();
+  await page.getByRole('tab', { name: 'Exclude (0)' }).click();
+  await page.getByText('Uttar-Pradesh-Bareilly').click();
+  await page.getByRole('button', { name: 'Create Zone' }).click();
 
+   await page.getByRole('button', { name: 'Add New Zone' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).fill('WI');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('West India');
+  await page.getByRole('button').nth(2).click();
+  await page.getByRole('button', { name: 'Uttar-Pradesh' }).click();
+  await page.getByText('Uttar-Pradesh-Chandauli').click();
+  await page.getByRole('tab', { name: 'Exclude (0)' }).click();
+  await page.getByText('Uttar-Pradesh-Bareilly').click();
+  await page.getByRole('button', { name: 'Create Zone' }).click();
+
+   await page.getByRole('button', { name: 'Add New Zone' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).fill('CI');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('Central India');
+  await page.getByRole('button').nth(2).click();
+  await page.getByRole('button', { name: 'Uttar-Pradesh' }).click();
+  await page.getByText('Uttar-Pradesh-Chandauli').click();
+  await page.getByRole('tab', { name: 'Exclude (0)' }).click();
+  await page.getByText('Uttar-Pradesh-Bareilly').click();
+  await page.getByRole('button', { name: 'Create Zone' }).click();
+
+   await page.getByRole('button', { name: 'Add New Zone' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).fill('SI');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('South India');
+  await page.getByRole('button').nth(2).click();
+  await page.getByRole('button', { name: 'Uttar-Pradesh' }).click();
+  await page.getByText('Uttar-Pradesh-Chandauli').click();
+  await page.getByRole('tab', { name: 'Exclude (0)' }).click();
+  await page.getByText('Uttar-Pradesh-Bareilly').click();
+  await page.getByRole('button', { name: 'Create Zone' }).click();
+
+   await page.getByRole('button', { name: 'Add New Zone' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).click();
+  await page.getByRole('textbox', { name: 'Zone Name' }).fill('EI');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('East India');
+  await page.getByRole('button').nth(2).click();
+  await page.getByRole('button', { name: 'Uttar-Pradesh' }).click();
+  await page.getByText('Uttar-Pradesh-Chandauli').click();
+  await page.getByRole('tab', { name: 'Exclude (0)' }).click();
+  await page.getByText('Uttar-Pradesh-Bareilly').click();
+  await page.getByRole('button', { name: 'Create Zone' }).click();
+}
 async function deleteZone(page) {
   console.log("Enter in delete zone");
   await page.getByRole('button', { name: 'Master Data' }).click();

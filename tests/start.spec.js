@@ -51,37 +51,37 @@ await loginRight(page);
 
 
 // await roles(page); //doneA
-await status(page); 
+// await status(page); 
 // await productCategory(page); //doneA
 // await product(page); // referenced product is not done
 // await form(page);
 // await skill(page);
 // await zone(page);
-// await assetsCategory(page);
+await assetsCategory(page);
 
 // await salesAgents(page);
-// await lead(page);
-// await customer(page);
-// await Quotation(page);
-// await quotationInsideCustomer(page);
+await lead(page);
+await customer(page);
+await Quotation(page);
+await quotationInsideCustomer(page);
 await Invoices(page);
 // await invoicesInsideCustomer(page);
 
 
-// await cs_agent(page);
-// await team(page);
-// await setting(page);
-// await customerInC_service(page); 
-// await Queue(page);
-// await Tickets(page);
-// await ticketInsideCustomer(page);
-// await FAQs(page);
-// await Engineer(page);
-// await jobType(page);
-// await customerfsm(page);
-// await AssetManagement(page);
-// await dispatcher(page);
-// await internalJob(page);
+await cs_agent(page);
+await team(page);
+await setting(page);
+await customerInC_service(page); 
+await Queue(page);
+await Tickets(page);
+await ticketInsideCustomer(page);
+await FAQs(page);
+await Engineer(page);
+await jobType(page);
+await customerfsm(page);
+await AssetManagement(page);
+await dispatcher(page);
+await internalJob(page);
 await cyclicJob(page);
 // await dashboard(page);
 
