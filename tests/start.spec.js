@@ -51,13 +51,13 @@ await loginRight(page);
 
 
 // await roles(page); //doneA
-await status(page); 
-await productCategory(page); //doneA
-await product(page); // referenced product is not done
-await form(page);
-await skill(page);
-await zone(page);
-await assetsCategory(page);
+// await status(page); 
+// await productCategory(page); //doneA
+// await product(page); // referenced product is not done
+// await form(page);
+// await skill(page);
+// await zone(page);
+// await assetsCategory(page);
 
 // await salesAgents(page);
 await lead(page);

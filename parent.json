@@ -171,15 +171,18 @@
   "./screenshot/parent/sales-agents/": {
     "addSalesAgent": {
       "path": "./screenshot/parent/sales-agents/addSalesAgent.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "AddRoleForSelesAgent": {
       "path": "./screenshot/parent/sales-agents/AddRoleForSelesAgent.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "removeRoleForSelesAgent": {
       "path": "./screenshot/parent/sales-agents/removeRoleForSelesAgent.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "emailVarificaionInSelesAgent": {
       "path": "./screenshot/parent/sales-agents/emailVarificaionInSelesAgent.png",

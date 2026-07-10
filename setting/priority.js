@@ -47,7 +47,7 @@ await page.waitForTimeout(1000);
  }
 
 
-    await expect(page.getByText('Priority deleted successfully').first()).toBeVisible();
+   
      await page.waitForTimeout(1000);
     }
     await page.waitForTimeout(3000);

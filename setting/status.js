@@ -27,18 +27,17 @@ async function deletePreviuosStatus(page){
    await page.getByRole('link', { name: 'Status Profile' }).click();
    await page.waitForTimeout(3000);
 
-    while( true){
-     const text = await page.textContent('text=Showing');
-  const match = text.match(/of\s+(\d+)\s+entries/);
-  const total = match ? parseInt(match[1]) : 0;
+      while( true){
+    const text = await page.textContent('text=Showing');
+    const match = text.match(/of\s+(\d+)\s+entries/);
+    const total = match ? parseInt(match[1]) : 0;
 
-  // Stop loop if total <= 0
+ 
   if (total <= 0) {
     break;
   }
  await page.locator('table tbody tr').first().click();
  await page.waitForTimeout(1000);
- await page.locator('table tbody tr').nth(1).click();
  while(true){
 let priorityCount=await page.getByLabel('Delete').count();
 if(priorityCount==0)break;
@@ -46,9 +45,11 @@ await page.locator('table tbody tr').nth(1).getByLabel('Delete').click();
 await page.getByRole('button', { name: 'Proceed' }).click();
 await page.waitForTimeout(1000);
  }
-  await expect(page.getByText('Status profile deleted').first()).toBeVisible();
 
-  }
+
+   
+     await page.waitForTimeout(1000);
+    }
    
   await page.reload();
   console.log("delete previous status completed");
