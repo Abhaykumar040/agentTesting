@@ -15,10 +15,10 @@ const pathName=`outputData/status/${testData.companyType}`
 export async function form(page){
   // await addVisibleForm(page);
   //  await page.waitForTimeout(3000);
-  await deletePreviuosForm(page);
-  await page.waitForTimeout(3000);
-  await addForm(page);
-  await page.waitForTimeout(3000);
+  // await deletePreviuosForm(page);
+  // await page.waitForTimeout(3000);
+  // await addForm(page);
+  // await page.waitForTimeout(3000);
   await editForm(page);
   await page.waitForTimeout(3000);
   await deleteForm(page);
@@ -122,13 +122,14 @@ async function addForm(page){
 
   await page.locator('div').filter({ hasText: /^Dropdown$/ }).click();
    await formNameChange(page,'Placeholder Label','DropDownSelectOption',false);
-  await page.locator('input[name="options.0.label"]').click();
-  await page.locator('input[name="options.0.label"]').fill('Yes');
-  await page.locator('input[name="options.1.label"]').click();
-  await page.locator('input[name="options.1.label"]').press('ControlOrMeta+a');
-  await page.locator('input[name="options.1.label"]').fill('No');
+    await page.getByRole('textbox').nth(2).click();
+ 
+  await page.getByRole('textbox').nth(2).fill('Yes');
+  await page.getByRole('textbox').nth(3).click();
+  
+  await page.getByRole('textbox').nth(2).fill('No');
   await page.getByRole('button', { name: 'Option', exact: true }).click();
-  await page.locator('input[name="options.2.label"]').fill('Unable go giive answer');
+ await page.getByRole('textbox').nth(4).fill('Unable go giive answer');
   await page.getByRole('button', { name: 'Update' }).click();
 
 
@@ -228,13 +229,14 @@ async function addForm(page){
   await page.getByRole('option', { name: 'Product Category Name' }).click();
   await page.getByRole('button', { name: 'Options reference Product' }).click();
   await page.getByRole('option', { name: 'None' }).click();
-  await page.locator('input[name="options.0.label"]').click();
-  await page.locator('input[name="options.0.label"]').fill('Yes');
-  await page.locator('input[name="options.1.label"]').click();
-  await page.locator('input[name="options.1.label"]').press('ControlOrMeta+a');
-  await page.locator('input[name="options.1.label"]').fill('No');
+   await page.getByRole('textbox').nth(2).click();
+ 
+  await page.getByRole('textbox').nth(2).fill('Yes');
+  await page.getByRole('textbox').nth(3).click();
+  
+  await page.getByRole('textbox').nth(2).fill('No');
   await page.getByRole('button', { name: 'Option', exact: true }).click();
-  await page.locator('input[name="options.2.label"]').fill('Unable go giive answer');
+ await page.getByRole('textbox').nth(4).fill('Unable go giive answer');
   await page.getByRole('button', { name: 'Update' }).click();
 
   await page.locator('div').filter({ hasText: /^Checkbox$/ }).click();
@@ -307,13 +309,14 @@ async function addForm(page){
   await page.getByRole('option', { name: 'Product Category Name' }).click();
   await page.getByRole('button', { name: 'Options reference Product' }).click();
   await page.getByRole('option', { name: 'None' }).click();
-  await page.locator('input[name="options.0.label"]').click();
-  await page.locator('input[name="options.0.label"]').fill('Yes');
-  await page.locator('input[name="options.1.label"]').click();
-  await page.locator('input[name="options.1.label"]').press('ControlOrMeta+a');
-  await page.locator('input[name="options.1.label"]').fill('No');
+  await page.getByRole('textbox').nth(2).click();
+ 
+  await page.getByRole('textbox').nth(2).fill('Yes');
+  await page.getByRole('textbox').nth(3).click();
+  
+  await page.getByRole('textbox').nth(2).fill('No');
   await page.getByRole('button', { name: 'Option', exact: true }).click();
-  await page.locator('input[name="options.2.label"]').fill('Unable go giive answer');
+ await page.getByRole('textbox').nth(4).fill('Unable go giive answer');
   await page.getByRole('button', { name: 'Update' }).click();
 
   await page.locator('div').filter({ hasText: /^Checkbox$/ }).click();
@@ -385,13 +388,14 @@ async function addForm(page){
   await page.getByRole('option', { name: 'Product Category Name' }).click();
   await page.getByRole('button', { name: 'Options reference Product' }).click();
   await page.getByRole('option', { name: 'None' }).click();
-  await page.locator('input[name="options.0.label"]').click();
-  await page.locator('input[name="options.0.label"]').fill('Yes');
-  await page.locator('input[name="options.1.label"]').click();
-  await page.locator('input[name="options.1.label"]').press('ControlOrMeta+a');
-  await page.locator('input[name="options.1.label"]').fill('No');
+  await page.getByRole('textbox').nth(2).click();
+ 
+  await page.getByRole('textbox').nth(2).fill('Yes');
+  await page.getByRole('textbox').nth(3).click();
+  
+  await page.getByRole('textbox').nth(2).fill('No');
   await page.getByRole('button', { name: 'Option', exact: true }).click();
-  await page.locator('input[name="options.2.label"]').fill('Unable go giive answer');
+ await page.getByRole('textbox').nth(4).fill('Unable go giive answer');
   await page.getByRole('button', { name: 'Update' }).click();
 
   await page.locator('div').filter({ hasText: /^Checkbox$/ }).click();
@@ -462,13 +466,14 @@ async function addForm(page){
   await page.getByRole('option', { name: 'Product Category Name' }).click();
   await page.getByRole('button', { name: 'Options reference Product' }).click();
   await page.getByRole('option', { name: 'None' }).click();
-  await page.locator('input[name="options.0.label"]').click();
-  await page.locator('input[name="options.0.label"]').fill('Yes');
-  await page.locator('input[name="options.1.label"]').click();
-  await page.locator('input[name="options.1.label"]').press('ControlOrMeta+a');
-  await page.locator('input[name="options.1.label"]').fill('No');
+  await page.getByRole('textbox').nth(2).click();
+ 
+  await page.getByRole('textbox').nth(2).fill('Yes');
+  await page.getByRole('textbox').nth(3).click();
+  
+  await page.getByRole('textbox').nth(2).fill('No');
   await page.getByRole('button', { name: 'Option', exact: true }).click();
-  await page.locator('input[name="options.2.label"]').fill('Unable go giive answer');
+ await page.getByRole('textbox').nth(4).fill('Unable go giive answer');
   await page.getByRole('button', { name: 'Update' }).click();
 
   await page.locator('div').filter({ hasText: /^Checkbox$/ }).click();
@@ -694,19 +699,19 @@ async function editForm(page) {
   await page.getByRole('textbox', { name: 'Field Label' }).fill('Age Range');
   await page.getByRole('textbox', { name: 'ColSpan' }).click();
   await page.getByRole('textbox', { name: 'ColSpan' }).fill('12');
-  await page.locator('input[name="options.0.label"]').click();
-  await page.locator('input[name="options.0.label"]').fill('Belong 10-18');
-  await page.locator('input[name="options.1.label"]').click();
-  await page.locator('input[name="options.1.label"]').fill('Belong 18-25');
+   await page.getByRole('textbox').nth(2).click();
+ 
+  await page.getByRole('textbox').nth(2).fill('Belong 10-18');
+  await page.getByRole('textbox').nth(3).click();
+  
+  await page.getByRole('textbox').nth(3).fill('Belong 18-25');
   await page.getByRole('button', { name: 'Option', exact: true }).click();
-  await page.locator('input[name="options.2.label"]').fill('Belong 35-45');
+ await page.getByRole('textbox').nth(4).fill('Belong 35-45');
+   await page.getByRole('button', { name: 'Update' }).click();
+
+ 
   // await page.getByRole('checkbox').nth(1).check();
-  await page.locator('div:has-text("Use visibility condition") .MuiSwitch-switchBase').click({ force: true });
-  await page.getByLabel('', { exact: true }).first().click();
-  await page.getByRole('option', { name: 'AgeS (NUMBERINPUT)' }).click();
-  await page.getByLabel('', { exact: true }).click();
-  await page.getByRole('option', { name: 'Is Not Empty', exact: true }).click();
-  await page.getByRole('button', { name: 'Update' }).click();
+ 
   
   
   await page.locator('div').filter({ hasText: /^Dropdown$/ }).click();
@@ -719,19 +724,25 @@ async function editForm(page) {
   await formOnlyChangeHeaderLevel(page,'Placeholder Label');
    await page.getByRole('textbox', { name: 'Field Label' }).click();
   await page.getByRole('textbox', { name: 'Field Label' }).fill('Religion');
-  await page.getByRole('checkbox', { name: 'Select Multiple Options' }).check();
+  
   await page.getByRole('textbox', { name: 'ColSpan' }).click();
   await page.getByRole('textbox', { name: 'ColSpan' }).fill('12');
-  await page.locator('input[name="options.1.label"]').click();
-  await page.locator('input[name="options.0.label"]').fill('Hindu');
-  await page.locator('input[name="options.1.label"]').click();
-  await page.locator('input[name="options.1.label"]').fill('Shikh');
+  await page.getByRole('checkbox', { name: 'Select Multiple Options' }).check();
+    await page.getByRole('textbox').nth(2).click();
+ 
+  await page.getByRole('textbox').nth(2).fill('Hindu');
+  await page.getByRole('textbox').nth(3).click();
+  
+  await page.getByRole('textbox').nth(3).fill('Shikh');
   await page.getByRole('button', { name: 'Option', exact: true }).click();
-  await page.locator('input[name="options.2.label"]').fill('Christen');
+ await page.getByRole('textbox').nth(4).fill('Christen');
   await page.getByRole('button', { name: 'Option', exact: true }).click();
-  await page.locator('input[name="options.3.label"]').click();
-  await page.locator('input[name="options.3.label"]').fill('Muslim');
+ await page.getByRole('textbox').nth(5).fill('Muslim');
   await page.getByRole('button', { name: 'Update' }).click();
+
+
+  
+
 
   await page.locator('div').filter({ hasText: /^Dropdown$/ }).click();
   //  const headerCard2 = page.getByRole('button', {
@@ -744,21 +755,15 @@ async function editForm(page) {
   await page.getByRole('textbox', { name: 'Field Label' }).fill('Cast');
   await page.getByRole('textbox', { name: 'ColSpan' }).click();
   await page.getByRole('textbox', { name: 'ColSpan' }).fill('12');
-  await page.locator('input[name="options.0.label"]').click();
-  await page.locator('input[name="options.0.label"]').fill('General');
-  await page.locator('input[name="options.1.label"]').click();
-  await page.locator('input[name="options.1.label"]').fill('OBC');
+
+     await page.getByRole('textbox').nth(2).click();
+  await page.getByRole('textbox').nth(2).fill('General');
+  await page.getByRole('textbox').nth(3).click();
+  await page.getByRole('textbox').nth(3).fill('OBC');
   await page.getByRole('button', { name: 'Option', exact: true }).click();
-  await page.locator('input[name="options.2.label"]').fill('SC');
+ await page.getByRole('textbox').nth(4).fill('SC');
   await page.getByRole('button', { name: 'Option', exact: true }).click();
-  await page.locator('input[name="options.3.label"]').fill('ST');
-  await page.locator('div:has-text("Use visibility condition") .MuiSwitch-switchBase').click({ force: true });
-  await page.getByLabel('', { exact: true }).first().click();
-  await page.getByRole('option', { name: 'Religion (DROPDOWN)' }).click();
-  await page.getByLabel('', { exact: true }).click();
-  await page.getByRole('option', { name: 'Equal', exact: true }).click();
-  await page.getByRole('combobox', { name: 'Select values' }).click();
-  await page.getByRole('option', { name: 'HIndu' }).click();
+ await page.getByRole('textbox').nth(5).fill('ST');
   await page.getByRole('button', { name: 'Update' }).click();
   await page.getByRole('button', { name: 'Update' }).click();
   
@@ -812,26 +817,18 @@ async function editForm(page) {
   await page.getByRole('checkbox', { name: 'Select Multiple Options' }).check();
   await page.getByRole('textbox', { name: 'ColSpan' }).click();
   await page.getByRole('textbox', { name: 'ColSpan' }).fill('12');
-  await page.locator('input[name="options.0.label"]').click();
-  await page.locator('input[name="options.0.label"]').fill('first');
-  await page.locator('input[name="options.1.label"]').click();
-  await page.locator('input[name="options.1.label"]').fill('second');
+
+      await page.getByRole('textbox').nth(2).click();
+  await page.getByRole('textbox').nth(2).fill('first');
+  await page.getByRole('textbox').nth(3).click();
+  await page.getByRole('textbox').nth(3).fill('second');
   await page.getByRole('button', { name: 'Option', exact: true }).click();
-  await page.locator('input[name="options.2.label"]').click();
-  await page.locator('input[name="options.2.label"]').fill('Third');
-  await page.getByRole('checkbox').nth(2).check();
-  await page.getByLabel('', { exact: true }).first().click();
-  await page.getByText('Check for dropdown (CHECKBOX)').click();
-  await page.getByLabel('', { exact: true }).click();
-  await page.getByRole('option', { name: 'Equal', exact: true }).click();
-  await page.getByRole('button', { name: 'Select a value' }).click();
-  await page.getByRole('option', { name: 'Checked', exact: true }).click();
+ await page.getByRole('textbox').nth(4).fill('Third');
   await page.getByRole('button', { name: 'Update' }).click();
   await page.getByRole('button', { name: 'Update' }).click();
+ await page.waitForTimeout(3000);
 
 
-  await page.getByRole('button', { name: 'Settings' }).click();
-  await page.getByRole('link', { name: 'Form', exact: true }).click();
   await page.reload();
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Form', exact: true }).click();

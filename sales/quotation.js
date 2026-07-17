@@ -13,13 +13,17 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Quotation(page){
 // delete previuos Quotation by check.js
-  await createQuotation(page);
-  await page.waitForTimeout(3000);
-  await approveQuotation(page);
-  await acceptQuotation(page);
-  await page.waitForTimeout(3000);
-  await rejectQuotation(page);
-
+  // await createQuotation(page);
+  // await page.waitForTimeout(3000);
+  // await approveQuotation(page);
+  // await page.waitForTimeout(3000);
+  // await acceptQuotation(page);
+  // await page.waitForTimeout(3000);
+  // await rejectQuotation(page);
+  //  await page.waitForTimeout(3000);
+  // await addQuotationByLead(page);
+  //   await page.waitForTimeout(3000);
+await addQuotationByOpportunity(page);
   await page.waitForTimeout(3000);
   await copyQuotation(page);
   await page.waitForTimeout(3000);
@@ -1228,7 +1232,7 @@ await page.getByRole('link', { name: 'Add Quotation' }).click();
   await page.waitForTimeout(500);
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-    await page.getByRole('option', { name: '1-46 Red Hills, Malakpet' }).click();
+    await page.getByRole('option', { name: 'mundera bajar Prayagraj Uttar' }).click();
   await page.getByRole('combobox').first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
@@ -1346,7 +1350,7 @@ await page.getByRole('link', { name: 'Add Quotation' }).click();
 async function approveQuotation(page) {
   console.log('Enter in approve quotation');
 
-    await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+    await page.locator('body tr:nth-of-type(2) td:nth-of-type(9) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Approve' }).click();
   await page.waitForTimeout(1000);
 
@@ -1368,10 +1372,10 @@ async function approveQuotation(page) {
 
 async function acceptQuotation(page) {
   console.log('Enter in accept quotation');
-      await page.locator('body tr:nth-of-type(3) td:nth-of-type(7) div button:last-of-type svg').click();
+      await page.locator('body tr:nth-of-type(3) td:nth-of-type(9) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Approve' }).click();
  await page.waitForTimeout(1000);
-   await page.locator('body tr:nth-of-type(3) td:nth-of-type(7) div button:last-of-type svg').click();
+   await page.locator('body tr:nth-of-type(3) td:nth-of-type(9) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Accept' }).click();
 await page.waitForTimeout(1000);
 
@@ -1398,7 +1402,7 @@ await page.waitForTimeout(1000);
 
 async function rejectQuotation(page){
   console.log('Enter in reject quotation');
-  await page.locator('body tr:nth-of-type(4) td:nth-of-type(7) div button:last-of-type svg').click();
+  await page.locator('body tr:nth-of-type(4) td:nth-of-type(9) div button:last-of-type svg').click();
     await page.getByRole('menuitem', { name: 'Reject' }).click();
   await page.getByRole('textbox').click();
   await page.getByRole('textbox').fill('rejected by manager');
@@ -1423,10 +1427,10 @@ async function rejectQuotation(page){
 
 async function rejectedByCustomerQuotation(page) {
   console.log('Enter in reject by customer quotation');
-  await page.locator('body tr:nth-of-type(1) td:nth-of-type(7) div button:last-of-type svg').click();
+  await page.locator('body tr:nth-of-type(1) td:nth-of-type(9) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Approve' }).click();
   await page.waitForTimeout(3000);
-   await page.locator('body tr:nth-of-type(1) td:nth-of-type(7) div button:last-of-type svg').click();
+   await page.locator('body tr:nth-of-type(1) td:nth-of-type(9) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Reject' }).click();
   await page.waitForTimeout(1000);
   await page.reload();
@@ -1451,7 +1455,7 @@ async function rejectedByCustomerQuotation(page) {
 
 async function copyQuotation(page){
    console.log('Enter in copy quotation');
-   await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+   await page.locator('body tr:nth-of-type(2) td:nth-of-type(9) div button:last-of-type svg').click();
      await page.getByRole('menuitem', { name: 'Copy' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
   await page.getByRole('option', { name: 'Anil Rathor' }).click();
@@ -1779,7 +1783,7 @@ async function deleteQuotation(page) {
 async function reciptDownloadQuotation(page){
   console.log('Enter in  recipt download quotation');
 await page.waitForTimeout(1000);
- await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+ await page.locator('body tr:nth-of-type(2) td:nth-of-type(9) div button:last-of-type svg').click();
   const [excelDownload] = await Promise.all([
     page.waitForEvent('download'),
     page.getByRole('menuitem', { name: 'Receipt' }).click()
@@ -1843,4 +1847,57 @@ page.getByText('ACCEPTED').first().isVisible())
   }
  await page.waitForTimeout(3000);
 console.log('verify quotation Inside customer completed');
+}
+
+
+async function addQuotationByOpportunity(page){
+   await page.waitForTimeout(3000);
+   await page.getByRole('link', { name: 'Opportunities' }).click();
+ await page.locator('p').filter({ hasText: 'He want ERP' }).first().click();
+     await page.getByRole('button', { name: 'Create Quote' }).click();
+  await page.getByRole('textbox', { name: 'Address' }).click();
+  await page.getByRole('textbox', { name: 'Address' }).fill('J&K');
+  await page.getByRole('textbox', { name: 'Country' }).click();
+  await page.getByRole('textbox', { name: 'Country' }).fill('India');
+  await page.getByRole('textbox', { name: 'State' }).click();
+  await page.getByRole('textbox', { name: 'State' }).fill('Jammu');
+  await page.getByRole('button', { name: 'Currency' }).click();
+  await page.getByRole('option', { name: 'Indian Rupee (INR)' }).click();
+  await page.getByRole('textbox', { name: 'Item' }).click();
+  await page.getByRole('textbox', { name: 'Item' }).fill('fuseByOpportunity');
+  await page.getByRole('spinbutton', { name: 'Unit price' }).click();
+  await page.getByRole('spinbutton', { name: 'Unit price' }).fill('0120');
+  await page.getByRole('spinbutton', { name: 'Discount' }).click();
+  await page.getByRole('spinbutton', { name: 'Discount' }).fill('050');
+  await page.getByRole('spinbutton', { name: 'Tax %' }).click();
+  await page.getByRole('spinbutton', { name: 'Tax %' }).fill('010');
+  await page.getByRole('textbox', { name: 'Note (optional)' }).click();
+  await page.getByRole('textbox', { name: 'Note (optional)' }).fill('This Quotation created By Opportunity');
+  await page.getByRole('button', { name: 'Create quotation' }).click();
+   await page.getByRole('link', { name: 'Quotations' }).click();
+  await expect(page.getByText('Opportunity')).toBeVisible();
+}
+
+async function addQuotationByLead(page){
+await page.getByRole('link', { name: 'Lead Management' }).click();
+  await page.getByRole('cell', { name: 'EV Mobile Pvt Ltd' }).click();
+  await page.getByRole('button', { name: 'Create Quote' }).click();
+  await page.getByRole('textbox', { name: 'Country' }).click();
+  await page.getByRole('textbox', { name: 'Country' }).fill('India');
+  await page.getByRole('textbox', { name: 'State' }).click();
+  await page.getByRole('textbox', { name: 'State' }).fill('Bihar');
+  await page.getByRole('textbox', { name: 'Item' }).click();
+  await page.getByRole('textbox', { name: 'Item' }).fill('fuseByLead');
+  await page.getByRole('spinbutton', { name: 'Unit price' }).click();
+  await page.getByRole('spinbutton', { name: 'Unit price' }).fill('090');
+  await page.getByRole('spinbutton', { name: 'Discount' }).click();
+  await page.getByRole('spinbutton', { name: 'Discount' }).fill('010');
+  await page.getByRole('spinbutton', { name: 'Tax %' }).click();
+  await page.getByRole('spinbutton', { name: 'Tax %' }).fill('010');
+  await page.getByRole('textbox', { name: 'Note (optional)' }).click();
+  await page.getByRole('textbox', { name: 'Note (optional)' }).fill('Quotation created by Lead');
+  await page.getByRole('button', { name: 'Create quotation' }).click();
+  await expect(page.getByText('Indian Rupee (INR) 88')).toBeVisible();
+  await page.getByRole('link', { name: 'Quotations' }).click();
+  await expect(page.getByRole('cell', { name: 'Lead' }).first()).toBeVisible();
 }

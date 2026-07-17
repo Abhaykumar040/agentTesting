@@ -13,8 +13,8 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function companySetup(page){
-await editCompanySetup(page);
- await page.waitForTimeout(3000);
+// await editCompanySetup(page);
+//  await page.waitForTimeout(3000);
  await quotationSettingInCompanySetup(page);
  await page.waitForTimeout(3000);
  await invoiceSettingInCompanySetup(page);

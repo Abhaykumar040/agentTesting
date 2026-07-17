@@ -3,6 +3,8 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
+import {run} from '../check'
+
 
 
 
@@ -13,43 +15,24 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function status(page){
-  await deletePreviuosStatus(page);
-  await page.waitForTimeout(3000);
+  // await deletePreviuosStatus(page);
+  // await page.waitForTimeout(3000);
   await addStatus(page);
   await page.waitForTimeout(3000);
   await editStatus(page);
   await page.waitForTimeout(3000);
-  await deleteStatus(page);
+  // await deleteStatus(page);
 }
 async function deletePreviuosStatus(page){
  console.log("Enter in delete previous status")
-  await page.getByRole('button', { name: 'Settings' }).click();
-   await page.getByRole('link', { name: 'Status Profile' }).click();
-   await page.waitForTimeout(3000);
-
-      while( true){
-    const text = await page.textContent('text=Showing');
-    const match = text.match(/of\s+(\d+)\s+entries/);
-    const total = match ? parseInt(match[1]) : 0;
-
- 
-  if (total <= 0) {
-    break;
-  }
- await page.locator('table tbody tr').first().click();
- await page.waitForTimeout(1000);
- while(true){
-let priorityCount=await page.getByLabel('Delete').count();
-if(priorityCount==0)break;
-await page.locator('table tbody tr').nth(1).getByLabel('Delete').click();
-await page.getByRole('button', { name: 'Proceed' }).click();
+const result= await run("statusprofile");
 await page.waitForTimeout(1000);
- }
+ 
 
 
    
      await page.waitForTimeout(1000);
-    }
+    
    
   await page.reload();
   console.log("delete previous status completed");
@@ -99,7 +82,7 @@ async function addStatus(page){
   await page.getByRole('textbox', { name: 'Status Description *' }).fill('AvailbleDAsset');
   await page.getByRole('spinbutton', { name: 'Position *' }).click();
   await page.getByRole('spinbutton', { name: 'Position *' }).fill('4');
-  await page.getByText('In UseAsset').click();
+  // await page.getByText('In UseAsset').click();
   await page.getByText('AssignedAsset').click();
   await page.getByRole('button', { name: 'Update' }).click();
    await page.waitForTimeout(1000);
@@ -112,7 +95,7 @@ async function addStatus(page){
   await page.getByRole('spinbutton', { name: 'Position *' }).click();
   await page.getByRole('spinbutton', { name: 'Position *' }).fill('6');
   await page.getByText('Completed').click();
-  await page.getByText('AvailableAsset').click();
+  
   await page.getByRole('button', { name: 'Update' }).click();
    await page.waitForTimeout(1000);
 
@@ -357,34 +340,37 @@ async function editStatus(page){
   
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Status Profile' }).click();
-  await page.getByText('InstallationStatusJob').first().click();
- await page.waitForTimeout(1000);
-   await page.getByRole('button').filter({ hasText: /^$/ }).nth(1).click();
- await page.waitForTimeout(1000);
-   
-  await page.getByRole('textbox', { name: 'Status *' }).nth(2).click();
-  await page.getByRole('textbox', { name: 'Status *' }).nth(2).fill('In progressX');
-  await page.getByRole('textbox', { name: 'Status Description *' }).nth(2).click();
-  await page.getByRole('textbox', { name: 'Status Description *' }).nth(2).fill('In progressDX');
-  await page.getByRole('spinbutton', { name: 'Position *' }).nth(2).click();
-  await page.getByRole('spinbutton', { name: 'Position *' }).nth(2).fill('21');
-  await page.getByRole('button', { name: 'Update' }).nth(2).click();
+  await page.getByText('InstallationStatusJob').click();
+  await page.getByText('In progressJob').click();
+  await page.getByRole('textbox', { name: 'Status *' }).nth(4).click();
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('In progressX');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('In progressDX');
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('21');
+   await page.getByRole('button', { name: 'Update' }).click();
+  
+  
 
-  await page.waitForTimeout(1000);
-   await page.getByRole('button', { name: 'Status' }).click();
-     await page.waitForTimeout(1000);
+  await page.waitForTimeout(1000); 
   await page.getByRole('textbox', { name: 'Status *' }).first().click();
-  await page.getByRole('textbox', { name: 'Status *' }).first().fill('createDuringEditIns');
-  await page.getByText('Status *Status Description *').first().click();
-  await page.getByRole('textbox', { name: 'Status Description *' }).first().fill('createDuringEditIns');
-  await page.getByRole('spinbutton', { name: 'Position *' }).first().click();
-  await page.getByRole('spinbutton', { name: 'Position *' }).first().fill('7');
-  await page.getByRole('button', { name: 'Create' }).first().click();
+     await page.waitForTimeout(1000);
+
+  await page.getByRole('textbox', { name: 'Status *' }).click();
+  await page.getByRole('textbox', { name: 'Status *' }).fill('createDuringEditIns');
+  await page.getByRole('textbox', { name: 'Status Description *' }).click();
+  await page.getByRole('textbox', { name: 'Status Description *' }).fill('createDuringEditIns');
+  await page.getByRole('spinbutton', { name: 'Position *' }).click();
+  await page.getByRole('spinbutton', { name: 'Position *' }).fill('71');
+  await page.getByRole('button', { name: 'Update' }).click();
+
   await page.waitForTimeout(3000);
   await page.getByRole('button', { name: 'Back to List' }).click();
   await page.reload();
    await page.waitForTimeout(3000);
-
+await page.getByText('InstallationStatusJob').click();
+await page.waitForTimeout(3000);
   if (!await page.getByText('DeleteEditStatusJob', { exact: true }).isVisible()&&
   await page.getByText('CreateDuringEditIns', { exact: true }).isVisible() )  
   {

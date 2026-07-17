@@ -12,7 +12,7 @@ export async function loginRight(page){
   await page.goto(data.url);
 
   await page.getByRole('textbox', { name: 'Email' }).click();
-  await page.getByRole('textbox', { name: 'Email' }).fill('abhay+22543@zynka.ai');
+  await page.getByRole('textbox', { name: 'Email' }).fill('abhay+32222@zynka.ai');
   console.log("Email filled");
   // console.log("Email filled");
   await page.getByRole('textbox', { name: 'Password' }).click();

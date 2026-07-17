@@ -46,7 +46,7 @@ async function addCSAgent(page){
   // await page.getByText('Agent updated successfully').click();
   // await expect(page.getByText('akbk6551+1265@gmail.com')).toBeVisible();
   
-  await page.reload();
+ 
 
    await page.getByRole('button', { name: 'New Agent', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).click();

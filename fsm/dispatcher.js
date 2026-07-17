@@ -15,25 +15,40 @@ export async function dispatcher(page) {
   await page.waitForTimeout(3000);
   await addRoleInDispatcher(page);
   await page.waitForTimeout(3000);
-  await emailVarifiedInDispatcher(page);
+  await emailVarifiedInDispatcher(page);//did not work
 
 }
 
 
 async function addDispatcher(page){
-  console.log('Enter in add CS_Agent');
+  console.log('Enter in add Dispatcher');
   await page.getByRole('button', { name: 'Field Service' }).click();
-  await page.getByRole('link', { name: 'Dispatcher' }).click();
-   await page.getByRole('button', { name: 'Add New Agent', exact: true }).click();
-  await page.getByRole('textbox', { name: 'John', exact: true }).click();
-  await page.getByRole('textbox', { name: 'John', exact: true }).fill('Jay kumar Rathor');
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+13651@gmail.com');
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('98657412421');
-  await page.getByRole('combobox', { name: 'Select roles' }).click();
-  await page.getByRole('option', { name: 'Customer Service' }).click();
-  await page.getByRole('button', { name: 'Add Agent' }).click();
+  await page.getByRole('link', { name: 'Dispatcher',exact:true }).click();
+  await page.getByRole('button', { name: 'Add New Agent' }).click();
+
+  
+
+
+
+ 
+await page.getByRole('button', { name: 'Title' }).click();
+await page.getByRole('option', { name: 'Mr.' }).click();
+
+await page.getByRole('textbox', { name: 'First Name' }).click();
+await page.getByRole('textbox', { name: 'First Name' }).fill('Jay kumar');
+await page.getByRole('textbox', { name: 'Last Name' }).click();
+await page.getByRole('textbox', { name: 'Last Name' }).fill('Rathor');
+
+await page.getByRole('textbox', { name: 'Email' }).click();
+await page.getByRole('textbox', { name: 'Email' }).fill('akbk6551+13651@gmail.com');
+
+await page.getByRole('textbox', { name: 'Contact' }).click();
+await page.getByRole('textbox', { name: 'Contact' }).fill('98657412421');
+
+await page.getByRole('combobox', { name: 'Role *' }).click();
+await page.getByRole('option', { name: 'Customer Service' }).click();
+
+await page.getByRole('button', { name: 'Save' }).click();
   // await page.getByText('Agent added successfully').click();
   // await page.reload(2000);
   // await page.locator('button').nth(5).click();
@@ -46,17 +61,28 @@ async function addDispatcher(page){
   // await page.getByText('Agent updated successfully').click();
   // await expect(page.getByText('akbk6551+1265@gmail.com')).toBeVisible();
   
-await page.reload(2000);
-   await page.getByRole('button', { name: 'Add New Agent', exact: true }).click();
-  await page.getByRole('textbox', { name: 'John', exact: true }).click();
-  await page.getByRole('textbox', { name: 'John', exact: true }).fill('Yogesh Yadav');
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+13661@gmail.com');
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('98657412411');
-  await page.getByRole('combobox', { name: 'Select roles' }).click();
-  await page.getByRole('option', { name: 'Customer Service' }).click();
-  await page.getByRole('button', { name: 'Add Agent' }).click();
+
+await page.getByRole('button', { name: 'Add New Agent' }).click();
+
+await page.getByRole('button', { name: 'Title' }).click();
+await page.getByRole('option', { name: 'Mr.' }).click();
+
+await page.getByRole('textbox', { name: 'First Name' }).click();
+await page.getByRole('textbox', { name: 'First Name' }).fill('Yogesh');
+
+await page.getByRole('textbox', { name: 'Last Name' }).click();
+await page.getByRole('textbox', { name: 'Last Name' }).fill('Yadav');
+
+await page.getByRole('textbox', { name: 'Email' }).click();
+await page.getByRole('textbox', { name: 'Email' }).fill('akbk6551+13661@gmail.com');
+
+await page.getByRole('textbox', { name: 'Contact' }).click();
+await page.getByRole('textbox', { name: 'Contact' }).fill('98657412411');
+
+await page.getByRole('combobox', { name: 'Role *' }).click();
+await page.getByRole('option', { name: 'Customer Service' }).click();
+
+await page.getByRole('button', { name: 'Save' }).click();
   // await page.getByText('Agent added successfully').click();
   // await page.reload(2000);
   // await page.locator('button').nth(5).click();
@@ -68,17 +94,28 @@ await page.reload(2000);
   // await page.getByRole('button', { name: 'Add Role' }).click();
 
   // await page.reload();
-await page.reload(2000);
-  await page.getByRole('button', { name: 'Add New Agent', exact: true }).click();
-  await page.getByRole('textbox', { name: 'John', exact: true }).click();
-  await page.getByRole('textbox', { name: 'John', exact: true }).fill('Shivam');
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+13671@gmail.com');
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
-  await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('98657412401');
-  await page.getByRole('combobox', { name: 'Select roles' }).click();
-  await page.getByRole('option', { name: 'Customer Service' }).click();
-  await page.getByRole('button', { name: 'Add Agent' }).click();
+
+  await page.getByRole('button', { name: 'Add New Agent' }).click();
+
+await page.getByRole('button', { name: 'Title' }).click();
+await page.getByRole('option', { name: 'Mr.' }).click();
+
+await page.getByRole('textbox', { name: 'First Name' }).click();
+await page.getByRole('textbox', { name: 'First Name' }).fill('Shivam');
+
+await page.getByRole('textbox', { name: 'Last Name' }).click();
+await page.getByRole('textbox', { name: 'Last Name' }).fill('k');
+
+await page.getByRole('textbox', { name: 'Email' }).click();
+await page.getByRole('textbox', { name: 'Email' }).fill('akbk6551+13671@gmail.com');
+
+await page.getByRole('textbox', { name: 'Contact' }).click();
+await page.getByRole('textbox', { name: 'Contact' }).fill('98657412401');
+
+await page.getByRole('combobox', { name: 'Role *' }).click();
+await page.getByRole('option', { name: 'Customer Service' }).click();
+
+await page.getByRole('button', { name: 'Save' }).click();
   // // await page.getByText('Agent added successfully').click();
   // // await page.reload(2000);
   // await page.locator('button').nth(5).click();
@@ -103,7 +140,6 @@ await page.reload(2000);
         }
         await page.reload(2000);
   await page.reload();
-  await page.reload(3000);
   console.log('CS Agent completed');
 }
 

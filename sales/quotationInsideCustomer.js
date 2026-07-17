@@ -24,13 +24,14 @@ export async function quotationInsideCustomer(page){
   // await rejectQuotation(page);
 
   // await page.waitForTimeout(3000);
+  //   await rejectedByCustomerQuotation(page);
+  // await page.waitForTimeout(3000);
   // await copyQuotation(page);
   //   await page.waitForTimeout(3000);
-  // await rejectedByCustomerQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await sendQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await editQuotation(page);
+
+  await sendQuotation(page);
+  await page.waitForTimeout(3000);
+  await editQuotation(page);
 
 
   await page.waitForTimeout(30000);
@@ -1479,12 +1480,18 @@ async function   createQuotation(page){
   await page.getByRole('button', { name: 'Add new address' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
    await page.waitForTimeout(1000);
-  await page.getByRole('textbox', { name: 'Search for a location' }).fill('hyderabad');
+  await page.getByRole('textbox', { name: 'Search for a location' }).fill('Hyderabad');
    await page.waitForTimeout(1000);
-    await page.getByText('Hyderabad Decan Railway').click();
-   await page.waitForTimeout(1000);
-      await page.locator('label').filter({ hasText: 'Use as a billing address?' }).click();
-      await page.getByRole('button', { name: 'Save' }).click();
+  await page.getByText('Hyderabad, Telangana, India', { exact: true }).click();
+  await page.waitForTimeout(1000);
+  await page.getByRole('textbox', { name: 'Address Line 1' }).click();
+  await page.getByRole('textbox', { name: 'Address Line 1' }).fill('I-46');
+  await page.getByRole('textbox', { name: 'Address Line 2' }).click();
+  await page.getByRole('textbox', { name: 'Address Line 2' }).fill('Red Hills, Malakpet');
+  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).click();
+  await page.getByRole('textbox', { name: 'PIN Code / Postal Code' }).fill('500001');
+  await page.getByText('Use as a billing address?').click();
+  await page.getByRole('button', { name: 'Save' }).click();
 await page.waitForTimeout(3000);
   
   await page.getByRole('tab', { name: 'Quotation' }).click();
@@ -1516,7 +1523,7 @@ await page.waitForTimeout(3000);
    await page.waitForTimeout(1000);
 
    //2nd Quotation create
-
+ await page.getByRole('tab', { name: 'Quotation' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
    await page.waitForTimeout(1000);
   await page.getByRole('combobox', { name: 'Address' }).click();
@@ -1532,7 +1539,7 @@ await page.waitForTimeout(3000);
    await page.waitForTimeout(1000);
 
    //3rd Quotation create
-   
+    await page.getByRole('tab', { name: 'Quotation' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
    await page.waitForTimeout(1000);
 
@@ -1551,12 +1558,12 @@ await page.waitForTimeout(3000);
 
    //4rth Quotation create
   
-
+ await page.getByRole('tab', { name: 'Quotation' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: '1-46 Red Hills, Malakpet' }).click();
+  await page.getByRole('option', { name: 'I-46 Red Hills, Malakpet' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
   await page.getByRole('button', { name: 'Add Item' }).click();
@@ -1576,19 +1583,19 @@ await page.waitForTimeout(3000);
   await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
    await page.waitForTimeout(1000);
-  //   await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+  //   await page.locator('body tr:nth-of-type(2) td:nth-of-type(9) div button:last-of-type svg').click();
   // await page.getByRole('menuitem', { name: 'Approve' }).click();
 
 
   //  5th quotation
-  // await page.getByRole('tab', { name: 'Quotation' }).click();
+  await page.getByRole('tab', { name: 'Quotation' }).click();
   await page.getByRole('link', { name: 'Add Quotation' }).click();
 
   await page.waitForTimeout(1000);
   
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: '1-46 Red Hills, Malakpet' }).click();
+  await page.getByRole('option', { name: 'I-46 Red Hills, Malakpet' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
   await page.getByRole('button', { name: 'Add Item' }).click();
@@ -1607,7 +1614,7 @@ await page.waitForTimeout(3000);
   await page.locator('textarea[name="products.2.hsnCode"]').fill('1123');
   await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
-  //   await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+  //   await page.locator('body tr:nth-of-type(2) td:nth-of-type(9) div button:last-of-type svg').click();
   // await page.getByRole('menuitem', { name: 'Approve' }).click();
   
   // check in customer portal 
@@ -1652,7 +1659,7 @@ await page.waitForTimeout(3000);
   
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-   await page.getByRole('option', { name: '1-46 Red Hills, Malakpet' }).click();
+   await page.getByRole('option', { name: 'I-46 Red Hills, Malakpet' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
   await page.getByRole('button', { name: 'Add Item' }).click();
@@ -1672,10 +1679,10 @@ await page.waitForTimeout(3000);
   await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
 //    await page.waitForTimeout(1000);
-//     await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+//     await page.locator('body tr:nth-of-type(2) td:nth-of-type(9) div button:last-of-type svg').click();
 //   await page.getByRole('menuitem', { name: 'Approve' }).click();
 //   await page.waitForTimeout(1000);
-//    await page.locator('body tr:nth-of-type(3) td:nth-of-type(7) div button:last-of-type svg').click();
+//    await page.locator('body tr:nth-of-type(3) td:nth-of-type(9) div button:last-of-type svg').click();
 //   await page.getByRole('menuitem', { name: 'Accept' }).click();
 // await page.waitForTimeout(1000);
 // 7th
@@ -1686,7 +1693,7 @@ await page.waitForTimeout(3000);
   
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: '1-46 Red Hills, Malakpet' }).click();
+  await page.getByRole('option', { name: 'I-46 Red Hills, Malakpet' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'Smart watch charger' }).click();
   await page.getByRole('button', { name: 'Add Item' }).click();
@@ -1706,7 +1713,7 @@ await page.waitForTimeout(3000);
   await page.getByRole('textbox', { name: 'Note:' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
    await page.waitForTimeout(1000);
-  //   await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+  //   await page.locator('body tr:nth-of-type(2) td:nth-of-type(9) div button:last-of-type svg').click();
   // await page.getByRole('menuitem', { name: 'Approve' }).click();
 
 // 8th
@@ -1715,7 +1722,7 @@ await page.waitForTimeout(3000);
   await page.waitForTimeout(1000);
   await page.locator('div').filter({ hasText: /^Address$/ }).click();
     await page.waitForTimeout(500);
- await page.getByRole('option', { name: '1-46 Red Hills, Malakpet' }).click();
+ await page.getByRole('option', { name: 'I-46 Red Hills, Malakpet' }).click();
   await page.getByRole('combobox').first().click();
   await page.getByRole('option', { name: 'EV charger' }).click();
   await page.locator('input[name="products.0.discount"]').click();
@@ -1745,7 +1752,7 @@ async function approveQuotation(page) {
  
  await page.getByRole('tab', { name: 'Quotation' }).click();
    await page.waitForTimeout(1000);
-    await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+    await page.locator('body tr:nth-of-type(2) td:nth-of-type(9) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Approve' }).click();
   await page.waitForTimeout(1000);
 
@@ -1769,11 +1776,11 @@ async function acceptQuotation(page) {
   console.log('Enter in accept quotation');
    await page.getByRole('tab', { name: 'Quotation' }).click();
      await page.waitForTimeout(1000);
-      // await page.locator('body tr:nth-of-type(3) td:nth-of-type(7) div button:last-of-type svg').click();
-      await page.locator('body tr:nth-of-type(3) td:nth-of-type(7) div button:last-of-type svg').click();
+      // await page.locator('body tr:nth-of-type(3) td:nth-of-type(9) div button:last-of-type svg').click();
+      await page.locator('body tr:nth-of-type(3) td:nth-of-type(9) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Approve' }).click();
  await page.waitForTimeout(1000);
-   await page.locator('body tr:nth-of-type(3) td:nth-of-type(7) div button:last-of-type svg').click();
+   await page.locator('body tr:nth-of-type(3) td:nth-of-type(9) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Accept' }).click();
 await page.waitForTimeout(1000);
 
@@ -1799,7 +1806,7 @@ async function rejectQuotation(page){
   console.log('Enter in reject quotation');
    await page.getByRole('tab', { name: 'Quotation' }).click();
      await page.waitForTimeout(1000);
-  await page.locator('body tr:nth-of-type(4) td:nth-of-type(7) div button:last-of-type svg').click();
+  await page.locator('body tr:nth-of-type(4) td:nth-of-type(9) div button:last-of-type svg').click();
     await page.getByRole('menuitem', { name: 'Reject' }).click();
   await page.getByRole('textbox').click();
   await page.getByRole('textbox').fill('rejected by manager');
@@ -1826,10 +1833,10 @@ async function rejectedByCustomerQuotation(page) {
   console.log('Enter in reject by customer quotation');
    await page.getByRole('tab', { name: 'Quotation' }).click();
       await page.waitForTimeout(1000);
-  await page.locator('body tr:nth-of-type(1) td:nth-of-type(7) div button:last-of-type svg').click();
+  await page.locator('body tr:nth-of-type(1) td:nth-of-type(9) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Approve' }).click();
   await page.waitForTimeout(3000);
-   await page.locator('body tr:nth-of-type(1) td:nth-of-type(7) div button:last-of-type svg').click();
+   await page.locator('body tr:nth-of-type(1) td:nth-of-type(9) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Reject' }).click();
   await page.waitForTimeout(1000);
 
@@ -1855,11 +1862,11 @@ async function copyQuotation(page){
    console.log('Enter in copy quotation');
     await page.getByRole('tab', { name: 'Quotation' }).click();
      await page.waitForTimeout(1000);
-   await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+   await page.locator('body tr:nth-of-type(2) td:nth-of-type(9) div button:last-of-type svg').click();
      await page.getByRole('menuitem', { name: 'Copy' }).click();
 
   await page.getByRole('combobox', { name: 'Address' }).click();
- await page.getByRole('option', { name: '1-46 Red Hills, Malakpet' }).click();
+ await page.getByRole('option', { name: 'I-46 Red Hills, Malakpet' }).click();
   await page.getByRole('button', { name: 'Save' }).click();
   await page.waitForTimeout(1000);
 
@@ -2033,7 +2040,7 @@ async function deleteQuotation(page) {
 async function reciptDownloadQuotation(page){
   console.log('Enter in  recipt download quotation');
 await page.waitForTimeout(1000);
- await page.locator('body tr:nth-of-type(2) td:nth-of-type(7) div button:last-of-type svg').click();
+ await page.locator('body tr:nth-of-type(2) td:nth-of-type(9) div button:last-of-type svg').click();
   const [excelDownload] = await Promise.all([
     page.waitForEvent('download'),
     page.getByRole('menuitem', { name: 'Receipt' }).click()

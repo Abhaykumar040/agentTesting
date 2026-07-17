@@ -9,7 +9,7 @@ function connectIMAP() {
     user: process.env.EMAIL_USER,
     password: process.env.EMAIL_PASS,
     host: process.env.IMAP_HOST,
-    port: process.env.IMAP_PORT,
+    port: Number(process.env.IMAP_PORT),
     tls: true,
     tlsOptions: { rejectUnauthorized: false }
   });
@@ -29,12 +29,12 @@ export async function waitForEmail(targetTo, maxWait = 120000) {
       return email;
     }
 
-    console.log("No match → retrying in 5 seconds...");
-    await new Promise(r => setTimeout(r, 5000));
+    console.log("No match → retrying in 59 seconds...");
+    await new Promise(r => setTimeout(r, 59000));
 
   }
 
-  throw new Error("Email not received within time");
+  return false;
 }
 
 function checkLatest(targetTo) {
@@ -85,6 +85,7 @@ function checkLatest(targetTo) {
 
                 const data = {
                   to: parsed.to?.text,
+                  cc: parsed.cc?.text ?? null,
                   from: parsed.from?.text,
                   subject: parsed.subject,
                   body: parsed.text,
@@ -123,25 +124,38 @@ function checkLatest(targetTo) {
 
 }
 
-// (async () => {
+(async () => {
 
-//   console.log("STARTING EMAIL CHECK");
+  console.log("STARTING EMAIL CHECK");
 
-//   try {
+  
 
-//     const email = await waitForEmail("akbk6551+1141@gmail.com");
+    const email = await waitForEmail("akbk6551+4552@gmail.com");
 
-//     console.log("EMAIL FOUND:");
-//     console.log(email);
+    if (!email) {
+    console.log("Email not received.");
+} else {
+    const verificationLink = email.body.match(/https?:\/\/\S+/)?.[0];
+    console.log(verificationLink,"abh");
+    const match = email.body.match(/https?:\/\/\S+/);
+
+if (match) {
+    const verificationLink = match[0];
+    console.log(verificationLink,"abh");
+}
+    console.log("EMAIL FOUND:");
+    console.log(email);
+}
 
 
 
 
 
-//   } catch (err) {
 
-//     console.log("ERROR:", err.message);
+   
 
-//   }
+    // console.log("ERROR:", err.message);
 
-// })();
+  
+
+})();

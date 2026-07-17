@@ -1,144 +1,79 @@
+// update.js
+
 import { getDB } from "./db.js";
 import { ObjectId } from "mongodb";
 
-const db = await getDB();
+export async function run(module) {
+  const db = await getDB();
 
-// -------- STEP 1 — find exact user --------
+  const companyId = "6a5674f7c9afcedf207da033";
+  const company = new ObjectId(companyId);
+  const type = "agent";
 
-// const companyId="697e06823ff7f87c11b04575";
-// const company = new ObjectId("697e06823ff7f87c11b04575");
-const companyId="69e5b741b3be353fb3de1e74";
-const company = new ObjectId("69e5b741b3be353fb3de1e74");
-const type = "agent";
+  switch (module) {
 
-const user = await db.collection("users").findOne({
- 
-  company,
-  type,status:1
-});
-const userDetails = await db.collection("userdetails").findOne({
+    case "leads": {
+      const result = await db.collection("leads").updateMany(
+        { company, status: 1 },
+        { $set: { status: 3 } }
+      );
+      console.log(result.matchedCount, result.modifiedCount);
+      break;
+    }
 
-  company,
-  type,status:1
-});
-// const invoicesss = await db.collection("invoices").findOne({
+    case "users": {
+      const user = await db.collection("users").findOne({
+        company,
+        type,
+        status: 1,
+      });
 
-//   company,
-//  status:1
-// });
+      if (!user) return console.log("User not found");
 
-// if (!user) {
-//   console.log("User not found with given conditions");
-//   process.exit(0);
-// }
+      const result = await db.collection("users").updateOne(
+        { _id: user._id },
+        { $set: { status: 3 } }
+      );
 
-// const userId = user._id;
-// const userDetailsId=userDetails._id;
+      console.log(result.modifiedCount);
+      break;
+    }
 
-// -------- STEP 2 — update users --------
-// const u1 = await db.collection("users").updateOne(
-//   { _id: userId },
-//   { $set: { status: 3 } }
-// );
-// const u11 = await db.collection("userdetails").updateMany(
-//   {  company,
-//   type,status:1 },
-//   { $set: { status: 3 } }
-// );
-// console.log("userDetails",u11.matchedCount, u11.modifiedCount);
+    case "tickets": {
+      const result = await db.collection("supportcases").updateMany(
+        { company: companyId, status: 1 },
+        { $set: { status: 3 } }
+      );
 
-const leads = await db.collection("leads").updateMany(
-  {  company,
-  status:1 },
-  { $set: { status: 3 } }
-);
-console.log("leads",leads.matchedCount, leads.modifiedCount);
+      console.log(result.matchedCount, result.modifiedCount);
+      break;
+    }
+     case "statusprofile": {
+      const result = await db.collection("statusprofile").updateMany(
+        { company:companyId, status: 1 },
+        { $set: { status: 3 } }
+      );
 
-// const tickets = await db.collection("supportcases").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set: { status: 3 } }
-// );
-// console.log("ticekts",tickets.matchedCount, tickets.modifiedCount);
+      console.log(result.matchedCount, result.modifiedCount);
+      break;
+    }
 
-// const queue = await db.collection("queues").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set: { status: 3 } }
-// );
-// console.log("queue",queue.matchedCount, queue.modifiedCount);
+    case "crmsettings": {
+      const result = await db.collection("crmsettings").updateOne(
+        { company, status: 1 },
+        {
+          $set: {
+            sla: [],
+            caseCategories: [],
+          },
+        }
+      );
 
-// const teams = await db.collection("teams").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set: { status: 3 } }
-// );
-// console.log("teams",teams.matchedCount, teams.modifiedCount);
+      console.log(result.modifiedCount);
+      break;
+    }
 
-// const faq = await db.collection("faqs").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set: { status: 3 } }
-// );
-// console.log("faq",faq.matchedCount, faq.modifiedCount);
-
-
-
-const crmSetting = await db.collection("crmsettings").updateOne(
-  {  company,
-  status:1 },
-  { $set: { sla: [],caseCategories:[] } }
-);
-console.log("crmSettings",crmSetting.matchedCount, crmSetting.modifiedCount);
-
-// const invoice = await db.collection("invoices").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set:{ status: 3 } }
-// );
-// console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
-
-
-const quotation = await db.collection("quotations").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set:{ status: 3 } }
-);
-console.log("quotation",quotation.matchedCount, quotation.modifiedCount);
-
-
-
-const zone = await db.collection("zones").updateMany(
-  {  company:companyId,
-  status:1 },
-  { $set:{ status: 3 } }
-);
-console.log("zone",zone.matchedCount, zone.modifiedCount);
-
-
-
-// -------- STEP 3 — update userdetails --------
-// const u2 = await db.collection("userdetails").updateOne(
-//   { user: userId,company,type },
-//   { $set: { status: 3 } }
-// );
-
-// console.log("userdetails updated:", u2.modifiedCount);
-
-// // // -------- STEP 4 — update agent --------
-// const u3 = await db.collection("tenantusers").updateMany(
-//   {  company: company ,type,status:1},
-//   { $set: { status: 3 } }
-// );
-
-
-
-
-// console.log("agent updated:", u4.matchedCount);
-
-
-const userVerification = await db.collection("users").updateMany(
-  {  company:company,
-  type:"customer" },
-  { $set:{ verified: true ,isDefaultPass:false} }
-);
+    default:
+      console.log("Invalid module");
+  }
+}

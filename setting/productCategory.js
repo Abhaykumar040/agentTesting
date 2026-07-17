@@ -13,12 +13,12 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function productCategory(page){
-  await deletePreviousProductCategory(page);
-  await page.waitForTimeout(3000);
-  await addProductCategory(page);
-  await page.waitForTimeout(3000);
-  await editProductCategry(page);
-  await page.waitForTimeout(3000);
+  // await deletePreviousProductCategory(page);
+  // await page.waitForTimeout(3000);
+  // await addProductCategory(page);
+  // await page.waitForTimeout(3000);
+  // await editProductCategry(page);
+  // await page.waitForTimeout(3000);
   await deleteProductCategory(page);
 }
 async function deletePreviousProductCategory(page){
@@ -168,7 +168,7 @@ async function  editProductCategry(page) {
   await page.reload();
   await page.waitForTimeout(3000);
   if (await page.getByText('PC2X' ,{ exact: true }).first().isVisible()&&
-  await page.getByText('PC2DX' ,{ exact: true }).isVisible()&&
+  await page.getByText('PC2DX' ,{ exact: true }).last().isVisible()&&
   await page.getByText('PC2CX' ,{ exact: true }).isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/editProductCategry.png`, fullPage: true });
@@ -187,7 +187,8 @@ async function deleteProductCategory(page) {
  console.log("Enter in delete product category");
   await page.getByRole('button', { name: 'Settings' }).click();
   await page.getByRole('link', { name: 'Product Category' }).click();
-      await page.locator('button').nth(3).click();
+   await page.locator("table tbody tr").first().locator("td").nth(3).getByRole("button").last().click();
+
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.getByRole('button', { name: 'Proceed' }).click();
   await expect(page.getByText('Product category deleted')).toBeVisible();

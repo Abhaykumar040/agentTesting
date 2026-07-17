@@ -12,14 +12,18 @@ const screenshotPath=`screenshot/${testData.companyType}/status`
 const pathName=`outputData/status/${testData.companyType}`
 
 
-export async function status(page){
-  await deletePreviuosStatus(page);
+export async function opportunity(page){
+  // await deletePreviuosStatus(page);
+  // await page.waitForTimeout(3000);
+  // await addOpportunity(page);
   await page.waitForTimeout(3000);
-  await addStatus(page);
-  await page.waitForTimeout(3000);
-  await editStatus(page);
-  await page.waitForTimeout(3000);
-  await deleteStatus(page);
+ await emailSendOpportunity(page);
+ 
+  // await editOpportunity(page);
+  // await lostOpportunityInside(page);
+  // await editStatus(page);
+  // await page.waitForTimeout(3000);
+  // await deleteStatus(page);
 }
 async function deletePreviuosStatus(page){
  console.log("Enter in delete previous status")
@@ -65,7 +69,7 @@ async function addOpportunity(page){
   await page.getByRole('textbox', { name: 'Contact person' }).click();
   await page.getByRole('textbox', { name: 'Contact person' }).fill('Ramesh');
   await page.getByRole('textbox', { name: 'Contact email' }).click();
-  await page.getByRole('textbox', { name: 'Contact email' }).fill('akbk6551+4601');
+  await page.getByRole('textbox', { name: 'Contact email' }).fill('akbk6551+4601@gmail.com');
   await page.getByRole('textbox', { name: 'Contact phone' }).click();
   await page.getByRole('textbox', { name: 'Contact phone' }).fill('987655555');
   await page.getByRole('spinbutton', { name: 'Expected revenue' }).click();
@@ -73,7 +77,85 @@ async function addOpportunity(page){
   await page.getByRole('textbox', { name: 'Expected close date' }).fill('2026-07-10');
   await page.getByRole('textbox', { name: 'Description' }).click();
   await page.getByRole('textbox', { name: 'Description' }).fill('Descriopn For ERP sale');
+   
   await page.getByRole('button', { name: 'Create Opportunity' }).click();
-  await page.getByRole('button', { name: 'OPP-000011 He want ERP Apple' }).click();
+  await page.waitForTimeout(3000);
+    await page.getByRole('button', { name: 'New Opportunity' }).click();
+  await page.getByRole('textbox', { name: 'Topic' }).click();
+  await page.getByRole('textbox', { name: 'Topic' }).fill('He want ERP');
+  await page.getByRole('textbox', { name: 'Account / Company' }).click();
+  await page.getByRole('textbox', { name: 'Account / Company' }).fill('Apple');
+  await page.getByRole('textbox', { name: 'Contact person' }).click();
+  await page.getByRole('textbox', { name: 'Contact person' }).fill('Ramesh');
+  await page.getByRole('textbox', { name: 'Contact email' }).click();
+  await page.getByRole('textbox', { name: 'Contact email' }).fill('akbk6551+4601@gmail.com');
+  await page.getByRole('textbox', { name: 'Contact phone' }).click();
+  await page.getByRole('textbox', { name: 'Contact phone' }).fill('987655555');
+  await page.getByRole('spinbutton', { name: 'Expected revenue' }).click();
+  await page.getByRole('spinbutton', { name: 'Expected revenue' }).fill('012000');
+  await page.getByRole('textbox', { name: 'Expected close date' }).fill('2026-07-10');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('Descriopn For ERP sale');
+   
+  await page.getByRole('button', { name: 'Create Opportunity' }).click();
+  await page.waitForTimeout(3000);
 
+  //add by leads
+   await page.getByRole('link', { name: 'Lead Management' }).click();
+  await page.getByRole('cell', { name: 'EV Mobile Pvt Ltd' }).click();
+  await page.getByRole('button', { name: 'Convert to Opportunity' }).click();
+    await page.waitForTimeout(3000);
+     await page.getByRole('link', { name: 'Opportunities' }).click();
+  await expect(page.getByRole('button', { name: 'sells EV Mobile' })).toBeVisible();
+await page.waitForTimeout(3000);
+}
+async function editOpportunity(page){
+await page.locator('div[role="button"][aria-roledescription="draggable"]').first().click();
+
+  await expect(page.locator('div').filter({ hasText: /^Probability10%$/ }).first()).toBeVisible();
+  await expect(page.locator('div').filter({ hasText: /^Expected valueINR 12,000$/ }).first()).toBeVisible();
+  await page.getByRole('button', { name: 'Advance to Qualified' }).click();
+
+  await expect(page.locator('div').filter({ hasText: /^Probability25%$/ }).first()).toBeVisible();
+  await page.getByRole('button', { name: 'Advance to Proposal' }).click();
+  await expect(page.locator('div').filter({ hasText: /^Probability50%$/ }).first()).toBeVisible();
+  await page.getByRole('button', { name: 'Advance to Negotiation' }).click();
+  await page.locator('div').filter({ hasText: /^Probability75%$/ }).first().click();
+  await expect(page.locator('div').filter({ hasText: /^Probability75%$/ }).first()).toBeVisible();
+  await page.getByRole('button', { name: 'Mark Won / Convert' }).click();
+  await expect(page.locator('div').filter({ hasText: /^Probability100%$/ }).first()).toBeVisible();
+  await page.getByRole('link', { name: 'Opportunities' }).click();
+}
+
+async function lostOpportunityInside(page){
+await page.waitForTimeout(5000);
+    
+ await page.locator('div[role="button"][aria-roledescription="draggable"]').first().click();
+
+
+
+  await expect(page.locator('div').filter({ hasText: /^Probability10%$/ }).first()).toBeVisible();
+  await expect(page.locator('div').filter({ hasText: /^Expected valueINR 12,000$/ }).first()).toBeVisible();
+  await page.getByRole('button', { name: 'Advance to Qualified' }).click();
+
+  await expect(page.locator('div').filter({ hasText: /^Probability25%$/ }).first()).toBeVisible();
+  await page.getByRole('button', { name: 'Advance to Proposal' }).click();
+  await expect(page.locator('div').filter({ hasText: /^Probability50%$/ }).first()).toBeVisible();
+  await page.getByRole('button', { name: 'Advance to Negotiation' }).click();
+  await page.locator('div').filter({ hasText: /^Probability75%$/ }).first().click();
+  await expect(page.locator('div').filter({ hasText: /^Probability75%$/ }).first()).toBeVisible();
+  await page.getByRole('button', { name: 'Mark Lost' }).click();
+  await page.getByRole('textbox', { name: 'Reason for loss' }).click();
+  await page.getByRole('textbox', { name: 'Reason for loss' }).fill('He did not want now');
+  await page.getByRole('button', { name: 'Mark Lost' }).click();
+  await expect(page.locator('div').filter({ hasText: /^Probability0%$/ }).first()).toBeVisible();
+}
+async function emailSendOpportunity(page){
+   await page.locator('div[role="button"][aria-roledescription="draggable"]').first().click();
+  await page.getByRole('button', { name: 'Send email' }).click();
+  await page.getByRole('textbox', { name: 'Cc (optional)' }).click();
+  await page.getByRole('textbox', { name: 'Cc (optional)' }).fill('akbk6551+1231@gmail.com');
+  await page.getByRole('button', { name: 'Template (optional) — Select' }).click();
+  await page.getByRole('option', { name: 'Template-LeadX' }).click();
+  await page.getByRole('button', { name: 'Send email' }).click();
 }

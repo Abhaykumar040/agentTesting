@@ -35,13 +35,27 @@ import { invoicesInsideCustomer } from '../sales/invoiceInsideCustomer';
 import { ticketInsideCustomer } from '../customerService/ticketInsideCustomer';
 import { dashboard } from '../dashboard/dashboard';
 import { dispatcher } from '../fsm/dispatcher';
+import { webform } from '../customerService/webform';
+import { esignTemplate } from '../eSign/templates';
+import { signatureRequestEsign } from '../eSign/signatureRequest';
+import { opportunity } from '../sales/opportunity';
+import { emailTemplateSetting } from '../setting/emailTemplate';
 let testData; 
-
+const jsonText = await fs.readFile('./data.json', 'utf8');
+const data = JSON.parse(jsonText); 
 test.beforeAll(async () => {
   const rawData = await fs.readFile('./data.json', 'utf8');
   testData = JSON.parse(rawData);
 });
-test('basic test', async ({ page }) => { 
+test('basic test', async ({ page ,context }) => { 
+   await context.grantPermissions(
+    ['clipboard-read', 'clipboard-write'],
+    {
+      origin: data.url
+    }
+  );
+
+
 await loginRight(page);
 // await companySetup(page);
 // await formCustomization(page);
@@ -52,6 +66,7 @@ await loginRight(page);
 
 // await roles(page); //doneA
 // await status(page); 
+// await emailTemplateSetting(page);
 // await productCategory(page); //doneA
 // await product(page); // referenced product is not done
 // await form(page);
@@ -59,30 +74,35 @@ await loginRight(page);
 // await zone(page);
 // await assetsCategory(page);
 
-// await salesAgents(page);
-await lead(page);
-await customer(page);
+await salesAgents(page);
+// await lead(page);
+await opportunity(page);
+// await customer(page);
 await Quotation(page);
-await quotationInsideCustomer(page);
-await Invoices(page);
+// await quotationInsideCustomer(page);
+// await Invoices(page);
 // await invoicesInsideCustomer(page);
 
 
-await cs_agent(page);
-await team(page);
-await setting(page);
-await customerInC_service(page); 
-await Queue(page);
-await Tickets(page);
-await ticketInsideCustomer(page);
-await FAQs(page);
-await Engineer(page);
-await jobType(page);
-await customerfsm(page);
-await AssetManagement(page);
-await dispatcher(page);
-await internalJob(page);
-await cyclicJob(page);
+// await cs_agent(page);
+// await team(page);
+// await setting(page);
+// await customerInC_service(page); 
+// await Queue(page);
+// await Tickets(page);
+// await ticketInsideCustomer(page);
+await webform(page); 
+// await esignTemplate(page);
+await signatureRequestEsign(page);
+// await FAQs(page);
+// await Engineer(page);
+// await jobType(page);
+// await AssetManagement(page);
+// await customerfsm(page);
+
+// await dispatcher(page);
+// await internalJob(page);
+// await cyclicJob(page);
 // await dashboard(page);
 
 // await page.waitForTimeout(30000);

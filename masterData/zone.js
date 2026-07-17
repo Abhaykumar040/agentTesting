@@ -235,6 +235,27 @@ async function addZone(page) {
   console.log("Add zone completed");
 }
 async function addNewZone(page){
+  await page.getByRole('button', { name: 'Master Data' }).click();
+  await page.getByRole('link', { name: 'Zone' }).click();
+    await page.waitForTimeout(3000);
+   if (await page.getByRole('heading', { name: 'No country coverage configured' }).isVisible()) 
+     {
+           await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Company Setup' }).click();
+  await page.getByRole('tab', { name: 'Job Settings' }).click();
+  await page.getByRole('button', { name: 'Add Country' }).click();
+  await page.getByRole('button', { name: 'Country' }).click();
+  await page.getByRole('option', { name: 'IN — India' }).click();
+  await page.getByRole('button', { name: 'Zoning level' }).click();
+  await page.getByRole('option', { name: 'Postal Circle' }).click();
+ 
+  await page.getByRole('button', { name: 'Save' }).click();
+  await page.getByRole('button', { name: 'Master Data' }).click();
+  await page.getByRole('link', { name: 'Zone' }).click();
+          
+        }
+       
+
    await page.getByRole('button', { name: 'Add New Zone' }).click();
   await page.getByRole('textbox', { name: 'Zone Name' }).click();
   await page.getByRole('textbox', { name: 'Zone Name' }).fill('NI');
@@ -254,9 +275,9 @@ async function addNewZone(page){
   await page.getByRole('textbox', { name: 'Description' }).fill('West India');
   await page.getByRole('button').nth(2).click();
   await page.getByRole('button', { name: 'Uttar-Pradesh' }).click();
-  await page.getByText('Uttar-Pradesh-Chandauli').click();
+  await page.getByText('Uttar-Pradesh-Ballia').click();
   await page.getByRole('tab', { name: 'Exclude (0)' }).click();
-  await page.getByText('Uttar-Pradesh-Bareilly').click();
+  await page.getByText('Uttar-Pradesh-Balrampur').click();
   await page.getByRole('button', { name: 'Create Zone' }).click();
 
    await page.getByRole('button', { name: 'Add New Zone' }).click();
@@ -266,9 +287,9 @@ async function addNewZone(page){
   await page.getByRole('textbox', { name: 'Description' }).fill('Central India');
   await page.getByRole('button').nth(2).click();
   await page.getByRole('button', { name: 'Uttar-Pradesh' }).click();
-  await page.getByText('Uttar-Pradesh-Chandauli').click();
+  await page.getByText('Uttar-Pradesh-Banda').click();
   await page.getByRole('tab', { name: 'Exclude (0)' }).click();
-  await page.getByText('Uttar-Pradesh-Bareilly').click();
+  await page.getByText('Uttar-Pradesh-Basti').click();
   await page.getByRole('button', { name: 'Create Zone' }).click();
 
    await page.getByRole('button', { name: 'Add New Zone' }).click();
@@ -278,9 +299,9 @@ async function addNewZone(page){
   await page.getByRole('textbox', { name: 'Description' }).fill('South India');
   await page.getByRole('button').nth(2).click();
   await page.getByRole('button', { name: 'Uttar-Pradesh' }).click();
-  await page.getByText('Uttar-Pradesh-Chandauli').click();
+  await page.getByText('Uttar-Pradesh-Bijnor').click();
   await page.getByRole('tab', { name: 'Exclude (0)' }).click();
-  await page.getByText('Uttar-Pradesh-Bareilly').click();
+  await page.getByText('Uttar-Pradesh-Budaun').click();
   await page.getByRole('button', { name: 'Create Zone' }).click();
 
    await page.getByRole('button', { name: 'Add New Zone' }).click();
@@ -290,9 +311,9 @@ async function addNewZone(page){
   await page.getByRole('textbox', { name: 'Description' }).fill('East India');
   await page.getByRole('button').nth(2).click();
   await page.getByRole('button', { name: 'Uttar-Pradesh' }).click();
-  await page.getByText('Uttar-Pradesh-Chandauli').click();
+    await page.getByText('Uttar-Pradesh-Chitrakoot').click();
   await page.getByRole('tab', { name: 'Exclude (0)' }).click();
-  await page.getByText('Uttar-Pradesh-Bareilly').click();
+  await page.getByText('Uttar-Pradesh-Deoria').click();
   await page.getByRole('button', { name: 'Create Zone' }).click();
 }
 async function deleteZone(page) {

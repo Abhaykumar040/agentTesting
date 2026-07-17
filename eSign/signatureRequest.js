@@ -12,14 +12,11 @@ const screenshotPath=`screenshot/${testData.companyType}/status`
 const pathName=`outputData/status/${testData.companyType}`
 
 
-export async function status(page){
-  await deletePreviuosStatus(page);
+export async function signatureRequestEsign(page){
+
+  await createSignatureRequest(page);
   await page.waitForTimeout(3000);
-  await addStatus(page);
-  await page.waitForTimeout(3000);
-  await editStatus(page);
-  await page.waitForTimeout(3000);
-  await deleteStatus(page);
+
 }
 async function deletePreviuosStatus(page){
  console.log("Enter in delete previous status")
@@ -59,39 +56,45 @@ async function createSignatureRequest(page){
   await page.getByRole('button', { name: 'New request' }).click();
   await page.getByRole('button', { name: 'Use a template (optional)' }).click();
   await page.getByRole('option', { name: 'E-signTemplateFor' }).click();
+  await page.waitForTimeout(5000);
   await page.getByRole('textbox', { name: 'Signer name' }).click();
   await page.getByRole('textbox', { name: 'Signer name' }).fill('Abhay');
   await page.getByRole('textbox', { name: 'Signer email' }).click();
   await page.getByRole('textbox', { name: 'Signer email' }).fill('akbk6551+4501@gmail.com');
-  await page.getByRole('cell', { name: 'This is DefaultEmailTemplate\'' }).click();
-  await expect(page.getByRole('cell', { name: 'Abhay <akbk6551+4501@gmail.' })).toBeVisible();
+await page.getByRole('button', { name: 'Create & send' }).click();
+ await page.waitForTimeout(5000);
+//   await expect(page.getByRole('cell', { name: 'Abhay <akbk6551+4501@gmail.' })).toBeVisible();
 
   //created By Dashboard
-    await page.getByRole('main').getByRole('link', { name: 'Signature Requests' }).click();
+    await page.getByRole('link', { name: 'Signature Requests' }).click();
   await page.getByRole('button', { name: 'New request' }).click();
-  await page.getByRole('button', { name: 'Choose PDF (max 5 MB)' }).click();
-  await page.getByRole('button', { name: 'Choose PDF (max 5 MB)' }).setInputFiles('Invoice_I-26-05-19-J_Nitin P (1).pdf');
+  const fileChooserPromise = page.waitForEvent('filechooser');
+ await page.getByRole('button', { name: 'Choose PDF (max 5 MB)' }).click();
+
+const fileChooser = await fileChooserPromise;
+
+await fileChooser.setFiles('./download1/Customer.pdf');
+ await page.waitForTimeout(5000);
   await page.getByRole('textbox', { name: 'Signer name' }).click();
   await page.getByRole('textbox', { name: 'Signer name' }).fill('AbhayK');
   await page.getByRole('textbox', { name: 'Signer email' }).click();
   await page.getByRole('textbox', { name: 'Signer email' }).fill('akbk6551+4502@gmail.com');
-  await page.getByRole('button', { name: 'Signature' }).click();
-  await page.locator('.MuiBox-root.css-anu4pk').click();
-  await page.getByRole('button', { name: 'Initials' }).click();
-  await page.locator('div').filter({ hasText: /^signature$/ }).nth(3).click();
-  await page.getByRole('button', { name: 'Date' }).click();
-  await page.getByText('signatureinitials', { exact: true }).click();
-  await page.getByRole('button', { name: 'Name' }).click();
-  await page.getByText('signatureinitialsdate', { exact: true }).click();
-  await page.getByRole('button', { name: 'Text' }).click();
-  await page.getByText('signatureinitialsdatename', { exact: true }).click();
-  await page.getByText('text', { exact: true }).click();
-  await page.getByText('text', { exact: true }).click();
-  await page.getByText('initials', { exact: true }).click();
+  // await page.getByRole('button', { name: 'Signature' }).click();
+  // await page.locator('.MuiBox-root.css-anu4pk').click();
+  // await page.getByRole('button', { name: 'Initials' }).click();
+  // await page.locator('div').filter({ hasText: /^signature$/ }).nth(3).click();
+  // await page.getByRole('button', { name: 'Date' }).click();
+  // await page.getByText('signatureinitials', { exact: true }).click();
+  // await page.getByRole('button', { name: 'Name' }).click();
+  // await page.getByText('signatureinitialsdate', { exact: true }).click();
+  // await page.getByRole('button', { name: 'Text' }).click();
+  // await page.getByText('signatureinitialsdatename', { exact: true }).click();
+  // await page.getByText('text', { exact: true }).click();
+
+ 
   await page.getByRole('textbox', { name: 'Email subject' }).click();
   await page.getByRole('textbox', { name: 'Email subject' }).fill('CreatedByDashboardSubject');
-  await page.getByRole('textbox', { name: 'Email subject' }).press('ControlOrMeta+a');
-  await page.getByRole('textbox', { name: 'Email subject' }).press('ControlOrMeta+c');
+  
   await page.getByRole('textbox', { name: 'Message (optional)' }).click();
   await page.getByRole('textbox', { name: 'Message (optional)' }).fill('CreatedByDashboardMessage');
   await page.getByRole('button', { name: 'Create & send' }).click();

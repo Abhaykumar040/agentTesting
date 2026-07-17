@@ -37,8 +37,8 @@ async function allDeleteTickets(page){
   await page.waitForTimeout(3000);
 
   while( true){
-    const text = await page.textContent('text=Showing');
-    const match = text.match(/of\s+(\d+)\s+entries/);
+    const text = await page.textContent('text=total');
+    const match = text.match(/(\d+)\s+total/);
     const total = match ? parseInt(match[1]) : 0;
 
     // // Stop loop if total <= 0
@@ -48,7 +48,7 @@ async function allDeleteTickets(page){
     if (total <= 0) {
       break;
     }
-  await page.getByRole('row', { name: 'Case ID Title Assigned To' }).getByRole('checkbox').check();
+  await page.getByRole('checkbox', { name: 'Select all rows' }).check();
     await page.getByRole('button', { name: 'Delete' }).click();
      await page.waitForTimeout(2000);
     //  await expect(page.getByText('Customer deleted successfully')).toBeVisible();
@@ -214,14 +214,6 @@ async function editTicket(page){
   await page.getByRole('menuitem', { name: 'ResolvedSupport' }).click();
   await page.getByRole('main').getByRole('button').filter({ hasText: /^$/ }).click();
   await page.getByRole('menuitem', { name: 'doneSupport2' }).click();
-
-   await page.getByRole('button', { name: 'Product Not Workings6' }).click();
-  await page.getByRole('menuitem', { name: 'Product Not Working', exact: true }).click();
-  await page.getByRole('button').nth(4).click();
-  await page.getByRole('menuitem', { name: 'ResolvedSupport' }).click();
-  await page.getByRole('main').getByRole('button').filter({ hasText: /^$/ }).click();
-  await page.getByRole('menuitem', { name: 'doneSupport2' }).click();
-
   await page.getByRole('button', { name: 'Update Case' }).click();
   await page.getByRole('link', { name: 'Tickets' }).click();
 

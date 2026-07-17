@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 import { test, expect } from '@playwright/test';
 import { updateOpJson } from '../updateOp';
+import { waitForEmail } from '../gmail';
 
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
@@ -74,6 +75,14 @@ async function addSalesAgent(page) {
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Sales Manager' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click();
+  await page.waitForTimeout(2000);
+   const email = await waitForEmail("akbk6551+112311@gmail.com");
+   const match = email.body.match(/https?:\/\/\S+/);
+
+if (match) {
+    const verificationLink = match[0];
+    console.log(verificationLink);
+}
   // await page.getByText('Agent added successfully').click();
 
   await page.getByRole('button', { name: 'New Agent', exact: true }).click();
@@ -87,6 +96,17 @@ async function addSalesAgent(page) {
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Sales Manager' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click();
+
+    await page.waitForTimeout(2000);
+     const email = await waitForEmail("akbk6551+112311@gmail.com");
+   const match = email.body.match(/https?:\/\/\S+/);
+
+if (match) {
+    const verificationLink = match[0];
+    console.log(verificationLink);
+}
+
+
   // await page.getByText('Agent added successfully').click();
   await page.reload();
   await page.waitForTimeout(3000);

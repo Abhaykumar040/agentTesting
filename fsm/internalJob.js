@@ -7,6 +7,7 @@ import { dataRead } from '../dataRead';
 import { loginEngineerPortal, loginRight } from '../tests/login';
 import { exit } from 'process';
 import getDateText from '../getDate';
+import getDateJob from '../getDateJob';
 
 
 
@@ -44,8 +45,8 @@ await page.waitForTimeout(3000);
 
 while (true) {
 
-  const text = await page.textContent('text=Showing');
-  const match = text.match(/of\s+(\d+)\s+entries/);
+  const text = await page.textContent('text=total');
+  const match = text.match(/(\d+)\s+total/);
   const total = match ? parseInt(match[1]) : 0;
 
   if (total <= 0) {
@@ -111,70 +112,126 @@ async function createInternalJob(page){
   await page.getByRole('combobox', { name: 'Customer' }).click();
    await page.getByRole('option', { name: 'Anil Rathor' }).click();
   await page.getByRole('button', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Mukundpatti' }).first().click();
-  await page.getByRole('button', { name: 'Job Type' }).click();
-  await page.getByRole('option', { name: 'Installation5' }).click();
-  await page.getByRole('textbox', { name: 'Description' }).click();
-  await page.getByRole('textbox', { name: 'Description' }).fill('installaion');
-  await page.getByRole('button', { name: 'Priority' }).click();
-  await page.getByRole('option', { name: 'Medium - Medium installation' }).click();
-  await page.getByRole('textbox', { name: 'Comments' }).click();
-  await page.getByRole('textbox', { name: 'Comments' }).fill('intallaion least important');
-  await page.getByRole('button', { name: 'Status Profile' }).click();
-  await page.getByRole('option', { name: 'In progressX - In progressDX' }).click();
-  await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name: await getDateText(-1) }).click();
-  await page.getByText('15:00').click();
-  await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: await getDateText(0) }).click();
-  await page.getByText('15:15').click();
-  await page.waitForTimeout(3000);
-   await page.getByRole('radio', { name: 'Engineer' }).check();
-  await page.getByRole('button', { name: 'Engineer' }).click();
-  await page.getByRole('option', { name: 'suhani singh' }).click();
-  await page.getByRole('button', { name: '+ Add Skill' }).click();
-  await page.getByRole('button', { name: 'Skill', exact: true }).click();
-  await page.getByRole('option', { name: 'Testing & Troubleshooting' }).click();
-  await page.getByRole('button', { name: 'Person Responsible' }).click();
-  await page.getByRole('option', { name: 'suhani singh' }).first().click();
-  // await page.getByRole('row', { name: 'FormJCASInstallation' }).getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'Save', exact: true }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Mukundpatti' }).first().click();
+
+await page.getByRole('button', { name: 'Job Type' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Installation5' }).click();
+
+await page.getByRole('checkbox').first().check();
+
+await page.getByRole('button', { name: 'Charger 1 form' }).click();
+await page.getByRole('textbox', { name: 'Enter description...' }).click();
+await page.getByRole('textbox', { name: 'Enter description...' }).fill('dsDuringJobCreation');
+await page.getByRole('button', { name: 'Save', description: 'Save description' }).click();
+
+await page.getByRole('combobox', { name: 'Job Form' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
+
+await page.getByRole('textbox', { name: 'Description' }).last().click();
+await page.waitForTimeout(1000);
+await page.getByRole('textbox', { name: 'Description' }).last().fill('installaion');
+
+await page.getByRole('button', { name: 'Priority' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Medium - Medium installation' }).click();
+
+await page.getByRole('textbox', { name: 'Comments' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('textbox', { name: 'Comments' }).fill('intallaion least important');
+
+const dateText1 = getDateJob(2);
+
+await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
+await page.getByRole('option', { name: dateText1.first }).click();
+await page.getByText('15:00', { exact: true }).click();
+
+await page.getByRole('textbox', { name: 'End Date Time *' }).click();
+await page.getByRole('option', { name: dateText1.second }).click();
+await page.getByText('15:15').click();
+
+await page.getByRole('textbox', { name: 'Site Access Information' }).click();
+await page.getByRole('textbox', { name: 'Site Access Information' }).fill('sai');
+
+await page.getByText('Engineer', { exact: true }).click();
+await page.getByRole('button', { name: '+ Add Engineers' }).click();
+
+await page.getByRole('button', { name: 'Skill' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Testing & Troubleshooting' }).click();
+
+await page.getByRole('button', { name: 'Person Responsible' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'suhani singh' }).first().click();
+
+await page.getByRole('button', { name: 'Save', exact: true }).last().click();
+await page.waitForTimeout(3000);
+await page.getByRole('button', { name: 'Back to list' }).click();
+await page.waitForTimeout(3000);
 
   //  await page.getByRole('link', { name: 'Internal Jobs' }).click();
   await page.getByRole('link', { name: 'Add New Job' }).click();
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Commercial' }).first().click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
-   await page.getByRole('option', { name: 'Mayank Singh (124580)' }).click();
+   await page.getByRole('option', { name: 'Mayank Singh' }).click();
   await page.getByRole('button', { name: 'Address' }).click();
-   await page.getByRole('option', { name: 'Mukundpatti' }).first().click();
-  await page.getByRole('button', { name: 'Job Type' }).click();
-  await page.getByRole('option', { name: 'Installation6' }).click();
-  await page.getByRole('textbox', { name: 'Description' }).click();
-  await page.getByRole('textbox', { name: 'Description' }).fill('Installation');
-  await page.getByRole('button', { name: 'Priority' }).click();
-  await page.getByRole('option', { name: 'High - High installation' }).click();
-  await page.getByRole('textbox', { name: 'Comments' }).click();
-  await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi install karan hai');
-  await page.getByRole('button', { name: 'Status Profile' }).click();
-  await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
-   await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name:  await getDateText(-2) }).click();
-  await page.getByText('15:00').click();
-  await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name:  await getDateText(-1)}).click();
-  await page.getByText('15:15').click();
-  await page.waitForTimeout(3000);
-   await page.getByRole('radio', { name: 'Engineer' }).check();
-  await page.getByRole('button', { name: 'Engineer' }).click();
-  await page.getByRole('option', { name: 'suhani singh' }).click();
-  await page.getByRole('button', { name: '+ Add Skill' }).click();
-  await page.getByRole('button', { name: 'Skill', exact: true }).click();
-  await page.getByRole('option', { name: 'Embedded Systems' }).click();
-  await page.getByRole('button', { name: 'Person Responsible' }).click();
-  await page.getByRole('option', { name: 'Mahesh Rajput' }).click();
-  // await page.getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'Save', exact: true }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Mukundpatti' }).first().click();
+
+await page.getByRole('button', { name: 'Job Type' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Installation6' }).click();
+
+ await page.getByRole('checkbox').check();
+     await page.getByRole('button', { name: 'Mobile charger Edited 1 form' }).click();
+  await page.getByRole('textbox', { name: 'Enter description...' }).click();
+  await page.getByRole('textbox', { name: 'Enter description...' }).fill('dsDuringJobCreation');
+  await page.getByRole('button', { name: 'Save', description: 'Save description' }).click();
+
+await page.getByRole('combobox', { name: 'Job Form' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
+
+await page.getByRole('textbox', { name: 'Description' }).last().click();
+await page.waitForTimeout(1000);
+await page.getByRole('textbox', { name: 'Description' }).last().fill('Installation');
+
+await page.getByRole('button', { name: 'Priority' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'High - High installation' }).click();
+
+await page.getByRole('textbox', { name: 'Comments' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi install karan hai');
+
+const dateText2 = getDateJob(2);
+
+await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
+await page.getByRole('option', { name: dateText2.first }).click();
+await page.getByText('15:00', { exact: true }).click();
+
+await page.getByRole('textbox', { name: 'End Date Time *' }).click();
+await page.getByRole('option', { name: dateText2.second }).click();
+await page.getByText('15:15').click();
+
+await page.getByRole('textbox', { name: 'Site Access Information' }).click();
+await page.getByRole('textbox', { name: 'Site Access Information' }).fill('sai');
+
+await page.getByText('Engineer', { exact: true }).click();
+await page.getByRole('button', { name: '+ Add Engineers' }).click();
+
+await page.getByRole('button', { name: 'Skill' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Embedded Systems' }).click();
+
+await page.getByRole('button', { name: 'Person Responsible' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Mahesh Rajput' }).click();
+
+await page.getByRole('button', { name: 'Save', exact: true }).last().click();
 
   
 
@@ -184,37 +241,61 @@ async function createInternalJob(page){
   await page.getByRole('option', { name: 'Commercial' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
   await page.getByRole('option', { name: 'Mayank Singh (124580)' }).click();
-  await page.getByRole('button', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Jamnagar' }).first().click();
-  await page.getByRole('button', { name: 'Job Type' }).click();
-  await page.getByRole('option', { name: 'Installation6' }).click();
-   await page.getByRole('combobox', { name: 'Job Form' }).click();
-  await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
-  await page.getByRole('textbox', { name: 'Description' }).click();
-  await page.getByRole('textbox', { name: 'Description' }).fill('Installation');
-  await page.getByRole('button', { name: 'Priority' }).click();
-  await page.getByRole('option', { name: 'High - High installation' }).click();
-  await page.getByRole('textbox', { name: 'Comments' }).click();
-  await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi install karan hai');
-  await page.getByRole('button', { name: 'Status Profile' }).click();
-  await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
-   await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name:  await getDateText(-9) }).click();
-  await page.getByText('15:00').click();
-  await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name: await getDateText(-8)}).click();
-  await page.getByText('15:15').click();
-  await page.waitForTimeout(3000);
-   await page.getByRole('radio', { name: 'Engineer' }).check();
-  await page.getByRole('button', { name: 'Engineer' }).click();
-  await page.getByRole('option', { name: 'suhani singh' }).click();
-  await page.getByRole('button', { name: '+ Add Skill' }).click();
-  await page.getByRole('button', { name: 'Skill', exact: true }).click();
-  await page.getByRole('option', { name: 'Embedded Systems' }).click();
-  await page.getByRole('button', { name: 'Person Responsible' }).click();
-  await page.getByRole('option', { name: 'Mahesh Rajput' }).click();
-  // await page.getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'Save', exact: true }).click();
+ await page.getByRole('button', { name: 'Address' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Jamnagar' }).first().click();
+
+await page.getByRole('button', { name: 'Job Type' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Installation6' }).click();
+
+ await page.getByRole('checkbox').check();
+     await page.getByRole('button', { name: 'Mobile charger Edited 1 form' }).click();
+  await page.getByRole('textbox', { name: 'Enter description...' }).click();
+  await page.getByRole('textbox', { name: 'Enter description...' }).fill('dsDuringJobCreation');
+  await page.getByRole('button', { name: 'Save', description: 'Save description' }).click();
+
+await page.getByRole('combobox', { name: 'Job Form' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
+
+await page.getByRole('textbox', { name: 'Description' }).last().click();
+await page.waitForTimeout(1000);
+await page.getByRole('textbox', { name: 'Description' }).last().fill('Installation');
+
+await page.getByRole('button', { name: 'Priority' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'High - High installation' }).click();
+
+await page.getByRole('textbox', { name: 'Comments' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi install karan hai');
+
+const dateText3 = getDateJob(2);
+
+await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
+await page.getByRole('option', { name: dateText3.first }).click();
+await page.getByText('15:00', { exact: true }).click();
+
+await page.getByRole('textbox', { name: 'End Date Time *' }).click();
+await page.getByRole('option', { name: dateText3.second }).click();
+await page.getByText('15:15').click();
+
+await page.getByRole('textbox', { name: 'Site Access Information' }).click();
+await page.getByRole('textbox', { name: 'Site Access Information' }).fill('sai');
+
+await page.getByText('Engineer', { exact: true }).click();
+await page.getByRole('button', { name: '+ Add Engineers' }).click();
+
+await page.getByRole('button', { name: 'Skill' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Embedded Systems' }).click();
+
+await page.getByRole('button', { name: 'Person Responsible' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Mahesh Rajput' }).click();
+
+await page.getByRole('button', { name: 'Save', exact: true }).last().click();
 
   // await page.getByRole('link', { name: 'Internal Jobs' }).click();
   await page.getByRole('link', { name: 'Add New Job' }).click();
@@ -223,111 +304,180 @@ async function createInternalJob(page){
   await page.getByRole('combobox', { name: 'Customer' }).click();
   await page.getByRole('option', { name: 'Mayank Singh (124580)' }).click();
   await page.getByRole('button', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Jamnagar' }).first().click();
-  await page.getByRole('button', { name: 'Job Type' }).click();
-  await page.getByRole('option', { name: 'Installation3' }).click();
-   await page.getByRole('combobox', { name: 'Job Form' }).click();
-  await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
-  await page.getByRole('textbox', { name: 'Description' }).click();
-  await page.getByRole('textbox', { name: 'Description' }).fill('Power issue');
-  await page.getByRole('button', { name: 'Priority' }).click();
-  await page.getByRole('option', { name: 'High - High installation' }).click();
-  await page.getByRole('textbox', { name: 'Comments' }).click();
-  await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi resolve karan hai');
-  await page.getByRole('button', { name: 'Status Profile' }).click();
-  await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
-    await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name:  await getDateText(-8) }).click();
-  await page.getByText('15:00').click();
-  await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name:  await getDateText(-7) }).click();
-  await page.getByText('15:15').click();
-  await page.waitForTimeout(3000);
-  await page.getByRole('radio', { name: 'Engineer' }).check();
-  await page.getByRole('button', { name: 'Engineer' }).click();
-  await page.getByRole('option', { name: 'suhani singh' }).click();
-  await page.getByRole('button', { name: '+ Add Skill' }).click();
-  await page.getByRole('button', { name: 'Skill', exact: true }).click();
-  await page.getByRole('option', { name: 'Embedded Systems' }).click();
-  await page.getByRole('button', { name: 'Person Responsible' }).click();
-  await page.getByRole('option', { name: 'Mahesh Rajput' }).click();
-  // await page.getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'Save', exact: true }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Jamnagar' }).first().click();
+
+await page.getByRole('button', { name: 'Job Type' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Installation3' }).click();
+
+ await page.getByRole('checkbox').check();
+     await page.getByRole('button', { name: 'Mobile charger Edited 1 form' }).click();
+  await page.getByRole('textbox', { name: 'Enter description...' }).click();
+  await page.getByRole('textbox', { name: 'Enter description...' }).fill('dsDuringJobCreation');
+  await page.getByRole('button', { name: 'Save', description: 'Save description' }).click();
+
+await page.getByRole('combobox', { name: 'Job Form' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
+
+await page.getByRole('textbox', { name: 'Description' }).last().click();
+await page.waitForTimeout(1000);
+await page.getByRole('textbox', { name: 'Description' }).last().fill('Power issue');
+
+await page.getByRole('button', { name: 'Priority' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'High - High installation' }).click();
+
+await page.getByRole('textbox', { name: 'Comments' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi resolve karan hai');
+
+const dateText4 = getDateJob(2);
+
+await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
+await page.getByRole('option', { name: dateText4.first }).click();
+await page.getByText('15:00', { exact: true }).click();
+
+await page.getByRole('textbox', { name: 'End Date Time *' }).click();
+await page.getByRole('option', { name: dateText4.second }).click();
+await page.getByText('15:15').click();
+
+await page.getByRole('textbox', { name: 'Site Access Information' }).click();
+await page.getByRole('textbox', { name: 'Site Access Information' }).fill('sai');
+
+await page.getByText('Engineer', { exact: true }).click();
+await page.getByRole('button', { name: '+ Add Engineers' }).click();
+
+await page.getByRole('button', { name: 'Skill' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Embedded Systems' }).click();
+
+await page.getByRole('button', { name: 'Person Responsible' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Mahesh Rajput' }).click();
+
+await page.getByRole('button', { name: 'Save', exact: true }).last().click();
 
   await page.getByRole('link', { name: 'Add New Job' }).click();
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Commercial' }).click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
   await page.getByRole('option', { name: 'Mayank Singh (124580)' }).click();
-  await page.getByRole('button', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Jamnagar' }).first().click();
-  await page.getByRole('button', { name: 'Job Type' }).click();
-  await page.getByRole('option', { name: 'Installation4' }).click();
-   await page.getByRole('combobox', { name: 'Job Form' }).click();
-  await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
-  await page.getByRole('textbox', { name: 'Description' }).click();
-  await page.getByRole('textbox', { name: 'Description' }).fill('installation 2');
-  await page.getByRole('button', { name: 'Priority' }).click();
-  await page.getByRole('option', { name: 'High - High installation' }).click();
-  await page.getByRole('textbox', { name: 'Comments' }).click();
-  await page.waitForTimeout(3000);
-  await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi install 2 karan hai');
-  await page.getByRole('button', { name: 'Status Profile' }).click();
-  await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
-    await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name:  await getDateText(0) }).click();
-  await page.getByText('15:00').click();
-  await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name:  await getDateText(1) }).click();
-  await page.getByText('15:15').click();
-  await page.waitForTimeout(3000);
-   await page.getByRole('radio', { name: 'Engineer' }).check();
-  await page.getByRole('button', { name: 'Engineer' }).click();
-  await page.getByRole('option', { name: 'suhani singh' }).click();
-  await page.getByRole('button', { name: '+ Add Skill' }).click();
-  await page.getByRole('button', { name: 'Skill', exact: true }).click();
-  await page.getByRole('option', { name: 'Embedded Systems' }).click();
-  await page.getByRole('button', { name: 'Person Responsible' }).click();
-  await page.getByRole('option', { name: 'Mahesh Rajput' }).click();
-  // await page.getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'Save', exact: true }).click();
+ await page.getByRole('button', { name: 'Address' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Jamnagar' }).first().click();
+
+await page.getByRole('button', { name: 'Job Type' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Installation4' }).click();
+ await page.getByRole('checkbox').check();
+     await page.getByRole('button', { name: 'Mobile charger Edited 1 form' }).click();
+  await page.getByRole('textbox', { name: 'Enter description...' }).click();
+  await page.getByRole('textbox', { name: 'Enter description...' }).fill('dsDuringJobCreation');
+  await page.getByRole('button', { name: 'Save', description: 'Save description' }).click();
+
+await page.getByRole('combobox', { name: 'Job Form' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
+
+await page.getByRole('textbox', { name: 'Description' }).last().click();
+await page.waitForTimeout(1000);
+await page.getByRole('textbox', { name: 'Description' }).last().fill('installation 2');
+
+await page.getByRole('button', { name: 'Priority' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'High - High installation' }).click();
+
+await page.getByRole('textbox', { name: 'Comments' }).click();
+await page.waitForTimeout(3000);
+await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi install 2 karan hai');
+
+const dateText5 = getDateJob(2);
+
+await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
+await page.getByRole('option', { name: dateText5.first }).click();
+await page.getByText('15:00', { exact: true }).click();
+
+await page.getByRole('textbox', { name: 'End Date Time *' }).click();
+await page.getByRole('option', { name: dateText5.second }).click();
+await page.getByText('15:15').click();
+
+await page.getByRole('textbox', { name: 'Site Access Information' }).click();
+await page.getByRole('textbox', { name: 'Site Access Information' }).fill('sai');
+
+await page.getByText('Engineer', { exact: true }).click();
+await page.getByRole('button', { name: '+ Add Engineers' }).click();
+
+await page.getByRole('button', { name: 'Skill' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Embedded Systems' }).click();
+
+await page.getByRole('button', { name: 'Person Responsible' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Mahesh Rajput' }).click();
+
+await page.getByRole('button', { name: 'Save', exact: true }).last().click();
 
   await page.getByRole('link', { name: 'Add New Job' }).click();
   await page.getByRole('button', { name: 'Customer Type * Commercial' }).click();
   await page.getByRole('option', { name: 'Commercial' }).first().click();
   await page.getByRole('combobox', { name: 'Customer' }).click();
   await page.getByRole('option', { name: 'Mayank Singh (124580)' }).click();
-  await page.getByRole('button', { name: 'Address' }).click();
-  await page.getByRole('option', { name: 'Jamnagar' }).first().click();
-  await page.getByRole('button', { name: 'Job Type' }).click();
-  await page.getByRole('option', { name: 'Installation6' }).click();
-  await page.getByRole('combobox', { name: 'Job Form' }).click();
-  await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
-  await page.getByRole('textbox', { name: 'Description' }).click();
-  await page.getByRole('textbox', { name: 'Description' }).fill('Installation 3');
-  await page.getByRole('button', { name: 'Priority' }).click();
-  await page.getByRole('option', { name: 'High - High installation' }).click();
-  await page.getByRole('textbox', { name: 'Comments' }).click();
-  await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi install 3 karan hai');
-  await page.getByRole('button', { name: 'Status Profile' }).click();
-  await page.getByRole('option', { name: 'doneJob - doneJob' }).click();
-   await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
-  await page.getByRole('option', { name:  await getDateText(0) }).click();
-  await page.getByText('15:00').click();
-  await page.getByRole('textbox', { name: 'End Date Time *' }).click();
-  await page.getByRole('option', { name:  await getDateText(2) }).click();
-  await page.getByText('15:15').click();
-  await page.waitForTimeout(3000);
-   await page.getByRole('radio', { name: 'Engineer' }).check();
-  await page.getByRole('button', { name: 'Engineer' }).click();
-  await page.getByRole('option', { name: 'suhani singh' }).click();
-  await page.getByRole('button', { name: '+ Add Skill' }).click();
-  await page.getByRole('button', { name: 'Skill', exact: true }).click();
-  await page.getByRole('option', { name: 'Embedded Systems' }).click();
-  await page.getByRole('button', { name: 'Person Responsible' }).click();
-  await page.getByRole('option', { name: 'Mahesh Rajput' }).click();
-  // await page.getByRole('checkbox').check();
-  await page.getByRole('button', { name: 'Save', exact: true }).click();
+ await page.getByRole('button', { name: 'Address' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Jamnagar' }).first().click();
+
+await page.getByRole('button', { name: 'Job Type' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Installation6' }).click();
+
+ await page.getByRole('checkbox').check();
+     await page.getByRole('button', { name: 'Mobile charger Edited 1 form' }).click();
+  await page.getByRole('textbox', { name: 'Enter description...' }).click();
+  await page.getByRole('textbox', { name: 'Enter description...' }).fill('dsDuringJobCreation');
+  await page.getByRole('button', { name: 'Save', description: 'Save description' }).click();
+
+await page.getByRole('combobox', { name: 'Job Form' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
+
+await page.getByRole('textbox', { name: 'Description' }).last().click();
+await page.waitForTimeout(1000);
+await page.getByRole('textbox', { name: 'Description' }).last().fill('Installation 3');
+
+await page.getByRole('button', { name: 'Priority' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'High - High installation' }).click();
+
+await page.getByRole('textbox', { name: 'Comments' }).click();
+await page.getByRole('textbox', { name: 'Comments' }).fill('high priority hai isako jaldi install 3 karan hai');
+
+const dateText6 = getDateJob(2);
+
+await page.getByRole('textbox', { name: 'Start Date Time *' }).click();
+await page.getByRole('option', { name: dateText6.first }).click();
+await page.getByText('15:00', { exact: true }).click();
+
+await page.getByRole('textbox', { name: 'End Date Time *' }).click();
+await page.getByRole('option', { name: dateText6.second }).click();
+await page.getByText('15:15').click();
+
+await page.getByRole('textbox', { name: 'Site Access Information' }).click();
+await page.getByRole('textbox', { name: 'Site Access Information' }).fill('sai');
+
+await page.getByText('Engineer', { exact: true }).click();
+await page.getByRole('button', { name: '+ Add Engineers' }).click();
+
+await page.getByRole('button', { name: 'Skill' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Embedded Systems' }).click();
+
+await page.getByRole('button', { name: 'Person Responsible' }).click();
+await page.waitForTimeout(1000);
+await page.getByRole('option', { name: 'Mahesh Rajput' }).click();
+
+await page.getByRole('button', { name: 'Save', exact: true }).last().click();
 
 
   await page.waitForTimeout(2000);

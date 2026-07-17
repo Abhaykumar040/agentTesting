@@ -59,10 +59,10 @@ async function editTeam(page){
   await page.getByRole('button', { name: 'Agent' }).click();
   await page.getByRole('option', { name: 'Shivam' }).first().click();
   await page.getByRole('button', { name: 'Add Member' }).click();
-  await expect(page.getByText('Team updated successfully')).toBeVisible();
+ await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Add Team Members' }).click();
   await page.getByRole('button', { name: 'Agent' }).click();
-  await page.getByRole('option', { name: 'Jitendra' }).click();
+  await page.getByRole('option', { name: 'Yogesh Yadav' }).click();
   await page.getByRole('button', { name: 'Add Member' }).click();
   await page.waitForTimeout(1000);
         

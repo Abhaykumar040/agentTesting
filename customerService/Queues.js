@@ -31,7 +31,7 @@ async function allQueueDelete(page){
 async function addQueues(page){
   console.log('Enter in add queue');
   //  await page.getByRole('button', { name: 'Customer Service' }).click();
-  // await page.getByRole('link', { name: 'Queues' }).click();
+  await page.getByRole('link', { name: 'Queues' }).click();
   // await expect(page.getByText('Queue added successfully')).toBeVisible();
 
 
@@ -136,6 +136,7 @@ async function addTeamIntoQueue(page){
 
 async function deleteQueue(page){
   console.log("Enter in delete queue");
+    await page.getByRole('link', { name: 'Queues' }).click();
   await page.getByRole('button', { name: 'New Queue' }).click();
   await page.getByRole('textbox', { name: 'e.g. Technical Support' }).click();
   await page.getByRole('textbox', { name: 'e.g. Technical Support' }).fill('Technical Queue1');

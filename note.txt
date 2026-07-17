@@ -72,3 +72,13 @@ await chooser.setFiles('downloads/leads.xlsx');
   { $set: { status: 3 } }
 )
 
+
+
+page.waitForTimeout(2000);
+   const email = await waitForEmail("akbk6551+112311@gmail.com");
+const match = email.body.match(/https?:\/\/\S+/);
+
+if (match) {
+    const verificationLink = match[0];
+    console.log(verificationLink);
+}

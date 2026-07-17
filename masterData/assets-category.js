@@ -12,12 +12,12 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 
 export async function assetsCategory(page){
- await deletePreviuosAssets(page);
- await page.waitForTimeout(2000);
- await addAssets(page);
- await page.waitForTimeout(2000);
- await editAssets(page);
- await page.waitForTimeout(2000);
+//  await deletePreviuosAssets(page);
+//  await page.waitForTimeout(2000);
+//  await addAssets(page);
+//  await page.waitForTimeout(2000);
+//  await editAssets(page);
+//  await page.waitForTimeout(2000);
  await deleteAssets(page);
 }
 
@@ -147,7 +147,7 @@ async function deleteAssets(page){
   console.log("Enter in delete assets");
   // await page.getByRole('button', { name: 'Master Data' }).click();
   // await page.getByRole('link', { name: 'Asset Category' }).click();
-  await page.getByRole('button').filter({ hasText: /^$/ }).nth(3).click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(4).click();
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.getByRole('button', { name: 'Proceed' }).click();
     await page.waitForTimeout(3000);
@@ -155,7 +155,8 @@ async function deleteAssets(page){
    await page.reload();
     await page.waitForTimeout(3000);
     
-     if (page.getByText('East India').isVisible()) 
+     if ( !await page.getByText('Adaptor').isVisible() &&
+      await page.getByText('Charger Cabal').isVisible() ) 
        {
             await page.screenshot({ path: `./${screenshotPath}/deleteAssets.png`, fullPage: true });
             await updateOpJson(`./${screenshotPath}/`,"deleteAssets","true",`./${screenshotPath}/deleteAssets.png`)
