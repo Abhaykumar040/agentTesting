@@ -4,6 +4,7 @@ const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
 import { dataRead } from '../dataRead';
+import { waitForEmail } from '../gmail';
 
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
@@ -12,23 +13,23 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 
 export async function Quotation(page){
-// delete previuos Quotation by check.js
-  // await createQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await approveQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await acceptQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await rejectQuotation(page);
-  //  await page.waitForTimeout(3000);
-  // await addQuotationByLead(page);
-  //   await page.waitForTimeout(3000);
-await addQuotationByOpportunity(page);
-  await page.waitForTimeout(3000);
-  await copyQuotation(page);
-  await page.waitForTimeout(3000);
-  await rejectedByCustomerQuotation(page);
-  await page.waitForTimeout(3000);
+// // delete previuos Quotation by check.js
+//   await createQuotation(page);
+//   await page.waitForTimeout(3000);
+//   await approveQuotation(page);
+//   await page.waitForTimeout(3000);
+//   await acceptQuotation(page);
+//   await page.waitForTimeout(3000);
+//   await rejectQuotation(page);
+//    await page.waitForTimeout(3000);
+//   await addQuotationByLead(page);
+//     await page.waitForTimeout(3000);
+// await addQuotationByOpportunity(page);
+//   await page.waitForTimeout(3000);
+//   await copyQuotation(page);
+//   await page.waitForTimeout(3000);
+//   await rejectedByCustomerQuotation(page);
+//   await page.waitForTimeout(3000);
   await sendQuotation(page);
   await page.waitForTimeout(3000);
   await editQuotation(page);
@@ -1228,7 +1229,7 @@ await page.getByRole('link', { name: 'Add Quotation' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('combobox', { name: 'Customer' }).click();
    await page.waitForTimeout(500);
-    await page.getByRole('option', { name: 'Mayank Singh (124580)' }).click();
+    await page.getByRole('option', { name: 'Mayank Singh' }).click();
   await page.waitForTimeout(500);
   await page.getByRole('combobox', { name: 'Address' }).click();
   await page.waitForTimeout(1000);
@@ -1579,9 +1580,9 @@ async function sendQuotation(page){
   await page.getByRole('button', { name: 'Send Quotation' }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'To' }).click();
-  await page.getByRole('textbox', { name: 'To' }).fill('akbk04@gmail.com');
+  await page.getByRole('textbox', { name: 'To' }).fill('akbk6551+23101@gmail.com');
   await page.getByRole('textbox', { name: 'CC' }).click();
-  await page.getByRole('textbox', { name: 'CC' }).fill('abhay@zynka.ai,abhay+1@zynka.ai');
+  await page.getByRole('textbox', { name: 'CC' }).fill('akbk6551+23102@gmail.com,akbk6551+23103@gmail.com');
   await page.getByRole('textbox', { name: 'Message' }).click();
 
   await page.getByRole('textbox', { name: 'Message' }).fill('Dear Customer,\n  Thank you for your business, always a pleasure to work with you!\n  We have generated a new quotation.X');
@@ -1589,19 +1590,34 @@ async function sendQuotation(page){
  
   await page.getByRole('textbox', { name: 'Subject' }).fill('Quotation of services and items to be purchasedX');
   await page.getByRole('button', { name: 'Send' }).click();
-  await page.waitForTimeout(3000);
+  await page.waitForTimeout(5000);
 
 
-  if (await page.getByText('Quotation mailed successfully',{exact:true}).first().isVisible()) 
-  {
-    await page.screenshot({ path: `./${screenshotPath}/sendQuotation.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"sendQuotation","true",`./${screenshotPath}/sendQuotation.png`)
-    
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/sendQuotation.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"sendQuotation","false",`./${screenshotPath}/sendQuotation.png`)
-  }
+const email1 = await waitForEmail("akbk6551+23101@gmail.com");
+const match = email1?.body?.match(/https?:\/\/\S+/);
+console.log(email1,"abhay")
+if (match) {
+    const verificationLink = match[0];
+    console.log(verificationLink);
+
+    await page.screenshot({ path: `./${screenshotPath}/sendQuotationToCustomerByEmail.png`, fullPage: true });
+    await updateOpJson(
+        `./${screenshotPath}/`,
+        "sendQuotationToCustomerByEmail",
+        "true",
+        `./${screenshotPath}/sendQuotationToCustomerByEmail.png`
+    );
+} else {
+    await page.screenshot({ path: `./${screenshotPath}/sendQuotationToCustomerByEmail.png`, fullPage: true });
+    await updateOpJson(
+        `./${screenshotPath}/`,
+        "sendQuotationToCustomerByEmail",
+        "false",
+        `./${screenshotPath}/sendQuotationToCustomerByEmail.png`
+    );
+}
+
+await page.reload();
   await page.getByRole('button', { name: 'Back to list' }).click();
     await page.waitForTimeout(1000);
   await page.reload();

@@ -98,12 +98,12 @@ if (match) {
   await page.getByRole('button', { name: 'Add Agent' }).click();
 
     await page.waitForTimeout(2000);
-     const email = await waitForEmail("akbk6551+112311@gmail.com");
-   const match = email.body.match(/https?:\/\/\S+/);
+     const email2 = await waitForEmail("akbk6551+112311@gmail.com");
+   const match2 = email2.body.match(/https?:\/\/\S+/);
 
-if (match) {
-    const verificationLink = match[0];
-    console.log(verificationLink);
+if (match2) {
+    const verificationLink2 = match[0];
+    console.log(verificationLink2);
 }
 
 

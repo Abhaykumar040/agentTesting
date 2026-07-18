@@ -204,9 +204,7 @@ async function addProduct(page){
     await page.waitForTimeout(3000);
   await page.reload();
   await page.waitForTimeout(3000);
-  await page.getByRole('button', { name: 'Master Data' }).click();
-  await page.getByRole('link', { name: 'Products' }).click();
-  await page.waitForTimeout(2000);
+
   if (await page.getByText('Smart watch charger', { exact: true }).isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/addProduct.png`, fullPage: true });
@@ -247,9 +245,7 @@ async function editProduct(page) {
     await page.waitForTimeout(3000);
   await page.reload();
     await page.waitForTimeout(3000);
-  await page.getByRole('button', { name: 'Master Data' }).click();
-  await page.getByRole('link', { name: 'Products' }).click();
-  await page.waitForTimeout(1000);
+
     
   if (await page.getByText('Fiber Optics cable', { exact: true }).isVisible())  
   {
@@ -276,8 +272,11 @@ async function deleteProduct(page) {
   await page.getByRole('button', { name: 'Master Data' }).click();
   await page.getByRole('link', { name: 'Products' }).click();
   await page.waitForTimeout(1000);
+  await page.locator('tbody tr').first().locator('td').nth(7).locator('button:has(svg)').last().click();
+  await page.getByRole('menuitem', { name: 'Delete' }).first().click();
+    await page.waitForTimeout(2000);
     
-  if (!await page.getByText('Deleted Product', { exact: true }).isVisible())  
+  if (!await page.getByText('Deleted Product', { exact: true }).first().isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/deleteProduct.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"deleteProduct","true",`./${screenshotPath}/deleteProduct.png`,"Product is deleted 'Deleted Product'")
@@ -290,7 +289,7 @@ async function deleteProduct(page) {
   await page.waitForTimeout(3000);
   await page.reload();
   await page.waitForTimeout(3000);
-  console.log("Delete product");
+  console.log("Delete product done");
 }
 
 async function referencedProduct(page) {

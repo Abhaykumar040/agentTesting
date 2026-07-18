@@ -11,7 +11,7 @@ const screenshotPath=`screenshot/${testData.companyType}/invoices`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Invoices(page){
-  await addInvoices(page);
+  await addPerformaInvoices(page);
   await page.waitForTimeout(3000);
    await page.waitForTimeout(3000);
   await cancelInvoice(page);

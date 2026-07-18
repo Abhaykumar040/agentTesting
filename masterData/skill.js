@@ -217,7 +217,7 @@ async function deletePreviousProficiency(page){
 
 
     while( true){
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(3000);
   if ( await page
   .getByRole('heading', { name: 'No Proficiency Levels' })
   .isVisible()) {

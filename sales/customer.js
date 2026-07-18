@@ -12,9 +12,11 @@ const screenshotPath=`screenshot/${testData.companyType}/customer`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function customer(page){
+
+
 //  await deletePreviuosCustomer(page);
 //  await page.waitForTimeout(3000);
-
+// await formAutoSelect(page);
 
 //   const rawData = await fs.readFile('./data.json', 'utf8');
 //          const testData = JSON.parse(rawData);
@@ -34,8 +36,8 @@ export async function customer(page){
 //  await page.waitForTimeout(3000);
 // await addressCreateSalesCustomerCommercial(page);
 // await page.waitForTimeout(3000);
-await addressCreateSalesCustomerIndividual(page);
-await page.waitForTimeout(3000);
+// await addressCreateSalesCustomerIndividual(page);
+// await page.waitForTimeout(3000);
   await exportCustomerNormal(page);
   await page.waitForTimeout(3000);
   await exportCustomerFilter(page)
@@ -45,25 +47,40 @@ await page.waitForTimeout(3000);
 
 async function emailVarificationInCustomerSales(page){
   console.log('Enter in email customer in customer service');
-  
-  const targetEmail = "akbk6551+1136@gmail.com";
-  await page.getByRole('row', { name: 'Anil Rathor akbk6551+1136@' }).getByLabel('Email not verified').click();
+
+    await page.getByText('Email not verified').click();
+
   await page.waitForTimeout(1000);
   
-  await waitForEmail(targetEmail,3000);
 
-  if (await page.getByText('Onboarding email resent').isVisible())
-  {
-    await page.screenshot({ path: `./${screenshotPath}/emailVarificationInCustomerSales.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"emailVarificationInCustomerSales","true",`./${screenshotPath}/emailVarificationInCustomerSales.png`)
+            
+   const email1 = await waitForEmail("akbk6551+1240@gmail.com");
+const match = email1?.body?.match(/https?:\/\/\S+/);
 
-  }
-  else{
-    await page.screenshot({ path: `./${screenshotPath}/emailVarificationInCustomerSales.png`, fullPage: true });
-    await updateOpJson(`./${screenshotPath}/`,"emailVarificationInCustomerSales","false",`./${screenshotPath}/emailVarificationInCustomerSales.png`)
-  }
-    
-  await page.reload();
+if (match) {
+    const verificationLink = match[0];
+    console.log(verificationLink);
+
+    await page.screenshot({ path: `./${screenshotPath}/resendEmailForCustomer.png`, fullPage: true });
+    await updateOpJson(
+        `./${screenshotPath}/`,
+        "resendEmailForCustomer",
+        "true",
+        `./${screenshotPath}/resendEmailForCustomer.png`
+    );
+} else {
+    await page.screenshot({ path: `./${screenshotPath}/resendEmailForCustomer.png`, fullPage: true });
+    await updateOpJson(
+        `./${screenshotPath}/`,
+        "resendEmailForCustomer",
+        "false",
+        `./${screenshotPath}/resendEmailForCustomer.png`
+    );
+}
+
+await page.reload();
+
+ 
   console.log('Email customer in customer service');
 }
 
@@ -1574,17 +1591,32 @@ async function createCustomerOne(page){
 async function exportCustomerNormal(page) {
   console.log("Enter in export customer normal");
   // await page.getByRole('button', { name: 'Sales' }).click();
-  // await page.getByRole('link', { name: 'Customers' }).click();
+  await page.getByRole('link', { name: 'Customers' }).click();
    const [excelDownload] = await Promise.all([
     page.waitForEvent('download'),
     page.getByRole('button', { name: 'Export To Excel' }).click()
   ]);
   await excelDownload.saveAs('downloads/exportExelCustomerNormal.xlsx');
   const result1 = await dataRead(
-        "./downloads/exportExelCustomerNormal.xlsx",
-        ["Mayank Rathor","akbk6551+1139@gmail.com"],
-        ["Vijay Singh","akbk6551+1200@gmail.com"]
-    );
+    "./downloads/exportExelCustomerNormal.xlsx",
+    [
+        "Sonu Rathor",
+        "akbk6551+1140@gmail.com",
+        "Kolpit Rathor",
+        "akbk6551+1240@gmail.com",
+        "Anil Rathor",
+        "akbk6551+1136@gmail.com",
+        "Shyam Sundar",
+        "akbk6551+1212@gmail.com",
+        "Jony Rathor",
+        "akbk6551+1109@gmail.com",
+        "Sushil Kumar",
+        "akbk6551+1220@gmail.com",
+        "Sushil Singh",
+        "akbk6551+1218@gmail.com"
+    ],
+    []
+);
     console.log(result1);
   await page.waitForTimeout(2000);
   if (result1.success
@@ -1936,12 +1968,12 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Person In Charge *' }).fill('Sushil Singh');
   await page.getByRole('textbox', { name: 'Dealer/Company Name' }).click();
   await page.getByRole('textbox', { name: 'Dealer/Company Name' }).fill('Mayank Singh');
-  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).click();
-  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('124580');
+  // await page.getByRole('textbox', { name: 'Dealer/Company Code' }).click();
+  // await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('124580');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000001');
-  await page.getByRole('button', { name: 'Open' }).click();
-  await page.getByRole('option', { name: 'FormC1Installation' }).click();
+  // await page.getByRole('button', { name: 'Open' }).click();
+  // await page.getByRole('option', { name: 'FormC1Installation' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
     await page.getByRole('textbox', { name: 'Search for a location' }).click();
   
@@ -1982,12 +2014,12 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Person In Charge *' }).fill('Sushil Kumar');
   await page.getByRole('textbox', { name: 'Dealer/Company Name' }).click();
   await page.getByRole('textbox', { name: 'Dealer/Company Name' }).fill('Ishan Singh');
-  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).click();
-  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1345836');
+  // await page.getByRole('textbox', { name: 'Dealer/Company Code' }).click();
+  // await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1345836');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000003');
-  await page.getByRole('button', { name: 'Open' }).click();
-  await page.getByRole('option', { name: 'FormC1Installation' }).click();
+  // await page.getByRole('button', { name: 'Open' }).click();
+  // await page.getByRole('option', { name: 'FormC1Installation' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('textbox', { name: 'Search for a location' }).click();
   await page.waitForTimeout(1000);
@@ -2012,49 +2044,49 @@ async function addCustomer(page){
   // await page.getByText('CancelCreate Customer').click();
   await page.getByRole('button', { name: 'Create Customer' }).click();
   
-  await page.getByRole('button', { name: 'Add New Customer' }).click();
-  await page.getByRole('radio', { name: 'Commercial' }).check();
-  await page.getByRole('button', { name: 'Select Title' }).click();
-  await page.getByRole('option', { name: 'Ms.' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).fill('Uzma');
-  await page.getByRole('textbox', { name: 'Last Name *' }).click();
-  await page.getByRole('textbox', { name: 'Last Name *' }).fill('Khatoon');
-  await page.getByRole('textbox', { name: 'Email *' }).click();
-  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1222@gmail.com');
-  await page.getByRole('textbox', { name: 'Person In Charge *' }).click();
-  await page.getByRole('textbox', { name: 'Person In Charge *' }).fill('Imran Khan');
-  await page.getByRole('textbox', { name: 'Dealer/Company Name' }).click();
-  await page.getByRole('textbox', { name: 'Dealer/Company Name' }).fill('Bilal Ahamad');
-  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).click();
-  await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1275836');
-  await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000005');
-  await page.getByRole('button', { name: 'Open' }).click();
-  await page.getByRole('option', { name: 'FormC1Installation' }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('textbox', { name: 'Search for a location' }).fill('Aurai');
-  await page.waitForTimeout(1000);
-  await page.getByText('Aurai, Uttar Pradesh, India', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Ghosia');
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('tab', { name: 'Contact Details' }).click();
-  await page.getByRole('button', { name: 'Primary Contact' }).click();
-  await page.getByRole('option', { name: 'Showroom' }).click();
-  await page.getByRole('textbox', { name: 'Full Name' }).click();
-  await page.getByRole('textbox', { name: 'Full Name' }).fill('Uamr Khatoon');
-  await page.getByRole('textbox', { name: 'email@example.com' }).click();
-  await page.getByRole('textbox', { name: 'email@example.com' }).fill('akbk6551+1223@gmail.com');
-  await page.getByRole('textbox', { name: 'Phone number' }).click();
-  await page.getByRole('textbox', { name: 'Phone number' }).fill('8000000006');
-  await page.getByRole('textbox', { name: 'Additional notes about this' }).click();
-  await page.getByRole('textbox', { name: 'Additional notes about this' }).fill('Sothing Purchess');
-  await page.getByRole('button', { name: 'Add Contact' }).click();
-  // await page.getByText('CancelCreate Customer').click();
-  await page.getByRole('button', { name: 'Create Customer' }).click();
+//   await page.getByRole('button', { name: 'Add New Customer' }).click();
+//   await page.getByRole('radio', { name: 'Commercial' }).check();
+//   await page.getByRole('button', { name: 'Select Title' }).click();
+//   await page.getByRole('option', { name: 'Ms.' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).fill('Uzma');
+//   await page.getByRole('textbox', { name: 'Last Name *' }).click();
+//   await page.getByRole('textbox', { name: 'Last Name *' }).fill('Khatoon');
+//   await page.getByRole('textbox', { name: 'Email *' }).click();
+//   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1222@gmail.com');
+//   await page.getByRole('textbox', { name: 'Person In Charge *' }).click();
+//   await page.getByRole('textbox', { name: 'Person In Charge *' }).fill('Imran Khan');
+//   await page.getByRole('textbox', { name: 'Dealer/Company Name' }).click();
+//   await page.getByRole('textbox', { name: 'Dealer/Company Name' }).fill('Bilal Ahamad');
+//   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).click();
+//   await page.getByRole('textbox', { name: 'Dealer/Company Code' }).fill('1275836');
+//   await page.getByRole('textbox', { name: 'Phone *' }).click();
+//   await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000005');
+//   await page.getByRole('button', { name: 'Open' }).click();
+//   await page.getByRole('option', { name: 'FormC1Installation' }).click();
+//   await page.getByRole('button', { name: 'Next' }).click();
+//   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+//   await page.waitForTimeout(1000);
+//   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Aurai');
+//   await page.waitForTimeout(1000);
+//   await page.getByText('Aurai, Uttar Pradesh, India', { exact: true }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Ghosia');
+//   await page.getByRole('button', { name: 'Next' }).click();
+//   await page.getByRole('tab', { name: 'Contact Details' }).click();
+//   await page.getByRole('button', { name: 'Primary Contact' }).click();
+//   await page.getByRole('option', { name: 'Showroom' }).click();
+//   await page.getByRole('textbox', { name: 'Full Name' }).click();
+//   await page.getByRole('textbox', { name: 'Full Name' }).fill('Uamr Khatoon');
+//   await page.getByRole('textbox', { name: 'email@example.com' }).click();
+//   await page.getByRole('textbox', { name: 'email@example.com' }).fill('akbk6551+1223@gmail.com');
+//   await page.getByRole('textbox', { name: 'Phone number' }).click();
+//   await page.getByRole('textbox', { name: 'Phone number' }).fill('8000000006');
+//   await page.getByRole('textbox', { name: 'Additional notes about this' }).click();
+//   await page.getByRole('textbox', { name: 'Additional notes about this' }).fill('Sothing Purchess');
+//   await page.getByRole('button', { name: 'Add Contact' }).click();
+//   // await page.getByText('CancelCreate Customer').click();
+//   await page.getByRole('button', { name: 'Create Customer' }).click();
 
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
@@ -2117,155 +2149,155 @@ async function addCustomer(page){
   await page.getByRole('button', { name: 'Next' }).click();
  await page.getByRole('button', { name: 'Create Customer' }).click();
 
-  await page.getByRole('button', { name: 'Add New Customer' }).click();
-  await page.getByText('Individual', { exact: true }).click();
-  await page.getByRole('button', { name: 'Select Title' }).click();
-  await page.getByRole('option', { name: 'Mr.' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).fill('Shivam');
-  await page.getByRole('textbox', { name: 'Last Name *' }).click();
-  await page.getByRole('textbox', { name: 'Last Name *' }).fill('maurya');
-  await page.getByRole('textbox', { name: 'Email *' }).click();
-  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1213@gmail.com');
-  await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000009');
-  await page.getByRole('textbox', { name: 'VIN Number *' }).click();
-  await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9802948');
-  await page.getByRole('button', { name: 'Select Access Method' }).click();
-    await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Email' }).click();
-  await page.getByRole('button', { name: 'Open' }).click();
-  await page.getByRole('option', { name: 'FormC1Installation' }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
-  await page.waitForTimeout(1000);
-  await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
-  await page.getByRole('button', { name: 'Next' }).click();
- await page.getByRole('button', { name: 'Create Customer' }).click();
+//   await page.getByRole('button', { name: 'Add New Customer' }).click();
+//   await page.getByText('Individual', { exact: true }).click();
+//   await page.getByRole('button', { name: 'Select Title' }).click();
+//   await page.getByRole('option', { name: 'Mr.' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).fill('Shivam');
+//   await page.getByRole('textbox', { name: 'Last Name *' }).click();
+//   await page.getByRole('textbox', { name: 'Last Name *' }).fill('maurya');
+//   await page.getByRole('textbox', { name: 'Email *' }).click();
+//   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1213@gmail.com');
+//   await page.getByRole('textbox', { name: 'Phone *' }).click();
+//   await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000009');
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9802948');
+//   await page.getByRole('button', { name: 'Select Access Method' }).click();
+//     await page.waitForTimeout(1000);
+//   await page.getByRole('option', { name: 'Email' }).click();
+//   await page.getByRole('button', { name: 'Open' }).click();
+//   await page.getByRole('option', { name: 'FormC1Installation' }).click();
+//   await page.getByRole('button', { name: 'Next' }).click();
+//   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+//   await page.waitForTimeout(1000);
+//   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+//   await page.waitForTimeout(1000);
+//   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
+//   await page.getByRole('button', { name: 'Next' }).click();
+//  await page.getByRole('button', { name: 'Create Customer' }).click();
 
-  await page.getByRole('button', { name: 'Add New Customer' }).click();
-  await page.getByText('Individual', { exact: true }).click();
-  await page.getByRole('button', { name: 'Select Title' }).click();
-  await page.getByRole('option', { name: 'Mr.' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).fill('Susil');
-  await page.getByRole('textbox', { name: 'Last Name *' }).click();
-  await page.getByRole('textbox', { name: 'Last Name *' }).fill('Rana');
-  await page.getByRole('textbox', { name: 'Email *' }).click();
-  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1214@gmail.com');
-  await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000010');
-  await page.getByRole('textbox', { name: 'VIN Number *' }).click();
-  await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803998');
-  await page.getByRole('button', { name: 'Select Access Method' }).click();
-    await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Email' }).click();
-  await page.getByRole('button', { name: 'Open' }).click();
-  await page.getByRole('option', { name: 'FormC1Installation' }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
-  await page.waitForTimeout(1000);
-  await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
-  await page.getByRole('button', { name: 'Next' }).click();
- await page.getByRole('button', { name: 'Create Customer' }).click();
+//   await page.getByRole('button', { name: 'Add New Customer' }).click();
+//   await page.getByText('Individual', { exact: true }).click();
+//   await page.getByRole('button', { name: 'Select Title' }).click();
+//   await page.getByRole('option', { name: 'Mr.' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).fill('Susil');
+//   await page.getByRole('textbox', { name: 'Last Name *' }).click();
+//   await page.getByRole('textbox', { name: 'Last Name *' }).fill('Rana');
+//   await page.getByRole('textbox', { name: 'Email *' }).click();
+//   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1214@gmail.com');
+//   await page.getByRole('textbox', { name: 'Phone *' }).click();
+//   await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000010');
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803998');
+//   await page.getByRole('button', { name: 'Select Access Method' }).click();
+//     await page.waitForTimeout(1000);
+//   await page.getByRole('option', { name: 'Email' }).click();
+//   await page.getByRole('button', { name: 'Open' }).click();
+//   await page.getByRole('option', { name: 'FormC1Installation' }).click();
+//   await page.getByRole('button', { name: 'Next' }).click();
+//   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+//   await page.waitForTimeout(1000);
+//   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+//   await page.waitForTimeout(1000);
+//   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
+//   await page.getByRole('button', { name: 'Next' }).click();
+//  await page.getByRole('button', { name: 'Create Customer' }).click();
 
-  await page.getByRole('button', { name: 'Add New Customer' }).click();
-  await page.getByText('Individual', { exact: true }).click();
-  await page.getByRole('button', { name: 'Select Title' }).click();
-  await page.getByRole('option', { name: 'Mr.' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).fill('Manjeet');
-  await page.getByRole('textbox', { name: 'Last Name *' }).click();
-  await page.getByRole('textbox', { name: 'Last Name *' }).fill('Singh');
-  await page.getByRole('textbox', { name: 'Email *' }).click();
-  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1215@gmail.com');
-  await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000011');
-  await page.getByRole('textbox', { name: 'VIN Number *' }).click();
-  await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803148');
-  await page.getByRole('button', { name: 'Select Access Method' }).click();
-    await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Email' }).click();
-  await page.getByRole('button', { name: 'Open' }).click();
-  await page.getByRole('option', { name: 'FormC1Installation' }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
-  await page.waitForTimeout(1000);
-  await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
-  await page.getByRole('button', { name: 'Next' }).click();
- await page.getByRole('button', { name: 'Create Customer' }).click();
+//   await page.getByRole('button', { name: 'Add New Customer' }).click();
+//   await page.getByText('Individual', { exact: true }).click();
+//   await page.getByRole('button', { name: 'Select Title' }).click();
+//   await page.getByRole('option', { name: 'Mr.' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).fill('Manjeet');
+//   await page.getByRole('textbox', { name: 'Last Name *' }).click();
+//   await page.getByRole('textbox', { name: 'Last Name *' }).fill('Singh');
+//   await page.getByRole('textbox', { name: 'Email *' }).click();
+//   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1215@gmail.com');
+//   await page.getByRole('textbox', { name: 'Phone *' }).click();
+//   await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000011');
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803148');
+//   await page.getByRole('button', { name: 'Select Access Method' }).click();
+//     await page.waitForTimeout(1000);
+//   await page.getByRole('option', { name: 'Email' }).click();
+//   await page.getByRole('button', { name: 'Open' }).click();
+//   await page.getByRole('option', { name: 'FormC1Installation' }).click();
+//   await page.getByRole('button', { name: 'Next' }).click();
+//   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+//   await page.waitForTimeout(1000);
+//   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+//   await page.waitForTimeout(1000);
+//   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
+//   await page.getByRole('button', { name: 'Next' }).click();
+//  await page.getByRole('button', { name: 'Create Customer' }).click();
 
-  await page.getByRole('button', { name: 'Add New Customer' }).click();
-  await page.getByText('Individual', { exact: true }).click();
-  await page.getByRole('button', { name: 'Select Title' }).click();
-  await page.getByRole('option', { name: 'Mr.' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).fill('Neeraj');
-  await page.getByRole('textbox', { name: 'Last Name *' }).click();
-  await page.getByRole('textbox', { name: 'Last Name *' }).fill('Rathor');
-  await page.getByRole('textbox', { name: 'Email *' }).click();
-  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1217@gmail.com');
-  await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000012');
-  await page.getByRole('textbox', { name: 'VIN Number *' }).click();
-  await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803248');
-  await page.getByRole('button', { name: 'Select Access Method' }).click();
-    await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Email' }).click();
-  await page.getByRole('button', { name: 'Open' }).click();
-  await page.getByRole('option', { name: 'FormC1Installation' }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
-  await page.waitForTimeout(1000);
-  await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
-  await page.getByRole('button', { name: 'Next' }).click();
- await page.getByRole('button', { name: 'Create Customer' }).click();
+//   await page.getByRole('button', { name: 'Add New Customer' }).click();
+//   await page.getByText('Individual', { exact: true }).click();
+//   await page.getByRole('button', { name: 'Select Title' }).click();
+//   await page.getByRole('option', { name: 'Mr.' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).fill('Neeraj');
+//   await page.getByRole('textbox', { name: 'Last Name *' }).click();
+//   await page.getByRole('textbox', { name: 'Last Name *' }).fill('Rathor');
+//   await page.getByRole('textbox', { name: 'Email *' }).click();
+//   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1217@gmail.com');
+//   await page.getByRole('textbox', { name: 'Phone *' }).click();
+//   await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000012');
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803248');
+//   await page.getByRole('button', { name: 'Select Access Method' }).click();
+//     await page.waitForTimeout(1000);
+//   await page.getByRole('option', { name: 'Email' }).click();
+//   await page.getByRole('button', { name: 'Open' }).click();
+//   await page.getByRole('option', { name: 'FormC1Installation' }).click();
+//   await page.getByRole('button', { name: 'Next' }).click();
+//   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+//   await page.waitForTimeout(1000);
+//   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+//   await page.waitForTimeout(1000);
+//   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Mukundpatti');
+//   await page.getByRole('button', { name: 'Next' }).click();
+//  await page.getByRole('button', { name: 'Create Customer' }).click();
 
-  await page.getByRole('button', { name: 'Add New Customer' }).click();
-  await page.getByText('Individual', { exact: true }).click();
-  await page.getByRole('button', { name: 'Select Title' }).click();
-  await page.getByRole('option', { name: 'Mr.' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).fill('Jony');
-  await page.getByRole('textbox', { name: 'Last Name *' }).click();
-  await page.getByRole('textbox', { name: 'Last Name *' }).fill('Rathor');
-  await page.getByRole('textbox', { name: 'Email *' }).click();
-  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1119@gmail.com');
-  await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000013');
-  await page.getByRole('textbox', { name: 'VIN Number *' }).click();
-  await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803948');
-  await page.getByRole('button', { name: 'Select Access Method' }).click();
-    await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Email' }).click();
-  await page.getByRole('button', { name: 'Open' }).click();
-  await page.getByRole('option', { name: 'FormC1Installation' }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
-  await page.waitForTimeout(1000);
-  await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria Market');
-  await page.getByRole('button', { name: 'Next' }).click();
- await page.getByRole('button', { name: 'Create Customer' }).click();
+//   await page.getByRole('button', { name: 'Add New Customer' }).click();
+//   await page.getByText('Individual', { exact: true }).click();
+//   await page.getByRole('button', { name: 'Select Title' }).click();
+//   await page.getByRole('option', { name: 'Mr.' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).fill('Jony');
+//   await page.getByRole('textbox', { name: 'Last Name *' }).click();
+//   await page.getByRole('textbox', { name: 'Last Name *' }).fill('Rathor');
+//   await page.getByRole('textbox', { name: 'Email *' }).click();
+//   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1119@gmail.com');
+//   await page.getByRole('textbox', { name: 'Phone *' }).click();
+//   await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000013');
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('9803948');
+//   await page.getByRole('button', { name: 'Select Access Method' }).click();
+//     await page.waitForTimeout(1000);
+//   await page.getByRole('option', { name: 'Email' }).click();
+//   await page.getByRole('button', { name: 'Open' }).click();
+//   await page.getByRole('option', { name: 'FormC1Installation' }).click();
+//   await page.getByRole('button', { name: 'Next' }).click();
+//   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+//   await page.waitForTimeout(1000);
+//   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+//   await page.waitForTimeout(1000);
+//   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria Market');
+//   await page.getByRole('button', { name: 'Next' }).click();
+//  await page.getByRole('button', { name: 'Create Customer' }).click();
 
 
   await page.getByRole('button', { name: 'Add New Customer' }).click();
@@ -2299,37 +2331,68 @@ async function addCustomer(page){
   await page.getByRole('button', { name: 'Next' }).click();
  await page.getByRole('button', { name: 'Create Customer' }).click();
 
- await page.getByRole('button', { name: 'Add New Customer' }).click();
- await page.getByText('Individual', { exact: true }).click();
-  await page.getByRole('button', { name: 'Select Title' }).click();
-  await page.getByRole('option', { name: 'Mr.' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).click();
-  await page.getByRole('textbox', { name: 'First Name *' }).fill('Mayank');
-  await page.getByRole('textbox', { name: 'Last Name *' }).click();
-  await page.getByRole('textbox', { name: 'Last Name *' }).fill('Rathor');
-  await page.getByRole('textbox', { name: 'Email *' }).click();
-  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1139@gmail.com');
-  await page.getByRole('textbox', { name: 'Phone *' }).click();
-  await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000015');
-  await page.getByRole('textbox', { name: 'VIN Number *' }).click();
-  await page.getByRole('textbox', { name: 'VIN Number *' }).fill('98039482');
-  await page.getByRole('button', { name: 'Select Access Method' }).click();
-    await page.waitForTimeout(1000);
-  await page.getByRole('option', { name: 'Email' }).click();
-  await page.getByRole('button', { name: 'Open' }).click();
-  await page.getByRole('option', { name: 'FormC1Installation' }).click();
-  await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('textbox', { name: 'Search for a location' }).click();
-    await page.waitForTimeout(1000);
-  await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
-  await page.waitForTimeout(1000);
-  await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
-  await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria');
-  await page.getByRole('button', { name: 'Next' }).click();
- await page.getByRole('button', { name: 'Create Customer' }).click();
+//  await page.getByRole('button', { name: 'Add New Customer' }).click();
+//  await page.getByText('Individual', { exact: true }).click();
+//   await page.getByRole('button', { name: 'Select Title' }).click();
+//   await page.getByRole('option', { name: 'Mr.' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).fill('Mayank');
+//   await page.getByRole('textbox', { name: 'Last Name *' }).click();
+//   await page.getByRole('textbox', { name: 'Last Name *' }).fill('Rathor');
+//   await page.getByRole('textbox', { name: 'Email *' }).click();
+//   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1139@gmail.com');
+//   await page.getByRole('textbox', { name: 'Phone *' }).click();
+//   await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000015');
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('98039482');
+//   await page.getByRole('button', { name: 'Select Access Method' }).click();
+//     await page.waitForTimeout(1000);
+//   await page.getByRole('option', { name: 'Email' }).click();
+//   await page.getByRole('button', { name: 'Open' }).click();
+//   await page.getByRole('option', { name: 'FormC1Installation' }).click();
+//   await page.getByRole('button', { name: 'Next' }).click();
+//   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+//     await page.waitForTimeout(1000);
+//   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+//   await page.waitForTimeout(1000);
+//   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria');
+//   await page.getByRole('button', { name: 'Next' }).click();
+//  await page.getByRole('button', { name: 'Create Customer' }).click();
   
- await page.getByRole('button', { name: 'Add New Customer' }).click();
+//  await page.getByRole('button', { name: 'Add New Customer' }).click();
+//  await page.getByText('Individual', { exact: true }).click();
+//   await page.getByRole('button', { name: 'Select Title' }).click();
+//   await page.getByRole('option', { name: 'Mr.' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).click();
+//   await page.getByRole('textbox', { name: 'First Name *' }).fill('Kolpit');
+//   await page.getByRole('textbox', { name: 'Last Name *' }).click();
+//   await page.getByRole('textbox', { name: 'Last Name *' }).fill('Rathor');
+//   await page.getByRole('textbox', { name: 'Email *' }).click();
+//   await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1140@gmail.com');
+//   await page.getByRole('textbox', { name: 'Phone *' }).click();
+//   await page.getByRole('textbox', { name: 'Phone *' }).click();
+//   await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000016');
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).click();
+//   await page.getByRole('textbox', { name: 'VIN Number *' }).fill('98039483');
+//   await page.getByRole('button', { name: 'Select Access Method' }).click();
+//     await page.waitForTimeout(1000);
+//   await page.getByRole('option', { name: 'Email' }).click();
+//   await page.getByRole('button', { name: 'Open' }).click();
+//   await page.getByRole('option', { name: 'FormC1Installation' }).click();
+//   await page.getByRole('button', { name: 'Next' }).click();
+//   await page.getByRole('textbox', { name: 'Search for a location' }).click();
+//     await page.waitForTimeout(1000);
+//   await page.getByRole('textbox', { name: 'Search for a location' }).fill('Khamaria Bhadohi Uttar Pradesh');
+//   await page.waitForTimeout(1000);
+//   await page.getByText('Khamaria, Bhadohi, Uttar Pradesh, India', { exact: true }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).click();
+//   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria');
+//   await page.getByRole('button', { name: 'Next' }).click();
+//  await page.getByRole('button', { name: 'Create Customer' }).click(); 
+
+  await page.getByRole('button', { name: 'Add New Customer' }).click();
  await page.getByText('Individual', { exact: true }).click();
   await page.getByRole('button', { name: 'Select Title' }).click();
   await page.getByRole('option', { name: 'Mr.' }).click();
@@ -2338,7 +2401,7 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Last Name *' }).click();
   await page.getByRole('textbox', { name: 'Last Name *' }).fill('Rathor');
   await page.getByRole('textbox', { name: 'Email *' }).click();
-  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1140@gmail.com');
+  await page.getByRole('textbox', { name: 'Email *' }).fill('akbk6551+1240@gmail.com');
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).click();
   await page.getByRole('textbox', { name: 'Phone *' }).fill('8000000016');
@@ -2389,6 +2452,9 @@ async function addCustomer(page){
   await page.getByRole('textbox', { name: 'Address Line 1 *' }).fill('Khamaria');
   await page.getByRole('button', { name: 'Next' }).click();
  await page.getByRole('button', { name: 'Create Customer' }).click();
+
+    await page.waitForTimeout(3000);
+
   
 await page.reload();
     await page.waitForTimeout(3000);
@@ -2405,6 +2471,39 @@ await page.reload();
             await updateOpJson(`./${screenshotPath}/`,"addCustomer","false",`./${screenshotPath}/addCustomer.png`)
           }
   
+            await page.waitForTimeout(3000);
+    
+
+            
+   const email1 = await waitForEmail("akbk6551+1140@gmail.com");
+const match = email1?.body?.match(/https?:\/\/\S+/);
+
+
+
+if (match) {
+    const verificationLink = match[0];
+    console.log(verificationLink);
+
+    await page.screenshot({ path: `./${screenshotPath}/addCustomerEmailCheckOnGmail.png`, fullPage: true });
+    await updateOpJson(
+        `./${screenshotPath}/`,
+        "addCustomerEmailCheckOnGmail",
+        "true",
+        `./${screenshotPath}/addCustomerEmailCheckOnGmail.png`
+    );
+} else {
+    await page.screenshot({ path: `./${screenshotPath}/addCustomerEmailCheckOnGmail.png`, fullPage: true });
+    await updateOpJson(
+        `./${screenshotPath}/`,
+        "addCustomerEmailCheckOnGmail",
+        "false",
+        `./${screenshotPath}/addCustomerEmailCheckOnGmail.png`
+    );
+}
+
+    
+           
+
   await page.reload();
   console.log("Add customer");
 
@@ -2497,8 +2596,8 @@ async function deleteCustomer(page){
 
 
 async function addressCreateSalesCustomerCommercial(page){
-  console.log('Enter in address createFsmCustomer commercial');
-   await page.getByRole('button', { name: 'Sales' }).click();
+  console.log('Enter in address create SalesCustomer commercial');
+  
   await page.getByRole('link', { name: 'Customers' }).click();
   await page.waitForTimeout(3000);
    await page.getByRole('row', { name: 'Sushil Singh' }).click();
@@ -2666,4 +2765,48 @@ await page.waitForTimeout(1000);
     }
     await page.reload();
   console.log('Address createFsmCustomer completed');
+}
+
+async function formAutoSelect(page){
+  await page.getByRole('button', { name: 'Settings' }).click();
+  await page.getByRole('link', { name: 'Company Setup' }).click();
+  await page.getByTestId('KeyboardArrowRightIcon').click();
+  await page.getByTestId('KeyboardArrowRightIcon').click();
+  await page.getByRole('tab', { name: 'Customer Type' }).click();
+   await page.getByRole('button').filter({ hasText: /^$/ }).nth(1).click();
+  await page.waitForTimeout(2000);
+
+  if( await page.getByText('No forms linked. Link').first().isVisible() ){
+  await page.getByRole('button', { name: 'Link Form' }).click();
+  await page.getByRole('combobox', { name: 'Forms' }).click();
+  await page.getByRole('option', { name: 'FormJCASAllFields' }).click();
+  await page.getByRole('option', { name: 'FormS Edited Form' }).click();
+  await page.getByRole('option', { name: 'FormC1Installation' }).click();
+  await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
+  await page.getByText('Select one or more forms to').click();
+  await page.getByRole('button', { name: 'Link Selected' }).click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(4).click();
+  await page.getByRole('button', { name: 'Save Customer Types' }).click();
+  await page.getByRole('button').filter({ hasText: /^$/ }).nth(5).click();
+  await page.getByRole('button', { name: 'Link Form' }).nth(1).click();
+  await page.getByRole('combobox', { name: 'Forms' }).click();
+  await page.getByRole('option', { name: 'FormJCASAllFields' }).click();
+  await page.getByRole('option', { name: 'FormS Edited Form' }).click();
+  await page.getByRole('option', { name: 'FormC1Installation' }).click();
+  await page.getByRole('option', { name: 'FormJCASInstallation' }).click();
+  
+  await page.getByRole('button', { name: 'Link Selected' }).click();
+  // await page.locator('div').filter({ hasText: /^FormJCASInstallation$/ }).nth(1).click();
+await page
+  .locator('div')
+  .filter({ hasText: /^FormJCASInstallation$/ })
+  .nth(1)
+  .locator('xpath=following-sibling::button')
+  .click();
+    await page.getByRole('button', { name: 'Save Customer Types' }).click();
+await page.waitForTimeout(2000);
+
+  }
+  await page.getByRole('button', { name: 'Sales' }).click();
+  await page.getByRole('link', { name: 'Customers' }).click();
 }

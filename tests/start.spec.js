@@ -74,14 +74,14 @@ await loginRight(page);
 // await zone(page);
 // await assetsCategory(page);
 
-await salesAgents(page);
-// await lead(page);
-await opportunity(page);
+// await salesAgents(page);
+// await lead(page); //export is not done
+// await opportunity(page);
 // await customer(page);
 await Quotation(page);
-// await quotationInsideCustomer(page);
-// await Invoices(page);
-// await invoicesInsideCustomer(page);
+await quotationInsideCustomer(page);
+await Invoices(page);
+await invoicesInsideCustomer(page);
 
 
 // await cs_agent(page);

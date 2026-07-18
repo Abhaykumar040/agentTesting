@@ -61,12 +61,12 @@ console.log("leads",leads.matchedCount, leads.modifiedCount);
 // );
 // console.log("ticekts",tickets.matchedCount, tickets.modifiedCount);
 
-// const queue = await db.collection("queues").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set: { status: 3 } }
-// );
-// console.log("queue",queue.matchedCount, queue.modifiedCount);
+const queue = await db.collection("queues").updateMany(
+  {  company:companyId,
+  status:1 },
+  { $set: { status: 3 } }
+);
+console.log("queue",queue.matchedCount, queue.modifiedCount);
 
 const teams = await db.collection("teams").updateMany(
   {  company:companyId,
@@ -91,12 +91,12 @@ const crmSetting = await db.collection("crmsettings").updateOne(
 );
 console.log("crmSettings",crmSetting.matchedCount, crmSetting.modifiedCount);
 
-// const invoice = await db.collection("invoices").updateMany(
-//   {  company:companyId,
-//   status:1 },
-//   { $set:{ status: 3 } }
-// );
-// console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
+const invoice = await db.collection("invoices").updateMany(
+  {  company:companyId,
+  status:1 },
+  { $set:{ status: 3 } }
+);
+console.log("invoice",invoice.matchedCount, invoice.modifiedCount);
 
 
 const quotation = await db.collection("quotations").updateMany(

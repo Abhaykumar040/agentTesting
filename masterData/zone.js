@@ -263,7 +263,8 @@ async function addNewZone(page){
   await page.getByRole('textbox', { name: 'Description' }).fill('North India');
   await page.getByRole('button').nth(2).click();
   await page.getByRole('button', { name: 'Uttar-Pradesh' }).click();
-  await page.getByText('Uttar-Pradesh-Chandauli').click();
+  await page.getByText('Uttar-Pradesh-Chandauli').click()
+    await page.getByText('Uttar-Pradesh-Allahabad').click();;
   await page.getByRole('tab', { name: 'Exclude (0)' }).click();
   await page.getByText('Uttar-Pradesh-Bareilly').click();
   await page.getByRole('button', { name: 'Create Zone' }).click();
@@ -274,10 +275,8 @@ async function addNewZone(page){
   await page.getByRole('textbox', { name: 'Description' }).click();
   await page.getByRole('textbox', { name: 'Description' }).fill('West India');
   await page.getByRole('button').nth(2).click();
-  await page.getByRole('button', { name: 'Uttar-Pradesh' }).click();
-  await page.getByText('Uttar-Pradesh-Ballia').click();
-  await page.getByRole('tab', { name: 'Exclude (0)' }).click();
-  await page.getByText('Uttar-Pradesh-Balrampur').click();
+ await page.getByRole('button', { name: 'Gujarat' }).click();
+  await page.getByText('Gujarat-Jamnagar').click();
   await page.getByRole('button', { name: 'Create Zone' }).click();
 
    await page.getByRole('button', { name: 'Add New Zone' }).click();

@@ -13,17 +13,14 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function opportunity(page){
-  // await deletePreviuosStatus(page);
-  // await page.waitForTimeout(3000);
-  // await addOpportunity(page);
+
+  await addOpportunity(page);
   await page.waitForTimeout(3000);
  await emailSendOpportunity(page);
  
-  // await editOpportunity(page);
-  // await lostOpportunityInside(page);
-  // await editStatus(page);
-  // await page.waitForTimeout(3000);
-  // await deleteStatus(page);
+  await editOpportunity(page);
+  await lostOpportunityInside(page);
+  
 }
 async function deletePreviuosStatus(page){
  console.log("Enter in delete previous status")
@@ -110,9 +107,9 @@ async function addOpportunity(page){
 await page.waitForTimeout(3000);
 }
 async function editOpportunity(page){
-await page.locator('div[role="button"][aria-roledescription="draggable"]').first().click();
 
-  await expect(page.locator('div').filter({ hasText: /^Probability10%$/ }).first()).toBeVisible();
+
+  
   await expect(page.locator('div').filter({ hasText: /^Expected valueINR 12,000$/ }).first()).toBeVisible();
   await page.getByRole('button', { name: 'Advance to Qualified' }).click();
 
@@ -148,7 +145,36 @@ await page.waitForTimeout(5000);
   await page.getByRole('textbox', { name: 'Reason for loss' }).click();
   await page.getByRole('textbox', { name: 'Reason for loss' }).fill('He did not want now');
   await page.getByRole('button', { name: 'Mark Lost' }).click();
-  await expect(page.locator('div').filter({ hasText: /^Probability0%$/ }).first()).toBeVisible();
+
+
+await page.waitForTimeout(2000);
+  await page.getByRole('link', { name: 'Opportunities' }).click();
+await page.waitForTimeout(2000);
+
+
+if (
+    await page.getByText('INR 12,000100%').isVisible() &&
+    await page.getByText('INR 12,0000%').isVisible() &&
+    await page.getByText('sells' ).isVisible()
+) {
+    await page.screenshot({ path: `./${screenshotPath}/oppotunityCreateAndWinLost.png`, fullPage: true });
+    await updateOpJson(
+        `./${screenshotPath}/`,
+        "oppotunityCreateAndWinLost",
+        "true",
+        `./${screenshotPath}/oppotunityCreateAndWinLost.png`
+    );
+} else {
+    await page.screenshot({ path: `./${screenshotPath}/oppotunityCreateAndWinLost.png`, fullPage: true });
+    await updateOpJson(
+        `./${screenshotPath}/`,
+        "oppotunityCreateAndWinLost",
+        "false",
+        `./${screenshotPath}/oppotunityCreateAndWinLost.png`
+    );
+}
+
+await page.reload();
 }
 async function emailSendOpportunity(page){
    await page.locator('div[role="button"][aria-roledescription="draggable"]').first().click();

@@ -13,12 +13,12 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function productCategory(page){
-  // await deletePreviousProductCategory(page);
-  // await page.waitForTimeout(3000);
-  // await addProductCategory(page);
-  // await page.waitForTimeout(3000);
-  // await editProductCategry(page);
-  // await page.waitForTimeout(3000);
+  await deletePreviousProductCategory(page);
+  await page.waitForTimeout(3000);
+  await addProductCategory(page);
+  await page.waitForTimeout(3000);
+  await editProductCategry(page);
+  await page.waitForTimeout(3000);
   await deleteProductCategory(page);
 }
 async function deletePreviousProductCategory(page){

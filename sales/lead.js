@@ -15,12 +15,13 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function lead(page){
+  await page.getByRole('button', { name: 'Sales' }).click();
   await addLead(page);
   await page.waitForTimeout(3000);
   await editLead(page);
   await page.waitForTimeout(3000);
-  await emailThreadInLead(page);
-  await page.waitForTimeout(3000);
+  // await emailThreadInLead(page);
+   await page.waitForTimeout(3000);
   await activityInLead(page);
   await page.waitForTimeout(3000);
   await documentInLead(page); 
@@ -38,6 +39,22 @@ async function addLead(page){
   // await page.getByRole('button', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Lead Management' }).first().click();
   await page.getByRole('button', { name: 'Quick Create' }).click();
+
+  await page.waitForTimeout(1000);
+    await page.getByRole('combobox', { name: 'Search or add title' }).click();
+  
+
+if(await page.getByRole('option', { name: 'Mr.' }).isVisible()){
+  await page.getByRole('option', { name: 'Mr.' }).click();
+}
+else{
+await page.getByRole('combobox', { name: 'Search or add title' }).fill('Mr.');
+  await page.getByRole('combobox', { name: 'Search or add title' }).press('Enter');
+  await page.waitForTimeout(1000);
+
+      await page.getByRole('combobox', { name: 'Search or add title' }).click();
+      await page.getByRole('option', { name: 'Mr.' }).click();
+}
   await page.getByRole('textbox', { name: 'First Name *' }).click();
   await page.getByRole('textbox', { name: 'First Name *' }).fill('Anjali');
   await page.getByRole('textbox', { name: 'Last Name' }).click();
@@ -307,11 +324,10 @@ async function editLead(page){
   await page.keyboard.press('Enter');
    await page.getByRole('option', { name: 'Website' }).click({ timeout: 2000 });
 }
-  await page.getByLabel('').nth(5).click();
-    // await page.getByRole('button', { name: 'Warm' }).click();
+ 
+    await page.getByRole('button', { name: 'Warm' }).click();
   await page.getByRole('option', { name: 'Hot' }).click();
-  await page.getByLabel('', { exact: true }).nth(1).click();
-  //  await page.getByRole('button', { name: 'New' }).click();
+  await page.getByLabel('New').click();
   await page.getByRole('option', { name: 'Converted' }).click();
   await page.getByRole('spinbutton').click();
   await page.getByRole('spinbutton').fill('02');
@@ -354,9 +370,9 @@ async function editLead(page){
 
 async function emailThreadInLead(page){
   console.log('Enter in email thread of lead');
-  await page.getByText('Aman Yadav').click();
+  await page.getByText('Aman').click();
   await page.waitForTimeout(2000);
-  await page.getByRole('tab', { name: 'Email Thread' }).click();
+ 
   await page.getByRole('combobox', { name: 'Enter email and press Enter' }).first().click();
   await page.getByRole('combobox', { name: 'Enter email and press Enter' }).first().fill('akbk6551@gmail.com');
   await page.getByRole('combobox', { name: 'Enter email and press Enter' }).nth(1).click();
@@ -386,13 +402,23 @@ async function emailThreadInLead(page){
 
 async function activityInLead(page){
   console.log("Enter in activity's lead");
-  await page.getByText('Jitendra Tyagi').click();
+  await page.getByText('Aman').click();
   await page.waitForTimeout(2000);
-  await page.getByRole('tab', { name: 'Activity' }).click();
-  await page.getByRole('button', { name: 'Add Activity' }).click();
+
+//notes add
+    await page.getByRole('button', { name: 'Add' }).first().click();
+  await page.getByRole('textbox', { name: 'note subject' }).click();
+  await page.getByRole('textbox', { name: 'note subject' }).fill('noteTestr1');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('noteTestDescription1');
+  await page.getByRole('button', { name: 'Add Note' }).click();
+
+
+//meeting add
+await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Add' }).first().click();
   await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Note', exact: true }).click();
-  
   await page.getByRole('option', { name: 'Meeting' }).click();
   await page.getByRole('textbox', { name: 'Meeting Subject' }).click();
   await page.getByRole('textbox', { name: 'Meeting Subject' }).fill('Discussion About deals');
@@ -400,15 +426,65 @@ async function activityInLead(page){
   await page.getByPlaceholder('Duration in minutes').fill('12');
   await page.getByRole('textbox', { name: 'Description' }).fill('lkijdffgmlkdgkl g n jgl dgmfdg');
   await page.getByRole('button', { name: 'Add Meeting' }).click();
+
+  //phone call outbound
+  await page.waitForTimeout(1000);
+   await page.getByRole('button', { name: 'Add' }).first().click();
+  await page.getByRole('button', { name: 'Note', exact: true }).click();
+  await page.getByRole('option', { name: 'Phone Call' }).click();
+  await page.getByRole('textbox', { name: 'Subject', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Subject', exact: true }).fill('testPhoneOut');
+  await page.getByPlaceholder('Duration in minutes').click();
+  await page.getByPlaceholder('Duration in minutes').fill('10');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('hey this is testing for outboundcall Phonecall activity');
+  await page.getByPlaceholder('dd-mm-yyyy --:--').fill('2026-07-19T06:11');
+  await page.getByRole('button', { name: 'Add PhoneCall' }).click();
+
+//phonecall inbound
+await page.waitForTimeout(1000);
+  await page.getByRole('button', { name: 'Add' }).first().click();
+  await page.getByRole('button', { name: 'Note', exact: true }).click();
+  await page.getByRole('option', { name: 'Phone Call' }).click();
+  await page.getByRole('button', { name: 'Outbound' }).click();
+  await page.getByRole('option', { name: 'Inbound' }).click();
+  await page.getByRole('textbox', { name: 'Subject', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Subject', exact: true }).fill('Inbouvnd Phone call');
+  await page.getByPlaceholder('Duration in minutes').click();
+  await page.getByPlaceholder('Duration in minutes').fill('20');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('ds');
+  await page.getByRole('button', { name: 'Add PhoneCall' }).click();
+
+  //add task
+  await page.waitForTimeout(2000);
+    await page.getByRole('button', { name: 'Add' }).first().click();
+  await page.getByRole('button', { name: 'Note', exact: true }).click();
+  await page.getByRole('option', { name: 'Task' }).click();
+  await page.getByRole('textbox', { name: 'task subject' }).click();
+  await page.getByRole('textbox', { name: 'task subject' }).fill('task1');
+  await page.getByRole('textbox', { name: 'Description' }).click();
+  await page.getByRole('textbox', { name: 'Description' }).fill('task1D');
+  await page.getByRole('button', { name: 'Add Task' }).click();
+
+  //add follow up
+  await page.waitForTimeout(3000);
+   await page.getByRole('button', { name: 'Add' }).first().click();
+  await page.getByRole('button', { name: 'Note', exact: true }).click();
+  await page.getByRole('option', { name: 'Follow Up' }).click();
+  await page.getByRole('textbox', { name: 'Subject', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Subject', exact: true }).fill('followUp');
+  await page.getByPlaceholder('dd-mm-yyyy --:--').fill('2026-07-18T13:18');
+  await page.getByRole('textbox', { name: 'Add notes for follow up' }).fill('followUpNotes');
+await page.getByRole('button', { name: 'Add Follow Up' }).click();
+
+
   await page.waitForTimeout(2000);
   await page.reload();
-  await page.getByRole('button', { name: 'Sales' }).click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('link', { name: 'Lead Management' }).first().click();
-  await page.getByText('Jitendra Tyagi').click();
+  
+  
   await page.waitForTimeout(2000);
-  await page.getByRole('tab', { name: 'Activity' }).click();
-  await page.waitForTimeout(2000);
+
    if (await page.getByText('lkijdffgmlkdgkl g n jgl dgmfdg',{exact:true}).first().isVisible()) 
   {
     await page.screenshot({ path: `./${screenshotPath}/activityInLead.png`, fullPage: true });
@@ -425,28 +501,22 @@ async function activityInLead(page){
 
 async function documentInLead(page) {
   console.log("Enter in document's lead");
-   await page.getByRole('button', { name: 'Sales' }).click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('link', { name: 'Lead Management' }).first().click();
-  await page.getByText('Jitendra Tyagi').first().click();
   
-  
-  await page.getByRole('tab', { name: 'Documents' }).click();
+  await page.getByText('Aman').last().click();
+await page.waitForTimeout(3000);
 
- 
-  await page.locator('input[type="file"]').setInputFiles('./download1/leads.xlsx');
-  // await page.pause();
+
+  await page.locator('input[type="file"]').last().setInputFiles('./download1/leads.xlsx');
+  
   
   // await chooser.setFiles('downloads/leads.xlsx');
-  await page.getByRole('button', { name: 'Upload Files' }).click();
+ await page.getByRole('button', { name: 'Upload Files' }).click();
    await page.waitForTimeout(3000);
   await page.getByRole('button', { name: 'Save' }).click();
    await page.waitForTimeout(1000);
   await page.reload();
-  await page.getByRole('button', { name: 'Sales' }).click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('link', { name: 'Lead Management' }).first().click();
-  await page.getByText('Jitendra Tyagi').click();
+
+
   await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Documents' }).click();
    if (await page.getByText('leads.xlsx',{exact:true}).isVisible()) 
@@ -466,26 +536,23 @@ async function documentInLead(page) {
 async function exportLeadFileNormal(page) {
 
   console.log("Enter in exportLeadFileNormal");
-   await page.getByRole('button', { name: 'Sales' }).click();
-  await page.waitForTimeout(1000);
-  await page.getByRole('link', { name: 'Lead Management' }).first().click();
+ await page.getByRole('link', { name: 'Lead Management' }).click();
+ await page.waitForTimeout(3000);
+
+ await page.getByRole('button', { name: 'Export' }).click()
   const [excelDownload] = await Promise.all([
-
   page.waitForEvent('download'),
-
-  page.getByRole('button', { name: 'Export To Excel' }).click()
-
+ page.getByText('Excel (.xlsx)').click()
   ]);
 
   await excelDownload.saveAs('downloads/leadNormal.xlsx');
 
-
+  //pdf download
+await page.getByRole('button', { name: 'Export' }).click()
   const [pdfDownload] = await Promise.all([
-
     page.waitForEvent('download'),
-
-    page.getByRole('button', { name: 'Export To PDF' }).click()
-
+    page.getByText('PDF (.pdf)').click()
+ 
   ]);
   await pdfDownload.saveAs('downloads/leadPdfNormal.pdf');
 

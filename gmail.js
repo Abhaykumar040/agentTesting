@@ -124,28 +124,28 @@ function checkLatest(targetTo) {
 
 }
 
-(async () => {
+// (async () => {
 
-  console.log("STARTING EMAIL CHECK");
+//   console.log("STARTING EMAIL CHECK");
 
   
 
-    const email = await waitForEmail("akbk6551+4552@gmail.com");
+//     const email = await waitForEmail("akbk6551+4552@gmail.com");
 
-    if (!email) {
-    console.log("Email not received.");
-} else {
-    const verificationLink = email.body.match(/https?:\/\/\S+/)?.[0];
-    console.log(verificationLink,"abh");
-    const match = email.body.match(/https?:\/\/\S+/);
+//     if (!email) {
+//     console.log("Email not received.");
+// } else {
+//     const verificationLink = email.body.match(/https?:\/\/\S+/)?.[0];
+//     console.log(verificationLink,"abh");
+//     const match = email.body.match(/https?:\/\/\S+/);
 
-if (match) {
-    const verificationLink = match[0];
-    console.log(verificationLink,"abh");
-}
-    console.log("EMAIL FOUND:");
-    console.log(email);
-}
+// if (match) {
+//     const verificationLink = match[0];
+//     console.log(verificationLink,"abh");
+// }
+//     console.log("EMAIL FOUND:");
+//     console.log(email);
+// }
 
 
 
@@ -154,8 +154,8 @@ if (match) {
 
    
 
-    // console.log("ERROR:", err.message);
+//     // console.log("ERROR:", err.message);
 
   
 
-})();
+// })();

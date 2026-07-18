@@ -46,7 +46,7 @@
     },
     "editStatus": {
       "path": "./screenshot/parent/status/editStatus.png",
-      "note": "false",
+      "note": "true",
       "message": ""
     },
     "deleteStatus": {
@@ -193,7 +193,7 @@
   "./screenshot/parent/lead/": {
     "addLead": {
       "path": "./screenshot/parent/lead/addLead.png",
-      "note": "true",
+      "note": "false",
       "message": ""
     },
     "editLeadFirst": {
@@ -212,15 +212,18 @@
     },
     "documentInLead": {
       "path": "./screenshot/parent/lead/documentInLead.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "exportExcelInTicketsNormal": {
       "path": "./screenshot/parent/lead/exportExcelInTicketsNormal.png",
-      "note": "false"
+      "note": "false",
+      "message": ""
     },
     "exportExcelInTicketsNormal2": {
       "path": "./screenshot/parent/lead/exportExcelInTicketsNormal2.png",
-      "note": "true"
+      "note": "false",
+      "message": ""
     },
     "exportExcelInLeadFilter1": {
       "path": "./screenshot/parent/lead/exportExcelInLeadFilter1.png",
@@ -279,7 +282,7 @@
     },
     "editCustomer": {
       "path": "./screenshot/parent/customer/editCustomer.png",
-      "note": "true",
+      "note": "false",
       "message": ""
     },
     "deleteCustomer": {
@@ -401,7 +404,7 @@
   "./screenshot/parent/quotation/": {
     "createQuotation": {
       "path": "./screenshot/parent/quotation/createQuotation.png",
-      "note": "false",
+      "note": "true",
       "message": ""
     },
     "approveQuotation": {
@@ -421,7 +424,7 @@
     },
     "copyQuotation": {
       "path": "./screenshot/parent/quotation/copyQuotation.png",
-      "note": "false",
+      "note": "true",
       "message": ""
     },
     "rejectedByCustomerQuotation": {
@@ -436,7 +439,7 @@
     },
     "editQuotationRejected": {
       "path": "./screenshot/parent/quotation/editQuotationRejected.png",
-      "note": "true",
+      "note": "false",
       "message": ""
     },
     "editQuotationAccepted": {
@@ -516,6 +519,11 @@
     },
     "exportQuotationFilterStateCityXlx": {
       "path": "./screenshot/parent/quotation/exportQuotationFilterStateCityXlx.png",
+      "note": "false",
+      "message": ""
+    },
+    "sendQuotationToCustomerByEmail": {
+      "path": "./screenshot/parent/quotation/sendQuotationToCustomerByEmail.png",
       "note": "false",
       "message": ""
     }

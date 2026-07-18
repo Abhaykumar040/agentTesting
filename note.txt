@@ -82,3 +82,38 @@ if (match) {
     const verificationLink = match[0];
     console.log(verificationLink);
 }
+
+signatureenvelopes
+
+
+
+
+            
+   const email1 = await waitForEmail("akbk6551+1140@gmail.com");
+const match = email1?.body?.match(/https?:\/\/\S+/);
+
+
+
+if (match) {
+    const verificationLink = match[0];
+    console.log(verificationLink);
+
+    await page.screenshot({ path: `./${screenshotPath}/addCustomerEmailCheckOnGmail.png`, fullPage: true });
+    await updateOpJson(
+        `./${screenshotPath}/`,
+        "addCustomerEmailCheckOnGmail",
+        "true",
+        `./${screenshotPath}/addCustomerEmailCheckOnGmail.png`
+    );
+} else {
+    await page.screenshot({ path: `./${screenshotPath}/addCustomerEmailCheckOnGmail.png`, fullPage: true });
+    await updateOpJson(
+        `./${screenshotPath}/`,
+        "addCustomerEmailCheckOnGmail",
+        "false",
+        `./${screenshotPath}/addCustomerEmailCheckOnGmail.png`
+    );
+}
+
+quotation email 
+akbk6551+23101@gmail.com

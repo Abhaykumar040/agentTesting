@@ -40,7 +40,9 @@ async function deletePreviuosPriority(page){
  await page.waitForTimeout(1000);
  while(true){
 let priorityCount=await page.getByLabel('Delete').count();
-if(priorityCount==0)break;
+if(priorityCount==0)
+  { await page.waitForTimeout(1000);
+    break;}
 await page.locator('table tbody tr').nth(1).getByLabel('Delete').click();
 await page.getByRole('button', { name: 'Proceed' }).click();
 await page.waitForTimeout(1000);
@@ -60,7 +62,7 @@ console.log("previous priority delete completed");
 }
 async function addPriorit(page) {
   console.log("Enter in Add priority");
-  await page.getByRole('button', { name: 'Settings' }).click();
+  
   await page.getByRole('link', { name: 'Priority' }).click();
 
 

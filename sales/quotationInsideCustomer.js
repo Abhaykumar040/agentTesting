@@ -15,19 +15,19 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 export async function quotationInsideCustomer(page){
 
-  // await createQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await approveQuotation(page);
-  // await page.waitForTimeout(3000);
-  //   await acceptQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await rejectQuotation(page);
+  await createQuotation(page);
+  await page.waitForTimeout(3000);
+  await approveQuotation(page);
+  await page.waitForTimeout(3000);
+    await acceptQuotation(page);
+  await page.waitForTimeout(3000);
+  await rejectQuotation(page);
 
-  // await page.waitForTimeout(3000);
-  //   await rejectedByCustomerQuotation(page);
-  // await page.waitForTimeout(3000);
-  // await copyQuotation(page);
-  //   await page.waitForTimeout(3000);
+  await page.waitForTimeout(3000);
+    await rejectedByCustomerQuotation(page);
+  await page.waitForTimeout(3000);
+  await copyQuotation(page);
+    await page.waitForTimeout(3000);
 
   await sendQuotation(page);
   await page.waitForTimeout(3000);

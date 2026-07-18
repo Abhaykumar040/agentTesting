@@ -17,8 +17,8 @@ const pathName=`outputData/status/${testData.companyType}`
 export async function status(page){
   // await deletePreviuosStatus(page);
   // await page.waitForTimeout(3000);
-  await addStatus(page);
-  await page.waitForTimeout(3000);
+  // await addStatus(page);
+  // await page.waitForTimeout(3000);
   await editStatus(page);
   await page.waitForTimeout(3000);
   // await deleteStatus(page);
@@ -227,6 +227,7 @@ await page.getByRole('button', { name: 'Add New Status' }).click();
    await page.waitForTimeout(3000);
   await page.getByRole('button', { name: 'Status' }).click();
   await page.getByRole('textbox', { name: 'Status *' }).first().click();
+  await page.waitForTimeout(1000);
   await page.getByRole('textbox', { name: 'Status *' }).click();
   await page.getByRole('textbox', { name: 'Status *' }).fill('createdJob');
   await page.getByRole('textbox', { name: 'Status Description *' }).click();
@@ -338,9 +339,10 @@ await page.getByRole('button', { name: 'Add New Status' }).click();
 async function editStatus(page){
   console.log("Enter in edit status");
   
-  await page.getByRole('button', { name: 'Settings' }).click();
+
   await page.getByRole('link', { name: 'Status Profile' }).click();
   await page.getByText('InstallationStatusJob').click();
+   await page.waitForTimeout(1000);
   await page.getByText('In progressJob').click();
   await page.getByRole('textbox', { name: 'Status *' }).nth(4).click();
   await page.getByRole('textbox', { name: 'Status *' }).click();
