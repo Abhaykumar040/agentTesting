@@ -21,7 +21,7 @@ export async function roles(page){
 
 async function addRole(page) {
   console.log("Enter in add role");
-  await page.getByRole('button', { name: 'Settings' }).click();
+
   await page.getByRole('link', { name: 'Roles' }).click();
   await page.getByRole('button', { name: 'Add Role' }).click();
   await page.waitForTimeout(3000);

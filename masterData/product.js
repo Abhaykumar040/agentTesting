@@ -15,13 +15,20 @@ const pathName=`outputData/status/${testData.companyType}`
 export async function product(page){
   await deletePreviousProduct(page);
   await page.waitForTimeout(3000);
+ 
   await addProduct(page);
   await page.waitForTimeout(3000);
+ 
+
   await editProduct(page);
   await page.waitForTimeout(3000);
+ 
+
   // await referencedProduct(page);
   // await page.waitForTimeout(3000);
   await deleteProduct(page);
+ 
+
 }
 async function deletePreviousProduct(page){
   console.log("Enter in delete previous product");
@@ -45,7 +52,7 @@ async function deletePreviousProduct(page){
     
     // await page.waitForTimeout(1000);
     }
-   
+    await expect(page.getByRole('cell', { name: 'No data available' })).toBeVisible();
 await page.reload();
 console.log("Delete previous product completed");
 }
@@ -269,7 +276,7 @@ async function deleteProduct(page) {
   await page.getByRole('menuitem', { name: 'Delete' }).click();
   await page.waitForLoadState('networkidle');
   await page.reload();
-  await page.getByRole('button', { name: 'Master Data' }).click();
+ 
   await page.getByRole('link', { name: 'Products' }).click();
   await page.waitForTimeout(1000);
   await page.locator('tbody tr').first().locator('td').nth(7).locator('button:has(svg)').last().click();

@@ -14,16 +14,23 @@ const screenshotPath=`screenshot/${testData.companyType}/ticket`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Tickets(page){
-  // await allDeleteTickets(page);
-  // await page.waitForTimeout(3000);
-  // await addNewTickets(page);
-  // await page.waitForTimeout(3000);
-  // await editTicket(page);
-  // await page.waitForTimeout(2000);
-  // await sendTicket(page);
-  // await page.waitForTimeout(2000);
+  await allDeleteTickets(page);
+  await page.waitForTimeout(3000);
+  await addNewTickets(page);
+  await page.waitForTimeout(3000);
+  await editTicket(page);
+  await page.waitForTimeout(2000);
+ // await sendTicket(page);
+ // await page.waitForTimeout(2000);
   await deleteTicket(page);
   await page.waitForTimeout(2000);
+
+  await uploadFilesTicket(page);
+   await page.waitForTimeout(2000);
+  await commentTicekt(page);
+   await page.waitForTimeout(2000);
+  await timelineTicket(page);
+   await page.waitForTimeout(2000);
   await exportExcelInTicketsNormal(page);
   await page.waitForTimeout(3000);
   await exportExcelInTicketFilter(page);
@@ -102,6 +109,7 @@ async function addNewTickets(page) {
   await page.getByRole('button', { name: 'Next: SLA' }).click();
   await page.getByRole('button', { name: 'Select SLA' }).click();
   await page.getByRole('option', { name: 'Critical / Breakdown Issue 3' }).first().click();
+   await page.getByRole('button', { name: 'Next: Additional Info' }).click();
   await page.getByRole('button', { name: 'Create Case' }).click();
   await expect(page.getByText('Support Case created')).toBeVisible();
 
@@ -133,6 +141,7 @@ async function addNewTickets(page) {
   await page.getByRole('button', { name: 'Next: SLA' }).click();
   await page.getByRole('button', { name: 'Select SLA' }).click();
   await page.getByRole('option', { name: 'Critical / Breakdown Issue 3' }).first().click();
+   await page.getByRole('button', { name: 'Next: Additional Info' }).click();
   await page.getByRole('button', { name: 'Create Case' }).click();
   await expect(page.getByText('Support Case created')).toBeVisible();
 
@@ -162,6 +171,7 @@ async function addNewTickets(page) {
   await page.getByRole('button', { name: 'Next: SLA' }).click();
   await page.getByRole('button', { name: 'Select SLA' }).click();
   await page.getByRole('option', { name: 'AMC / Maintenance 3' }).click();
+   await page.getByRole('button', { name: 'Next: Additional Info' }).click();
   await page.getByRole('button', { name: 'Create Case' }).click();
  
 
@@ -208,14 +218,16 @@ async function editTicket(page){
   await page.getByText('createdSupport2').first().click();
   await page.getByRole('button', { name: 'Select an Agent' }).click();
   await page.getByRole('option', { name: 'Yogesh Yadav' }).first().click();
-   await page.getByRole('button', { name: 'Product Not Workings6' }).click();
-  await page.getByRole('menuitem', { name: 'Product Not Working', exact: true }).click();
-  await page.getByRole('button').nth(4).click();
+   await page.getByRole('button', { name: 'Product Not Working' }).click();
+   await page.getByRole('menuitem', { name: 'Product not Working properly' }).click();
+  
+   await page.locator('button').nth(4).click();
   await page.getByRole('menuitem', { name: 'ResolvedSupport' }).click();
-  await page.getByRole('main').getByRole('button').filter({ hasText: /^$/ }).click();
+  await page.locator('button').nth(5).click();
   await page.getByRole('menuitem', { name: 'doneSupport2' }).click();
   await page.getByRole('button', { name: 'Update Case' }).click();
   await page.getByRole('link', { name: 'Tickets' }).click();
+
 
     await page.waitForTimeout(2000);
   
@@ -230,24 +242,24 @@ async function editTicket(page){
       await updateOpJson(`./${screenshotPath}/`,"editTicket","false",`./${screenshotPath}/editTicket.png`)
     }
     // check in customer portal 
-              await page.goto(data.loginCustomerPortal);
-              await page.getByRole('link', { name: 'Support Tickets' }).click();
-              if(await page.getByText('doneSupport2').first().isVisible()){
-               console.log("Internal Job in Engineer portal is visible");
+          //     await page.goto(data.loginCustomerPortal);
+          //     await page.getByRole('link', { name: 'Support Tickets' }).click();
+          //     if(await page.getByText('doneSupport2').first().isVisible()){
+          //      console.log("Internal Job in Engineer portal is visible");
        
-               await page.screenshot({ path: `./${screenshotPath}/checkeditedTicketInCustomerPortal.png`, fullPage: true });
-               await updateOpJson(`./${screenshotPath}/`,"checkeditedTicketInCustomerPortal","true",`./${screenshotPath}/checkeditedTicketInCustomerPortal.png`)
-              }else{
-               console.log("Internal Job in Engineer portal is not visible");
+          //      await page.screenshot({ path: `./${screenshotPath}/checkeditedTicketInCustomerPortal.png`, fullPage: true });
+          //      await updateOpJson(`./${screenshotPath}/`,"checkeditedTicketInCustomerPortal","true",`./${screenshotPath}/checkeditedTicketInCustomerPortal.png`)
+          //     }else{
+          //      console.log("Internal Job in Engineer portal is not visible");
              
-               await page.screenshot({ path: `./${screenshotPath}/checkeditedTicketInCustomerPortal.png`, fullPage: true });
-               await updateOpJson(`./${screenshotPath}/`,"checkeditedTicketInCustomerPortal","false",`./${screenshotPath}/checkeditedTicketInCustomerPortal.png`)
-             }
+          //      await page.screenshot({ path: `./${screenshotPath}/checkeditedTicketInCustomerPortal.png`, fullPage: true });
+          //      await updateOpJson(`./${screenshotPath}/`,"checkeditedTicketInCustomerPortal","false",`./${screenshotPath}/checkeditedTicketInCustomerPortal.png`)
+          //    }
               
-           await page.waitForTimeout(2000);
-            console.log("Going back to company portal...");
-           await page.goto(data.url);
-           console.log("Company portal login completed");
+          //  await page.waitForTimeout(2000);
+          //   console.log("Going back to company portal...");
+          //  await page.goto(data.url);
+          //  console.log("Company portal login completed");
 }
 
 async function sendTicket(page){
@@ -924,7 +936,7 @@ await page.getByRole('button', { name: 'Filter By' }).click();
 async function uploadFilesTicket(page){
   await page.getByRole('link', { name: 'Tickets' }).click();
    await page.waitForTimeout(1000);
-  await page.getByRole('cell', { name: 'createSupport1' }).click();
+  await page.getByRole('cell', { name: 'ResolvedSupport' }).last().click();
    await page.waitForTimeout(1000);
   await page.getByRole('tab', { name: 'Documents' }).click();
   //  await page.waitForTimeout(1000);
@@ -933,21 +945,125 @@ async function uploadFilesTicket(page){
   await page.locator('input[type="file"]')
   .setInputFiles('./uploadTestingFiles/leads.xlsx');
    await page.waitForTimeout(1000);
+   await page.getByRole('button', { name: 'Upload Files' }).click();
+    await page.waitForTimeout(2000);
+
   await page.getByRole('button', { name: 'Save' }).click();
  await page.waitForTimeout(2000);
 
-  await page.getByRole('tab', { name: 'Additional Info' }).click();
-  await page.locator('div').filter({ hasText: /^Name$/ }).nth(1).click();
- 
-  await page.getByRole('textbox', { name: 'Name' }).fill('abhay');
-  await page.getByRole('textbox', { name: 'Address' }).click();
-  await page.getByRole('textbox', { name: 'Address' }).fill('KHAMARIA');
- 
-  await page.getByRole('button', { name: 'Click To Upload Files' }).click();
+  
+}
+
+async function commentTicekt(page){
+    await page.getByRole('link', { name: 'Tickets' }).click();
    await page.waitForTimeout(1000);
-  await page.locator('input[type="file"]')
+  await page.getByRole('cell', { name: 'ResolvedSupport' }).last().click();
+   await page.waitForTimeout(1000);
+   
+  await page.getByRole('tab', { name: 'Comments' }).click();
+  await page.getByRole('textbox', { name: 'Write a comment...' }).click();
+  await page.getByRole('textbox', { name: 'Write a comment...' }).fill('Hi is you are getting this Comment from company portal with attachment');
+   await page.locator('input[type="file"]')
   .setInputFiles('./uploadTestingFiles/leads.xlsx');
-     await page.waitForTimeout(1000);
-  await page.getByRole('button', { name: 'Update Case' }).click();
+ 
     await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Send Comment' }).click();
+}
+
+async function timelineTicket(page){
+  // Timeline
+await page.getByRole('tab', { name: 'Timeline' }).click();
+
+//
+// -------------------- Note --------------------
+//
+await page.getByRole('textbox', { name: 'note subject' }).fill('Customer Follow-up Note');
+await page
+  .getByRole('textbox', { name: 'Description', exact: true })
+  .fill('This is a sample note added through automation testing.');
+
+await page.getByRole('button', { name: 'Add Note' }).click();
+
+//
+// -------------------- Phone Call --------------------
+//
+await page.getByRole('button', { name: 'Note', exact: true }).click();
+await page.getByRole('option', { name: 'Phone Call' }).click();
+
+await page.getByRole('textbox', { name: 'Subject' }).fill('Customer Phone Call');
+await page.getByPlaceholder('Duration in minutes').fill('30');
+
+// Always provide date & time before submitting
+await page
+  .getByPlaceholder('dd-mm-yyyy --:--')
+  .fill('2040-04-04T10:30');
+
+await page
+  .getByRole('textbox', { name: 'Description', exact: true })
+  .fill('Discussed customer requirements over the phone.');
+
+await page.getByRole('button', { name: 'Add PhoneCall' }).click();
+
+//
+// -------------------- Task --------------------
+//
+await page.getByRole('button', { name: 'Phone Call' }).click();
+await page.getByRole('option', { name: 'Task' }).click();
+
+await page.getByRole('textbox', { name: 'task subject' }).fill('Complete Customer Documentation');
+
+// Select date & time before submit
+
+await page
+  .getByRole('textbox', { name: 'Description', exact: true })
+  .fill('Collect all required documents and update the customer record.');
+
+await page.getByRole('button', { name: 'Add Task' }).click();
+
+//
+// -------------------- Meeting --------------------
+//
+await page.getByRole('button', { name: 'Task', exact: true }).click();
+await page.getByRole('option', { name: 'Meeting' }).click();
+
+await page
+  .getByRole('textbox', { name: 'Meeting Subject' })
+  .fill('Project Discussion Meeting');
+
+await page.getByPlaceholder('Duration in minutes').fill('60');
+
+// Always provide date & time before submitting
+await page
+  .getByPlaceholder('dd-mm-yyyy --:--')
+  .fill('2035-06-20T15:00');
+
+await page
+  .getByRole('textbox', { name: 'Description', exact: true })
+  .fill('Discuss project requirements and next action items.');
+
+await page.getByRole('button', { name: 'Add Meeting' }).click();
+
+//
+// -------------------- Follow Up --------------------
+//
+await page.getByRole('button', { name: 'Meeting', exact: true }).click();
+await page.getByRole('option', { name: 'Follow Up' }).click();
+
+await page
+  .getByRole('textbox', { name: 'Subject' })
+  .fill('Customer Follow-up Reminder');
+
+// Date & time is mandatory
+await page
+  .getByPlaceholder('dd-mm-yyyy --:--')
+  .fill('2035-06-25T10:00');
+
+await page.getByLabel('', { exact: true }).click();
+await page.getByRole('option', { name: 'Phone Call' }).click();
+
+await page
+  .getByRole('textbox', { name: 'Add notes for follow up' })
+  .fill('Call the customer to confirm document submission and provide status update.');
+
+await page.getByRole('button', { name: 'Add Follow Up' }).click();
 }

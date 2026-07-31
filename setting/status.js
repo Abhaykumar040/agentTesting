@@ -15,27 +15,20 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function status(page){
-  // await deletePreviuosStatus(page);
-  // await page.waitForTimeout(3000);
-  // await addStatus(page);
-  // await page.waitForTimeout(3000);
+  // // await deletePreviuosStatus(page);
+  await page.waitForTimeout(3000);
+  await run('statusprofiles');
+  await page.reload();
+   await page.waitForTimeout(3000);
+
+  await addStatus(page);
+  await page.waitForTimeout(3000);
   await editStatus(page);
   await page.waitForTimeout(3000);
-  // await deleteStatus(page);
+ // //await deleteStatus(page);
 }
 async function deletePreviuosStatus(page){
- console.log("Enter in delete previous status")
-const result= await run("statusprofile");
-await page.waitForTimeout(1000);
  
-
-
-   
-     await page.waitForTimeout(1000);
-    
-   
-  await page.reload();
-  console.log("delete previous status completed");
 
 }
 
@@ -321,8 +314,9 @@ await page.getByRole('button', { name: 'Add New Status' }).click();
  await page.waitForTimeout(3000);
   await page.reload();
   await page.waitForTimeout(3000);
+   await page.getByText('JobDeleteStatus2').click();
 
-  if (await page.getByText('DeleteEditStatusJob', { exact: true }).isVisible() && !await page.getByText('deleteInternalJobStatus', { exact: true }).isVisible())  
+  if (await page.getByText('JobDeleteStatus12', { exact: true }).isVisible() && await page.getByText('InstallationStatusJob', { exact: true }).isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/addStatus.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"addStatus","true",`./${screenshotPath}/addStatus.png`)
@@ -340,10 +334,10 @@ async function editStatus(page){
   console.log("Enter in edit status");
   
 
-  await page.getByRole('link', { name: 'Status Profile' }).click();
+  // await page.getByRole('link', { name: 'Status Profile' }).click();
   await page.getByText('InstallationStatusJob').click();
    await page.waitForTimeout(1000);
-  await page.getByText('In progressJob').click();
+  await page.getByText('CreatedJob').click();
   await page.getByRole('textbox', { name: 'Status *' }).nth(4).click();
   await page.getByRole('textbox', { name: 'Status *' }).click();
   await page.getByRole('textbox', { name: 'Status *' }).fill('In progressX');
@@ -374,7 +368,7 @@ async function editStatus(page){
 await page.getByText('InstallationStatusJob').click();
 await page.waitForTimeout(3000);
   if (!await page.getByText('DeleteEditStatusJob', { exact: true }).isVisible()&&
-  await page.getByText('CreateDuringEditIns', { exact: true }).isVisible() )  
+  await page.getByText('CreateDuringEditIns', { exact: true }).first().isVisible() )  
   {
     await page.screenshot({ path: `./${screenshotPath}/editStatus.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"editStatus","true",`./${screenshotPath}/editStatus.png`)
@@ -391,6 +385,7 @@ await page.waitForTimeout(3000);
 
 async function deleteStatus(page) {
   console.log("Enter in delete status");
+    await page.getByText('InstallationStatusJob').click();
   await page.getByRole('row', { name: 'InstallationStatusJob DeleteExternalStatusJob' }).getByLabel('Delete').first().click();
   await page.getByRole('button', { name: 'Proceed' }).click();
     await page.getByRole('row', { name: 'jobDeleteStatus' }).getByLabel('Delete').first().click();

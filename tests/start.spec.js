@@ -40,6 +40,8 @@ import { esignTemplate } from '../eSign/templates';
 import { signatureRequestEsign } from '../eSign/signatureRequest';
 import { opportunity } from '../sales/opportunity';
 import { emailTemplateSetting } from '../setting/emailTemplate';
+
+
 let testData; 
 const jsonText = await fs.readFile('./data.json', 'utf8');
 const data = JSON.parse(jsonText); 
@@ -47,6 +49,14 @@ test.beforeAll(async () => {
   const rawData = await fs.readFile('./data.json', 'utf8');
   testData = JSON.parse(rawData);
 });
+await fs.rm("./screenshot", {
+    recursive: true,
+    force: true,
+});
+
+
+await fs.access("../parent.js").then(() => fs.unlink("../parent.js")).catch(() => {});
+
 test('basic test', async ({ page ,context }) => { 
    await context.grantPermissions(
     ['clipboard-read', 'clipboard-write'],
@@ -71,6 +81,7 @@ await loginRight(page);
 // await product(page); // referenced product is not done
 // await form(page);
 // await skill(page);
+
 // await zone(page);
 // await assetsCategory(page);
 
@@ -78,7 +89,7 @@ await loginRight(page);
 // await lead(page); //export is not done
 // await opportunity(page);
 // await customer(page);
-await Quotation(page);
+await Quotation(page); //sendQuoataion must have email read with file option
 await quotationInsideCustomer(page);
 await Invoices(page);
 await invoicesInsideCustomer(page);
@@ -87,21 +98,21 @@ await invoicesInsideCustomer(page);
 // await cs_agent(page);
 // await team(page);
 // await setting(page);
-// await customerInC_service(page); 
+// // await customerInC_service(page); 
 // await Queue(page);
 // await Tickets(page);
 // await ticketInsideCustomer(page);
-await webform(page); 
+// await webform(page); 
 // await esignTemplate(page);
-await signatureRequestEsign(page);
+// await signatureRequestEsign(page);
 // await FAQs(page);
-// await Engineer(page);
-// await jobType(page);
-// await AssetManagement(page);
+await Engineer(page);
+await jobType(page);
+await AssetManagement(page);
 // await customerfsm(page);
 
 // await dispatcher(page);
-// await internalJob(page);
+await internalJob(page);
 // await cyclicJob(page);
 // await dashboard(page);
 

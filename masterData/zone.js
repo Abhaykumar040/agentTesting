@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
+import { run } from '../check';
 
 
 const rawData = await fs.readFile('./data.json', 'utf8');
@@ -11,6 +12,7 @@ const screenshotPath=`screenshot/${testData.companyType}/zone`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function zone(page){
+  await run('zones');
 await addNewZone(page);
 //  await addZone(page);
 //  await page.waitForTimeout(3000);
@@ -297,10 +299,10 @@ async function addNewZone(page){
   await page.getByRole('textbox', { name: 'Description' }).click();
   await page.getByRole('textbox', { name: 'Description' }).fill('South India');
   await page.getByRole('button').nth(2).click();
-  await page.getByRole('button', { name: 'Uttar-Pradesh' }).click();
-  await page.getByText('Uttar-Pradesh-Bijnor').click();
+   await page.getByRole('button', { name: 'Telangana' }).click();
+  await page.getByText('Telangana-Hyderabad').click();
   await page.getByRole('tab', { name: 'Exclude (0)' }).click();
-  await page.getByText('Uttar-Pradesh-Budaun').click();
+ 
   await page.getByRole('button', { name: 'Create Zone' }).click();
 
    await page.getByRole('button', { name: 'Add New Zone' }).click();

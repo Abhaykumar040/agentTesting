@@ -5,6 +5,7 @@ import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
 import { globalExportDocument } from '../globalExportDocument';
 import { dataRead } from '../dataRead';
+import { run } from '../check';
 
 
 
@@ -15,6 +16,7 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function lead(page){
+  await run('leads');
   await page.getByRole('button', { name: 'Sales' }).click();
   await addLead(page);
   await page.waitForTimeout(3000);

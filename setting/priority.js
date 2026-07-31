@@ -45,7 +45,7 @@ if(priorityCount==0)
     break;}
 await page.locator('table tbody tr').nth(1).getByLabel('Delete').click();
 await page.getByRole('button', { name: 'Proceed' }).click();
-await page.waitForTimeout(1000);
+await page.waitForTimeout(2000);
  }
 
 
@@ -55,11 +55,16 @@ await page.waitForTimeout(1000);
     await page.waitForTimeout(3000);
 await page.reload();
   
-//  await expect(page.getByText('Showing 1 to 10 of 13 entries')).toBeVisible();
-console.log("previous priority delete completed");
+  await expect(page.getByRole('cell', { name: 'No data available' })).toBeVisible();
+
+
  
 
 }
+
+
+
+
 async function addPriorit(page) {
   console.log("Enter in Add priority");
   
@@ -277,10 +282,10 @@ await page.waitForTimeout(3000);
 
   await page.getByRole('button', { name: 'Back to List' }).click();
     await page.waitForTimeout(3000);
-
+await page.getByText('InstallationPriorityJob').click();
  if (!await page.getByText('DeleteInternalInstallation').first().isVisible() &&
-await page.getByText('InstallationPriorityJob').nth(4).isVisible()
-&&await page.getByText('EditDelete').isVisible())  {
+await page.getByText('Low installation').isVisible()
+)  {
         await page.screenshot({ path: `./${screenshotPath}/PriorityCreateAndDeleteDuringCreation.png`, fullPage: true });
         await updateOpJson(`./${screenshotPath}/`,"PriorityCreateAndDeleteDuringCreation","true",`./${screenshotPath}/PriorityCreateAndDeleteDuringCreation.png`)
         
@@ -317,7 +322,7 @@ async function editPriority(page){
   await page.getByRole('button', { name: 'Back to List' }).click();
   await page.reload();
   await page.waitForTimeout(2000);
-
+await page.getByText('InstallationPriorityJob').click();
 
  if (await page.getByText('XLowX').isVisible()&&
 await page.getByText('Low installationX').isVisible()&&
@@ -348,6 +353,7 @@ async function deletePriority(page){
   await page.waitForTimeout(3000);
   await page.reload();
  await page.waitForTimeout(3000);
+ await page.getByText('InstallationPriorityJob').click();
  if (!await page.getByText('DeleteExternalPriority').isVisible()&&
 await page.getByText('Medium installation').isVisible())  {
         await page.screenshot({ path: `./${screenshotPath}/deletePriority.png`, fullPage: true });

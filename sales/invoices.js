@@ -11,9 +11,9 @@ const screenshotPath=`screenshot/${testData.companyType}/invoices`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Invoices(page){
-  await addInvoices(page);
-  await page.waitForTimeout(3000);
-   await page.waitForTimeout(3000);
+  // await addInvoices(page);
+  // await page.waitForTimeout(3000);
+
   await cancelInvoice(page);
   await page.waitForTimeout(3000);
   await editInvoices(page);
@@ -35,7 +35,7 @@ async function exportInvoiceInCustomerFilter(page){
 
   console.log('Enter in export invoice in customer filter');
 await page.getByRole('button', { name: 'Sales' }).click();
-  await page.getByRole('link', { name: 'Invoices' }).click();
+  await page.getByRole('link', { name: 'Invoices', exact: true }).click();
   await page.getByRole('button', { name: 'Filter By' }).click();
   await page.getByRole('menuitem', { name: 'State' }).click();
   await page.getByRole('menuitem', { name: 'Uttar Pradesh' }).getByRole('checkbox').check();
@@ -1037,7 +1037,7 @@ async function exportInvoiceInCustomerNormal(page){
 async function addInvoices(page){
   console.log('Enter in add invoice');
   await page.getByRole('button', { name: 'Sales' }).click();
-await page.getByRole('link', { name: 'Invoices' }).click();
+ await page.getByRole('link', { name: 'Invoices', exact: true }).click();
 
 //1st Invoice create
   await page.getByRole('link', { name: 'Add Invoice' }).click();
@@ -1148,7 +1148,7 @@ async function sendInvoices(page) {
 
 async function editInvoices(page){
   console.log('Enter in edit invoice');
-    await page.locator('body tr:nth-of-type(1) td:nth-of-type(8) div button:last-of-type svg').click();
+    await page.locator('body tr:nth-of-type(1) td:nth-of-type(9) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Edit' }).click();
     await page.waitForTimeout(1000);
   await page.getByRole('button', { name: 'Add Item' }).click();
@@ -1182,7 +1182,7 @@ async function editInvoices(page){
 
 async function cancelInvoice(page){
   console.log('Enter in cancel invoice');
-   await page.locator('body tr:nth-of-type(2) td:nth-of-type(8) div button:last-of-type svg').click();
+   await page.locator('body tr:nth-of-type(2) td:nth-of-type(9) div button:last-of-type svg').click();
   await page.getByRole('menuitem', { name: 'Cancel' }).click();
 
   await page.waitForTimeout(1000);
@@ -1239,7 +1239,7 @@ async function createInvoiceByQuotation(page) {
   await page.reload();
   
   // await page.getByRole('button', { name: 'Sales' }).click();
-  // await page.getByRole('link', { name: 'Invoices' }).click();
+  // await page.getByRole('link', { name: 'Invoices', exact: true }).click();
   await page.waitForTimeout(3000);
     if (await page.getByText('Shyam Sundar').first().isVisible())  
     {

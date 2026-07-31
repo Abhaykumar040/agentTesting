@@ -13,8 +13,8 @@ const screenshotPath=`screenshot/${testData.companyType}/ticket`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function ticketInsideCustomer(page){
-  await addNewTickets(page);
-  await page.waitForTimeout(3000);
+  // await addNewTickets(page);
+  // await page.waitForTimeout(3000);
   await editTicket(page);
   await page.waitForTimeout(3000);
   await sendTicket(page);
@@ -28,9 +28,9 @@ export async function ticketInsideCustomer(page){
 
 async function addNewTickets(page) {
   console.log('Enter in add new tickets');
-  await page.getByRole('button', { name: 'Customer Service' }).click();
+  // await page.getByRole('button', { name: 'Customer Service' }).click();
     await page.getByRole('link', { name: 'Customers' }).click();
-  await page.getByText('Jony Rathor').first().click();
+  await page.getByText('Anil Rathor').click();
   await page.getByRole('tab', { name: 'Support Tickets' }).click();
 
 
@@ -57,6 +57,7 @@ async function addNewTickets(page) {
   await page.getByRole('button', { name: 'Next: SLA' }).click();
   await page.getByRole('button', { name: 'Select SLA' }).click();
   await page.getByRole('option', { name: 'Critical / Breakdown Issue 3' }).click();
+   await page.getByRole('button', { name: 'Next: Additional Info' }).click();
   await page.getByRole('button', { name: 'Create Case' }).click();
   // await expect(page.getByText('Support Case created')).toBeVisible();
 
@@ -68,7 +69,7 @@ async function addNewTickets(page) {
   await page.getByRole('textbox', { name: 'Enter case title' }).fill('Power cutoff issue');
 
   await page.getByRole('button', { name: 'Select Case Issue' }).click();
-  await page.getByRole('option', { name: 'Product Not Workings6' }).click();
+  await page.getByRole('option', { name: 'Product Not Working',exact:true }).click();
   await page.getByRole('button', { name: 'Select Priority' }).click();
   await page.getByRole('option', { name: 'createdSupport2' }).click();
   await page.getByRole('button', { name: 'Select Status Profile' }).click();
@@ -85,6 +86,7 @@ async function addNewTickets(page) {
   await page.getByRole('button', { name: 'Next: SLA' }).click();
   await page.getByRole('button', { name: 'Select SLA' }).click();
   await page.getByRole('option', { name: 'AMC / Maintenance 3' }).click();
+   await page.getByRole('button', { name: 'Next: Additional Info' }).click();
   await page.getByRole('button', { name: 'Create Case' }).click();
 
  
@@ -104,25 +106,25 @@ async function addNewTickets(page) {
     }
 
    // check in customer portal 
-          await page.goto("https://erp-customer-web-b6dretg6gbercne0.z01.azurefd.net/");
-          await page.getByRole('link', { name: 'Support Tickets' }).click();
-          if(await page.getByText('Power cutoff issue').first().isVisible()){
-           console.log("Internal Job in Engineer portal is visible");
+  //         await page.goto("https://erp-customer-web-b6dretg6gbercne0.z01.azurefd.net/");
+  //         await page.getByRole('link', { name: 'Support Tickets' }).click();
+  //         if(await page.getByText('Power cutoff issue').first().isVisible()){
+  //          console.log("Internal Job in Engineer portal is visible");
    
-           await page.screenshot({ path: `./${screenshotPath}/checkSupportTicketInCustomerPortal.png`, fullPage: true });
-           await updateOpJson(`./${screenshotPath}/`,"checkSupportTicketInCustomerPortal","true",`./${screenshotPath}/checkSupportTicketInCustomerPortal.png`)
-          }else{
-           console.log("Internal Job in Engineer portal is not visible");
+  //          await page.screenshot({ path: `./${screenshotPath}/checkSupportTicketInCustomerPortal.png`, fullPage: true });
+  //          await updateOpJson(`./${screenshotPath}/`,"checkSupportTicketInCustomerPortal","true",`./${screenshotPath}/checkSupportTicketInCustomerPortal.png`)
+  //         }else{
+  //          console.log("Internal Job in Engineer portal is not visible");
          
-           await page.screenshot({ path: `./${screenshotPath}/checkSupportTicketInCustomerPortal.png`, fullPage: true });
-           await updateOpJson(`./${screenshotPath}/`,"checkSupportTicketInCustomerPortal","false",`./${screenshotPath}/checkSupportTicketInCustomerPortal.png`)
-         }
+  //          await page.screenshot({ path: `./${screenshotPath}/checkSupportTicketInCustomerPortal.png`, fullPage: true });
+  //          await updateOpJson(`./${screenshotPath}/`,"checkSupportTicketInCustomerPortal","false",`./${screenshotPath}/checkSupportTicketInCustomerPortal.png`)
+  //        }
           
-       await page.waitForTimeout(2000);
-        console.log("Going back to company portal...");
-       await page.goto("https://strgerpcmpwebinddev.z29.web.core.windows.net/");
-       console.log("Company portal login completed");
-  console.log('add new tickets completed');
+  //      await page.waitForTimeout(2000);
+  //       console.log("Going back to company portal...");
+  //      await page.goto("https://strgerpcmpwebinddev.z29.web.core.windows.net/");
+  //      console.log("Company portal login completed");
+  // console.log('add new tickets completed');
 }
 
 

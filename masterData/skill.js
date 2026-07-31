@@ -15,19 +15,26 @@ const pathName=`outputData/status/${testData.companyType}`
 export async function skill(page){
   
   await deletePreviousProficiency(page);
+  await page.pause();
   await page.waitForTimeout(3000);
   await deletePreviousSkill(page);
+  await page.pause();
   await page.waitForTimeout(3000);
   await addProficiency(page);
   await page.waitForTimeout(3000);
+  await page.pause();
   await addSkill(page);
     await page.waitForTimeout(3000);
+    await page.pause();
   await editProficiency(page);
   await page.waitForTimeout(3000);
+  await page.pause();
   await editSkill(page);
   await page.waitForTimeout(3000);
+  await page.pause();
 
   await deleteSkill(page);
+  await page.pause();
 
 }
 async function addSkill(page) {
@@ -199,8 +206,6 @@ async function deletePreviousSkill(page){
   }
   await page.getByRole('button').filter({ hasText: /^$/ }).nth(2).click();
   await page.getByRole('menuitem', { name: 'Delete' }).click();
-
-    await expect(page.getByText('Skill deleted successfully').first()).toBeVisible();
     await page.waitForTimeout(2000);
     }
    

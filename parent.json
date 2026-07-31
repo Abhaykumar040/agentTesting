@@ -1,23 +1,23 @@
 {
   "./screenshot/parent/priority/": {
-    "priorityWitoutPosition": {
-      "path": "./screenshot/parent/priority/priorityWitoutPosition.png",
-      "note": "true",
-      "message": ""
-    },
     "PriorityCreateAndDeleteDuringCreation": {
       "path": "./screenshot/parent/priority/PriorityCreateAndDeleteDuringCreation.png",
-      "note": "false",
+      "note": "true",
       "message": ""
     },
     "editPriority": {
       "path": "./screenshot/parent/priority/editPriority.png",
-      "note": "false",
+      "note": "true",
       "message": ""
     },
     "deletePriority": {
       "path": "./screenshot/parent/priority/deletePriority.png",
-      "note": "false",
+      "note": "true",
+      "message": ""
+    },
+    "priorityWitoutPosition": {
+      "path": "./screenshot/parent/priority/priorityWitoutPosition.png",
+      "note": "true",
       "message": ""
     }
   },
@@ -41,7 +41,7 @@
   "./screenshot/parent/status/": {
     "addStatus": {
       "path": "./screenshot/parent/status/addStatus.png",
-      "note": "false",
+      "note": "true",
       "message": ""
     },
     "editStatus": {
@@ -49,8 +49,23 @@
       "note": "true",
       "message": ""
     },
-    "deleteStatus": {
-      "path": "./screenshot/parent/status/deleteStatus.png",
+    "EmailTemplateInsideSettingCreate": {
+      "path": "./screenshot/parent/status/EmailTemplateInsideSettingCreate.png",
+      "note": "true",
+      "message": ""
+    },
+    "EmailTemplateInsideSettingEdit": {
+      "path": "./screenshot/parent/status/EmailTemplateInsideSettingEdit.png",
+      "note": "true",
+      "message": ""
+    },
+    "deleteTemplate": {
+      "path": "./screenshot/parent/status/deleteTemplate.png",
+      "note": "false",
+      "message": ""
+    },
+    "oppotunityCreateAndWinLost": {
+      "path": "./screenshot/parent/status/oppotunityCreateAndWinLost.png",
       "note": "true",
       "message": ""
     }
@@ -63,13 +78,30 @@
     },
     "editProductCategry": {
       "path": "./screenshot/parent/productCategory/editProductCategry.png",
-      "note": "false",
+      "note": "true",
       "message": "Edit is From PC2 to PC2X"
     },
     "deleteProductCategory": {
       "path": "./screenshot/parent/productCategory/deleteProductCategory.png",
       "note": "true",
       "message": ""
+    }
+  },
+  "./screenshot/parent/product/": {
+    "addProduct": {
+      "path": "./screenshot/parent/product/addProduct.png",
+      "note": "true",
+      "message": "6 products are added"
+    },
+    "editProduct": {
+      "path": "./screenshot/parent/product/editProduct.png",
+      "note": "true",
+      "message": "Mobile charger to Fiber Optics cable"
+    },
+    "deleteProduct": {
+      "path": "./screenshot/parent/product/deleteProduct.png",
+      "note": "true",
+      "message": "Product is deleted 'Deleted Product'"
     }
   },
   "./screenshot/parent/form/": {
@@ -87,9 +119,19 @@
       "path": "./screenshot/parent/form/deleteForm.png",
       "note": "true",
       "message": ""
+    },
+    "copyForm": {
+      "path": "./screenshot/parent/form/copyForm.png",
+      "note": "true",
+      "message": ""
     }
   },
   "./screenshot/parent/skill/": {
+    "deletePreviousProficiency": {
+      "path": "./screenshot/parent/skill/deletePreviousProficiency.png",
+      "note": "true",
+      "message": ""
+    },
     "addProficiency": {
       "path": "./screenshot/parent/skill/addProficiency.png",
       "note": "true",
@@ -114,21 +156,6 @@
       "path": "./screenshot/parent/skill/deleteSkill.png",
       "note": "false",
       "message": ""
-    },
-    "deletePreviousProficiency": {
-      "path": "./screenshot/parent/skill/deletePreviousProficiency.png",
-      "note": "true",
-      "message": ""
-    }
-  },
-  "./screenshot/parent/zone/": {
-    "addZone": {
-      "path": "./screenshot/parent/zone/addZone.png",
-      "note": "true"
-    },
-    "deleteZone": {
-      "path": "./screenshot/parent/zone/deleteZone.png",
-      "note": "true"
     }
   },
   "./screenshot/parent/assets-category/": {
@@ -148,27 +175,6 @@
       "message": ""
     }
   },
-  "./screenshot/parent/product/": {
-    "addProduct": {
-      "path": "./screenshot/parent/product/addProduct.png",
-      "note": "true",
-      "message": "6 products are added"
-    },
-    "editProduct": {
-      "path": "./screenshot/parent/product/editProduct.png",
-      "note": "true",
-      "message": "Mobile charger to Fiber Optics cable"
-    },
-    "referencedProduct": {
-      "path": "./screenshot/parent/product/referencedProduct.png",
-      "note": "true"
-    },
-    "deleteProduct": {
-      "path": "./screenshot/parent/product/deleteProduct.png",
-      "note": "true",
-      "message": "Product is deleted 'Deleted Product'"
-    }
-  },
   "./screenshot/parent/sales-agents/": {
     "addSalesAgent": {
       "path": "./screenshot/parent/sales-agents/addSalesAgent.png",
@@ -177,23 +183,14 @@
     },
     "AddRoleForSelesAgent": {
       "path": "./screenshot/parent/sales-agents/AddRoleForSelesAgent.png",
-      "note": "true",
+      "note": "false",
       "message": ""
-    },
-    "removeRoleForSelesAgent": {
-      "path": "./screenshot/parent/sales-agents/removeRoleForSelesAgent.png",
-      "note": "true",
-      "message": ""
-    },
-    "emailVarificaionInSelesAgent": {
-      "path": "./screenshot/parent/sales-agents/emailVarificaionInSelesAgent.png",
-      "note": "false"
     }
   },
   "./screenshot/parent/lead/": {
     "addLead": {
       "path": "./screenshot/parent/lead/addLead.png",
-      "note": "false",
+      "note": "true",
       "message": ""
     },
     "editLeadFirst": {
@@ -208,7 +205,8 @@
     },
     "activityInLead": {
       "path": "./screenshot/parent/lead/activityInLead.png",
-      "note": "true"
+      "note": "true",
+      "message": ""
     },
     "documentInLead": {
       "path": "./screenshot/parent/lead/documentInLead.png",
@@ -222,181 +220,6 @@
     },
     "exportExcelInTicketsNormal2": {
       "path": "./screenshot/parent/lead/exportExcelInTicketsNormal2.png",
-      "note": "false",
-      "message": ""
-    },
-    "exportExcelInLeadFilter1": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilter1.png",
-      "note": "true"
-    },
-    "exportExcelInLeadFilter2": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilter2.png",
-      "note": "true"
-    },
-    "exportExcelInLeadFilterStatus3": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus3.png",
-      "note": "true"
-    },
-    "exportExcelInLeadFilterStatus4": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus4.png",
-      "note": "false"
-    },
-    "exportExcelInLeadFilterStatus5": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus5.png",
-      "note": "false"
-    },
-    "exportExcelInLeadFilterStatus6": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus6.png",
-      "note": "false"
-    },
-    "exportExcelInLeadFilterStatus7": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus7.png",
-      "note": "true"
-    },
-    "exportExcelInLeadFilterStatus8": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus8.png",
-      "note": "true"
-    },
-    "exportExcelInLeadFilterStatus9": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus9.png",
-      "note": "false"
-    },
-    "exportExcelInLeadFilterStatus10": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus10.png",
-      "note": "false"
-    },
-    "exportExcelInLeadFilterStatus11": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus11.png",
-      "note": "false"
-    },
-    "exportExcelInLeadFilterStatus12": {
-      "path": "./screenshot/parent/lead/exportExcelInLeadFilterStatus12.png",
-      "note": "false"
-    }
-  },
-  "./screenshot/parent/customer/": {
-    "addCustomer": {
-      "path": "./screenshot/parent/customer/addCustomer.png",
-      "note": "true",
-      "message": ""
-    },
-    "editCustomer": {
-      "path": "./screenshot/parent/customer/editCustomer.png",
-      "note": "false",
-      "message": ""
-    },
-    "deleteCustomer": {
-      "path": "./screenshot/parent/customer/deleteCustomer.png",
-      "note": "true"
-    },
-    "exportExelCustomerNormal": {
-      "path": "./screenshot/parent/customer/exportExelCustomerNormal.png",
-      "note": "false",
-      "message": ""
-    },
-    "exportPdfCustomerNormal": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerNormal.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter1": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter1.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter2": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter2.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter3": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter3.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter4": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter4.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter5": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter5.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter6": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter6.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter7": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter7.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter8": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter8.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter9": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter9.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter10": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter10.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter11": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter11.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter12": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter12.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter13": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter13.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter18": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter18.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter15": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter15.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter16": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter16.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter17": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter17.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter19": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter19.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter20": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter20.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter21": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter21.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter22": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter22.png",
-      "note": "false"
-    },
-    "exportExelCustomerFilter23": {
-      "path": "./screenshot/parent/customer/exportExelCustomerFilter23.png",
-      "note": "false"
-    },
-    "exportPdfCustomerFilter24": {
-      "path": "./screenshot/parent/customer/exportPdfCustomerFilter24.png",
-      "note": "false"
-    },
-    "addressCreateFsmCustomerCommercial": {
-      "path": "./screenshot/parent/customer/addressCreateFsmCustomerCommercial.png",
-      "note": "false",
-      "message": ""
-    },
-    "addressCreateFsmCustomerIndividual": {
-      "path": "./screenshot/parent/customer/addressCreateFsmCustomerIndividual.png",
       "note": "false",
       "message": ""
     }
@@ -432,14 +255,14 @@
       "note": "true",
       "message": ""
     },
-    "sendQuotation": {
-      "path": "./screenshot/parent/quotation/sendQuotation.png",
+    "sendQuotationToCustomerByEmail": {
+      "path": "./screenshot/parent/quotation/sendQuotationToCustomerByEmail.png",
       "note": "false",
       "message": ""
     },
     "editQuotationRejected": {
       "path": "./screenshot/parent/quotation/editQuotationRejected.png",
-      "note": "false",
+      "note": "true",
       "message": ""
     },
     "editQuotationAccepted": {
@@ -449,311 +272,6 @@
     },
     "editQuotationManagerApproved": {
       "path": "./screenshot/parent/quotation/editQuotationManagerApproved.png",
-      "note": "false",
-      "message": ""
-    },
-    "exportExcelQuotationNormal": {
-      "path": "./screenshot/parent/quotation/exportExcelQuotationNormal.png",
-      "note": "true",
-      "message": ""
-    },
-    "exportPDFQuotationNormal": {
-      "path": "./screenshot/parent/quotation/exportPDFQuotationNormal.png",
-      "note": "true",
-      "message": ""
-    },
-    "exportQuotationFilter1": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter1.png",
-      "note": "true",
-      "message": ""
-    },
-    "exportQuotationFilter2": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilter2.png",
-      "note": "true",
-      "message": ""
-    },
-    "editQuotationManagerApprovedCheck": {
-      "path": "./screenshot/parent/quotation/editQuotationManagerApprovedCheck.png",
-      "note": "true",
-      "message": ""
-    },
-    "exportQuotationFilterStateXlsOut": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilterStateXlsOut.png",
-      "note": "true",
-      "message": "Export Xlx file out side , State"
-    },
-    "exportQuotationFilterStatePdfOut": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilterStatePdfOut.png",
-      "note": "true",
-      "message": "Export pdf file out side , State"
-    },
-    "exportQuotationFilterCityXlxOut": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilterCityXlxOut.png",
-      "note": "true",
-      "message": "Filter by city Khamaraia"
-    },
-    "exportQuotationFilterCityPdfOut": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilterCityPdfOut.png",
-      "note": "true",
-      "message": "Filter by city KhamaraiaPdf"
-    },
-    "exportQuotationFilterCustomerXlx": {
-      "path": "./screenshot/parent/quotation/exportQuotexportQuotationFilterCustomerXlxationFilter5.png",
-      "note": "true",
-      "message": ""
-    },
-    "exportQuotationFilterCustomerPdf": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilterCustomerPdf.png",
-      "note": "true",
-      "message": ""
-    },
-    "exportQuotationFilterStatusXlx": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilterStatusXlx.png",
-      "note": "false",
-      "message": ""
-    },
-    "exportQuotationFilterStatusPdf": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilterStatusPdf.png",
-      "note": "false",
-      "message": ""
-    },
-    "exportQuotationFilterStateCityXlx": {
-      "path": "./screenshot/parent/quotation/exportQuotationFilterStateCityXlx.png",
-      "note": "false",
-      "message": ""
-    },
-    "sendQuotationToCustomerByEmail": {
-      "path": "./screenshot/parent/quotation/sendQuotationToCustomerByEmail.png",
-      "note": "false",
-      "message": ""
-    }
-  },
-  "./screenshot/parent/invoices/": {
-    "addInvoices": {
-      "path": "./screenshot/parent/invoices/addInvoices.png",
-      "note": "true",
-      "message": ""
-    },
-    "cancelInvoice": {
-      "path": "./screenshot/parent/invoices/cancelInvoice.png",
-      "note": "true",
-      "message": ""
-    },
-    "editInvoices": {
-      "path": "./screenshot/parent/invoices/editInvoices.png",
-      "note": "true",
-      "message": ""
-    },
-    "sendInvoice": {
-      "path": "./screenshot/parent/invoices/sendInvoice.png",
-      "note": "true",
-      "message": ""
-    },
-    "createInvoiceByQuotation": {
-      "path": "./screenshot/parent/invoices/createInvoiceByQuotation.png",
-      "note": "true",
-      "message": ""
-    },
-    "exportInvoiceInCustomerFilter1": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter1.png",
-      "note": "false",
-      "message": ""
-    },
-    "exportInvoiceInCustomerFilter2": {
-      "path": "./screenshot/parent/invoices/exportInvoiceInCustomerFilter2.png",
-      "note": "false",
-      "message": ""
-    }
-  },
-  "./screenshot/parent/cs-agent/": {
-    "addCSAgent": {
-      "path": "./screenshot/parent/cs-agent/addCSAgent.png",
-      "note": "false",
-      "message": ""
-    },
-    "addRoleInCSAgent": {
-      "path": "./screenshot/parent/cs-agent/addRoleInCSAgent.png",
-      "note": "true",
-      "message": ""
-    },
-    "emailVarifiedInCSAgent": {
-      "path": "./screenshot/parent/cs-agent/emailVarifiedInCSAgent.png",
-      "note": "false"
-    }
-  },
-  "./screenshot/parent/team/": {
-    "addTeam": {
-      "path": "./screenshot/parent/team/addTeam.png",
-      "note": "true",
-      "message": ""
-    },
-    "editTeam": {
-      "path": "./screenshot/parent/team/editTeam.png",
-      "note": "true",
-      "message": ""
-    }
-  },
-  "./screenshot/parent/setting/": {
-    "slaSetting": {
-      "path": "./screenshot/parent/setting/slaSetting.png",
-      "note": "true",
-      "message": ""
-    },
-    "caseCategoriesSetting": {
-      "path": "./screenshot/parent/setting/caseCategoriesSetting.png",
-      "note": "true",
-      "message": ""
-    },
-    "editcaseCategoriesSetting": {
-      "path": "./screenshot/parent/setting/editcaseCategoriesSetting.png",
-      "note": "true",
-      "message": ""
-    }
-  },
-  "./screenshot/parent/Queues/": {
-    "addQueues": {
-      "path": "./screenshot/parent/Queues/addQueues.png",
-      "note": "true",
-      "message": ""
-    },
-    "assignTeamToQueue": {
-      "path": "./screenshot/parent/Queues/assignTeamToQueue.png",
-      "note": "true",
-      "message": ""
-    }
-  },
-  "./screenshot/parent/engineer/": {
-    "createEngineer": {
-      "path": "./screenshot/parent/engineer/createEngineer.png",
-      "note": "true",
-      "message": ""
-    },
-    "deleteEngineer": {
-      "path": "./screenshot/parent/engineer/deleteEngineer.png",
-      "note": "false",
-      "message": ""
-    },
-    "emailVarificationEngineer": {
-      "path": "./screenshot/parent/engineer/emailVarificationEngineer.png",
-      "note": "false",
-      "message": ""
-    }
-  },
-  "./screenshot/parent/ticket/": {
-    "addNewTickets": {
-      "path": "./screenshot/parent/ticket/addNewTickets.png",
-      "note": "true",
-      "message": ""
-    },
-    "exportExcelInTicketsNormal": {
-      "path": "./screenshot/parent/ticket/exportExcelInTicketsNormal.png",
-      "note": "false",
-      "message": ""
-    }
-  },
-  "./screenshot/parent/jobType/": {
-    "createJobType": {
-      "path": "./screenshot/parent/jobType/createJobType.png",
-      "note": "true",
-      "message": ""
-    },
-    "editJobType": {
-      "path": "./screenshot/parent/jobType/editJobType.png",
-      "note": "false",
-      "message": ""
-    },
-    "deleteJobType": {
-      "path": "./screenshot/parent/jobType/deleteJobType.png",
-      "note": "true",
-      "message": ""
-    }
-  },
-  "./screenshot/parent/AssetManagement/": {
-    "createAssetManagement": {
-      "path": "./screenshot/parent/AssetManagement/createAssetManagement.png",
-      "note": "true",
-      "message": ""
-    },
-    "createChildAssetManagement": {
-      "path": "./screenshot/parent/AssetManagement/createChildAssetManagement.png",
-      "note": "true",
-      "message": ""
-    },
-    "editAssetManagement": {
-      "path": "./screenshot/parent/AssetManagement/editAssetManagement.png",
-      "note": "true",
-      "message": ""
-    },
-    "deleteAssetManagement": {
-      "path": "./screenshot/parent/AssetManagement/deleteAssetManagement.png",
-      "note": "true",
-      "message": ""
-    }
-  },
-  "./screenshot/parent/cyclicJob/": {
-    "createCyclicJob": {
-      "path": "./screenshot/parent/cyclicJob/createCyclicJob.png",
-      "note": "true",
-      "message": ""
-    },
-    "startCyclicJob": {
-      "path": "./screenshot/parent/cyclicJob/startCyclicJob.png",
-      "note": "true",
-      "message": ""
-    }
-  },
-  "./screenshot/parent/CompanySetup/": {
-    "quotationSettingInCompanySetup1": {
-      "path": "./screenshot/parent/CompanySetup/quotationSettingInCompanySetup1.png",
-      "note": "true",
-      "message": ""
-    },
-    "quotationSettingInCompanySetup2": {
-      "path": "./screenshot/parent/CompanySetup/quotationSettingInCompanySetup2.png",
-      "note": "true",
-      "message": ""
-    },
-    "quotationSettingInCompanySetup3": {
-      "path": "./screenshot/parent/CompanySetup/quotationSettingInCompanySetup3.png",
-      "note": "true",
-      "message": ""
-    },
-    "invoiceSettingInCompanySetup1": {
-      "path": "./screenshot/parent/CompanySetup/invoiceSettingInCompanySetup1.png",
-      "note": "true",
-      "message": ""
-    }
-  },
-  "./screenshot/parent/customerfsm/": {
-    "jobCreateFsmCustomerCommercial": {
-      "path": "./screenshot/parent/customerfsm/jobCreateFsmCustomerCommercial.png",
-      "note": "true",
-      "message": ""
-    },
-    "cyclicJobCreateFsmCustomer": {
-      "path": "./screenshot/parent/customerfsm/cyclicJobCreateFsmCustomer.png",
-      "note": "true",
-      "message": ""
-    },
-    "contactDetailsFsmCustomer": {
-      "path": "./screenshot/parent/customerfsm/contactDetailsFsmCustomer.png",
-      "note": "false",
-      "message": ""
-    },
-    "documentsUploadFsmCustomer": {
-      "path": "./screenshot/parent/customerfsm/documentsUploadFsmCustomer.png",
-      "note": "true",
-      "message": ""
-    }
-  },
-  "./screenshot/parent/dispatcher/": {
-    "addCSAgent": {
-      "path": "./screenshot/parent/dispatcher/addCSAgent.png",
-      "note": "true",
-      "message": ""
-    },
-    "addRoleInCSAgent": {
-      "path": "./screenshot/parent/dispatcher/addRoleInCSAgent.png",
       "note": "true",
       "message": ""
     }

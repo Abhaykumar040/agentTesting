@@ -16,7 +16,7 @@ export async function loginRight(page){
   console.log("Email filled");
   // console.log("Email filled");
   await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill('Zynka@123');
+  await page.getByRole('textbox', { name: 'Password' }).fill('Zynka@12345');
   // console.log("Password filled");
   console.log("Password filled");
   await page.getByRole('button', { name: 'Login' }).click();

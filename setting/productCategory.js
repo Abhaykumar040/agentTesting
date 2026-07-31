@@ -16,10 +16,13 @@ export async function productCategory(page){
   await deletePreviousProductCategory(page);
   await page.waitForTimeout(3000);
   await addProductCategory(page);
+
   await page.waitForTimeout(3000);
   await editProductCategry(page);
+ 
   await page.waitForTimeout(3000);
   await deleteProductCategory(page);
+ 
 }
 async function deletePreviousProductCategory(page){
   console.log('Enter in delete previous product category');
@@ -45,6 +48,7 @@ async function deletePreviousProductCategory(page){
     await page.waitForTimeout(3000);
 await page.reload();
  await page.waitForTimeout(3000);
+  await expect(page.getByRole('cell', { name: 'No data available' })).toBeVisible();
 console.log("delete previous product category completed");
 }
 
@@ -156,13 +160,16 @@ async function  editProductCategry(page) {
   // await page.getByRole('button', { name: 'Settings' }).click();
   // await page.getByRole('link', { name: 'Product Category' }).click();
     await page.getByText('PC2').first().click();
+    await page.waitForTimeout(3000);
   await page.getByRole('textbox', { name: 'Title *' }).click();
   await page.getByRole('textbox', { name: 'Title *' }).fill('PC2X');
+    await page.waitForTimeout(3000);
   await page.getByRole('textbox', { name: 'Description *' }).click();
   await page.getByRole('textbox', { name: 'Description *' }).fill('PC2DX');
+    await page.waitForTimeout(3000);
   await page.getByRole('textbox', { name: 'Comment' }).click();
   await page.getByRole('textbox', { name: 'Comment' }).fill('PC2CX');
-
+ await page.waitForTimeout(2000);
   await page.getByRole('button', { name: 'Update' }).click();
   await page.waitForTimeout(3000);
   await page.reload();
@@ -185,8 +192,8 @@ async function  editProductCategry(page) {
 
 async function deleteProductCategory(page) {
  console.log("Enter in delete product category");
-  await page.getByRole('button', { name: 'Settings' }).click();
-  await page.getByRole('link', { name: 'Product Category' }).click();
+  // await page.getByRole('button', { name: 'Settings' }).click();
+  // await page.getByRole('link', { name: 'Product Category' }).click();
    await page.locator("table tbody tr").first().locator("td").nth(3).getByRole("button").last().click();
 
   await page.getByRole('menuitem', { name: 'Delete' }).click();

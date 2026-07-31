@@ -12,12 +12,12 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function Engineer(page){
-  // await deletePreviousEngineer(page);
-  // await page.waitForTimeout(3000);
-  // await createEngineer(page);
-  // await page.waitForTimeout(3000);
-  // await emailVarificationEngineer(page);
-  // await page.waitForTimeout(3000);
+  await deletePreviousEngineer(page);
+  await page.waitForTimeout(3000);
+  await createEngineer(page);
+  await page.waitForTimeout(3000);
+  await emailVarificationEngineer(page);
+  await page.waitForTimeout(3000);
   await deleteEngineer(page);
   await page.waitForTimeout(1000);
   await assignSkill(page);
@@ -36,6 +36,7 @@ while( true){
       break;
     }
     await page.locator('table tbody tr').first().getByLabel('Delete').click();
+    await page.getByRole('button', { name: 'Proceed' }).click();
      await page.waitForTimeout(2000);
     //  await page.reload();
   }
@@ -60,8 +61,8 @@ async function deleteEngineer(page){
   await page.reload();
 }
 async function createEngineer(page){
-  await page.getByRole('button', { name: 'Field Service' }).click();
-  await page.getByRole('link', { name: 'Engineers' }).click();
+  // await page.getByRole('button', { name: 'Field Service' }).click();
+  // await page.getByRole('link', { name: 'Engineers' }).click();
   await page.waitForTimeout(1000);
    await page.getByRole('button', { name: 'Add New Engineer' }).click();
    await page.waitForTimeout(1000);

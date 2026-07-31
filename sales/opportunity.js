@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 const data = await fs.readFile('./data.json', 'utf8');
 import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
+import { run } from '../check';
 
 
 
@@ -13,7 +14,7 @@ const pathName=`outputData/status/${testData.companyType}`
 
 
 export async function opportunity(page){
-
+  await run('opportunities');
   await addOpportunity(page);
   await page.waitForTimeout(3000);
  await emailSendOpportunity(page);

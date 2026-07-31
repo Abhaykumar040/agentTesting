@@ -15,15 +15,25 @@ const pathName=`outputData/status/${testData.companyType}`
 export async function form(page){
   // await addVisibleForm(page);
   //  await page.waitForTimeout(3000);
-  // await deletePreviuosForm(page);
-  // await page.waitForTimeout(3000);
-  // await addForm(page);
-  // await page.waitForTimeout(3000);
-  // await copyForm(page);
-  // await page.waitForTimeout(3000);
-  // await editForm(page);
-  // await page.waitForTimeout(3000);
+  await deletePreviuosForm(page);
+ 
+
+  await page.waitForTimeout(3000);
+  await addForm(page);
+ 
+
+  await page.waitForTimeout(3000);
+  await copyForm(page);
+ 
+
+  await page.waitForTimeout(3000);
+  await editForm(page);
+ 
+
+  await page.waitForTimeout(3000);
   await deleteForm(page);
+ 
+
 }
 async function deletePreviuosForm(page){
     console.log("Enter in delete previous form ");
@@ -57,6 +67,7 @@ async function deletePreviuosForm(page){
    await page.reload();
   //  await page.waitForTimeout(3000);
   //  await expect(page.getByText('Showing 1 to 10 of 13 entries')).toBeVisible();
+   await expect(page.getByRole('cell', { name: 'No data available' })).toBeVisible();
   console.log("Delete previous form completed");
 
 }
@@ -72,7 +83,7 @@ async function deleteForm(page) {
   await page.reload();
   await page.waitForTimeout(3000);
   
-  if (!await page.getByText('FormS1InstallationD', {exact:true}).isVisible())  
+  if (!await page.getByText('FormDeleteD', {exact:true}).isVisible())  
   {
     await page.screenshot({ path: `./${screenshotPath}/deleteForm.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"deleteForm","true",`./${screenshotPath}/deleteForm.png`)
@@ -678,8 +689,7 @@ async function addVisibleForm(page){
 }
 async function editForm(page) {
   console.log("Enter in edit form");
-  await page.getByRole('button', { name: 'Settings' }).click();
-  await page.getByRole('link', { name: 'Form', exact: true }).click();
+
    await page.waitForTimeout(3000);
 
     await page.getByText('FormS', { exact: true }).click();
@@ -711,7 +721,6 @@ await container.evaluate((el) => {
   await page.getByRole('textbox').nth(3).fill('Belong 18-25');
   await page.getByRole('button', { name: 'Option', exact: true }).click();
  await page.getByRole('textbox').nth(4).fill('Belong 35-45');
- await page.pause();
    await page.getByRole('button', { name: 'Update' }).click();
 
  
@@ -855,8 +864,6 @@ await container3.evaluate((el) => {
 
 
   await page.reload();
-  await page.getByRole('button', { name: 'Settings' }).click();
-  await page.getByRole('link', { name: 'Form', exact: true }).click();
   await page.waitForTimeout(3000);
   if (await page.getByText('FormS1InstallationD Edited', {exact:true}).isVisible())  
   {
@@ -1043,7 +1050,29 @@ console.log('✅ Signature added and configured');
 // Save
 await page.getByRole('button', { name: 'Save' }).click();
 console.log('🎉 Form saved successfully');
+await page.waitForTimeout(2000);
+await page.reload();
+await page.waitForTimeout(2000);
 
+if (await page.getByText('FormJCASAllFieldsD').isVisible()) {
+    await page.screenshot({ path: `./${screenshotPath}/copyForm.png`, fullPage: true });
+    await updateOpJson(
+        `./${screenshotPath}/`,
+        "copyForm",
+        "true",
+        `./${screenshotPath}/copyForm.png`
+    );
+} else {
+    await page.screenshot({ path: `./${screenshotPath}/copyForm.png`, fullPage: true });
+    await updateOpJson(
+        `./${screenshotPath}/`,
+        "copyForm",
+        "false",
+        `./${screenshotPath}/copyForm.png`
+    );
+}
+
+await page.reload();
 }
 async function seriesFormNameChange(
   page,

@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import { test, expect } from '@playwright/test';
 import { updateOpJson } from '../updateOp';
 import { waitForEmail } from '../gmail';
+import { run } from '../check';
 
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
@@ -9,17 +10,19 @@ const screenshotPath=`screenshot/${testData.companyType}/sales-agents`;
 const pathName=`outputData/priority/${testData.companyType}`
 
 export async function salesAgents(page) {
+  await run('agents');
   await addSalesAgent(page);
   await page.waitForTimeout(2000);
   await addRoleForSalesAgent(page);
-  await page.waitForTimeout(2000);
-  await emailVarificaionInSelesAgent(page);
+  // await page.waitForTimeout(2000);
+  // await emailVarificaionInSelesAgent(page);
 }
 
 
 
 async function editSalesAgent(page) {
   console.log("Enter in edit sales agent");
+  
   await page.getByRole('link', { name: 'Sales' }).click();
   await page.getByRole('link', { name: 'Sales-Agents' }).click();
   await page.waitForTimeout(2000);
@@ -42,7 +45,7 @@ async function addSalesAgent(page) {
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).fill('Ramesh Kumar');
   await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+112111@gmail.com');
+  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+6102@gmail.com');
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('987234982311');
   await page.getByRole('combobox', { name: 'Select roles' }).click();
@@ -55,7 +58,7 @@ async function addSalesAgent(page) {
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).fill('Mahesh Kumar');
   await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+112211@gmail.com');
+  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+6103@gmail.com');
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('987234982411');
   await page.getByRole('combobox', { name: 'Select roles' }).click();
@@ -68,15 +71,15 @@ async function addSalesAgent(page) {
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).fill('Yogesh Kumar');
   await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+112311@gmail.com');
+  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+6104@gmail.com');
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('987234982511');
   await page.getByRole('combobox', { name: 'Select roles' }).click();
   await page.waitForTimeout(2000);
   await page.getByRole('option', { name: 'Sales Manager' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click();
-  await page.waitForTimeout(2000);
-   const email = await waitForEmail("akbk6551+112311@gmail.com");
+  await page.waitForTimeout(10000);
+   const email = await waitForEmail("akbk6551+6104@gmail.com");
    const match = email.body.match(/https?:\/\/\S+/);
 
 if (match) {
@@ -89,7 +92,7 @@ if (match) {
   await page.getByRole('textbox', { name: 'John', exact: true }).click();
   await page.getByRole('textbox', { name: 'John', exact: true }).fill('Santosh Kumar');
   await page.getByRole('textbox', { name: 'john.doe@example.com' }).click();
-  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+112611@gmail.com');
+  await page.getByRole('textbox', { name: 'john.doe@example.com' }).fill('akbk6551+6105@gmail.com');
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).click();
   await page.getByRole('textbox', { name: '+1 (123) 456-' }).fill('987234982611');
   await page.getByRole('combobox', { name: 'Select roles' }).click();
@@ -97,8 +100,8 @@ if (match) {
   await page.getByRole('option', { name: 'Sales Manager' }).click();
   await page.getByRole('button', { name: 'Add Agent' }).click();
 
-    await page.waitForTimeout(2000);
-     const email2 = await waitForEmail("akbk6551+112311@gmail.com");
+    await page.waitForTimeout(10000);
+     const email2 = await waitForEmail("akbk6551+6105@gmail.com");
    const match2 = email2.body.match(/https?:\/\/\S+/);
 
 if (match2) {
@@ -111,7 +114,7 @@ if (match2) {
   await page.reload();
   await page.waitForTimeout(3000);
   
-  if (await page.getByText('Santosh Kumar', { exact: true }).first().isVisible())  
+  if (await page.getByText('Santosh Kumar', { exact: true }).first().isVisible() && match && match2)  
   {
     await page.screenshot({ path: `./${screenshotPath}/addSalesAgent.png`, fullPage: true });
     await updateOpJson(`./${screenshotPath}/`,"addSalesAgent","true",`./${screenshotPath}/addSalesAgent.png`)

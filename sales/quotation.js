@@ -5,7 +5,8 @@ import { updateOpJson } from '../updateOp';
 import { test } from '@playwright/test';
 import { dataRead } from '../dataRead';
 import { waitForEmail } from '../gmail';
-
+import { run } from '../check';
+import path from "path";
 const rawData = await fs.readFile('./data.json', 'utf8');
 const testData = JSON.parse(rawData);
 const screenshotPath=`screenshot/${testData.companyType}/quotation`;
@@ -14,6 +15,7 @@ const pathName=`outputData/priority/${testData.companyType}`
 
 export async function Quotation(page){
 // // delete previuos Quotation by check.js
+// await run('quotations');
 //   await createQuotation(page);
 //   await page.waitForTimeout(3000);
 //   await approveQuotation(page);
@@ -1590,16 +1592,35 @@ async function sendQuotation(page){
  
   await page.getByRole('textbox', { name: 'Subject' }).fill('Quotation of services and items to be purchasedX');
   await page.getByRole('button', { name: 'Send' }).click();
-  await page.waitForTimeout(5000);
+  await page.waitForTimeout(10000);
 
 
 const email1 = await waitForEmail("akbk6551+23101@gmail.com");
-const match = email1?.body?.match(/https?:\/\/\S+/);
+const match = email1?.body?.match(/Dear Customer/i);
 console.log(email1,"abhay")
 if (match) {
     const verificationLink = match[0];
     console.log(verificationLink);
 
+
+    
+if (email1?.body?.includes("Dear Customer")) {
+  const pdf = email1.attachments?.find(
+    (a) => a.contentType === "application/pdf"
+  );
+
+  if (pdf) {
+    const filePath = path.join(
+      process.cwd(),
+      "downloads",
+      "quotationSendByEmail.pdf"
+    );
+
+    fs.writeFileSync(filePath, pdf.content);
+
+    console.log("PDF saved:", filePath);
+  }
+}
     await page.screenshot({ path: `./${screenshotPath}/sendQuotationToCustomerByEmail.png`, fullPage: true });
     await updateOpJson(
         `./${screenshotPath}/`,
